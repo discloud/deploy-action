@@ -2,7 +2,6 @@
 /discloud
 /test*.[j|t]s
 /test*.m[j|t]s
-discloud.config
 *.zip
 
 # Logs
