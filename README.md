@@ -20,8 +20,9 @@ This action deploys your application to Discloud
 
 ## Example usage
 
-```yaml
+```yml
 name: Discloud Deploy Action
+
 on:
   release:
     types: [created]
@@ -30,11 +31,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
       - run: 
         uses: actions/discloud-deploy-action@v1
         with:
