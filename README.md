@@ -36,9 +36,21 @@ jobs:
           node-version: lts/*
 
       - run: 
-        uses: actions/discloud-deploy-action@latest
+        uses: actions/discloud-deploy-action@v1
         with:
           token: "{{ secrets.DISCLOUD_TOKEN }}"
           # appId: "ID"
           # team: true
 ```
+
+## Using config
+
+You can use `discloud.config` file to specify `app_id`
+
+See [example](./discloud.config)
+
+## Ignoring files
+
+You can use the `.discloudignore` file to ignore files during deploy
+
+See [example](./.discloudignore)
