@@ -1,0 +1,43 @@
+name: Build Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Get short SHA
+        id: short_github_sha
+        run: |
+          id=$(echo ${{ github.sha }} | cut -c 1-7)
+          echo "id=$id" >> $GITHUB_OUTPUT
+
+      - name: Installing dependencies
+        run: yarn
+
+      - name: Testing
+        run: npm run test
+
+      - name: Building
+        run: npm run package
+
+      - name: Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: git commit
+        run: |
+          git add dist
+          git commit -m "build ${{ steps.short_github_sha.outputs.id }}"
+
+      - name: Push
+        run: git push
