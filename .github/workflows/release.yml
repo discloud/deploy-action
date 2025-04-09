@@ -38,7 +38,8 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit add dist -m "build ${{ steps.short_github_sha.outputs.id }}"
+          git add dist
+          git commit -m "build ${{ steps.short_github_sha.outputs.id }}"
           git push
 
       - name: Update the ${{ github.event.release.tag_name }} tag
