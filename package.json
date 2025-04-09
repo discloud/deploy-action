@@ -1,0 +1,28 @@
+{
+  "name": "discloud-deploy-action",
+  "description": "This action deploys your application to Discloud",
+  "version": "0.1.0",
+  "main": "dist",
+  "license": "ISC",
+  "scripts": {
+    "package": "ncc build src/index.ts -ms",
+    "test": "tsc --noEmit",
+    "watch": "tsc -w --noEmit"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@discloudapp/api-types": "^0.7.3",
+    "@discloudapp/util": "^0.9.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "@vercel/ncc": "^0.38.3",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,20 @@
+name: Discloud Deploy Action
+description: Deploy your Discloud app
+
+inputs:
+  app_id:
+    required: false
+    description: "App ID (default:`discloud.config`#`ID`)"
+
+  token:
+    required: true
+    description: "Token to use Discloud api"
+
+  team:
+    required: false
+    description: "Specify if the app is a `team` app. Ignore if the app is yours."
+    default: "false"
+
+runs:
+  using: node20
+  main: dist/index.js
