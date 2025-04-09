@@ -2,7 +2,7 @@ import { getBooleanInput, getInput, setFailed } from "@actions/core";
 import { RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { resolveFile } from "@discloudapp/util";
 import { exec } from "child_process";
-import { readFile, rm } from "fs/promises";
+import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { parseEnv } from "util";
 
@@ -24,8 +24,6 @@ async function zip() {
 
   const buffer = await readFile("out.zip");
 
-  await rm("out.zip").catch(() => null);
-
   return buffer;
 }
 
@@ -41,7 +39,7 @@ async function run() {
   const formData = new FormData();
   formData.append("file", await resolveFile(buffer));
 
-  const appIsTeam = getBooleanInput("team") || false;
+  const appIsTeam = getBooleanInput("team");
 
   const route = appIsTeam ? Routes.teamCommit(appId) : Routes.appCommit(appId);
 
