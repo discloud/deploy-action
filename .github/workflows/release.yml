@@ -3,47 +3,16 @@ name: Release new action version
 on:
   release:
     types: [released]
-
-env:
-  TAG_NAME: ${{ github.event.release.tag_name }}
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Get short SHA
-        id: short_github_sha
-        run: |
-          id=$(echo ${{ github.sha }} | cut -c 1-7)
-          echo "id=$id" >> $GITHUB_OUTPUT
-
-      - name: Installing dependencies
-        run: yarn
-
-      - name: Testing
-        run: npm run test
-
-      - name: Building
-        run: npm run package
-
-      - name: Committing fix
-        id: commit
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add dist
-          git commit -m "build ${{ steps.short_github_sha.outputs.id }}"
-          git push
 
       - name: Update the ${{ github.event.release.tag_name }} tag
         uses: actions/publish-action@v0.3.0
         with:
-          source-tag: ${{ env.TAG_NAME }}
+          source-tag: ${{ github.event.release.tag_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
