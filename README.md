@@ -38,7 +38,7 @@ jobs:
       - run: 
         uses: actions/discloud-deploy-action@v1
         with:
-          token: "{{ secrets.DISCLOUD_TOKEN }}"
+          token: ${{ secrets.DISCLOUD_TOKEN }}
           # appId: "ID"
           # team: true
 ```
