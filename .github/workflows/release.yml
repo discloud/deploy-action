@@ -17,18 +17,31 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+
+      - name: Get short SHA
+        id: short_github_sha
+        run: |
+          id=$(echo ${{ github.sha }} | cut -c 1-7)
+          echo "id=$id" >> $GITHUB_OUTPUT
+
       - name: Installing dependencies
         run: yarn
+
       - name: Testing
         run: npm run test
+
       - name: Building
         run: npm run package
 
-  update_tag:
-    name: Update the major tag to include the ${{ github.event.release.tag_name }} changes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Update the ${{ env.TAG_NAME }} tag
+      - name: Committing fix
+        id: commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit --add dist m "build ${{ steps.short_github_sha.outputs.id }}"
+          git push
+
+      - name: Update the ${{ github.event.release.tag_name }} tag
         uses: actions/publish-action@v0.3.0
         with:
           source-tag: ${{ env.TAG_NAME }}
