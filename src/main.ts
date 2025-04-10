@@ -50,10 +50,12 @@ async function run() {
 
   const buffer = await zip();
 
-  info(`zip size: ${buffer.length}`);
+  const file = await resolveFile(buffer);
+
+  info(`zip size: ${file.size}`);
 
   const formData = new FormData();
-  formData.append("file", await resolveFile(buffer));
+  formData.append(file.name, file);
 
   const appIsTeam = getBooleanInput("team");
 
