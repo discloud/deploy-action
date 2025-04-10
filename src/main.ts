@@ -7,6 +7,9 @@ import { arch, platform, release, type } from "os";
 import { resolve } from "path";
 import { parseEnv } from "util";
 
+/** `536_870_888` | `2^29-24` | `511.99998 MB` */
+const MAX_STRING_LENGTH = 0x1fffffe8;
+
 let _config;
 async function getFromConfigFile(prop: string): Promise<string> {
   const filepath = resolve("discloud.config");
@@ -19,15 +22,21 @@ function getUserAgent() {
   return `github-action (${type()} ${osRelease}; ${platform()}; ${arch()})`;
 }
 
-async function zip() {
-  await new Promise<void>((resolve, reject) => exec("npx -y discloud-cli zip ** --out=out.zip", function (error) {
-    if (error) return reject(error);
-    resolve();
-  }));
+async function zip(glob?: string | string[]) {
+  if (Array.isArray(glob)) glob = glob.join(" ");
 
-  const buffer = await readFile("out.zip");
+  const encoding = "base64";
+  const zipCommand = "discloud zip";
 
-  return buffer;
+  const response = await new Promise<string>(function (resolve, reject) {
+    exec(`${zipCommand} -e=${encoding} -g=${glob || "**"}`, { maxBuffer: MAX_STRING_LENGTH }, function (error, stdout, _stderr) {
+      if (error) return reject(error);
+      const parts = stdout.split("\n");
+      resolve(parts[parts[0].includes(zipCommand) ? 1 : 0]);
+    });
+  });
+
+  return Buffer.from(response, encoding);
 }
 
 async function run() {
