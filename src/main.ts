@@ -1,25 +1,43 @@
-import { getBooleanInput, getInput, info, setFailed } from "@actions/core";
+import { getBooleanInput, getInput, info, notice, setFailed } from "@actions/core";
+import { getExecOutput } from "@actions/exec";
 import { RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { resolveFile } from "@discloudapp/util";
-import { exec } from "child_process";
+import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { resolve } from "path";
 import { parseEnv } from "util";
 
-/** `536_870_888` | `2^29-24` | `511.99998 MB` */
-const MAX_STRING_LENGTH = 0x1fffffe8;
-
-let _config;
+let _config: any;
 async function getFromConfigFile(prop: string): Promise<string> {
-  const filepath = resolve("discloud.config");
-  info(`Reading config on: ${filepath}`);
-  return (_config ??= parseEnv(await readFile(filepath, "utf8")))[prop];
+  if (_config) {
+    notice("Config file found on cache");
+    return _config[prop];
+  }
+
+  const configPath = resolve("discloud.config");
+
+  notice("Searching for config file");
+
+  if (!existsSync(configPath)) throw new Error("Config file not found");
+
+  notice(`Config file found on: ${configPath}`);
+
+  return (_config ??= parseEnv(await readFile(configPath, "utf8")))[prop];
+}
+
+async function getAppIdInput() {
+  const appId = getInput("app_id", { trimWhitespace: true });
+  if (appId) return appId;
+
+  notice("App ID not provided in input");
+
+  return await getFromConfigFile("ID");
 }
 
 function getUserAgent() {
   const osRelease = release().split?.(".").slice(0, 2).join(".") ?? release();
-  return `github-action (${type()} ${osRelease}; ${platform()}; ${arch()})`;
+  return `github-deploy-action (${type()} ${osRelease}; ${platform()}; ${arch()})`;
 }
 
 async function zip(glob?: string | string[]) {
@@ -28,34 +46,30 @@ async function zip(glob?: string | string[]) {
   const encoding = "base64";
   const zipCommand = "discloud zip";
 
-  const response = await new Promise<string>(function (resolve, reject) {
-    exec(`npx -y discloud-cli zip -e=${encoding} ${glob || "**"}`, { maxBuffer: MAX_STRING_LENGTH }, function (error, stdout, _stderr) {
-      if (error) return reject(error);
-      const parts = stdout.split("\n");
-      resolve(parts[parts[0].includes(zipCommand) ? 1 : 0]);
-    });
-  });
+  const output = await getExecOutput(`npx -y discloud-cli@latest zip -e=${encoding} ${glob || "**"}`);
 
-  return Buffer.from(response, encoding);
+  const parts = output.stdout.split("\n");
+
+  return Buffer.from(parts[parts[0].includes(zipCommand) ? 1 : 0], encoding);
 }
 
 async function run() {
   const token = getInput("token", { required: true, trimWhitespace: true });
 
-  const appId = getInput("app_id", { trimWhitespace: true }) || await getFromConfigFile("ID");
+  const appId = await getAppIdInput();
 
-  if (!appId) throw new Error("Application ID is missing");
+  if (!appId) throw new Error("App ID is missing");
 
-  info(`app id: ${appId}`);
+  info(`App ID: ${appId}`);
 
   const buffer = await zip();
 
-  const file = await resolveFile(buffer);
+  info(`Zip size: ${buffer.length}B`);
 
-  info(`zip size: ${file.size}`);
+  const file = await resolveFile(buffer, "file.zip");
 
-  const formData = new FormData();
-  formData.append(file.name, file);
+  const body = new FormData();
+  body.append(file.name, file);
 
   const appIsTeam = getBooleanInput("team");
 
@@ -63,7 +77,7 @@ async function run() {
 
   const response = await fetch(RouteBases.api + route, {
     method: "PUT",
-    body: formData,
+    body,
     headers: {
       "api-token": token,
       "User-Agent": getUserAgent(),
