@@ -1,4 +1,4 @@
-import { debug, getBooleanInput, getInput, setFailed } from "@actions/core";
+import { getBooleanInput, getInput, info, setFailed } from "@actions/core";
 import { RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { resolveFile } from "@discloudapp/util";
 import { exec } from "child_process";
@@ -9,7 +9,9 @@ import { parseEnv } from "util";
 
 let _config;
 async function getFromConfigFile(prop: string): Promise<string> {
-  return (_config ??= parseEnv(await readFile(resolve("discloud.config"), "utf8")))[prop];
+  const filepath = resolve("discloud.config");
+  info(`Reading config on: ${filepath}`);
+  return (_config ??= parseEnv(await readFile(filepath, "utf8")))[prop];
 }
 
 function getUserAgent() {
@@ -35,11 +37,11 @@ async function run() {
 
   if (!appId) throw new Error("Application ID is missing");
 
-  debug(`app id: ${appId}`);
+  info(`app id: ${appId}`);
 
   const buffer = await zip();
 
-  debug(`zip size: ${buffer.length}`);
+  info(`zip size: ${buffer.length}`);
 
   const formData = new FormData();
   formData.append("file", await resolveFile(buffer));
