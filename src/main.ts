@@ -29,7 +29,7 @@ async function zip(glob?: string | string[]) {
   const zipCommand = "discloud zip";
 
   const response = await new Promise<string>(function (resolve, reject) {
-    exec(`${zipCommand} -e=${encoding} -g=${glob || "**"}`, { maxBuffer: MAX_STRING_LENGTH }, function (error, stdout, _stderr) {
+    exec(`npx -y discloud-cli zip -e=${encoding} ${glob || "**"}`, { maxBuffer: MAX_STRING_LENGTH }, function (error, stdout, _stderr) {
       if (error) return reject(error);
       const parts = stdout.split("\n");
       resolve(parts[parts[0].includes(zipCommand) ? 1 : 0]);
