@@ -1,4 +1,4 @@
-import { getBooleanInput, getInput, setFailed } from "@actions/core";
+import { debug, getBooleanInput, getInput, setFailed } from "@actions/core";
 import { RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { resolveFile } from "@discloudapp/util";
 import { exec } from "child_process";
@@ -35,7 +35,11 @@ async function run() {
 
   if (!appId) throw new Error("Application ID is missing");
 
+  debug(`app id: ${appId}`);
+
   const buffer = await zip();
+
+  debug(`zip size: ${buffer.length}`);
 
   const formData = new FormData();
   formData.append("file", await resolveFile(buffer));
