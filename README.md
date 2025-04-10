@@ -31,8 +31,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: 
-        uses: discloud/deploy-action@v1
+      - uses: discloud/deploy-action@v1
         with:
           token: ${{ secrets.DISCLOUD_TOKEN }}
           # appId: "ID"
