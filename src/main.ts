@@ -45,6 +45,7 @@ async function run() {
   const route = appIsTeam ? Routes.teamCommit(appId) : Routes.appCommit(appId);
 
   await fetch(RouteBases.api + route, {
+    method: "PUT",
     body: formData,
     headers: {
       "api-token": token,
