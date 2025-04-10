@@ -4,11 +4,12 @@ import { resolveFile } from "@discloudapp/util";
 import { exec } from "child_process";
 import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
+import { resolve } from "path";
 import { parseEnv } from "util";
 
 let _config;
 async function getFromConfigFile(prop: string): Promise<string> {
-  return (_config ??= parseEnv(await readFile("discloud.config", "utf8")))[prop];
+  return (_config ??= parseEnv(await readFile(resolve("discloud.config"), "utf8")))[prop];
 }
 
 function getUserAgent() {
