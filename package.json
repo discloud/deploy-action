@@ -1,7 +1,7 @@
 {
   "name": "discloud-deploy-action",
   "description": "This action deploys your application to Discloud",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist",
   "license": "ISC",
   "scripts": {
