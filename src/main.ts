@@ -50,7 +50,7 @@ async function run() {
 
   const route = appIsTeam ? Routes.teamCommit(appId) : Routes.appCommit(appId);
 
-  await fetch(RouteBases.api + route, {
+  const response = await fetch(RouteBases.api + route, {
     method: "PUT",
     body: formData,
     headers: {
@@ -58,6 +58,30 @@ async function run() {
       "User-Agent": getUserAgent(),
     },
   });
+
+  if (!response.ok) {
+    const body = await resolveResponseBody(response);
+
+    setFailed(`${body.statusCode} ${body.message ?? response.statusText}`);
+  }
+}
+
+async function resolveResponseBody(response: Response) {
+  const contentType = response.headers.get("content-type");
+
+  if (typeof contentType === "string") {
+    if (contentType.includes("application/json")) {
+      const body = await response.json() as any;
+      if (typeof body === "object" && body !== null)
+        body.statusCode ??= response.status;
+      return body;
+    }
+
+    if (contentType.includes("text/"))
+      return response.text();
+  }
+
+  return response.arrayBuffer();
 }
 
 export default async function () {
