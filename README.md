@@ -31,6 +31,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4 # Required to use the file system
       - uses: discloud/deploy-action@v1
         with:
           token: ${{ secrets.DISCLOUD_TOKEN }}
