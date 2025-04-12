@@ -13,11 +13,11 @@ This action deploys your application to [Discloud](https://discloud.com)
 
 | Property | Description | Required | Default |
 | :- | :-: | :-: | :-: |
-| **token** | Your account Discloud token | ☑️ | |
-| **app_id** | Your app ID in Discloud * | | |
-| **team** | Specify if the app is a `team` app. Ignore if the app is yours | | `false` |
+| token | Your account Discloud token | ☑️ | |
+| app_id | Your app ID in Discloud **\*** | | |
+| team | Specify if the app is a `team` app. Ignore if the app is yours | | `false` |
 
-> \* You can ignore **app_id** if the [`discloud.config`](./discloud.config) file with the `ID` property exists in your repository
+> **\*** `app_id` can ignored if the [`discloud.config`](./discloud.config) file with the `ID` property exists in your repository
 
 ## Example usage
 
