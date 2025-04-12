@@ -6,13 +6,13 @@ branding:
   color: green
 
 inputs:
-  app_id:
-    required: false
-    description: "App ID (default:`discloud.config`#`ID`)"
-
   token:
     required: true
     description: "Token to use Discloud api"
+
+  app_id:
+    required: false
+    description: "App ID (default:`discloud.config`#`ID`)"
 
   team:
     required: false
