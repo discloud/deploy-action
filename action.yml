@@ -1,6 +1,10 @@
 name: Discloud Deploy Action
 description: Deploy your Discloud app
 
+branding:
+  icon: upload-cloud
+  color: green
+
 inputs:
   app_id:
     required: false
