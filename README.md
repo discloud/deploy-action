@@ -1,22 +1,23 @@
 # Discloud Deploy Action
 
-This action deploys your application to Discloud
+This action deploys your application to [Discloud](https://discloud.com)
+
+## Useful links
+
+- [Discloud](https://discloud.com)
+- [Discloud documentation](https://docs.discloud.com)
+
+[![Discord](https://discord.com/api/guilds/584490943034425391/widget.png?style=banner2)](https://discord.gg/discloud)
 
 ## Inputs
 
-### `token`
+| Property | Description | Required | Default |
+| :- | :-: | :-: | :-: |
+| **token** | Your account Discloud token * | ☑️ | |
+| **app_id** | Your app ID in Discloud | | |
+| **team** | Specify if the app is a `team` app. Ignore if the app is yours | | `false` |
 
-- **Required** Your Discloud token.
-
-### `app_id`
-
-- Your app ID in Discloud.
-
-- You can ignore it if the `discloud.config` file with the `ID` property exists in your repository.
-
-### `team`
-
-- Specify if the app is a `team` app. Ignore if the app is yours.
+> \* You can ignore **app_id** if the [`discloud.config`](./discloud.config) file with the `ID` property exists in your repository
 
 ## Example usage
 
@@ -25,7 +26,8 @@ name: Discloud Deploy Action
 
 on:
   release:
-    types: [created]
+    types: [created] # On release created
+  workflow_dispatch: # Manual running
 
 jobs:
   deploy:
@@ -35,7 +37,7 @@ jobs:
       - uses: discloud/deploy-action@v1
         with:
           token: ${{ secrets.DISCLOUD_TOKEN }}
-          # appId: "ID"
+          # app_id: "ID"
           # team: true
 ```
 
