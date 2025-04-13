@@ -1,9 +1,0 @@
-{
-  "$schema": "https://json.schemastore.org/github-workflow-template-properties.json",
-  "name": "Discloud Deploy Action",
-  "description": "This action deploys your application to Discloud",
-  "iconName": "icon",
-  "filePatterns": [
-    "^discloud.config$"
-  ]
-}
