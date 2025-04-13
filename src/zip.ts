@@ -1,6 +1,7 @@
 import { debug, notice } from "@actions/core";
 import { getExecOutput } from "@actions/exec";
 import bytes from "bytes";
+import { MAX_ZIP_SIZE } from "./constants";
 
 export default async function zip(glob?: string | string[]) {
   if (Array.isArray(glob)) glob = glob.join(" ");
@@ -23,7 +24,10 @@ export default async function zip(glob?: string | string[]) {
 
   const buffer = Buffer.from(parts[parts[0].includes(zipCommand) ? 1 : 0], encoding);
 
-  notice(`Zip size: ${bytes(buffer.length)}`);
+  if (buffer.length > MAX_ZIP_SIZE)
+    throw new Error(`The ZIP size cannot exceed 100 MB (1048576 KB). ZIP size: ${bytes(buffer.length)}`);
+
+  notice(`ZIP size: ${bytes(buffer.length)}`);
 
   return buffer;
 }
