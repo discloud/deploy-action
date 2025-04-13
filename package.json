@@ -6,7 +6,7 @@
   "license": "ISC",
   "scripts": {
     "package": "ncc build src/index.ts -ms",
-    "test": "tsc --noEmit",
+    "test": "tsc --noEmit && tsc --outDir out && node --test \"**/test/**/*.test.?(c|m)js\"",
     "watch": "tsc -w --noEmit"
   },
   "dependencies": {

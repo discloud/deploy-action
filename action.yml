@@ -11,11 +11,9 @@ inputs:
     description: "Token to use Discloud api"
 
   app_id:
-    required: false
     description: "App ID (default:`discloud.config`#`ID`)"
 
   team:
-    required: false
     description: "Specify if the app is a `team` app. Ignore if the app is yours."
     default: "false"
 
