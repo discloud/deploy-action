@@ -39,6 +39,8 @@ async function getAppIdInput() {
 
   appId = await getFromConfigFile("ID");
 
+  if (!appId) throw new Error("App ID is missing");
+
   info(`App ID: ${appId}`);
 
   return appId;
@@ -64,8 +66,6 @@ async function run() {
 
   const appId = await getAppIdInput();
 
-  if (!appId) throw new Error("App ID is missing");
-
   const buffer = await zip();
 
   const file = await resolveFile(buffer, "file.zip");
@@ -90,11 +90,13 @@ async function run() {
 
   const message = `[DISCLOUD API: ${responseBody.statusCode || response.status}] ${responseBody.message || response.statusText}`;
 
-  debug(message);
+  if (response.ok) {
+    info(message);
+  } else {
+    setFailed(message);
+  }
 
   if (responseBody?.logs) warning(responseBody.logs);
-
-  if (!response.ok) setFailed(message);
 }
 
 async function resolveResponseBody<T>(response: Response): Promise<T>
