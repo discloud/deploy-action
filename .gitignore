@@ -3,6 +3,7 @@
 /test*.[j|t]s
 /test*.m[j|t]s
 *.zip
+out
 
 # Logs
 logs

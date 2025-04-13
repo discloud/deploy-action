@@ -1,17 +1,18 @@
-import { getBooleanInput, getInput, info, notice, setFailed } from "@actions/core";
-import { getExecOutput } from "@actions/exec";
-import { RouteBases, Routes } from "@discloudapp/api-types/v2";
+import { debug, getBooleanInput, getInput, notice, setFailed, warning } from "@actions/core";
+import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { resolveFile } from "@discloudapp/util";
 import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { resolve } from "path";
 import { parseEnv } from "util";
+import zip from "./zip";
 
 let _config: any;
 async function getFromConfigFile(prop: string): Promise<string> {
   if (_config) {
     notice("Config file found on cache");
+    debug(`Cached config content: ${JSON.stringify(_config)}`);
     return _config[prop];
   }
 
@@ -23,34 +24,39 @@ async function getFromConfigFile(prop: string): Promise<string> {
 
   notice(`Config file found on: ${configPath}`);
 
-  return (_config ??= parseEnv(await readFile(configPath, "utf8")))[prop];
+  _config = parseEnv(await readFile(configPath, "utf8"));
+
+  debug(`Readed config content: ${JSON.stringify(_config)}`);
+
+  return _config[prop];
 }
 
 async function getAppIdInput() {
-  const appId = getInput("app_id", { trimWhitespace: true });
+  let appId = getInput("app_id", { trimWhitespace: true });
   if (appId) return appId;
 
   notice("App ID not provided in input");
 
-  return await getFromConfigFile("ID");
+  appId = await getFromConfigFile("ID");
+
+  notice(`App ID: ${appId}`);
+
+  return appId;
 }
 
-function getUserAgent() {
+let _userAgent: any;
+function getUserAgent(): string {
+  if (_userAgent) {
+    debug(`Using cached user agent: ${_userAgent}`);
+    return _userAgent;
+  }
+
   const osRelease = release().split?.(".").slice(0, 2).join(".") ?? release();
-  return `github-deploy-action (${type()} ${osRelease}; ${platform()}; ${arch()})`;
-}
+  _userAgent = `github-deploy-action (${type()} ${osRelease}; ${platform()}; ${arch()})`;
 
-async function zip(glob?: string | string[]) {
-  if (Array.isArray(glob)) glob = glob.join(" ");
+  debug(`Using user agent: ${_userAgent}`);
 
-  const encoding = "base64";
-  const zipCommand = "discloud zip";
-
-  const output = await getExecOutput(`npx -y discloud-cli@latest zip -e=${encoding} ${glob || "**"}`);
-
-  const parts = output.stdout.split("\n");
-
-  return Buffer.from(parts[parts[0].includes(zipCommand) ? 1 : 0], encoding);
+  return _userAgent;
 }
 
 async function run() {
@@ -60,11 +66,7 @@ async function run() {
 
   if (!appId) throw new Error("App ID is missing");
 
-  info(`App ID: ${appId}`);
-
   const buffer = await zip();
-
-  info(`Zip size: ${buffer.length}B`);
 
   const file = await resolveFile(buffer, "file.zip");
 
@@ -84,13 +86,18 @@ async function run() {
     },
   });
 
-  if (!response.ok) {
-    const body = await resolveResponseBody(response);
+  const responseBody = await resolveResponseBody<RESTPutApiAppCommitResult>(response);
 
-    setFailed(`${body.statusCode} ${body.message ?? response.statusText}`);
-  }
+  const message = `[DISCLOUD API: ${responseBody.statusCode || response.status}] ${responseBody.message || response.statusText}`;
+
+  debug(message);
+
+  if (responseBody?.logs) warning(responseBody.logs);
+
+  if (!response.ok) setFailed(message);
 }
 
+async function resolveResponseBody<T>(response: Response): Promise<T>
 async function resolveResponseBody(response: Response) {
   const contentType = response.headers.get("content-type");
 
