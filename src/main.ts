@@ -1,4 +1,4 @@
-import { debug, getBooleanInput, getInput, notice, setFailed, warning } from "@actions/core";
+import { debug, getBooleanInput, getInput, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { resolveFile } from "@discloudapp/util";
 import { existsSync } from "fs";
@@ -11,18 +11,18 @@ import zip from "./zip";
 let _config: any;
 async function getFromConfigFile(prop: string): Promise<string> {
   if (_config) {
-    notice("Config file found on cache");
+    info("Config file found on cache");
     debug(`Cached config content: ${JSON.stringify(_config)}`);
     return _config[prop];
   }
 
   const configPath = resolve("discloud.config");
 
-  notice("Searching for config file");
+  info("Searching for config file");
 
   if (!existsSync(configPath)) throw new Error("Config file not found");
 
-  notice(`Config file found on: ${configPath}`);
+  info(`Config file found on: ${configPath}`);
 
   _config = parseEnv(await readFile(configPath, "utf8"));
 
@@ -35,11 +35,11 @@ async function getAppIdInput() {
   let appId = getInput("app_id", { trimWhitespace: true });
   if (appId) return appId;
 
-  notice("App ID not provided in input");
+  info("App ID not provided in input");
 
   appId = await getFromConfigFile("ID");
 
-  notice(`App ID: ${appId}`);
+  info(`App ID: ${appId}`);
 
   return appId;
 }
