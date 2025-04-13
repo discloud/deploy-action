@@ -1,5 +1,7 @@
 # Discloud Deploy Action
 
+[![Build](https://github.com/discloud/deploy-action/actions/workflows/build.yml/badge.svg)](https://github.com/discloud/deploy-action/actions/workflows/build.yml)
+
 This action deploys your application to [Discloud](https://discloud.com)
 
 ## Useful links
