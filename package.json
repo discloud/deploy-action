@@ -5,18 +5,24 @@
   "main": "dist",
   "license": "ISC",
   "scripts": {
+    "build:test": "tsc --outDir out",
     "package": "ncc build src/index.ts -ms",
-    "test": "tsc --noEmit && tsc --outDir out && node --test \"**/test/**/*.test.?(c|m)js\"",
+    "test": "npm run test:ts && npm run test:lint && npm run build:test && npm run test:node",
+    "test:node": "node --test \"**/test/**/*.test.?(c|m)js\"",
+    "test:lint": "eslint .",
+    "test:ts": "tsc --noEmit",
     "watch": "tsc -w --noEmit"
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/exec": "^1.1.1",
     "@discloudapp/api-types": "^0.7.3",
-    "@discloudapp/util": "^0.9.4"
+    "@discloudapp/util": "^0.9.4",
+    "bytes": "^3.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
+    "@types/bytes": "^3.1.5",
     "@types/node": "20.x",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",

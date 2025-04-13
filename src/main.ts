@@ -6,7 +6,7 @@ import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { resolve } from "path";
 import { parseEnv } from "util";
-import { zip } from "./zip";
+import zip from "./zip";
 
 let _config: any;
 async function getFromConfigFile(prop: string): Promise<string> {

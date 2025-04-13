@@ -1,7 +1,8 @@
 import { debug, notice } from "@actions/core";
 import { getExecOutput } from "@actions/exec";
+import bytes from "bytes";
 
-export async function zip(glob?: string | string[]) {
+export default async function zip(glob?: string | string[]) {
   if (Array.isArray(glob)) glob = glob.join(" ");
 
   const encoding = "base64";
@@ -22,7 +23,7 @@ export async function zip(glob?: string | string[]) {
 
   const buffer = Buffer.from(parts[parts[0].includes(zipCommand) ? 1 : 0], encoding);
 
-  notice(`Zip size: ${buffer.length}B`);
+  notice(`Zip size: ${bytes(buffer.length)}`);
 
   return buffer;
 }
