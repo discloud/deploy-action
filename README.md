@@ -31,6 +31,9 @@ on:
     types: [created] # On release created
   workflow_dispatch: # Manual running
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
