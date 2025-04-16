@@ -3,7 +3,7 @@
   "description": "This action deploys your application to Discloud",
   "version": "1.0.10",
   "main": "dist",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "scripts": {
     "build:test": "tsc --outDir out",
     "package": "ncc build src/index.ts -ms",
