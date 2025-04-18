@@ -6,7 +6,7 @@ const zip = module.default;
 
 suite("ZIP", async () => {
   await test("Testing empty zip", async (t) => {
-    const glob = [`__not_expected_files__${Math.random()}`];
+    const glob = `__not_expected_files__${Math.random()}`;
     const expected_base64 = "UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==";
 
     /** @type {Buffer} */

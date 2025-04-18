@@ -3,8 +3,9 @@ import { getExecOutput } from "@actions/exec";
 import bytes from "bytes";
 import { MAX_ZIP_SIZE } from "./constants";
 
-export default async function zip(glob?: string[]) {
+export default async function zip(glob?: string | string[]) {
   if (!glob) glob = ["**"];
+  if (!Array.isArray(glob)) glob = [glob];
 
   const encoding = "base64";
   const zipCommand = "discloud zip";
