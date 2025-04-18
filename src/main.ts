@@ -1,4 +1,4 @@
-import { debug, getBooleanInput, getInput, info, setFailed, warning } from "@actions/core";
+import { debug, getBooleanInput, getInput, getMultilineInput, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { DiscloudConfig, resolveFile } from "@discloudapp/util";
 import { existsSync } from "fs";
@@ -31,24 +31,32 @@ async function getConfigFile(): Promise<Record<string, string>> {
   return _config;
 }
 
-async function getFromConfigFile(prop: string): Promise<string> {
+async function getPropertyFromConfigFile(prop: string): Promise<string> {
   const config = await getConfigFile();
   return config[prop];
 }
 
 async function getAppIdInput() {
-  let appId = getInput("app_id", { trimWhitespace: true });
+  let appId = getInput("app_id");
   if (appId) return appId;
 
   info("App ID not provided in input");
 
-  appId = await getFromConfigFile("ID");
+  appId = await getPropertyFromConfigFile("ID");
 
   if (!appId) throw new Error("App ID is missing");
 
   info(`App ID: ${appId}`);
 
   return appId;
+}
+
+function getGlobInput() {
+  const glob = getMultilineInput("glob");
+
+  debug(`Glob pattern provided: ${glob}`);
+
+  return glob;
 }
 
 let _userAgent: any;
@@ -67,11 +75,13 @@ function getUserAgent(): string {
 }
 
 async function run() {
-  const token = getInput("token", { required: true, trimWhitespace: true });
+  const token = getInput("token", { required: true });
 
   const appId = await getAppIdInput();
 
-  const buffer = await zip();
+  const glob = getGlobInput();
+
+  const buffer = await zip(glob);
 
   const file = await resolveFile(buffer, "file.zip");
 

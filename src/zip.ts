@@ -4,7 +4,8 @@ import bytes from "bytes";
 import { MAX_ZIP_SIZE } from "./constants";
 
 export default async function zip(glob?: string | string[]) {
-  if (Array.isArray(glob)) glob = glob.join(" ");
+  if (!glob) glob = ["**"];
+  if (!Array.isArray(glob)) glob = [glob];
 
   const encoding = "base64";
   const zipCommand = "discloud zip";
@@ -14,7 +15,7 @@ export default async function zip(glob?: string | string[]) {
     "discloud-cli@latest",
     "zip",
     `-e=${encoding}`,
-    `${glob || "**"}`,
+    ...glob,
   ], {
     listeners: { debug },
     silent: true,
