@@ -29,6 +29,7 @@ This action deploys your application to [Discloud](https://discloud.com)
 name: Discloud Deploy Action
 
 on:
+  # push: # On any commit
   release:
     types: [created] # On release created
   workflow_dispatch: # Manual running
