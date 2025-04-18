@@ -1,6 +1,6 @@
 import { debug, getBooleanInput, getInput, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
-import { resolveFile } from "@discloudapp/util";
+import { DiscloudConfig, resolveFile } from "@discloudapp/util";
 import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
@@ -9,14 +9,14 @@ import { parseEnv } from "util";
 import zip from "./zip";
 
 let _config: any;
-async function getFromConfigFile(prop: string): Promise<string> {
+async function getConfigFile(): Promise<Record<string, string>> {
   if (_config) {
     info("Config file found on cache");
     debug(`Cached config content: ${JSON.stringify(_config)}`);
-    return _config[prop];
+    return _config;
   }
 
-  const configPath = resolve("discloud.config");
+  const configPath = resolve(DiscloudConfig.filename);
 
   info("Searching for config file");
 
@@ -28,7 +28,12 @@ async function getFromConfigFile(prop: string): Promise<string> {
 
   debug(`Readed config content: ${JSON.stringify(_config)}`);
 
-  return _config[prop];
+  return _config;
+}
+
+async function getFromConfigFile(prop: string): Promise<string> {
+  const config = await getConfigFile();
+  return config[prop];
 }
 
 async function getAppIdInput() {
@@ -90,11 +95,8 @@ async function run() {
 
   const message = `[DISCLOUD API: ${responseBody.statusCode || response.status}] ${responseBody.message || response.statusText}`;
 
-  if (response.ok) {
-    info(message);
-  } else {
-    setFailed(message);
-  }
+  if (response.ok) { info(message); }
+  else { setFailed(message); }
 
   if (responseBody?.logs) warning(responseBody.logs);
 }
