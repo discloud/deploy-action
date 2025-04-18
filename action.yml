@@ -13,8 +13,12 @@ inputs:
   app_id:
     description: "App ID (default:`discloud.config`#`ID`)"
 
+  glob:
+    default: "**"
+    description: "Specify the glob pattern to filter files to be uploaded"
+
   team:
-    description: "Specify if the app is a `team` app. Ignore if the app is yours."
+    description: "Specify if the app is a `team` app. Ignore if the app is yours"
     default: "false"
 
 runs:

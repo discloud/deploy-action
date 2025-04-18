@@ -1,4 +1,4 @@
-import { debug, getBooleanInput, getInput, info, setFailed, warning } from "@actions/core";
+import { debug, getBooleanInput, getInput, getMultilineInput, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { DiscloudConfig, resolveFile } from "@discloudapp/util";
 import { existsSync } from "fs";
@@ -71,7 +71,9 @@ async function run() {
 
   const appId = await getAppIdInput();
 
-  const buffer = await zip();
+  const glob = getMultilineInput("glob");
+
+  const buffer = await zip(glob);
 
   const file = await resolveFile(buffer, "file.zip");
 
