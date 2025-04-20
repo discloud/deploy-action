@@ -6,7 +6,7 @@ import globals from "globals";
 /** @type {import("eslint").Linter.Config[]} */
 export default [
   { files: ["**/*.?(c|m)ts", "*.mjs"] },
-  { ignores: ["**/node_modules/**", "dist/**/*.?(c|m)js", "**/*.d.?(c|m)ts"] },
+  { ignores: ["**/node_modules/**", "dist/**/*.?(c|m)js", "out/**/*.?(c|m)js", "**/*.d.?(c|m)ts"] },
   {
     languageOptions: {
       globals: globals.node,
