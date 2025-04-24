@@ -66,7 +66,7 @@ function getUserAgent(): string {
     return _userAgent;
   }
 
-  const osRelease = release().split?.(".").slice(0, 2).join(".") ?? release();
+  const osRelease = release().split(".").slice(0, 2).join(".");
   _userAgent = `github-deploy-action (${type()} ${osRelease}; ${platform()}; ${arch()})`;
 
   debug(`Using user agent: ${_userAgent}`);
