@@ -1,6 +1,6 @@
 import { debug, getBooleanInput, getInput, getMultilineInput, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
-import { DiscloudConfig, resolveFile } from "@discloudapp/util";
+import { DiscloudConfig } from "@discloudapp/util";
 import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
@@ -83,7 +83,7 @@ async function run() {
 
   const buffer = await zip(glob);
 
-  const file = await resolveFile(buffer, "file.zip");
+  const file = new File([buffer], "file.zip");
 
   const body = new FormData();
   body.append(file.name, file);
