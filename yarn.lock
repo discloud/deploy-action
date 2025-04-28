@@ -37,10 +37,10 @@
   dependencies:
     tslib "^2.8.1"
 
-"@discloudapp/util@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@discloudapp/util/-/util-0.10.1.tgz#9e9cdc295210a7cf70ad6be12d4a06d6c963e1e0"
-  integrity sha512-yCsOkf1+i5q9alI+aiKo2stWGRnB4HeK0LFxeNCxotEqn9D32PH2BJhC0kSmMUWfASGlz/m89/916uBuRbB+Ag==
+"@discloudapp/util@^0.10.2":
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/@discloudapp/util/-/util-0.10.2.tgz#69b65ac12736ff71734953667af036cf868f8861"
+  integrity sha512-Wc4Zvy4WkPFpZ7cgOdWlKmBmFjfn/kJS/HCbpVu0jUAXGhGU6UVVLIhU2TkNrvRNOhWYyWT65ILfwpsy1S6sZA==
   dependencies:
     "@discloudapp/api-types" "^0.7.3"
     file-type "^20.5.0"
