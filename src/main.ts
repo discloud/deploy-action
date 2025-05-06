@@ -5,14 +5,14 @@ import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { resolve } from "path";
-import { parseEnv } from "util";
+import { inspect, parseEnv } from "util";
 import zip from "./zip";
 
 let _config: any;
 async function getConfigFile(): Promise<Record<string, string>> {
   if (_config) {
     info("Config file found on cache");
-    debug(`Cached config content: ${JSON.stringify(_config)}`);
+    debug(`Cached config content: ${inspect(_config)}`);
     return _config;
   }
 
@@ -26,7 +26,7 @@ async function getConfigFile(): Promise<Record<string, string>> {
 
   _config = parseEnv(await readFile(configPath, "utf8"));
 
-  debug(`Readed config content: ${JSON.stringify(_config)}`);
+  debug(`Readed config content: ${inspect(_config)}`);
 
   return _config;
 }
@@ -103,7 +103,10 @@ async function run() {
 
   const responseBody = await resolveResponseBody<RESTPutApiAppCommitResult>(response);
 
-  const message = `[DISCLOUD API: ${responseBody.statusCode || response.status}] ${responseBody.message || response.statusText}`;
+  const responseStatus = responseBody.statusCode || response.status;
+  const responseMessage = responseBody.message || response.statusText;
+
+  const message = `[DISCLOUD API: ${responseStatus}] ${responseMessage}`;
 
   if (response.ok) { info(message); }
   else { setFailed(message); }
