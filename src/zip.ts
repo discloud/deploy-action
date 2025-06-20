@@ -7,7 +7,6 @@ export default async function zip(glob?: string | string[]) {
   if (!glob) glob = ["**"];
   if (!Array.isArray(glob)) glob = [glob];
 
-  const encoding = "buffer";
   const zipCommand = "discloud zip";
 
   const chunks: Buffer[] = [];
@@ -16,7 +15,8 @@ export default async function zip(glob?: string | string[]) {
     "-y",
     "discloud-cli@latest",
     "zip",
-    `-e=${encoding}`,
+    "-e",
+    "buffer",
     ...glob,
   ], {
     listeners: {
