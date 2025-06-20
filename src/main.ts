@@ -93,12 +93,12 @@ async function run() {
   const route = appIsTeam ? Routes.teamCommit(appId) : Routes.appCommit(appId);
 
   const response = await fetch(RouteBases.api + route, {
-    method: "PUT",
     body,
     headers: {
       "api-token": token,
       "User-Agent": getUserAgent(),
     },
+    method: "PUT",
   });
 
   const responseBody = await resolveResponseBody<RESTPutApiAppCommitResult>(response);
