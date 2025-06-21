@@ -1,15 +1,15 @@
 # Discloud Deploy Action
 
-[![Build](https://github.com/discloud/deploy-action/actions/workflows/build.yml/badge.svg)](https://github.com/discloud/deploy-action/actions/workflows/build.yml)
+[![Build][actionBuildImage]][actionBuildFile]
 
-This action deploys your application to [Discloud](https://discloud.com)
+This action deploys your application to [Discloud][discloud]
 
 ## Useful links
 
-- [Discloud](https://discloud.com)
-- [Discloud documentation](https://docs.discloud.com)
+- [Discloud][discloud]
+- [Discloud documentation][discloudDocs]
 
-[![Discord](https://discord.com/api/guilds/584490943034425391/widget.png?style=banner2)](https://discord.gg/discloud)
+[![Discord][discloudDiscordWidget]][discloudDiscordInvite]
 
 ## Inputs
 
@@ -17,10 +17,11 @@ This action deploys your application to [Discloud](https://discloud.com)
 | :- | :-: | :-: | :-: |
 | token | Your account Discloud token | ☑️ | |
 | app_id | Your app ID in Discloud **\*** | | |
-| glob | Use the [`glob`][glob] pattern to specify files to upload ** | | `**` |
+| [env](#using-env-property) | Environment variables to add to zip | | |
+| [glob](#using-glob-property) | Use the [`glob`][globRepository] pattern to specify files to upload ** | | `**` |
 | team | Specify if the app is a `team` app. Ignore if the app is yours | | `false` |
 
-> **\*** `app_id` can be ignored if the [`discloud.config`](./discloud.config) file with the `ID` property exists in your repository  
+> **\*** `app_id` can be ignored if the [`discloud.config`](#using-config) file with the `ID` property exists in your repository  
 **\*\*** `glob` can be a list of glob patterns, see [example](#list-of-glob-patterns-example)
 
 ## Example usage
@@ -46,6 +47,7 @@ jobs:
         with:
           token: ${{ secrets.DISCLOUD_TOKEN }} # Required
           # app_id: "ID"
+          # env: ${{ secrets.ENV }}
           # glob: ** # All files
           # team: true
 ```
@@ -54,17 +56,25 @@ jobs:
 
 You can use `discloud.config` file to specify `app_id`
 
-See [example](./discloud.config)
+See [example](discloud.config)
 
 ## Ignoring files
 
 You can use the `.discloudignore` file to ignore files during deploy
 
-See [example](./.discloudignore)
+See [example](.discloudignore)
 
 ## Using glob property
 
-You can use the [`glob`][glob] property to specify which files to upload
+You can use the [`glob`][globRepository] property to specify which files to upload
+
+## Using env property
+
+Set the `env` property to send environment variables in the zip file.
+
+See [creating `secrets` for a repository][githubDocsRepositorySecrets]
+
+> ⚠️ Note that setting this property will `overwrite` the `.env` file on the host. ⚠️
 
 ### List of glob patterns example
 
@@ -75,4 +85,11 @@ glob: |
   pathToDirectory/**
 ```
 
-[glob]: https://github.com/isaacs/node-glob
+[actionBuildFile]: https://github.com/discloud/deploy-action/actions/workflows/build.yml
+[actionBuildImage]: https://github.com/discloud/deploy-action/actions/workflows/build.yml/badge.svg
+[discloud]: https://discloud.com
+[discloudDocs]: https://docs.discloud.com
+[discloudDiscordInvite]: https://discord.gg/discloud
+[discloudDiscordWidget]: https://discord.com/api/guilds/584490943034425391/widget.png?style=banner2
+[githubDocsRepositorySecrets]: https://docs.github.com/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository
+[globRepository]: https://github.com/isaacs/node-glob

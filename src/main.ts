@@ -1,5 +1,6 @@
 import { debug, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
+import { writeFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { getInputs } from "./inputs";
 import zip from "./zip";
@@ -21,6 +22,11 @@ function getUserAgent(): string {
 
 async function run() {
   const inputs = await getInputs();
+
+  if (inputs.env) {
+    const content = inputs.env.join("\n");
+    await writeFile(".env", content, "utf8");
+  }
 
   const buffer = await zip(inputs.glob);
 

@@ -13,6 +13,9 @@ inputs:
   app_id:
     description: "App ID (default:`discloud.config`#`ID`)"
 
+  env:
+    description: "Environment variables to add to zip"
+
   glob:
     default: "**"
     description: "Specify the glob pattern to filter files to be uploaded"
