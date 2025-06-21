@@ -1,63 +1,8 @@
-import { debug, getBooleanInput, getInput, getMultilineInput, info, setFailed, warning } from "@actions/core";
+import { debug, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
-import { DiscloudConfig } from "@discloudapp/util";
-import { existsSync } from "fs";
-import { readFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
-import { resolve } from "path";
-import { inspect, parseEnv } from "util";
+import { getInputs } from "./inputs";
 import zip from "./zip";
-
-let _config: any;
-async function getConfigFile(): Promise<Record<string, string>> {
-  if (_config) {
-    info("Config file found on cache");
-    debug(`Cached config content: ${inspect(_config)}`);
-    return _config;
-  }
-
-  const configPath = resolve(DiscloudConfig.filename);
-
-  info("Searching for config file");
-
-  if (!existsSync(configPath)) throw new Error("Config file not found");
-
-  info(`Config file found on: ${configPath}`);
-
-  _config = parseEnv(await readFile(configPath, "utf8"));
-
-  debug(`Readed config content: ${inspect(_config)}`);
-
-  return _config;
-}
-
-async function getPropertyFromConfigFile(prop: string): Promise<string> {
-  const config = await getConfigFile();
-  return config[prop];
-}
-
-async function getAppIdInput() {
-  let appId = getInput("app_id");
-  if (appId) return appId;
-
-  info("App ID not provided in input");
-
-  appId = await getPropertyFromConfigFile("ID");
-
-  if (!appId) throw new Error("App ID is missing");
-
-  info(`App ID: ${appId}`);
-
-  return appId;
-}
-
-function getGlobInput() {
-  const glob = getMultilineInput("glob");
-
-  debug(`Glob pattern provided: ${glob}`);
-
-  return glob;
-}
 
 let _userAgent: any;
 function getUserAgent(): string {
@@ -75,27 +20,21 @@ function getUserAgent(): string {
 }
 
 async function run() {
-  const token = getInput("token", { required: true });
+  const inputs = await getInputs();
 
-  const appId = await getAppIdInput();
-
-  const glob = getGlobInput();
-
-  const buffer = await zip(glob);
+  const buffer = await zip(inputs.glob);
 
   const file = new File([buffer], "file.zip");
 
   const body = new FormData();
   body.append(file.name, file);
 
-  const appIsTeam = getBooleanInput("team");
-
-  const route = appIsTeam ? Routes.teamCommit(appId) : Routes.appCommit(appId);
+  const route = inputs.team ? Routes.teamCommit(inputs.appId) : Routes.appCommit(inputs.appId);
 
   const response = await fetch(RouteBases.api + route, {
     body,
     headers: {
-      "api-token": token,
+      "api-token": inputs.token,
       "User-Agent": getUserAgent(),
     },
     method: "PUT",
