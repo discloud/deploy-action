@@ -45,5 +45,5 @@ jobs:
           git commit -m "build ${{ steps.short_github_sha.outputs.id }}"
 
       - name: Push
-        if: success()
+        if: steps.commit.outcome != 'failure'
         run: git push
