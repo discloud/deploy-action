@@ -22,7 +22,9 @@ export default async function zip(glob?: string | string[]) {
     listeners: {
       debug,
       stderr(data) {
-        error(data.toString());
+        const text = data.toString();
+        if (text.split("\n").length > 2) return;
+        error(text);
       },
       stdout(data) {
         if (notSkippedFirstLine) {
