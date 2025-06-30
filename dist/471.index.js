@@ -226,7 +226,7 @@ function save(namespaces) {
 function load() {
 	let r;
 	try {
-		r = exports.storage.getItem('debug');
+		r = exports.storage.getItem('debug') || exports.storage.getItem('DEBUG') ;
 	} catch (error) {
 		// Swallow
 		// XXX (@Qix-) should we be logging these?
@@ -454,7 +454,7 @@ function setup(env) {
 
 		const split = (typeof namespaces === 'string' ? namespaces : '')
 			.trim()
-			.replace(' ', ',')
+			.replace(/\s+/g, ',')
 			.split(',')
 			.filter(Boolean);
 
@@ -2480,8 +2480,7 @@ class IgnoreType {
         this.len = len;
     }
     // ToDo: don't read, but skip data
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    get(array, off) {
+    get(_array, _off) {
     }
 }
 class Uint8ArrayType {
@@ -2494,28 +2493,42 @@ class Uint8ArrayType {
 }
 /**
  * Consume a fixed number of bytes from the stream and return a string with a specified encoding.
+ * Supports all encodings supported by TextDecoder, plus 'windows-1252'.
  */
 class StringType {
     constructor(len, encoding) {
         this.len = len;
-        this.encoding = encoding;
-        this.textDecoder = new TextDecoder(encoding);
+        if (encoding && encoding.toLowerCase() === 'windows-1252') {
+            this.decoder = StringType.decodeWindows1252;
+        }
+        else {
+            const textDecoder = new TextDecoder(encoding);
+            this.decoder = (bytes) => textDecoder.decode(bytes);
+        }
     }
-    get(uint8Array, offset) {
-        return this.textDecoder.decode(uint8Array.subarray(offset, offset + this.len));
+    get(data, offset = 0) {
+        const bytes = data.subarray(offset, offset + this.len);
+        return this.decoder(bytes);
+    }
+    static decodeWindows1252(bytes) {
+        let result = '';
+        for (let i = 0; i < bytes.length; i++) {
+            const byte = bytes[i];
+            result += byte < 0x80 || byte >= 0xA0
+                ? String.fromCharCode(byte)
+                : StringType.win1252Map[byte - 0x80];
+        }
+        return result;
     }
 }
+StringType.win1252Map = '\u20AC\u0081\u201A\u0192\u201E\u2026\u2020\u2021\u02C6\u2030\u0160\u2039\u0152\u008D\u017D\u008F\u0090\u2018\u2019\u201C\u201D\u2022\u2013\u2014\u02DC\u2122\u0161\u203A\u0153\u009D\u017E\u0178';
 /**
- * ANSI Latin 1 String
- * Using windows-1252 / ISO 8859-1 decoding
+ * ANSI Latin 1 String using Windows-1252 (Code Page 1252)
+ * Windows-1252 is a superset of ISO 8859-1 / Latin-1.
  */
-class AnsiStringType {
+class AnsiStringType extends StringType {
     constructor(len) {
-        this.len = len;
-        this.textDecoder = new TextDecoder('windows-1252');
-    }
-    get(uint8Array, offset = 0) {
-        return this.textDecoder.decode(uint8Array.subarray(offset, offset + this.len));
+        super(len, 'windows-1252');
     }
 }
 
