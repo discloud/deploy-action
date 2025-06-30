@@ -29,7 +29,6 @@ export default async function zip(glob?: string | string[]) {
         chunks.push(data);
       },
     },
-    silent: true,
   });
 
   const buffer = Buffer.concat(chunks);
