@@ -1,4 +1,4 @@
-import { debug, notice } from "@actions/core";
+import { debug, error, notice } from "@actions/core";
 import { getExecOutput } from "@actions/exec";
 import bytes from "bytes";
 import { MAX_ZIP_SIZE } from "./constants";
@@ -21,6 +21,9 @@ export default async function zip(glob?: string | string[]) {
   ], {
     listeners: {
       debug,
+      stderr(data) {
+        error(data.toString());
+      },
       stdout(data) {
         if (notSkippedFirstLine) {
           notSkippedFirstLine = false;
@@ -29,6 +32,7 @@ export default async function zip(glob?: string | string[]) {
         chunks.push(data);
       },
     },
+    silent: true,
   });
 
   const buffer = Buffer.concat(chunks);
