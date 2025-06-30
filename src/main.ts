@@ -4,6 +4,7 @@ import { writeFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { getInputs } from "./inputs";
 import zip from "./zip";
+import { inspect } from "util";
 
 let _userAgent: any;
 function getUserAgent(): string {
@@ -85,5 +86,6 @@ export default async function () {
     await run();
   } catch (error: any) {
     setFailed(error.message);
+    debug(inspect(error, true));
   }
 }
