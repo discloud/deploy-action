@@ -37,10 +37,10 @@
   dependencies:
     tslib "^2.8.1"
 
-"@discloudapp/util@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@discloudapp/util/-/util-1.2.2.tgz#1a48546111567080895f9548eca9fadb72139eb9"
-  integrity sha512-JX/VAhkRJd7U5ISkJazWP/Jg2AtOMG9v2k4uJZEG88pW0E7BQ5x8koKcxjukrYz40h5bgOvuzOs2N2IRDpN0BQ==
+"@discloudapp/util@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@discloudapp/util/-/util-1.2.3.tgz#e35b1b2c96e39971f5d4aac782d51e6753e47334"
+  integrity sha512-UF0Qk0xZLa5yhvspt7Cl/Z4khaQ1qaFMhaPvHz01TTj3WoZhndP+OAolst8CSCFhYWEVxZGTfBg1LyI0md9Wmg==
   dependencies:
     "@discloudapp/api-types" "^1.0.2"
     file-type "^21.0.0"
@@ -997,10 +997,10 @@ globals@^14.0.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-14.0.0.tgz#898d7413c29babcf6bafe56fcadded858ada724e"
   integrity sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==
 
-globals@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-16.2.0.tgz#19efcd1ddde2bd5efce128e5c2e441df1abc6f7c"
-  integrity sha512-O+7l9tPdHCU320IigZZPj5zmRCFG9xHmx9cU8FqU2Rp+JN714seHV+2S9+JslCpY4gJwU2vOGox0wzgae/MCEg==
+globals@^16.3.0:
+  version "16.3.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-16.3.0.tgz#66118e765ddaf9e2d880f7e17658543f93f1f667"
+  integrity sha512-bqWEnJ1Nt3neqx2q5SFfGS8r/ahumIakg3HcwtNlrVlwXIeNumWn/c7Pn/wKzGhf6SaW6H6uWXLqC30STCMchQ==
 
 globalthis@^1.0.4:
   version "1.0.4"
