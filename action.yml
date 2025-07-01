@@ -16,6 +16,9 @@ inputs:
   env:
     description: "Environment variables to add to zip"
 
+  env_file:
+    description: "Env file name"
+
   glob:
     default: "**"
     description: "Specify the glob pattern to filter files to be uploaded"

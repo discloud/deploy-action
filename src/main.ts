@@ -2,9 +2,9 @@ import { debug, info, setFailed, warning } from "@actions/core";
 import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp/api-types/v2";
 import { writeFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
+import { inspect } from "util";
 import { getInputs } from "./inputs";
 import zip from "./zip";
-import { inspect } from "util";
 
 let _userAgent: any;
 function getUserAgent(): string {
@@ -25,7 +25,7 @@ async function run() {
   const inputs = await getInputs();
 
   if (inputs.env) {
-    const envFilename = ".env";
+    const envFilename = inputs.envFile;
     const content = inputs.env.join("\n");
     await writeFile(envFilename, content, "utf8");
     inputs.glob.push(envFilename);

@@ -18,6 +18,7 @@ This action deploys your application to [Discloud][discloud]
 | token | Your account Discloud token | ☑️ | |
 | app_id | Your app ID in Discloud **\*** | | |
 | [env](#using-env-property) | Environment variables to add to zip | | |
+| env_file | Env file name | | `.env` |
 | [glob](#using-glob-property) | Use the [`glob`][globRepository] pattern to specify files to upload ** | | `**` |
 | team | Specify if the app is a `team` app. Ignore if the app is yours | | `false` |
 
@@ -48,6 +49,7 @@ jobs:
           token: ${{ secrets.DISCLOUD_TOKEN }} # Required
           # app_id: "ID"
           # env: ${{ secrets.ENV }}
+          # env_file: .env
           # glob: ** # All files
           # team: true
 ```
@@ -71,6 +73,8 @@ You can use the [`glob`][globRepository] property to specify which files to uplo
 ## Using env property
 
 Set the `env` property to send environment variables in the zip file.
+
+The `env_file` property is completely optional and the default value is `.env`.
 
 See [creating `secrets` for a repository][githubDocsRepositorySecrets]
 
