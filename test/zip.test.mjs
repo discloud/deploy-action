@@ -11,6 +11,8 @@ suite("ZIP", async () => {
 
     const buffer = await zip(glob);
 
-    t.assert.strictEqual(buffer.length, expectedBufferSize);
+    const file = new File(buffer, "");
+
+    t.assert.strictEqual(file.size, expectedBufferSize);
   });
 });
