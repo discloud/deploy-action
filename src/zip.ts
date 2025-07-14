@@ -3,6 +3,7 @@ import { getExecOutput } from "@actions/exec";
 import bytes from "bytes";
 import { MAX_ZIP_SIZE } from "./constants";
 
+/** @returns Array of chunks */
 export default async function zip(glob?: string | string[]) {
   if (!glob) glob = ["**"];
   if (!Array.isArray(glob)) glob = [glob];
@@ -30,12 +31,12 @@ export default async function zip(glob?: string | string[]) {
     silent: true,
   });
 
-  const buffer = Buffer.concat(chunks);
+  const file = new File(chunks, "");
 
-  if (buffer.length > MAX_ZIP_SIZE)
-    throw new Error(`The ZIP size cannot exceed 100 MB (1048576 KB). ZIP size: ${bytes(buffer.length)}`);
+  if (file.size > MAX_ZIP_SIZE)
+    throw new Error(`The ZIP size cannot exceed 100 MB (1048576 KB). ZIP size: ${bytes(file.size)}`);
 
-  notice(`ZIP size: ${bytes(buffer.length)}`);
+  notice(`ZIP size: ${bytes(file.size)}`);
 
-  return buffer;
+  return chunks;
 }

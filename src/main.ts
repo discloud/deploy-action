@@ -31,9 +31,9 @@ async function run() {
     inputs.glob.push(envFilename);
   }
 
-  const buffer = await zip(inputs.glob);
+  const arrayBuffer = await zip(inputs.glob);
 
-  const file = new File([buffer], "file.zip");
+  const file = new File(arrayBuffer, "file.zip");
 
   const body = new FormData();
   body.append(file.name, file);
