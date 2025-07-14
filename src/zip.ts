@@ -7,10 +7,7 @@ export default async function zip(glob?: string | string[]) {
   if (!glob) glob = ["**"];
   if (!Array.isArray(glob)) glob = [glob];
 
-  const zipCommand = "discloud zip";
-
   const chunks: Buffer[] = [];
-  let notSkippedFirstLine = true;
   await getExecOutput("npx", [
     "-y",
     "discloud-cli@latest",
@@ -27,10 +24,6 @@ export default async function zip(glob?: string | string[]) {
         error(text);
       },
       stdout(data) {
-        if (notSkippedFirstLine) {
-          notSkippedFirstLine = false;
-          if (`${data}`.includes(zipCommand)) return;
-        }
         chunks.push(data);
       },
     },
