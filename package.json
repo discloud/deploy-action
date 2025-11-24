@@ -16,16 +16,16 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/exec": "^1.1.1",
-    "@discloudapp/api-types": "^1.0.3",
-    "@discloudapp/util": "^1.2.5",
+    "@discloudapp/api-types": "^1.0.4",
+    "@discloudapp/util": "^1.2.6",
     "bytes": "^3.1.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.0",
+    "@eslint/js": "^9.39.1",
     "@types/bytes": "^3.1.5",
     "@types/node": "20",
-    "@typescript-eslint/eslint-plugin": "^8.47.0",
-    "@typescript-eslint/parser": "^8.47.0",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
     "@vercel/ncc": "^0.38.4",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
