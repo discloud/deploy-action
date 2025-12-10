@@ -14,7 +14,7 @@
     "watch": "tsc -w --noEmit"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1",
+    "@actions/core": "^2.0.0",
     "@actions/exec": "^1.1.1",
     "@discloudapp/api-types": "^1.0.4",
     "@discloudapp/util": "^1.2.6",
