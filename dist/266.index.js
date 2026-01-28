@@ -3616,7 +3616,9 @@ const extensions = [
 	'potm',
 	'pptm',
 	'jar',
+	'jmp',
 	'rm',
+	'sav',
 	'ppsm',
 	'ppsx',
 	'tar.gz',
@@ -3796,8 +3798,10 @@ const supported_mimeTypes = [
 	'application/vnd.ms-powerpoint.presentation.macroenabled.12',
 	'application/java-archive',
 	'application/vnd.rn-realmedia',
+	'application/x-spss-sav',
 	'application/x-ms-regedit',
 	'application/x-ft-windows-registry-hive',
+	'application/x-jmp-data',
 ];
 
 ;// CONCATENATED MODULE: ./node_modules/file-type/core.js
@@ -4750,7 +4754,12 @@ class core_FileTypeParser {
 			};
 		}
 
-		if (this.check([0xCF, 0xFA, 0xED, 0xFE])) {
+		if (
+			this.check([0xFE, 0xED, 0xFA, 0xCE]) // 32-bit, big-endian
+			|| this.check([0xFE, 0xED, 0xFA, 0xCF]) // 64-bit, big-endian
+			|| this.check([0xCE, 0xFA, 0xED, 0xFE]) // 32-bit, little-endian
+			|| this.check([0xCF, 0xFA, 0xED, 0xFE]) // 64-bit, little-endian
+		) {
 			return {
 				ext: 'macho',
 				mime: 'application/x-mach-binary',
@@ -4768,6 +4777,14 @@ class core_FileTypeParser {
 			return {
 				ext: 'dat',
 				mime: 'application/x-ft-windows-registry-hive',
+			};
+		}
+
+		// SPSS Statistical Data File
+		if (this.checkString('$FL2') || this.checkString('$FL3')) {
+			return {
+				ext: 'sav',
+				mime: 'application/x-spss-sav',
 			};
 		}
 
@@ -4855,10 +4872,25 @@ class core_FileTypeParser {
 		}
 
 		if (this.check([0xCA, 0xFE, 0xBA, 0xBE])) {
-			return {
-				ext: 'class',
-				mime: 'application/java-vm',
-			};
+			// Java bytecode and Mach-O universal binaries have the same magic number.
+			// We disambiguate based on the next 4 bytes, as done by `file`.
+			// See https://github.com/file/file/blob/master/magic/Magdir/cafebabe
+			const machOArchitectureCount = UINT32_BE.get(this.buffer, 4);
+			const javaClassFileMajorVersion = UINT16_BE.get(this.buffer, 6);
+
+			if (machOArchitectureCount > 0 && machOArchitectureCount <= 30) {
+				return {
+					ext: 'macho',
+					mime: 'application/x-mach-binary',
+				};
+			}
+
+			if (javaClassFileMajorVersion > 30) {
+				return {
+					ext: 'class',
+					mime: 'application/java-vm',
+				};
+			}
 		}
 
 		if (this.checkString('.RMF')) {
@@ -5469,6 +5501,17 @@ class core_FileTypeParser {
 			return {
 				ext: 'indd',
 				mime: 'application/x-indesign',
+			};
+		}
+
+		// -- 16-byte signatures --
+
+		// JMP files - check for both Little Endian and Big Endian signatures
+		if (this.check([0xFF, 0xFF, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00])
+			|| this.check([0x00, 0x00, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x04, 0x00, 0x01, 0x00, 0x01])) {
+			return {
+				ext: 'jmp',
+				mime: 'application/x-jmp-data',
 			};
 		}
 
