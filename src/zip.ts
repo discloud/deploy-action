@@ -22,11 +22,10 @@ export default async function zip(glob?: string | string[]) {
       debug,
       stderr(data) {
         const text = data.toString();
-        if (text.split("\n").length < 2) return;
-        error(text);
+        if (text.startsWith("[debug]")) return debug(text);
+        if (text.split("\n").length > 1) return error(text);
       },
       stdout(data) {
-        console.log(data.length);
         chunks.push(data);
       },
     },
