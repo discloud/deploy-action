@@ -26,6 +26,7 @@ export default async function zip(glob?: string | string[]) {
         error(text);
       },
       stdout(data) {
+        console.log(data.length);
         chunks.push(data);
       },
     },
