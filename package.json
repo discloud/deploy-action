@@ -4,7 +4,6 @@
   "version": "1.4.1",
   "main": "dist",
   "license": "Apache-2.0",
-  "type": "module",
   "scripts": {
     "build:test": "tsc --outDir out",
     "package": "ncc build src/index.ts -ms",
