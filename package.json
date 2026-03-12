@@ -4,6 +4,7 @@
   "version": "1.4.1",
   "main": "dist",
   "license": "Apache-2.0",
+  "type": "module",
   "scripts": {
     "build:test": "tsc --outDir out",
     "package": "ncc build src/index.ts -ms",
@@ -14,8 +15,8 @@
     "watch": "tsc -w --noEmit"
   },
   "dependencies": {
-    "@actions/core": "^3.0.0",
-    "@actions/exec": "^3.0.0",
+    "@actions/core": "^2.0.3",
+    "@actions/exec": "^2.0.0",
     "@discloudapp/api-types": "^1.0.5",
     "@discloudapp/util": "^1.2.8",
     "bytes": "^3.1.2"
