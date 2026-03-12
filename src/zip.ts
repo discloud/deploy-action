@@ -13,6 +13,7 @@ export default async function zip(glob?: string | string[]) {
     "-y",
     "discloud-cli@latest",
     "zip",
+    "--debug",
     "-e",
     "buffer",
     ...glob,
