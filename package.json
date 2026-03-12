@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:test": "tsc --outDir out",
-    "package": "ncc build src/index.ts -s",
+    "package": "ncc build src/index.ts -ms",
     "test": "npm run test:ts && npm run test:lint && npm run build:test && npm run test:node",
     "test:node": "node --test \"**/test/**/*.test.?(c|m)js\"",
     "test:lint": "eslint .",
