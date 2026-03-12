@@ -11,7 +11,7 @@ export default async function zip(glob?: string | string[]) {
   const chunks: Buffer[] = [];
   await getExecOutput("npx", [
     "-y",
-    "discloud-cli@2.8.6",
+    "discloud-cli@latest",
     "zip",
     "-e",
     "buffer",
