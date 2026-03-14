@@ -25,10 +25,8 @@ async function run() {
   const inputs = await getInputs();
 
   if (inputs.env) {
-    const envFilename = inputs.envFile;
-    const content = inputs.env.join("\n");
-    await writeFile(envFilename, content, "utf8");
-    inputs.glob.push(envFilename);
+    await writeFile(inputs.envFile, inputs.env, "utf8");
+    inputs.glob.push(inputs.envFile);
   }
 
   const arrayBuffer = await zip(inputs.glob);
