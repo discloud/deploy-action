@@ -1974,7 +1974,6 @@ const WINDOWS_1252_REVERSE = {};
 for (const [code, char] of Object.entries(WINDOWS_1252_EXTRA)) {
     WINDOWS_1252_REVERSE[char] = Number.parseInt(code, 10);
 }
-// ---------- Cached decoders/encoders ----------
 let _utf8Decoder;
 let _utf8Encoder;
 function utf8Decoder() {
@@ -1987,13 +1986,10 @@ function utf8Encoder() {
         return undefined;
     return (_utf8Encoder !== null && _utf8Encoder !== void 0 ? _utf8Encoder : (_utf8Encoder = new globalThis.TextEncoder()));
 }
-// Safe chunk size well under your measured ~105k cliff.
-// 32k keeps memory reasonable and is plenty fast.
 const CHUNK = 32 * 1024;
+const REPLACEMENT = 0xfffd;
 /**
  * Decode text from binary data
- * @param bytes Binary data
- * @param encoding Encoding
  */
 function textDecode(bytes, encoding = "utf-8") {
     switch (encoding.toLowerCase()) {
@@ -2037,63 +2033,171 @@ function textEncode(input = "", encoding = "utf-8") {
             throw new RangeError(`Encoding '${encoding}' not supported`);
     }
 }
-// --- Internal helpers ---
+function appendCodePoint(out, cp) {
+    if (cp <= 0xffff) {
+        out.push(String.fromCharCode(cp));
+        return;
+    }
+    cp -= 0x10000;
+    out.push(String.fromCharCode(0xd800 + (cp >> 10), 0xdc00 + (cp & 0x3ff)));
+}
+function flushChunk(parts, chunk) {
+    if (chunk.length === 0)
+        return;
+    parts.push(String.fromCharCode.apply(null, chunk));
+    chunk.length = 0;
+}
+function pushCodeUnit(parts, chunk, codeUnit) {
+    chunk.push(codeUnit);
+    if (chunk.length >= CHUNK)
+        flushChunk(parts, chunk);
+}
+function pushCodePoint(parts, chunk, cp) {
+    if (cp <= 0xffff) {
+        pushCodeUnit(parts, chunk, cp);
+        return;
+    }
+    cp -= 0x10000;
+    pushCodeUnit(parts, chunk, 0xd800 + (cp >> 10));
+    pushCodeUnit(parts, chunk, 0xdc00 + (cp & 0x3ff));
+}
 function decodeUTF8(bytes) {
     const parts = [];
-    let out = "";
+    const chunk = [];
     let i = 0;
-    while (i < bytes.length) {
-        const b1 = bytes[i++];
-        if (b1 < 0x80) {
-            out += String.fromCharCode(b1);
-        }
-        else if (b1 < 0xe0) {
-            const b2 = bytes[i++] & 0x3f;
-            out += String.fromCharCode(((b1 & 0x1f) << 6) | b2);
-        }
-        else if (b1 < 0xf0) {
-            const b2 = bytes[i++] & 0x3f;
-            const b3 = bytes[i++] & 0x3f;
-            out += String.fromCharCode(((b1 & 0x0f) << 12) | (b2 << 6) | b3);
-        }
-        else {
-            const b2 = bytes[i++] & 0x3f;
-            const b3 = bytes[i++] & 0x3f;
-            const b4 = bytes[i++] & 0x3f;
-            let cp = ((b1 & 0x07) << 18) | (b2 << 12) | (b3 << 6) | b4;
-            cp -= 0x10000;
-            out += String.fromCharCode(0xd800 + ((cp >> 10) & 0x3ff), 0xdc00 + (cp & 0x3ff));
-        }
-        if (out.length >= CHUNK) {
-            parts.push(out);
-            out = "";
-        }
+    // Match TextDecoder("utf-8") default BOM handling
+    if (bytes.length >= 3 &&
+        bytes[0] === 0xef &&
+        bytes[1] === 0xbb &&
+        bytes[2] === 0xbf) {
+        i = 3;
     }
-    if (out)
-        parts.push(out);
+    while (i < bytes.length) {
+        const b1 = bytes[i];
+        if (b1 <= 0x7f) {
+            pushCodeUnit(parts, chunk, b1);
+            i++;
+            continue;
+        }
+        // Invalid leading bytes: continuation byte or impossible prefixes
+        if (b1 < 0xc2 || b1 > 0xf4) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            i++;
+            continue;
+        }
+        // 2-byte sequence
+        if (b1 <= 0xdf) {
+            if (i + 1 >= bytes.length) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const b2 = bytes[i + 1];
+            if ((b2 & 0xc0) !== 0x80) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const cp = ((b1 & 0x1f) << 6) | (b2 & 0x3f);
+            pushCodeUnit(parts, chunk, cp);
+            i += 2;
+            continue;
+        }
+        // 3-byte sequence
+        if (b1 <= 0xef) {
+            if (i + 2 >= bytes.length) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const b2 = bytes[i + 1];
+            const b3 = bytes[i + 2];
+            const valid = (b2 & 0xc0) === 0x80 &&
+                (b3 & 0xc0) === 0x80 &&
+                !(b1 === 0xe0 && b2 < 0xa0) && // overlong
+                !(b1 === 0xed && b2 >= 0xa0); // surrogate range
+            if (!valid) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const cp = ((b1 & 0x0f) << 12) |
+                ((b2 & 0x3f) << 6) |
+                (b3 & 0x3f);
+            pushCodeUnit(parts, chunk, cp);
+            i += 3;
+            continue;
+        }
+        // 4-byte sequence
+        if (i + 3 >= bytes.length) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            i++;
+            continue;
+        }
+        const b2 = bytes[i + 1];
+        const b3 = bytes[i + 2];
+        const b4 = bytes[i + 3];
+        const valid = (b2 & 0xc0) === 0x80 &&
+            (b3 & 0xc0) === 0x80 &&
+            (b4 & 0xc0) === 0x80 &&
+            !(b1 === 0xf0 && b2 < 0x90) && // overlong
+            !(b1 === 0xf4 && b2 > 0x8f); // > U+10FFFF
+        if (!valid) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            i++;
+            continue;
+        }
+        const cp = ((b1 & 0x07) << 18) |
+            ((b2 & 0x3f) << 12) |
+            ((b3 & 0x3f) << 6) |
+            (b4 & 0x3f);
+        pushCodePoint(parts, chunk, cp);
+        i += 4;
+    }
+    flushChunk(parts, chunk);
     return parts.join("");
 }
 function decodeUTF16LE(bytes) {
-    // Use chunked fromCharCode on 16-bit code units.
-    // If odd length, ignore trailing byte (common behavior).
-    const len = bytes.length & ~1;
-    if (len === 0)
-        return "";
     const parts = [];
-    // Build a temporary code-unit array per chunk.
-    const maxUnits = CHUNK; // CHUNK code units per chunk
-    for (let i = 0; i < len;) {
-        const unitsThis = Math.min(maxUnits, (len - i) >> 1);
-        const units = new Array(unitsThis);
-        for (let j = 0; j < unitsThis; j++, i += 2) {
-            units[j] = bytes[i] | (bytes[i + 1] << 8);
+    const chunk = [];
+    const len = bytes.length;
+    let i = 0;
+    while (i + 1 < len) {
+        const u1 = bytes[i] | (bytes[i + 1] << 8);
+        i += 2;
+        // High surrogate
+        if (u1 >= 0xd800 && u1 <= 0xdbff) {
+            if (i + 1 < len) {
+                const u2 = bytes[i] | (bytes[i + 1] << 8);
+                if (u2 >= 0xdc00 && u2 <= 0xdfff) {
+                    pushCodeUnit(parts, chunk, u1);
+                    pushCodeUnit(parts, chunk, u2);
+                    i += 2;
+                }
+                else {
+                    pushCodeUnit(parts, chunk, REPLACEMENT);
+                }
+            }
+            else {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+            }
+            continue;
         }
-        parts.push(String.fromCharCode.apply(null, units));
+        // Lone low surrogate
+        if (u1 >= 0xdc00 && u1 <= 0xdfff) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            continue;
+        }
+        pushCodeUnit(parts, chunk, u1);
     }
+    // Odd trailing byte
+    if (i < len) {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+    }
+    flushChunk(parts, chunk);
     return parts.join("");
 }
 function decodeASCII(bytes) {
-    // 7-bit ASCII: mask high bit. (Kept to match your original semantics.)
     const parts = [];
     for (let i = 0; i < bytes.length; i += CHUNK) {
         const end = Math.min(bytes.length, i + CHUNK);
@@ -2106,7 +2210,6 @@ function decodeASCII(bytes) {
     return parts.join("");
 }
 function decodeLatin1(bytes) {
-    // Latin-1 is 0x00..0xFF direct mapping; avoid spread.
     const parts = [];
     for (let i = 0; i < bytes.length; i += CHUNK) {
         const end = Math.min(bytes.length, i + CHUNK);
@@ -2119,7 +2222,6 @@ function decodeLatin1(bytes) {
     return parts.join("");
 }
 function decodeWindows1252(bytes) {
-    // Only 0x80..0x9F need mapping; others are direct 1-byte codes.
     const parts = [];
     let out = "";
     for (let i = 0; i < bytes.length; i++) {
@@ -2139,13 +2241,25 @@ function encodeUTF8(str) {
     const out = [];
     for (let i = 0; i < str.length; i++) {
         let cp = str.charCodeAt(i);
-        // surrogate pair
-        if (cp >= 0xd800 && cp <= 0xdbff && i + 1 < str.length) {
-            const lo = str.charCodeAt(i + 1);
-            if (lo >= 0xdc00 && lo <= 0xdfff) {
-                cp = 0x10000 + ((cp - 0xd800) << 10) + (lo - 0xdc00);
-                i++;
+        // Valid surrogate pair
+        if (cp >= 0xd800 && cp <= 0xdbff) {
+            if (i + 1 < str.length) {
+                const lo = str.charCodeAt(i + 1);
+                if (lo >= 0xdc00 && lo <= 0xdfff) {
+                    cp = 0x10000 + ((cp - 0xd800) << 10) + (lo - 0xdc00);
+                    i++;
+                }
+                else {
+                    cp = REPLACEMENT;
+                }
             }
+            else {
+                cp = REPLACEMENT;
+            }
+        }
+        else if (cp >= 0xdc00 && cp <= 0xdfff) {
+            // Lone low surrogate
+            cp = REPLACEMENT;
         }
         if (cp < 0x80) {
             out.push(cp);
@@ -2163,9 +2277,36 @@ function encodeUTF8(str) {
     return new Uint8Array(out);
 }
 function encodeUTF16LE(str) {
-    const out = new Uint8Array(str.length * 2);
+    // Preserve JS string code units, but do not emit non-well-formed UTF-16.
+    // Replace lone surrogates with U+FFFD.
+    const units = [];
     for (let i = 0; i < str.length; i++) {
-        const code = str.charCodeAt(i);
+        const u = str.charCodeAt(i);
+        if (u >= 0xd800 && u <= 0xdbff) {
+            if (i + 1 < str.length) {
+                const lo = str.charCodeAt(i + 1);
+                if (lo >= 0xdc00 && lo <= 0xdfff) {
+                    units.push(u, lo);
+                    i++;
+                }
+                else {
+                    units.push(REPLACEMENT);
+                }
+            }
+            else {
+                units.push(REPLACEMENT);
+            }
+            continue;
+        }
+        if (u >= 0xdc00 && u <= 0xdfff) {
+            units.push(REPLACEMENT);
+            continue;
+        }
+        units.push(u);
+    }
+    const out = new Uint8Array(units.length * 2);
+    for (let i = 0; i < units.length; i++) {
+        const code = units[i];
         const o = i * 2;
         out[o] = code & 0xff;
         out[o + 1] = code >>> 8;
@@ -2173,7 +2314,6 @@ function encodeUTF16LE(str) {
     return out;
 }
 function encodeASCII(str) {
-    // 7-bit ASCII: mask high bit
     const out = new Uint8Array(str.length);
     for (let i = 0; i < str.length; i++)
         out[i] = str.charCodeAt(i) & 0x7f;
@@ -2190,12 +2330,16 @@ function encodeWindows1252(str) {
     for (let i = 0; i < str.length; i++) {
         const ch = str[i];
         const code = ch.charCodeAt(0);
-        if (code <= 0xff) {
+        if (WINDOWS_1252_REVERSE[ch] !== undefined) {
+            out[i] = WINDOWS_1252_REVERSE[ch];
+            continue;
+        }
+        if ((code >= 0x00 && code <= 0x7f) ||
+            (code >= 0xa0 && code <= 0xff)) {
             out[i] = code;
             continue;
         }
-        const mapped = WINDOWS_1252_REVERSE[ch];
-        out[i] = mapped !== undefined ? mapped : 0x3f; // '?'
+        out[i] = 0x3f; // '?'
     }
     return out;
 }
@@ -3744,12 +3888,20 @@ const reasonableDetectionSizeInBytes = 4100; // A fair amount of file-types are 
 // Keep defensive limits small enough to avoid accidental memory spikes from untrusted inputs.
 const maximumMpegOffsetTolerance = reasonableDetectionSizeInBytes - 2;
 const maximumZipEntrySizeInBytes = 1024 * 1024;
+const maximumZipEntryCount = 1024;
+const maximumZipBufferedReadSizeInBytes = (2 ** 31) - 1;
 const maximumUntrustedSkipSizeInBytes = 16 * 1024 * 1024;
+const maximumZipTextEntrySizeInBytes = maximumZipEntrySizeInBytes;
 const maximumNestedGzipDetectionSizeInBytes = maximumUntrustedSkipSizeInBytes;
+const maximumNestedGzipProbeDepth = 1;
 const maximumId3HeaderSizeInBytes = maximumUntrustedSkipSizeInBytes;
 const maximumEbmlDocumentTypeSizeInBytes = 64;
 const maximumEbmlElementPayloadSizeInBytes = maximumUntrustedSkipSizeInBytes;
 const maximumEbmlElementCount = 256;
+const maximumPngChunkCount = 512;
+const maximumAsfHeaderObjectCount = 512;
+const maximumTiffTagCount = 512;
+const maximumDetectionReentryCount = 256;
 const maximumPngChunkSizeInBytes = maximumUntrustedSkipSizeInBytes;
 const maximumTiffIfdOffsetInBytes = maximumUntrustedSkipSizeInBytes;
 const recoverableZipErrorMessages = new Set([
@@ -3758,7 +3910,9 @@ const recoverableZipErrorMessages = new Set([
 	'Expected Central-File-Header signature',
 ]);
 const recoverableZipErrorMessagePrefixes = [
+	'ZIP entry count exceeds ',
 	'Unsupported ZIP compression method:',
+	'ZIP entry compressed data exceeds ',
 	'ZIP entry decompressed data exceeds ',
 ];
 const recoverableZipErrorCodes = new Set([
@@ -3836,6 +3990,114 @@ async function decompressDeflateRawWithLimit(data, {maximumLength = maximumZipEn
 	return uncompressedData;
 }
 
+const zipDataDescriptorSignature = 0x08_07_4B_50;
+const zipDataDescriptorLengthInBytes = 16;
+const zipDataDescriptorOverlapLengthInBytes = zipDataDescriptorLengthInBytes - 1;
+
+function findZipDataDescriptorOffset(buffer, bytesConsumed) {
+	if (buffer.length < zipDataDescriptorLengthInBytes) {
+		return -1;
+	}
+
+	const lastPossibleDescriptorOffset = buffer.length - zipDataDescriptorLengthInBytes;
+	for (let index = 0; index <= lastPossibleDescriptorOffset; index++) {
+		if (
+			UINT32_LE.get(buffer, index) === zipDataDescriptorSignature
+			&& UINT32_LE.get(buffer, index + 8) === bytesConsumed + index
+		) {
+			return index;
+		}
+	}
+
+	return -1;
+}
+
+function mergeByteChunks(chunks, totalLength) {
+	const merged = new Uint8Array(totalLength);
+	let offset = 0;
+
+	for (const chunk of chunks) {
+		merged.set(chunk, offset);
+		offset += chunk.length;
+	}
+
+	return merged;
+}
+
+async function readZipDataDescriptorEntryWithLimit(zipHandler, {shouldBuffer, maximumLength = maximumZipEntrySizeInBytes} = {}) {
+	const {syncBuffer} = zipHandler;
+	const {length: syncBufferLength} = syncBuffer;
+	const chunks = [];
+	let bytesConsumed = 0;
+
+	for (;;) {
+		const length = await zipHandler.tokenizer.peekBuffer(syncBuffer, {mayBeLess: true});
+		const dataDescriptorOffset = findZipDataDescriptorOffset(syncBuffer.subarray(0, length), bytesConsumed);
+		const retainedLength = dataDescriptorOffset >= 0
+			? 0
+			: (
+				length === syncBufferLength
+					? Math.min(zipDataDescriptorOverlapLengthInBytes, length - 1)
+					: 0
+			);
+		const chunkLength = dataDescriptorOffset >= 0 ? dataDescriptorOffset : length - retainedLength;
+
+		if (chunkLength === 0) {
+			break;
+		}
+
+		bytesConsumed += chunkLength;
+		if (bytesConsumed > maximumLength) {
+			throw new Error(`ZIP entry compressed data exceeds ${maximumLength} bytes`);
+		}
+
+		if (shouldBuffer) {
+			const data = new Uint8Array(chunkLength);
+			await zipHandler.tokenizer.readBuffer(data);
+			chunks.push(data);
+		} else {
+			await zipHandler.tokenizer.ignore(chunkLength);
+		}
+
+		if (dataDescriptorOffset >= 0) {
+			break;
+		}
+	}
+
+	if (!shouldBuffer) {
+		return;
+	}
+
+	return mergeByteChunks(chunks, bytesConsumed);
+}
+
+async function readZipEntryData(zipHandler, zipHeader, {shouldBuffer} = {}) {
+	if (
+		zipHeader.dataDescriptor
+		&& zipHeader.compressedSize === 0
+	) {
+		return readZipDataDescriptorEntryWithLimit(zipHandler, {shouldBuffer});
+	}
+
+	if (!shouldBuffer) {
+		await zipHandler.tokenizer.ignore(zipHeader.compressedSize);
+		return;
+	}
+
+	const maximumLength = getMaximumZipBufferedReadLength(zipHandler.tokenizer);
+	if (
+		!Number.isFinite(zipHeader.compressedSize)
+		|| zipHeader.compressedSize < 0
+		|| zipHeader.compressedSize > maximumLength
+	) {
+		throw new Error(`ZIP entry compressed data exceeds ${maximumLength} bytes`);
+	}
+
+	const fileData = new Uint8Array(zipHeader.compressedSize);
+	await zipHandler.tokenizer.readBuffer(fileData);
+	return fileData;
+}
+
 // Override the default inflate to enforce decompression size limits, since @tokenizer/inflate does not expose a configuration hook for this.
 ZipHandler.prototype.inflate = async function (zipHeader, fileData, callback) {
 	if (zipHeader.compressedMethod === 0) {
@@ -3846,9 +4108,43 @@ ZipHandler.prototype.inflate = async function (zipHeader, fileData, callback) {
 		throw new Error(`Unsupported ZIP compression method: ${zipHeader.compressedMethod}`);
 	}
 
-	const maximumLength = hasUnknownFileSize(this.tokenizer) ? maximumZipEntrySizeInBytes : Number.MAX_SAFE_INTEGER;
-	const uncompressedData = await decompressDeflateRawWithLimit(fileData, {maximumLength});
+	const uncompressedData = await decompressDeflateRawWithLimit(fileData, {maximumLength: maximumZipEntrySizeInBytes});
 	return callback(uncompressedData);
+};
+
+ZipHandler.prototype.unzip = async function (fileCallback) {
+	let stop = false;
+	let zipEntryCount = 0;
+	do {
+		const zipHeader = await this.readLocalFileHeader();
+		if (!zipHeader) {
+			break;
+		}
+
+		zipEntryCount++;
+		if (zipEntryCount > maximumZipEntryCount) {
+			throw new Error(`ZIP entry count exceeds ${maximumZipEntryCount}`);
+		}
+
+		const next = fileCallback(zipHeader);
+		stop = Boolean(next.stop);
+		await this.tokenizer.ignore(zipHeader.extraFieldLength);
+		const fileData = await readZipEntryData(this, zipHeader, {
+			shouldBuffer: Boolean(next.handler),
+		});
+
+		if (next.handler) {
+			await this.inflate(zipHeader, fileData, next.handler);
+		}
+
+		if (zipHeader.dataDescriptor) {
+			const dataDescriptor = new Uint8Array(zipDataDescriptorLengthInBytes);
+			await this.tokenizer.readBuffer(dataDescriptor);
+			if (UINT32_LE.get(dataDescriptor, 0) !== zipDataDescriptorSignature) {
+				throw new Error(`Expected data-descriptor-signature at position ${this.tokenizer.position - dataDescriptor.length}`);
+			}
+		}
+	} while (!stop);
 };
 
 function createByteLimitedReadableStream(stream, maximumBytes) {
@@ -4111,6 +4407,15 @@ function hasExceededUnknownSizeScanBudget(tokenizer, startOffset, maximumBytes) 
 	);
 }
 
+function getMaximumZipBufferedReadLength(tokenizer) {
+	const fileSize = tokenizer.fileInfo.size;
+	const remainingBytes = Number.isFinite(fileSize)
+		? Math.max(0, fileSize - tokenizer.position)
+		: Number.MAX_SAFE_INTEGER;
+
+	return Math.min(remainingBytes, maximumZipBufferedReadSizeInBytes);
+}
+
 function isRecoverableZipError(error) {
 	if (error instanceof EndOfStreamError) {
 		return true;
@@ -4128,10 +4433,7 @@ function isRecoverableZipError(error) {
 		return true;
 	}
 
-	if (
-		error instanceof TypeError
-		&& recoverableZipErrorCodes.has(error.code)
-	) {
+	if (recoverableZipErrorCodes.has(error.code)) {
 		return true;
 	}
 
@@ -4275,9 +4577,17 @@ class core_FileTypeParser {
 		this.tokenizerOptions = {
 			abortSignal: this.options.signal,
 		};
+		this.gzipProbeDepth = 0;
 	}
 
-	async fromTokenizer(tokenizer) {
+	getTokenizerOptions() {
+		return {
+			...this.tokenizerOptions,
+		};
+	}
+
+	async fromTokenizer(tokenizer, detectionReentryCount = 0) {
+		this.detectionReentryCount = detectionReentryCount;
 		const initialPosition = tokenizer.position;
 		// Iterate through all file-type detectors
 		for (const detector of this.detectors) {
@@ -4317,11 +4627,11 @@ class core_FileTypeParser {
 			return;
 		}
 
-		return this.fromTokenizer(fromBuffer(buffer, this.tokenizerOptions));
+		return this.fromTokenizer(fromBuffer(buffer, this.getTokenizerOptions()));
 	}
 
 	async fromBlob(blob) {
-		const tokenizer = fromBlob(blob, this.tokenizerOptions);
+		const tokenizer = fromBlob(blob, this.getTokenizerOptions());
 		try {
 			return await this.fromTokenizer(tokenizer);
 		} finally {
@@ -4330,7 +4640,7 @@ class core_FileTypeParser {
 	}
 
 	async fromStream(stream) {
-		const tokenizer = fromWebStream(stream, this.tokenizerOptions);
+		const tokenizer = fromWebStream(stream, this.getTokenizerOptions());
 		try {
 			return await this.fromTokenizer(tokenizer);
 		} finally {
@@ -4480,6 +4790,11 @@ class core_FileTypeParser {
 		// -- 3-byte signatures --
 
 		if (this.check([0xEF, 0xBB, 0xBF])) { // UTF-8-BOM
+			if (this.detectionReentryCount >= maximumDetectionReentryCount) {
+				return;
+			}
+
+			this.detectionReentryCount++;
 			// Strip off UTF-8-BOM
 			await this.tokenizer.ignore(3);
 			return this.detectConfident(tokenizer);
@@ -4500,10 +4815,18 @@ class core_FileTypeParser {
 		}
 
 		if (this.check([0x1F, 0x8B, 0x8])) {
+			if (this.gzipProbeDepth >= maximumNestedGzipProbeDepth) {
+				return {
+					ext: 'gz',
+					mime: 'application/gzip',
+				};
+			}
+
 			const gzipHandler = new GzipHandler(tokenizer);
 			const limitedInflatedStream = createByteLimitedReadableStream(gzipHandler.inflate(), maximumNestedGzipDetectionSizeInBytes);
 			let compressedFileType;
 			try {
+				this.gzipProbeDepth++;
 				compressedFileType = await this.fromStream(limitedInflatedStream);
 			} catch (error) {
 				if (error?.name === 'AbortError') {
@@ -4511,6 +4834,8 @@ class core_FileTypeParser {
 				}
 
 				// Decompression or inner-detection failures are expected for non-tar gzip files.
+			} finally {
+				this.gzipProbeDepth--;
 			}
 
 			// We only need enough inflated bytes to confidently decide whether this is tar.gz.
@@ -4577,7 +4902,12 @@ class core_FileTypeParser {
 				throw error;
 			}
 
-			return this.fromTokenizer(tokenizer); // Skip ID3 header, recursion
+			if (this.detectionReentryCount >= maximumDetectionReentryCount) {
+				return;
+			}
+
+			this.detectionReentryCount++;
+			return this.fromTokenizer(tokenizer, this.detectionReentryCount); // Skip ID3 header, recursion
 		}
 
 		// Musepack, SV7
@@ -4698,7 +5028,7 @@ class core_FileTypeParser {
 								stop: true,
 							};
 						case 'mimetype':
-							if (!canReadZipEntryForDetection(zipHeader)) {
+							if (!canReadZipEntryForDetection(zipHeader, maximumZipTextEntrySizeInBytes)) {
 								return {};
 							}
 
@@ -4714,8 +5044,7 @@ class core_FileTypeParser {
 						case '[Content_Types].xml': {
 							openXmlState.hasContentTypesEntry = true;
 
-							const maximumContentTypesEntrySize = hasUnknownFileSize(tokenizer) ? maximumZipEntrySizeInBytes : Number.MAX_SAFE_INTEGER;
-							if (!canReadZipEntryForDetection(zipHeader, maximumContentTypesEntrySize)) {
+							if (!canReadZipEntryForDetection(zipHeader, maximumZipTextEntrySizeInBytes)) {
 								openXmlState.hasUnparseableContentTypes = true;
 								return {};
 							}
@@ -4996,6 +5325,7 @@ class core_FileTypeParser {
 						return;
 					}
 
+					const previousPosition = tokenizer.position;
 					const element = await readElement();
 
 					if (element.id === 0x42_82) {
@@ -5025,6 +5355,11 @@ class core_FileTypeParser {
 						reason: 'EBML payload',
 					}); // ignore payload
 					--children;
+
+					// Safeguard against malformed files: bail if the position did not advance.
+					if (tokenizer.position <= previousPosition) {
+						return;
+					}
 				}
 			}
 
@@ -5410,11 +5745,18 @@ class core_FileTypeParser {
 
 			const isUnknownPngStream = hasUnknownFileSize(tokenizer);
 			const pngScanStart = tokenizer.position;
+			let pngChunkCount = 0;
 			do {
+				pngChunkCount++;
+				if (pngChunkCount > maximumPngChunkCount) {
+					break;
+				}
+
 				if (hasExceededUnknownSizeScanBudget(tokenizer, pngScanStart, maximumPngChunkSizeInBytes)) {
 					break;
 				}
 
+				const previousPosition = tokenizer.position;
 				const chunk = await readChunkHeader();
 				if (chunk.length < 0) {
 					return; // Invalid chunk length
@@ -5452,6 +5794,11 @@ class core_FileTypeParser {
 
 							throw error;
 						}
+				}
+
+				// Safeguard against malformed files: bail if the position did not advance.
+				if (tokenizer.position <= previousPosition) {
+					break;
 				}
 			} while (tokenizer.position + 8 < tokenizer.fileInfo.size);
 
@@ -5633,7 +5980,13 @@ class core_FileTypeParser {
 				});
 				const isUnknownFileSize = hasUnknownFileSize(tokenizer);
 				const asfHeaderScanStart = tokenizer.position;
+				let asfHeaderObjectCount = 0;
 				while (tokenizer.position + 24 < tokenizer.fileInfo.size) {
+					asfHeaderObjectCount++;
+					if (asfHeaderObjectCount > maximumAsfHeaderObjectCount) {
+						break;
+					}
+
 					if (hasExceededUnknownSizeScanBudget(tokenizer, asfHeaderScanStart, maximumUntrustedSkipSizeInBytes)) {
 						break;
 					}
@@ -6090,6 +6443,10 @@ class core_FileTypeParser {
 
 	async readTiffIFD(bigEndian) {
 		const numberOfTags = await this.tokenizer.readToken(bigEndian ? UINT16_BE : UINT16_LE);
+		if (numberOfTags > maximumTiffTagCount) {
+			return;
+		}
+
 		if (
 			hasUnknownFileSize(this.tokenizer)
 			&& (2 + (numberOfTags * 12)) > maximumTiffIfdOffsetInBytes
@@ -6254,7 +6611,7 @@ function isTokenizerStreamBoundsError(error) {
 
 class FileTypeParser extends core_FileTypeParser {
 	async fromStream(stream) {
-		const tokenizer = await (stream instanceof web_.ReadableStream ? fromWebStream(stream, this.tokenizerOptions) : lib_fromStream(stream, this.tokenizerOptions));
+		const tokenizer = await (stream instanceof web_.ReadableStream ? fromWebStream(stream, this.getTokenizerOptions()) : lib_fromStream(stream, this.getTokenizerOptions()));
 		try {
 			return await super.fromTokenizer(tokenizer);
 		} catch (error) {
