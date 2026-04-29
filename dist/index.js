@@ -3574,6 +3574,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 /***/ }),
 
+/***/ 3188:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tZG9tYWluLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiY3VzdG9tZG9tYWluLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIifQ==
+
+/***/ }),
+
 /***/ 7003:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
@@ -3584,8 +3594,10 @@ exports.RouteBases = exports.APIVersion = void 0;
 const tslib_1 = __nccwpck_require__(1860);
 tslib_1.__exportStar(__nccwpck_require__(4547), exports);
 tslib_1.__exportStar(__nccwpck_require__(8438), exports);
+tslib_1.__exportStar(__nccwpck_require__(3188), exports);
 tslib_1.__exportStar(__nccwpck_require__(1669), exports);
 tslib_1.__exportStar(__nccwpck_require__(9054), exports);
+tslib_1.__exportStar(__nccwpck_require__(9913), exports);
 tslib_1.__exportStar(__nccwpck_require__(5714), exports);
 tslib_1.__exportStar(__nccwpck_require__(7954), exports);
 tslib_1.__exportStar(__nccwpck_require__(496), exports);
@@ -3598,7 +3610,7 @@ exports.APIVersion = "2";
 exports.RouteBases = {
     api: `https://api.discloud.app/v${exports.APIVersion}`,
 };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsZ0RBQXNCO0FBQ3RCLGlEQUF1QjtBQUN2QixtREFBeUI7QUFDekIsbURBQXlCO0FBQ3pCLGlEQUF1QjtBQUN2QixtREFBeUI7QUFDekIsaURBQXVCO0FBRXZCOzs7O0dBSUc7QUFDVSxRQUFBLFVBQVUsR0FBRyxHQUFHLENBQUM7QUFFakIsUUFBQSxVQUFVLEdBQUc7SUFDeEIsR0FBRyxFQUFFLDZCQUE2QixrQkFBVSxFQUFFO0NBQ3RDLENBQUMifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsZ0RBQXNCO0FBQ3RCLGlEQUF1QjtBQUN2Qix5REFBK0I7QUFDL0IsbURBQXlCO0FBQ3pCLG1EQUF5QjtBQUN6QixzREFBNEI7QUFDNUIsaURBQXVCO0FBQ3ZCLG1EQUF5QjtBQUN6QixpREFBdUI7QUFFdkI7Ozs7R0FJRztBQUNVLFFBQUEsVUFBVSxHQUFHLEdBQUcsQ0FBQztBQUVqQixRQUFBLFVBQVUsR0FBRztJQUN4QixHQUFHLEVBQUUsNkJBQTZCLGtCQUFVLEVBQUU7Q0FDdEMsQ0FBQyJ9
 
 /***/ }),
 
@@ -3708,6 +3720,51 @@ exports.App = AppRoutes;
 
 /***/ }),
 
+/***/ 4543:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Customdomain = void 0;
+class CustomdomainRoutes {
+    /**
+     * - GET - `/customdomain/{domain}`
+     * - DELETE - `/customdomain/{domain}`
+     */
+    static customdomain(domain) {
+        return `/customdomain/${domain}`;
+    }
+    /**
+     * - POST - `/customdomain/create`
+     */
+    static customdomainCreate() {
+        return "/customdomain/create";
+    }
+    /**
+     * - PUT - `/customdomain/{domain}/edit`
+     */
+    static customdomainEdit(domain) {
+        return `/customdomain/${domain}/edit`;
+    }
+    /**
+     * - DELETE - `/customdomain/${domain}/remove`
+     */
+    static customdomainRemove(domain) {
+        return `/customdomain/${domain}/remove`;
+    }
+    /**
+     * - GET - `/customdomain/${domain}/verify`
+     */
+    static customdomainVerify(domain) {
+        return `/customdomain/${domain}/verify`;
+    }
+}
+exports.Customdomain = CustomdomainRoutes;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VzdG9tZG9tYWluLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ3VzdG9tZG9tYWluLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUlBLE1BQWUsa0JBQWtCO0lBQy9COzs7T0FHRztJQUNILE1BQU0sQ0FBQyxZQUFZLENBQXdCLE1BQWM7UUFDdkQsT0FBTyxpQkFBaUIsTUFBTSxFQUFFLENBQUM7SUFDbkMsQ0FBQztJQUVEOztPQUVHO0lBQ0gsTUFBTSxDQUFDLGtCQUFrQjtRQUN2QixPQUFPLHNCQUFzQixDQUFDO0lBQ2hDLENBQUM7SUFFRDs7T0FFRztJQUNILE1BQU0sQ0FBQyxnQkFBZ0IsQ0FBd0IsTUFBYztRQUMzRCxPQUFPLGlCQUFpQixNQUFNLE9BQU8sQ0FBQztJQUN4QyxDQUFDO0lBRUQ7O09BRUc7SUFDSCxNQUFNLENBQUMsa0JBQWtCLENBQXdCLE1BQWM7UUFDN0QsT0FBTyxpQkFBaUIsTUFBTSxTQUFTLENBQUM7SUFDMUMsQ0FBQztJQUVEOztPQUVHO0lBQ0gsTUFBTSxDQUFDLGtCQUFrQixDQUF3QixNQUFjO1FBQzdELE9BQU8saUJBQWlCLE1BQU0sU0FBUyxDQUFDO0lBQzFDLENBQUM7Q0FDRjtBQUVZLFFBQUEsWUFBWSxHQUFpQixrQkFBa0IsQ0FBQyJ9
+
+/***/ }),
+
 /***/ 7314:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -3725,6 +3782,45 @@ class LocaleRoutes {
 }
 exports.Locale = LocaleRoutes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9jYWxlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTG9jYWxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUlBLE1BQWUsWUFBWTtJQUN6Qjs7T0FFRztJQUNILE1BQU0sQ0FBQyxNQUFNLENBQXdCLE1BQWM7UUFDakQsT0FBTyxXQUFXLE1BQU0sRUFBRSxDQUFDO0lBQzdCLENBQUM7Q0FDRjtBQUVZLFFBQUEsTUFBTSxHQUFXLFlBQVksQ0FBQyJ9
+
+/***/ }),
+
+/***/ 1476:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Snapshot = void 0;
+class SnapshotRoutes {
+    static snapshot(appId, version) {
+        return appId ? version ? `/snapshot/${appId}/versions/${version}` : `/snapshot/${appId}` : "/snapshot";
+    }
+}
+exports.Snapshot = SnapshotRoutes;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU25hcHNob3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTbmFwc2hvdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFJQSxNQUFlLGNBQWM7SUFVM0IsTUFBTSxDQUFDLFFBQVEsQ0FBK0MsS0FBYSxFQUFFLE9BQWlCO1FBQzVGLE9BQU8sS0FBSyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLGFBQWEsS0FBSyxhQUFhLE9BQU8sRUFBRSxDQUFDLENBQUMsQ0FBQyxhQUFhLEtBQUssRUFBRSxDQUFDLENBQUMsQ0FBQyxXQUFXLENBQUM7SUFDekcsQ0FBQztDQUNGO0FBRVksUUFBQSxRQUFRLEdBQWEsY0FBYyxDQUFDIn0=
+
+/***/ }),
+
+/***/ 6764:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Subdomain = void 0;
+class SubdomainRoutes {
+    /**
+     * - GET - `/subdomain/{subdomain}`
+     * - POST - `/subdomain/{subdomain}`
+     * - DELETE - `/subdomain/{subdomain}`
+     */
+    static subdomain(subdomain) {
+        return `/subdomain/${subdomain}`;
+    }
+}
+exports.Subdomain = SubdomainRoutes;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3ViZG9tYWluLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU3ViZG9tYWluLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUlBLE1BQWUsZUFBZTtJQUM1Qjs7OztPQUlHO0lBQ0gsTUFBTSxDQUFDLFNBQVMsQ0FBMkIsU0FBb0I7UUFDN0QsT0FBTyxjQUFjLFNBQVMsRUFBRSxDQUFDO0lBQ25DLENBQUM7Q0FDRjtBQUVZLFFBQUEsU0FBUyxHQUFjLGVBQWUsQ0FBQyJ9
 
 /***/ }),
 
@@ -3844,7 +3940,10 @@ exports.User = UserRoutes;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Routes = void 0;
 const App_1 = __nccwpck_require__(7789);
+const Customdomain_1 = __nccwpck_require__(4543);
 const Locale_1 = __nccwpck_require__(7314);
+const Snapshot_1 = __nccwpck_require__(1476);
+const Subdomain_1 = __nccwpck_require__(6764);
 const Team_1 = __nccwpck_require__(73);
 const Upload_1 = __nccwpck_require__(6061);
 const User_1 = __nccwpck_require__(2523);
@@ -3864,8 +3963,18 @@ class RoutesIndexer {
     static appStatus = App_1.App.status;
     static appStop = App_1.App.stop;
     static appTeam = App_1.App.team;
+    // customdomain
+    static customdomain = Customdomain_1.Customdomain.customdomain;
+    static customdomainCreate = Customdomain_1.Customdomain.customdomainCreate;
+    static customdomainEdit = Customdomain_1.Customdomain.customdomainEdit;
+    static customdomainRemove = Customdomain_1.Customdomain.customdomainRemove;
+    static customdomainVerify = Customdomain_1.Customdomain.customdomainVerify;
     // locale
     static locale = Locale_1.Locale.locale;
+    // snapshot
+    static snapshot = Snapshot_1.Snapshot.snapshot;
+    // subdmain
+    static subdmain = Subdomain_1.Subdomain.subdomain;
     // team
     static team = Team_1.Team.team;
     static teamBackup = Team_1.Team.backup;
@@ -3882,7 +3991,17 @@ class RoutesIndexer {
     static user = User_1.User.user;
 }
 exports.Routes = RoutesIndexer;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSwrQkFBNEI7QUFDNUIscUNBQWtDO0FBQ2xDLGlDQUE4QjtBQUM5QixxQ0FBa0M7QUFDbEMsaUNBQThCO0FBSTlCLE1BQWUsYUFBYTtJQUMxQixNQUFNO0lBQ04sTUFBTSxDQUFDLEdBQUcsR0FBRyxTQUFHLENBQUMsR0FBRyxDQUFDO0lBQ3JCLE1BQU0sQ0FBQyxNQUFNLEdBQUcsU0FBRyxDQUFDLEdBQUcsQ0FBQztJQUN4QixNQUFNLENBQUMsU0FBUyxHQUFHLFNBQUcsQ0FBQyxNQUFNLENBQUM7SUFDOUIsTUFBTSxDQUFDLFNBQVMsR0FBRyxTQUFHLENBQUMsTUFBTSxDQUFDO0lBQzlCLE1BQU0sQ0FBQyxVQUFVLEdBQUcsU0FBRyxDQUFDLE9BQU8sQ0FBQztJQUNoQyxNQUFNLENBQUMsU0FBUyxHQUFHLFNBQUcsQ0FBQyxNQUFNLENBQUM7SUFDOUIsTUFBTSxDQUFDLE9BQU8sR0FBRyxTQUFHLENBQUMsSUFBSSxDQUFDO0lBQzFCLE1BQU0sQ0FBQyxVQUFVLEdBQUcsU0FBRyxDQUFDLE9BQU8sQ0FBQztJQUNoQyxNQUFNLENBQUMsTUFBTSxHQUFHLFNBQUcsQ0FBQyxHQUFHLENBQUM7SUFDeEIsTUFBTSxDQUFDLFVBQVUsR0FBRyxTQUFHLENBQUMsT0FBTyxDQUFDO0lBQ2hDLE1BQU0sQ0FBQyxRQUFRLEdBQUcsU0FBRyxDQUFDLEtBQUssQ0FBQztJQUM1QixNQUFNLENBQUMsU0FBUyxHQUFHLFNBQUcsQ0FBQyxNQUFNLENBQUM7SUFDOUIsTUFBTSxDQUFDLE9BQU8sR0FBRyxTQUFHLENBQUMsSUFBSSxDQUFDO0lBQzFCLE1BQU0sQ0FBQyxPQUFPLEdBQUcsU0FBRyxDQUFDLElBQUksQ0FBQztJQUUxQixTQUFTO0lBQ1QsTUFBTSxDQUFDLE1BQU0sR0FBRyxlQUFNLENBQUMsTUFBTSxDQUFDO0lBRTlCLE9BQU87SUFDUCxNQUFNLENBQUMsSUFBSSxHQUFHLFdBQUksQ0FBQyxJQUFJLENBQUM7SUFDeEIsTUFBTSxDQUFDLFVBQVUsR0FBRyxXQUFJLENBQUMsTUFBTSxDQUFDO0lBQ2hDLE1BQU0sQ0FBQyxVQUFVLEdBQUcsV0FBSSxDQUFDLE1BQU0sQ0FBQztJQUNoQyxNQUFNLENBQUMsUUFBUSxHQUFHLFdBQUksQ0FBQyxJQUFJLENBQUM7SUFDNUIsTUFBTSxDQUFDLE9BQU8sR0FBRyxXQUFJLENBQUMsR0FBRyxDQUFDO0lBQzFCLE1BQU0sQ0FBQyxXQUFXLEdBQUcsV0FBSSxDQUFDLE9BQU8sQ0FBQztJQUNsQyxNQUFNLENBQUMsU0FBUyxHQUFHLFdBQUksQ0FBQyxLQUFLLENBQUM7SUFDOUIsTUFBTSxDQUFDLFVBQVUsR0FBRyxXQUFJLENBQUMsTUFBTSxDQUFDO0lBQ2hDLE1BQU0sQ0FBQyxRQUFRLEdBQUcsV0FBSSxDQUFDLElBQUksQ0FBQztJQUU1QixTQUFTO0lBQ1QsTUFBTSxDQUFDLE1BQU0sR0FBRyxlQUFNLENBQUMsTUFBTSxDQUFDO0lBRTlCLE9BQU87SUFDUCxNQUFNLENBQUMsSUFBSSxHQUFHLFdBQUksQ0FBQyxJQUFJLENBQUM7O0FBR2IsUUFBQSxNQUFNLEdBQVcsYUFBYSxDQUFDIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSwrQkFBNEI7QUFDNUIsaURBQThDO0FBQzlDLHFDQUFrQztBQUNsQyx5Q0FBc0M7QUFDdEMsMkNBQXdDO0FBQ3hDLGlDQUE4QjtBQUM5QixxQ0FBa0M7QUFDbEMsaUNBQThCO0FBSTlCLE1BQWUsYUFBYTtJQUMxQixNQUFNO0lBQ04sTUFBTSxDQUFDLEdBQUcsR0FBRyxTQUFHLENBQUMsR0FBRyxDQUFDO0lBQ3JCLE1BQU0sQ0FBQyxNQUFNLEdBQUcsU0FBRyxDQUFDLEdBQUcsQ0FBQztJQUN4QixNQUFNLENBQUMsU0FBUyxHQUFHLFNBQUcsQ0FBQyxNQUFNLENBQUM7SUFDOUIsTUFBTSxDQUFDLFNBQVMsR0FBRyxTQUFHLENBQUMsTUFBTSxDQUFDO0lBQzlCLE1BQU0sQ0FBQyxVQUFVLEdBQUcsU0FBRyxDQUFDLE9BQU8sQ0FBQztJQUNoQyxNQUFNLENBQUMsU0FBUyxHQUFHLFNBQUcsQ0FBQyxNQUFNLENBQUM7SUFDOUIsTUFBTSxDQUFDLE9BQU8sR0FBRyxTQUFHLENBQUMsSUFBSSxDQUFDO0lBQzFCLE1BQU0sQ0FBQyxVQUFVLEdBQUcsU0FBRyxDQUFDLE9BQU8sQ0FBQztJQUNoQyxNQUFNLENBQUMsTUFBTSxHQUFHLFNBQUcsQ0FBQyxHQUFHLENBQUM7SUFDeEIsTUFBTSxDQUFDLFVBQVUsR0FBRyxTQUFHLENBQUMsT0FBTyxDQUFDO0lBQ2hDLE1BQU0sQ0FBQyxRQUFRLEdBQUcsU0FBRyxDQUFDLEtBQUssQ0FBQztJQUM1QixNQUFNLENBQUMsU0FBUyxHQUFHLFNBQUcsQ0FBQyxNQUFNLENBQUM7SUFDOUIsTUFBTSxDQUFDLE9BQU8sR0FBRyxTQUFHLENBQUMsSUFBSSxDQUFDO0lBQzFCLE1BQU0sQ0FBQyxPQUFPLEdBQUcsU0FBRyxDQUFDLElBQUksQ0FBQztJQUUxQixlQUFlO0lBQ2YsTUFBTSxDQUFDLFlBQVksR0FBRywyQkFBWSxDQUFDLFlBQVksQ0FBQztJQUNoRCxNQUFNLENBQUMsa0JBQWtCLEdBQUcsMkJBQVksQ0FBQyxrQkFBa0IsQ0FBQztJQUM1RCxNQUFNLENBQUMsZ0JBQWdCLEdBQUcsMkJBQVksQ0FBQyxnQkFBZ0IsQ0FBQztJQUN4RCxNQUFNLENBQUMsa0JBQWtCLEdBQUcsMkJBQVksQ0FBQyxrQkFBa0IsQ0FBQztJQUM1RCxNQUFNLENBQUMsa0JBQWtCLEdBQUcsMkJBQVksQ0FBQyxrQkFBa0IsQ0FBQztJQUU1RCxTQUFTO0lBQ1QsTUFBTSxDQUFDLE1BQU0sR0FBRyxlQUFNLENBQUMsTUFBTSxDQUFDO0lBRTlCLFdBQVc7SUFDWCxNQUFNLENBQUMsUUFBUSxHQUFHLG1CQUFRLENBQUMsUUFBUSxDQUFDO0lBRXBDLFdBQVc7SUFDWCxNQUFNLENBQUMsUUFBUSxHQUFHLHFCQUFTLENBQUMsU0FBUyxDQUFDO0lBRXRDLE9BQU87SUFDUCxNQUFNLENBQUMsSUFBSSxHQUFHLFdBQUksQ0FBQyxJQUFJLENBQUM7SUFDeEIsTUFBTSxDQUFDLFVBQVUsR0FBRyxXQUFJLENBQUMsTUFBTSxDQUFDO0lBQ2hDLE1BQU0sQ0FBQyxVQUFVLEdBQUcsV0FBSSxDQUFDLE1BQU0sQ0FBQztJQUNoQyxNQUFNLENBQUMsUUFBUSxHQUFHLFdBQUksQ0FBQyxJQUFJLENBQUM7SUFDNUIsTUFBTSxDQUFDLE9BQU8sR0FBRyxXQUFJLENBQUMsR0FBRyxDQUFDO0lBQzFCLE1BQU0sQ0FBQyxXQUFXLEdBQUcsV0FBSSxDQUFDLE9BQU8sQ0FBQztJQUNsQyxNQUFNLENBQUMsU0FBUyxHQUFHLFdBQUksQ0FBQyxLQUFLLENBQUM7SUFDOUIsTUFBTSxDQUFDLFVBQVUsR0FBRyxXQUFJLENBQUMsTUFBTSxDQUFDO0lBQ2hDLE1BQU0sQ0FBQyxRQUFRLEdBQUcsV0FBSSxDQUFDLElBQUksQ0FBQztJQUU1QixTQUFTO0lBQ1QsTUFBTSxDQUFDLE1BQU0sR0FBRyxlQUFNLENBQUMsTUFBTSxDQUFDO0lBRTlCLE9BQU87SUFDUCxNQUFNLENBQUMsSUFBSSxHQUFHLFdBQUksQ0FBQyxJQUFJLENBQUM7O0FBR2IsUUFBQSxNQUFNLEdBQVcsYUFBYSxDQUFDIn0=
+
+/***/ }),
+
+/***/ 9913:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3ViZG9tYWluLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic3ViZG9tYWluLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIifQ==
 
 /***/ }),
 
@@ -3933,9 +4052,9 @@ tslib_1.__exportStar(__nccwpck_require__(7003), exports);
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
-var st=Object.create;var w=Object.defineProperty;var at=Object.getOwnPropertyDescriptor;var ct=Object.getOwnPropertyNames;var lt=Object.getPrototypeOf,ut=Object.prototype.hasOwnProperty;var pt=(e,t)=>{for(var r in t)w(e,r,{get:t[r],enumerable:!0})},L=(e,t,r,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let n of ct(t))!ut.call(e,n)&&n!==r&&w(e,n,{get:()=>t[n],enumerable:!(i=at(t,n))||i.enumerable});return e};var B=(e,t,r)=>(r=e!=null?st(lt(e)):{},L(t||!e||!e.__esModule?w(r,"default",{value:e,enumerable:!0}):r,e)),ft=e=>L(w({},"__esModule",{value:!0}),e);var Lt={};pt(Lt,{BitField:()=>x,DiscloudConfig:()=>O,Ignore:()=>m,MissingMainError:()=>b,ModPermissionsBF:()=>G,ModPermissionsFlags:()=>v,bindFunctions:()=>Et,calculatePercentage:()=>Gt,fileNamePattern:()=>St,filenamePattern:()=>D,fsGlob:()=>At,fsGlobIterate:()=>Z,glob:()=>Ct,globIterate:()=>et,importJSON:()=>Dt,mergeDefaults:()=>ot,resolveFile:()=>J,resolveFileSync:()=>xt,streamToBlob:()=>Rt,streamToFile:()=>C,version:()=>kt});module.exports=ft(Lt);var Ne=__nccwpck_require__(7959);var x=class e{static DefaultBit=0;static Flags={};constructor(...t){this.bitField=this.constructor.resolve(t??this.constructor.DefaultBit)}add(...t){let r=t.reduce((i,n)=>i|this.constructor.resolve(n),this.constructor.DefaultBit);return Object.isFrozen(this)?new this.constructor(this.bitField|r):(this.bitField|=r,this)}any(...t){return(this.bitField&this.constructor.resolve(t))!==this.constructor.DefaultBit}equals(...t){return this.bitField===this.constructor.resolve(t)}freeze(){return Object.freeze(this)}has(...t){let r=this.constructor.resolve(t);return(this.bitField&r)===r}missing(...t){return new this.constructor(t).remove(this).toArray()}remove(...t){let r=t.reduce((i,n)=>i|this.constructor.resolve(n),this.constructor.DefaultBit);return Object.isFrozen(this)?new this.constructor(this.bitField&~r):(this.bitField&=~r,this)}serialize(){let t={};for(let r in this.constructor.Flags)isNaN(r)&&(t[r]=this.has(this.constructor.Flags[r]));return t}set(...t){return Object.isFrozen(this)?new this.constructor(t):(this.bitField=this.constructor.resolve(t),this)}toArray(){return this[Symbol.iterator]().toArray?.()??Array.from(this[Symbol.iterator]())}toJSON(){return typeof this.bitField=="number"?this.bitField:`${this.bitField}`}toString(){return`${this.bitField}`}valueOf(){return this.bitField}*[Symbol.iterator](){for(let t in this.constructor.Flags)isNaN(t)&&this.has(this.constructor.Flags[t])&&(yield t)}static resolve(t){if(t instanceof e)return t.bitField;let r=this.DefaultBit;if(Array.isArray(t))return t.reduce((i,n)=>i|this.resolve(n),r);if(typeof r==typeof t&&t>=r)return t;if(typeof t=="string"){if(this.Flags[t]!==void 0)return this.Flags[t];if(!isNaN(Number(t)))return typeof r=="bigint"?BigInt(t):Number(t)}throw new RangeError(`Invalid BitField: ${t}`)}},W=x;var P=__nccwpck_require__(2287),u=__nccwpck_require__(9896),p=__nccwpck_require__(1943),l=__nccwpck_require__(6928),$=__nccwpck_require__(9611);var s=__nccwpck_require__(2287),o=B(__nccwpck_require__(924)),mt=/^(current|latest|lts|suja|(?:\d+(?:\.(?:\d+|x)){0,2}))$/,dt=/\s*,\s*/,g=o.default.string().max(0),yt=o.default.union([o.default.array(o.default.string()),o.default.string().trim().refine(e=>e.split(dt))]),gt=o.default.object({[s.DiscloudConfigScopes.MAIN]:o.default.string().min(1)}),ht=o.default.object({[s.DiscloudConfigScopes.APT]:yt,[s.DiscloudConfigScopes.AUTORESTART]:o.default.coerce.boolean(),[s.DiscloudConfigScopes.AVATAR]:o.default.url().or(g),[s.DiscloudConfigScopes.HOSTNAME]:o.default.string(),[s.DiscloudConfigScopes.ID]:o.default.string(),[s.DiscloudConfigScopes.MAIN]:o.default.string(),[s.DiscloudConfigScopes.NAME]:o.default.string(),[s.DiscloudConfigScopes.RAM]:o.default.coerce.number().min(100).or(g),[s.DiscloudConfigScopes.START]:o.default.string(),[s.DiscloudConfigScopes.STORAGE]:o.default.string(),[s.DiscloudConfigScopes.TYPE]:o.default.enum(["bot","site"]).or(g),[s.DiscloudConfigScopes.VERSION]:o.default.string().trim().regex(mt).or(g),[s.DiscloudConfigScopes.VLAN]:o.default.coerce.boolean()}).partial(),bt=o.default.object({[s.DiscloudConfigScopes.TYPE]:o.default.string().refine(e=>!e||e==="bot").optional()}),Ft=o.default.object({[s.DiscloudConfigScopes.TYPE]:o.default.string().refine(e=>e==="site"),[s.DiscloudConfigScopes.ID]:o.default.string().min(1),[s.DiscloudConfigScopes.RAM]:o.default.coerce.number().min(512).or(g).optional()}),M=gt.and(ht).and(o.default.union([Ft,bt]));var R=class{constructor(t,r,i){this.line=t;this.character=r;this.content=i}toString(){return this.content}toJSON(){return Object.assign({},this)}};var h=class e{static char="#";static pattern=/(?<content>\s*#.*$)/;static match(t){return e.pattern.exec(t)}#t=new Map;get size(){return this.#t.size}clear(){this.#t.clear()}delete(t){return this.#t.delete(t)}get(t){return this.#t.get(t)}parse(t,r){let i=e.match(r);if(!i)return r;if(this.set(t,i.index,i.groups.content),!(i.index<1))return r.substring(0,i.index)}set(t,r,i){let n=new R(t,r,i);this.#t.set(r,n)}toJSON(){return this.#t.values().toArray()}*values(){yield*this.#t.values()}[Symbol.dispose](){this.clear()}*[Symbol.iterator](){yield*this.#t.values()}};var b=class extends Error{name="MissingMain"};var F=__nccwpck_require__(2287),S=class e{constructor(t){this._commentRepository=t}static arraySplitterPattern=/\s*,\s*/g;static arraySplitterCharacter=",";static assignmentCharacter="=";static lineBreakCharacter=`
-`;static lineBreakSplitterPattern=/[\r\n]+/g;static falseString="false";static trueString="true";static stringBoolean=new Set([e.falseString,e.trueString]);parse(t){let r=t.split(e.lineBreakSplitterPattern),i=Object.fromEntries(Array.from(this.#t(r)));return this.#r(i)}*#t(t){this._commentRepository.clear();for(let r=0;r<t.length;r++){let i=this._commentRepository.parse(r,t[r].trimEnd());i&&(yield i.split(e.assignmentCharacter))}}#r(t){let r=F.DiscloudConfigScopes.APT;return r in t&&(t[r]=t[r].split(e.arraySplitterPattern).filter(Boolean)),r=F.DiscloudConfigScopes.AUTORESTART,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),r=F.DiscloudConfigScopes.RAM,r in t&&t[r]&&(t[r]=Number(t[r])),r=F.DiscloudConfigScopes.VLAN,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),t}stringify(t){return this.#i(this.#e(t))}#e(t){switch(typeof t){case"bigint":case"boolean":case"number":return`${t}`;case"object":{if(t===null)return"";let r=[];if(Array.isArray(t)){for(let i=0;i<t.length;i++)r.push(this.#e(t[i]));return r.join(e.arraySplitterCharacter)}for(let i in t)r.push(`${i}${e.assignmentCharacter}${this.#e(t[i])}`);return r.join(e.lineBreakCharacter)}case"string":return t;case"symbol":return String(t);default:return""}}#i(t){if(!this._commentRepository.size)return t;if(!Array.isArray(t))return this.#i(t.split(e.lineBreakSplitterPattern));for(let r of this._commentRepository){if(r.character){t[r.line]+=r.content;continue}t.splice(r.line,0,r.content)}return t.join(e.lineBreakCharacter)}};var N="utf8",O=class e{constructor(t,r){this.path=t;if(!r){this.path=e.#r(this.path);try{r=(0,u.readFileSync)(this.path,N)}catch{}}this.#s=(0,l.dirname)(this.path),this.#n=this.#a(r)}static filename="discloud.config";static async fromPath(t){t=await this.#t(t);let r=await(0,p.readFile)(t,N).catch(()=>null);return new e(t,r)}static async#t(t){let r=await(0,p.stat)(t).catch(()=>null);return e.#e(t,r)}static#r(t){let r=(0,u.statSync)(t,{throwIfNoEntry:!1});return e.#e(t,r)}static#e(t,r){return r?.isFile()&&(0,l.basename)(t)!==e.filename&&(t=(0,l.dirname)(t)),(0,l.basename)(t)!==e.filename&&(t=(0,l.join)(t,e.filename)),t}static validade(t){let r=M.safeParse(t);if(!r.success)throw(0,$.fromZodError)(r.error)}#i=new h;#o=new S(this.#i);#n={};#s;get data(){return this.#n}get exists(){return(0,u.existsSync)(this.path)}get mainFileExt(){if(this.data.MAIN)return(0,l.extname)(this.data.MAIN)}get missingProps(){return this.#c.filter(t=>!this.data[t])}get#c(){return P.discloudConfigRequiredScopes[this.data.TYPE||"common"]??P.discloudConfigRequiredScopes.common}dispose(){this._watcher&&(this._watcher.removeAllListeners().close(),delete this._watcher),this.#i.clear()}async existsMain(){if(!this.data.MAIN)return!1;try{return await(0,p.stat)((0,l.join)(this.#s,this.data.MAIN)).then(t=>t.isFile())}catch{return!1}}get(t){return this.data[t]}async set(t,r){await this.update({[t]:r})}async update(t){t=Object.assign(this.data,t);let r=this.#p(t);await(0,p.writeFile)(this.path,r,N)}async validate(t){if(t)try{return await this.validate(),!0}catch{return!1}if(e.validade(this.data),!await this.existsMain())throw new b}watch(){return(0,u.existsSync)(this.path)&&(this._watcher??=(0,u.watch)(this.path,{persistent:!1}).on("change",()=>this.#l()).on("close",()=>this.dispose())),this}async#l(){(0,u.existsSync)(this.path)&&(this.#n=await this.#u())}#a(t){return typeof t!="string"?{}:this.#o.parse(t)}async#u(){let t=await(0,p.readFile)(this.path,N);return this.#a(t)}#p(t){return this.#o.stringify(t)}[Symbol.dispose](){this.dispose()}};var I=__nccwpck_require__(9896),z=__nccwpck_require__(6928),U=__nccwpck_require__(2203),V=__nccwpck_require__(8253),D=/.*\/+([^?#]+)(?:[?#].*)?/,St=D,wt=/^(?:https?):\/\//;async function J(e,t){if(e instanceof File)return e;let r=await __nccwpck_require__.e(/* import() */ 266).then(__nccwpck_require__.bind(__nccwpck_require__, 6266));if(e instanceof URL||typeof e=="string"){if(e instanceof URL&&(e=e.toString()),t??=e.match(D)?.pop(),wt.test(e)){let i=await fetch(e);if(!i.ok)throw i;let n=await i.blob(),c=await r.fileTypeFromBlob(n);return new File([n],t??`file.${c?.ext}`,{type:c?.mime})}return(0,I.existsSync)(e)?C((0,I.createReadStream)(e),t??(0,z.basename)(e)):new File([e],t??"file")}if(e instanceof Blob){let i=await r.fileTypeFromBlob(e);return new File([e],t??`file.${i?.ext}`,{type:i?.mime})}if(Buffer.isBuffer(e)){let i=await r.fileTypeFromBuffer(e);return new File([e],t??`file.${i?.ext}`)}if((0,V.isArrayBufferView)(e))return new File([e],t??"file");if(e instanceof U.Stream){let i=await r.fileTypeFromStream(e);return C(e,t??`file.${i?.ext}`,i?.mime)}if("data"in e)return e.data instanceof File?e.data:e.contentType?new File([e.data],e.name,{type:e.contentType}):J(e.data,t);throw new TypeError("Invalid file type was provided.")}function xt(e,t){if(e instanceof File)return e;if(typeof e=="string")return new File([e],t);if(e instanceof Blob)return new File([e],t);if(Buffer.isBuffer(e))return new File([e],t);if("data"in e)return e.data instanceof File?e.data:new File([e.data],e.name,{type:e.contentType});throw new TypeError("Invalid file type was provided.")}function C(e,t,r){return new Promise((i,n)=>{let c=[];e.on("data",f=>c.push(f)).once("end",function(){e.removeAllListeners(),i(new File(c,t??"file",{type:r}))}).once("error",function(f){e.removeAllListeners(),n(f)})})}function Rt(e,t){return new Promise((r,i)=>{let n=[];e.on("data",c=>n.push(c)).once("end",function(){e.removeAllListeners(),r(new Blob(n,{type:t}))}).once("error",function(c){e.removeAllListeners(),i(c)})})}var d=__nccwpck_require__(1943),X=__nccwpck_require__(6928);var Nt=typeof Array.fromAsync=="function";async function y(e){if(Nt)return Array.fromAsync(e);let t=[];for await(let r of e)t.push(r);return t}var T=".discloudignore";var K=__nccwpck_require__(9896),Y=__nccwpck_require__(1943),q=__nccwpck_require__(8941),H=__nccwpck_require__(1067),j=__nccwpck_require__(6928);var A=__nccwpck_require__(6928),It=__dirname,Tt=(0,A.dirname)(It);function _(...e){return(0,A.join)(Tt,...e)}var m=class e{constructor(t){this.filename=t}static async globify(t,r,i){let n=[],c=await(0,H.globifyGitIgnore)(t,r,i);for(let f=0;f<c.length;f++){let k=c[f];k.included||n.push(k.glob)}return n}static async#t(t){let r=[];if((0,K.existsSync)(t)){let i=await(0,Y.readFile)(t,"utf8");r.push(await e.globify(i,(0,j.dirname)(t)))}return r.flat()}static async#r(t){let r=[];for(let n=0;n<t.length;n++)r.push(e.#t(t[n]));return(await Promise.all(r)).flat()}static resolveIgnoreFile(t){return e.#t(t)}static resolveIgnoreFiles(t){return e.#r(t)}getIgnorePatterns(t){return y(this._getIgnoreIterate(t)).then(r=>r.flat())}async*_getIgnoreIterate(t){let r=_(this.filename),i=await e.resolveIgnoreFile(r);for await(let n of this._findIgnoreFiles(i,t))yield e.#t(n)}async*_findIgnoreFiles(t,r){yield*(0,q.globIterate)(`**/${this.filename}`,{cwd:r,dot:!0,ignore:t,nodir:!0})}};function At(e,t){return y(Z(e,t))}async function*Z(e,t){t??={},t.cwd??=process.cwd();let r=new m(T);if(t.exclude=await r.getIgnorePatterns(t.cwd),t.withFileTypes)return yield*Pt(e,t);yield*vt(e,t)}async function*vt(e,t){if(!t.withDirectories)return yield*Bt(e,t);yield*(0,d.glob)(e,t)}async function*Bt(e,t){for await(let r of(0,d.glob)(e,t)){let i=(0,X.join)(t.cwd,r);(await(0,d.stat)(i)).isFile()&&(yield r)}}async function*Pt(e,t){if(!t.withDirectories)return yield*Ot(e,t);yield*(0,d.glob)(e,t)}async function*Ot(e,t){for await(let r of(0,d.glob)(e,t))r.isFile()&&(yield r)}var Q=B(__nccwpck_require__(8941)),tt=__nccwpck_require__(857);function Ct(e,t){return y(et(e,t))}async function*et(e,t){let i=await new m(T).getIgnorePatterns(t);yield*Q.globIterate(e,{cwd:t,dot:!0,ignore:i,nodir:!0,windowsPathsNoEscape:(0,tt.type)()==="Windows_NT"})}var rt=__nccwpck_require__(9896),it=__nccwpck_require__(1943),nt=__nccwpck_require__(6928),E={};function Dt(e,t){return e=(0,nt.normalize)(e),t?E[e]??(0,it.readFile)(e,"utf8").then(r=>E[e]??=JSON.parse(r)):E[e]??=JSON.parse((0,rt.readFileSync)(e,"utf8"))}var v=(a=>(a[a.backup_app=1]="backup_app",a[a.commit_app=2]="commit_app",a[a.edit_ram=4]="edit_ram",a[a.logs_app=8]="logs_app",a[a.restart_app=16]="restart_app",a[a.start_app=32]="start_app",a[a.status_app=64]="status_app",a[a.stop_app=128]="stop_app",a))(v||{}),G=class e extends W{static DefaultBit=0;static Flags=v;static All=new e(Object.keys(v))};function Et(e,t){if(e){t??=e;for(let r of Object.getOwnPropertyNames(Object.getPrototypeOf(e)))try{typeof e[r]=="function"&&(t[r]=e[r].bind(t))}catch{}}}function Gt(e,t){return Number((Number(e)/Number(t)*100).toFixed(2))}function ot(e,t){if(t===null)return t;if(t===void 0)return e;for(let r in e)typeof t[r]=="object"?t[r]=ot(e[r],t[r]):t[r]??=e[r];return t}var kt="1.2.8";0&&(0);
-//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiaDovY29kZS9kaXNjbG91ZC9kaXNjbG91ZC5hcHAvcGFja2FnZXMvdXRpbC9zcmMvaW5kZXgudHMiLCAiLi4vc3JjL0JpdEZpZWxkLnRzIiwgIi4uL3NyYy9jb25maWcvY29uZmlnLnRzIiwgIi4uL3NyYy9jb25maWcvYXNzZXJ0aW9ucy50cyIsICIuLi9zcmMvY29uZmlnL2NvbW1lbnRzL2VudGl0eS50cyIsICIuLi9zcmMvY29uZmlnL2NvbW1lbnRzL3JlcG9zaXRvcnkudHMiLCAiLi4vc3JjL2NvbmZpZy9lcnJvcnMudHMiLCAiLi4vc3JjL2NvbmZpZy9wYXJzZXIudHMiLCAiLi4vc3JjL0ZpbGVSZXNvbHZlci50cyIsICIuLi9zcmMvZ2xvYi9mc0dsb2IudHMiLCAiLi4vc3JjL3V0aWxzL2FycmF5LnRzIiwgIi4uL3NyYy9nbG9iL2NvbnN0YW50cy50cyIsICIuLi9zcmMvZ2xvYi9pZ25vcmUudHMiLCAiLi4vc3JjL3BhdGgudHMiLCAiLi4vc3JjL2dsb2IvZ2xvYi50cyIsICIuLi9zcmMvSlNPTi50cyIsICIuLi9zcmMvTW9kUGVybWlzc2lvbnNCRi50cyIsICIuLi9zcmMvdXRpbHMudHMiXSwKICAibWFwcGluZ3MiOiAic2tCQUFBLElBQUFBLEdBQUEsR0FBQUMsR0FBQUQsR0FBQSxjQUFBRSxFQUFBLG1CQUFBQyxFQUFBLFdBQUFDLEVBQUEscUJBQUFDLEVBQUEscUJBQUFDLEVBQUEsd0JBQUFDLEVBQUEsa0JBQUFDLEdBQUEsd0JBQUFDLEdBQUEsb0JBQUFDLEdBQUEsb0JBQUFDLEVBQUEsV0FBQUMsR0FBQSxrQkFBQUMsRUFBQSxTQUFBQyxHQUFBLGdCQUFBQyxHQUFBLGVBQUFDLEdBQUEsa0JBQUFDLEdBQUEsZ0JBQUFDLEVBQUEsb0JBQUFDLEdBQUEsaUJBQUFDLEdBQUEsaUJBQUFDLEVBQUEsWUFBQUMsS0FBQSxlQUFBQyxHQUFBdkIsSUFBQSxJQUFBd0IsR0FBTyx1Q0NxQkEsSUFBZUMsRUFBZixNQUFlQyxDQUFlLENBQ25D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QUMsSUFBU0QsRUFFVCxRQUFXRSxLQUFnQixPQUFPLG9CQUFvQixPQUFPLGVBQWVGLENBQVEsQ0FBQyxFQUNuRixHQUFJLENBQ0UsT0FBT0EsRUFBU0UsQ0FBWSxHQUFNLGFBQ3BDRCxFQUFLQyxDQUFZLEVBQUlGLEVBQVNFLENBQVksRUFBRSxLQUFLRCxDQUFJLEVBQ3pELE1BQVEsQ0FBRSxFQUVkLENBRU8sU0FBU0UsR0FBb0JDLEVBQXdCQyxFQUF3QixDQUNsRixPQUFPLFFBQVEsT0FBT0QsQ0FBSyxFQUFJLE9BQU9DLENBQUssRUFBSSxLQUFLLFFBQVEsQ0FBQyxDQUFDLENBQ2hFLENBRU8sU0FBU0MsR0FBMENDLEVBQWFDLEVBQXdCLENBQzdGLEdBQUlBLElBQVksS0FBTSxPQUFPQSxFQUM3QixHQUFJQSxJQUFZLE9BQVcsT0FBT0QsRUFFbEMsUUFBV0UsS0FBT0YsRUFDWixPQUFPQyxFQUFRQyxDQUFHLEdBQU0sU0FDMUJELEVBQVFDLENBQWMsRUFBSUgsR0FBY0MsRUFBU0UsQ0FBRyxFQUFHRCxFQUFRQyxDQUFHLENBQUUsRUFFcEVELEVBQVFDLENBQWMsSUFBTUYsRUFBU0UsQ0FBRyxFQUk1QyxPQUFPRCxDQUNULENqQnRCTyxJQUFNRSxHQUFrQiIsCiAgIm5hbWVzIjogWyJpbmRleF9leHBvcnRzIiwgIl9fZXhwb3J0IiwgIkJpdEZpZWxkIiwgIkRpc2Nsb3VkQ29uZmlnIiwgIklnbm9yZSIsICJNaXNzaW5nTWFpbkVycm9yIiwgIk1vZFBlcm1pc3Npb25zQkYiLCAiTW9kUGVybWlzc2lvbnNGbGFncyIsICJiaW5kRnVuY3Rpb25zIiwgImNhbGN1bGF0ZVBlcmNlbnRhZ2UiLCAiZmlsZU5hbWVQYXR0ZXJuIiwgImZpbGVuYW1lUGF0dGVybiIsICJmc0dsb2IiLCAiZnNHbG9iSXRlcmF0ZSIsICJnbG9iIiwgImdsb2JJdGVyYXRlIiwgImltcG9ydEpTT04iLCAibWVyZ2VEZWZhdWx0cyIsICJyZXNvbHZlRmlsZSIsICJyZXNvbHZlRmlsZVN5bmMiLCAic3RyZWFtVG9CbG9iIiwgInN0cmVhbVRvRmlsZSIsICJ2ZXJzaW9uIiwgIl9fdG9Db21tb25KUyIsICJpbXBvcnRfcmVnaXN0ZXIiLCAiQml0RmllbGQiLCAiX0JpdEZpZWxkIiwgImJpdHMiLCAidG90YWwiLCAicCIsICJiIiwgImJpdCIsICJzZXJpYWxpemVkIiwgImZsYWciLCAiRGVmYXVsdEJpdCIsICJCaXRGaWVsZF9kZWZhdWx0IiwgImltcG9ydF92MiIsICJpbXBvcnRfZnMiLCAiaW1wb3J0X3Byb21pc2VzIiwgImltcG9ydF9wYXRoIiwgImltcG9ydF96b2RfdmFsaWRhdGlvbl9lcnJvciIsICJpbXBvcnRfdjIiLCAiaW1wb3J0X3pvZCIsICJWRVJTSU9OX1JFR0VYUCIsICJTVFJJTkdfQVJSQVlfUkVHRVhQIiwgIkVtcHR5U3RyaW5nUHJlZGljYXRlIiwgInoiLCAiQVBUUHJlZGljYXRlIiwgImFyZyIsICJEaXNjbG91ZENvbmZpZ0NvbW1vblJlcXVpcmVkUHJlZGljYXRlIiwgIkRpc2Nsb3VkQ29uZmlnT3B0aW9uYWxQcmVkaWNhdGUiLCAiRGlzY2xvdWRDb25maWdCb3RQcmVkaWNhdGUiLCAiRGlzY2xvdWRDb25maWdTaXRlUHJlZGljYXRlIiwgIkRpc2Nsb3VkQ29uZmlnUHJlZGljYXRlIiwgIkNvbW1lbnRFbnRpdHkiLCAibGluZSIsICJjaGFyYWN0ZXIiLCAiY29udGVudCIsICJDb21tZW50UmVwb3NpdG9yeSIsICJfQ29tbWVudFJlcG9zaXRvcnkiLCAibGluZSIsICIjY2FjaGUiLCAiY29udGVudCIsICJyZXN1bHQiLCAiY2hhcmFjdGVyIiwgImNvbW1lbnQiLCAiQ29tbWVudEVudGl0eSIsICJNaXNzaW5nTWFpbkVycm9yIiwgImltcG9ydF92MiIsICJDb25maWdQYXJzZXIiLCAiX0NvbmZpZ1BhcnNlciIsICJfY29tbWVudFJlcG9zaXRvcnkiLCAiY29udGVudCIsICJsaW5lcyIsICJwYXJzZWQiLCAiI3BhcnNlTGluZXMiLCAiI3BhcnNlVmFsdWVzIiwgImkiLCAib2JqIiwgImtleSIsICIjd3JpdGVDb21tZW50cyIsICIjc3RyaW5naWZ5IiwgInJlc3VsdCIsICJjb21tZW50IiwgImVuY29uZGluZyIsICJEaXNjbG91ZENvbmZpZyIsICJfRGlzY2xvdWRDb25maWciLCAicGF0aCIsICJjb250ZW50IiwgIiNyZXNvbHZlQ29uZmlnUGF0aFN5bmMiLCAiI2RpciIsICIjZGF0YSIsICIjcGFyc2UiLCAiI3Jlc29sdmVDb25maWdQYXRoIiwgImZpbGVTdGF0IiwgIiNyZXNvbHZlQ29uZmlnUGF0aFdpdGhTdGF0IiwgImRhdGEiLCAicGFyc2VkIiwgIkRpc2Nsb3VkQ29uZmlnUHJlZGljYXRlIiwgIiNjb21tZW50UmVwb3NpdG9yeSIsICJDb21tZW50UmVwb3NpdG9yeSIsICIjcGFyc2VyIiwgIkNvbmZpZ1BhcnNlciIsICIjcmVxdWlyZWRQcm9wcyIsICJrZXkiLCAidmFsdWUiLCAiY29uZmlnIiwgIiNzdHJpbmdpZnkiLCAiZG9Ob3RUaHJvd0lmSW52YWxpZCIsICJNaXNzaW5nTWFpbkVycm9yIiwgIiNvbkNoYW5nZSIsICIjcmVhZEZpbGUiLCAicyIsICJvYmoiLCAiaW1wb3J0X2ZzIiwgImltcG9ydF9wYXRoIiwgImltcG9ydF9zdHJlYW0iLCAiaW1wb3J0X3R5cGVzIiwgImZpbGVuYW1lUGF0dGVybiIsICJmaWxlTmFtZVBhdHRlcm4iLCAiZXh0ZXJuYWxVcmxQYXR0ZXJuIiwgInJlc29sdmVGaWxlIiwgImZpbGUiLCAiZmlsZW5hbWUiLCAiZmlsZVR5cGUiLCAicmVzcG9uc2UiLCAiYmxvYiIsICJmaWxlVHlwZVJlc3VsdCIsICJzdHJlYW1Ub0ZpbGUiLCAicmVzb2x2ZUZpbGVTeW5jIiwgInN0cmVhbSIsICJtaW1lVHlwZSIsICJyZXNvbHZlIiwgInJlamVjdCIsICJjaHVua3MiLCAiY2h1bmsiLCAiZXJyb3IiLCAic3RyZWFtVG9CbG9iIiwgImltcG9ydF9wcm9taXNlcyIsICJpbXBvcnRfcGF0aCIsICJhcnJheUhhc0Zyb21Bc3luY0Z1bmN0aW9uIiwgImFzeW5jR2VuZXJhdG9yVG9BcnJheSIsICJnZW5lcmF0b3IiLCAiYXJyYXkiLCAiZWxlbWVudCIsICJESVNDTE9VRF9JR05PUkVfRklMRU5BTUUiLCAiaW1wb3J0X2ZzIiwgImltcG9ydF9wcm9taXNlcyIsICJpbXBvcnRfZ2xvYiIsICJpbXBvcnRfZ2xvYmlmeV9naXRpZ25vcmUiLCAiaW1wb3J0X3BhdGgiLCAiaW1wb3J0X3BhdGgiLCAiQlVJTERfUk9PVF9QQVRIIiwgIlJPT1RfUEFUSCIsICJqb2luV2l0aFJvb3QiLCAicGF0aCIsICJJZ25vcmUiLCAiX0lnbm9yZSIsICJmaWxlbmFtZSIsICJjb250ZW50IiwgImRpcmVjdG9yeSIsICJhYnNvbHV0ZSIsICJwYXR0ZXJucyIsICJlbnRyaWVzIiwgImkiLCAiZW50cnkiLCAiI2dldEdsb2JmaWVkSWdub3JlRmlsZSIsICIjZ2V0R2xvYmZpZWRJZ25vcmVGaWxlcyIsICJkaXJlY3RvcmllcyIsICJwcm9taXNlcyIsICJwYXRoIiwgInBhdGhzIiwgImN3ZCIsICJhc3luY0dlbmVyYXRvclRvQXJyYXkiLCAidmFsdWUiLCAicm9vdElnbm9yZVBhdGgiLCAiam9pbldpdGhSb290IiwgInJvb3RJZ25vcmUiLCAiaWdub3JlIiwgImZzR2xvYiIsICJwYXR0ZXJuIiwgIm9wdGlvbnMiLCAiYXN5bmNHZW5lcmF0b3JUb0FycmF5IiwgImZzR2xvYkl0ZXJhdGUiLCAiaWdub3JlTW9kdWxlIiwgIklnbm9yZSIsICJESVNDTE9VRF9JR05PUkVfRklMRU5BTUUiLCAiX2ZzR2xvYkl0ZXJhdGVXaXRoRmlsZVR5cGVzIiwgIl9mc0dsb2JJdGVyYXRlIiwgIl9mc0dsb2JJdGVyYXRlT25seUZpbGVzIiwgInJlbGF0aXZlRmlsZVBhdGgiLCAiZmlsZVBhdGgiLCAiX2ZzR2xvYkl0ZXJhdGVXaXRoRmlsZVR5cGVzT25seUZpbGVzIiwgImRpcmVudCIsICJnbG9iTXVkdWxlIiwgImltcG9ydF9vcyIsICJnbG9iIiwgInBhdHRlcm4iLCAiY3dkIiwgImFzeW5jR2VuZXJhdG9yVG9BcnJheSIsICJnbG9iSXRlcmF0ZSIsICJpZ25vcmUiLCAiSWdub3JlIiwgIkRJU0NMT1VEX0lHTk9SRV9GSUxFTkFNRSIsICJpbXBvcnRfZnMiLCAiaW1wb3J0X3Byb21pc2VzIiwgImltcG9ydF9wYXRoIiwgIkpTT05zIiwgImltcG9ydEpTT04iLCAicGF0aCIsICJhc3luYyIsICJjb250ZW50IiwgIk1vZFBlcm1pc3Npb25zRmxhZ3MiLCAiTW9kUGVybWlzc2lvbnNCRiIsICJfTW9kUGVybWlzc2lvbnNCRiIsICJCaXRGaWVsZF9kZWZhdWx0IiwgImJpbmRGdW5jdGlvbnMiLCAiaW5zdGFuY2UiLCAiYmluZCIsICJwcm9wZXJ0eU5hbWUiLCAiY2FsY3VsYXRlUGVyY2VudGFnZSIsICJ2YWx1ZSIsICJtYWpvciIsICJtZXJnZURlZmF1bHRzIiwgImRlZmF1bHRzIiwgIm9wdGlvbnMiLCAia2V5IiwgInZlcnNpb24iXQp9Cg==
+var mt=Object.create;var I=Object.defineProperty;var dt=Object.getOwnPropertyDescriptor;var yt=Object.getOwnPropertyNames;var ht=Object.getPrototypeOf,gt=Object.prototype.hasOwnProperty;var bt=(e,t)=>{for(var r in t)I(e,r,{get:t[r],enumerable:!0})},z=(e,t,r,n)=>{if(t&&typeof t=="object"||typeof t=="function")for(let i of yt(t))!gt.call(e,i)&&i!==r&&I(e,i,{get:()=>t[i],enumerable:!(n=dt(t,i))||n.enumerable});return e};var d=(e,t,r)=>(r=e!=null?mt(ht(e)):{},z(t||!e||!e.__esModule?I(r,"default",{value:e,enumerable:!0}):r,e)),Ft=e=>z(I({},"__esModule",{value:!0}),e);var qt={};bt(qt,{BitField:()=>A,DiscloudConfig:()=>G,FlexibleBuffer:()=>g,Ignore:()=>m,MissingMainError:()=>w,ModPermissionsBF:()=>W,ModPermissionsFlags:()=>C,bindFunctions:()=>Vt,calculatePercentage:()=>Kt,fileNamePattern:()=>Ot,filenamePattern:()=>H,fsGlob:()=>kt,fsGlobIterate:()=>ot,glob:()=>$t,globIterate:()=>ct,importJSON:()=>Ut,mergeDefaults:()=>jt,resolveFile:()=>k,resolveFileSync:()=>Dt,streamToBlob:()=>Ct,streamToFile:()=>v,version:()=>Yt});module.exports=Ft(qt);var We=__nccwpck_require__(7959);var A=class e{static DefaultBit=0;static Flags={};constructor(...t){this.bitField=this.constructor.resolve(t??this.constructor.DefaultBit)}add(...t){let r=t.reduce((n,i)=>n|this.constructor.resolve(i),this.constructor.DefaultBit);return Object.isFrozen(this)?new this.constructor(this.bitField|r):(this.bitField|=r,this)}any(...t){return(this.bitField&this.constructor.resolve(t))!==this.constructor.DefaultBit}equals(...t){return this.bitField===this.constructor.resolve(t)}freeze(){return Object.freeze(this)}has(...t){let r=this.constructor.resolve(t);return(this.bitField&r)===r}missing(...t){return new this.constructor(t).remove(this).toArray()}remove(...t){let r=t.reduce((n,i)=>n|this.constructor.resolve(i),this.constructor.DefaultBit);return Object.isFrozen(this)?new this.constructor(this.bitField&~r):(this.bitField&=~r,this)}serialize(){let t={};for(let r in this.constructor.Flags)isNaN(r)&&(t[r]=this.has(this.constructor.Flags[r]));return t}set(...t){return Object.isFrozen(this)?new this.constructor(t):(this.bitField=this.constructor.resolve(t),this)}toArray(){return this[Symbol.iterator]().toArray?.()??Array.from(this[Symbol.iterator]())}toJSON(){return typeof this.bitField=="number"?this.bitField:`${this.bitField}`}toString(){return`${this.bitField}`}valueOf(){return this.bitField}*[Symbol.iterator](){for(let t in this.constructor.Flags)isNaN(t)&&this.has(this.constructor.Flags[t])&&(yield t)}static resolve(t){if(t instanceof e)return t.bitField;let r=this.DefaultBit;if(Array.isArray(t))return t.reduce((n,i)=>n|this.resolve(i),r);if(typeof r==typeof t&&t>=r)return t;if(typeof t=="string"){if(this.Flags[t]!==void 0)return this.Flags[t];if(!isNaN(Number(t)))return typeof r=="bigint"?BigInt(t):Number(t)}throw new RangeError(`Invalid BitField: ${t}`)}},V=A;var E=__nccwpck_require__(2287),f=__nccwpck_require__(9896),p=__nccwpck_require__(1943),u=__nccwpck_require__(6928),j=__nccwpck_require__(9611);var s=__nccwpck_require__(2287),o=d(__nccwpck_require__(924)),wt=/^(current|latest|lts|suja|(?:\d+(?:\.(?:\d+|x)){0,2}))$/,St=/\s*,\s*/,b=o.default.string().max(0),xt=o.default.union([o.default.array(o.default.string()),o.default.string().trim().refine(e=>e.split(St))]),Rt=o.default.object({[s.DiscloudConfigScopes.MAIN]:o.default.string().min(1)}),vt=o.default.object({[s.DiscloudConfigScopes.APT]:xt,[s.DiscloudConfigScopes.AUTORESTART]:o.default.coerce.boolean(),[s.DiscloudConfigScopes.AVATAR]:o.default.url().or(b),[s.DiscloudConfigScopes.HOSTNAME]:o.default.string(),[s.DiscloudConfigScopes.ID]:o.default.string(),[s.DiscloudConfigScopes.MAIN]:o.default.string(),[s.DiscloudConfigScopes.NAME]:o.default.string(),[s.DiscloudConfigScopes.RAM]:o.default.coerce.number().min(100).or(b),[s.DiscloudConfigScopes.START]:o.default.string(),[s.DiscloudConfigScopes.STORAGE]:o.default.string(),[s.DiscloudConfigScopes.TYPE]:o.default.enum(["bot","site"]).or(b),[s.DiscloudConfigScopes.VERSION]:o.default.string().trim().regex(wt).or(b),[s.DiscloudConfigScopes.VLAN]:o.default.coerce.boolean()}).partial(),Nt=o.default.object({[s.DiscloudConfigScopes.TYPE]:o.default.string().refine(e=>!e||e==="bot").optional()}),It=o.default.object({[s.DiscloudConfigScopes.TYPE]:o.default.string().refine(e=>e==="site"),[s.DiscloudConfigScopes.ID]:o.default.string().min(1),[s.DiscloudConfigScopes.RAM]:o.default.coerce.number().min(512).or(b).optional()}),K=Rt.and(vt).and(o.default.union([It,Nt]));var B=class{constructor(t,r,n){this.line=t;this.character=r;this.content=n}line;character;content;toString(){return this.content}toJSON(){return Object.assign({},this)}};var F=class e{static char="#";static pattern=/(?<content>\s*#.*$)/;static match(t){return e.pattern.exec(t)}#t=new Map;get size(){return this.#t.size}clear(){this.#t.clear()}delete(t){return this.#t.delete(t)}get(t){return this.#t.get(t)}parse(t,r){let n=e.match(r);if(!n)return r;if(this.set(t,n.index,n.groups.content),!(n.index<1))return r.substring(0,n.index)}set(t,r,n){let i=new B(t,r,n);this.#t.set(r,i)}toJSON(){return this.#t.values().toArray()}*values(){yield*this.#t.values()}[Symbol.dispose](){this.clear()}*[Symbol.iterator](){yield*this.#t.values()}};var w=class extends Error{name="MissingMain"};var S=__nccwpck_require__(2287),x=class e{constructor(t){this._commentRepository=t}_commentRepository;static arraySplitterPattern=/\s*,\s*/g;static arraySplitterCharacter=",";static assignmentCharacter="=";static lineBreakCharacter=`
+`;static lineBreakSplitterPattern=/[\r\n]+/g;static falseString="false";static trueString="true";static stringBoolean=new Set([e.falseString,e.trueString]);parse(t){let r=t.split(e.lineBreakSplitterPattern),n=Object.fromEntries(Array.from(this.#t(r)));return this.#r(n)}*#t(t){this._commentRepository.clear();for(let r=0;r<t.length;r++){let n=this._commentRepository.parse(r,t[r].trimEnd());n&&(yield n.split(e.assignmentCharacter))}}#r(t){let r=S.DiscloudConfigScopes.APT;return r in t&&(t[r]=t[r].split(e.arraySplitterPattern).filter(Boolean)),r=S.DiscloudConfigScopes.AUTORESTART,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),r=S.DiscloudConfigScopes.RAM,r in t&&t[r]&&(t[r]=Number(t[r])),r=S.DiscloudConfigScopes.VLAN,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),t}stringify(t){return this.#n(this.#e(t))}#e(t){switch(typeof t){case"bigint":case"boolean":case"number":return`${t}`;case"object":{if(t===null)return"";let r=[];if(Array.isArray(t)){for(let n=0;n<t.length;n++)r.push(this.#e(t[n]));return r.join(e.arraySplitterCharacter)}for(let n in t)r.push(`${n}${e.assignmentCharacter}${this.#e(t[n])}`);return r.join(e.lineBreakCharacter)}case"string":return t;case"symbol":return String(t);default:return""}}#n(t){if(!this._commentRepository.size)return t;if(!Array.isArray(t))return this.#n(t.split(e.lineBreakSplitterPattern));for(let r of this._commentRepository){if(r.character){t[r.line]+=r.content;continue}t.splice(r.line,0,r.content)}return t.join(e.lineBreakCharacter)}};var T="utf8",G=class e{constructor(t,r){this.path=t;if(!r){this.path=e.#r(this.path);try{r=(0,f.readFileSync)(this.path,T)}catch{}}this.#s=(0,u.dirname)(this.path),this.#i=this.#a(r)}path;static filename="discloud.config";static async fromPath(t){t=await this.#t(t);let r=await(0,p.readFile)(t,T).catch(()=>null);return new e(t,r)}static async#t(t){let r=await(0,p.stat)(t).catch(()=>null);return e.#e(t,r)}static#r(t){let r=(0,f.statSync)(t,{throwIfNoEntry:!1});return e.#e(t,r)}static#e(t,r){return r?.isFile()&&(0,u.basename)(t)!==e.filename&&(t=(0,u.dirname)(t)),(0,u.basename)(t)!==e.filename&&(t=(0,u.join)(t,e.filename)),t}static validade(t){let r=K.safeParse(t);if(!r.success)throw(0,j.fromZodError)(r.error)}#n=new F;#o=new x(this.#n);#i={};#s;get data(){return this.#i}get exists(){return(0,f.existsSync)(this.path)}get mainFileExt(){if(this.data.MAIN)return(0,u.extname)(this.data.MAIN)}get missingProps(){return this.#c.filter(t=>!this.data[t])}get#c(){return E.discloudConfigRequiredScopes[this.data.TYPE||"common"]??E.discloudConfigRequiredScopes.common}dispose(){this._watcher&&(this._watcher.removeAllListeners().close(),delete this._watcher),this.#n.clear()}async existsMain(){if(!this.data.MAIN)return!1;try{return await(0,p.stat)((0,u.join)(this.#s,this.data.MAIN)).then(t=>t.isFile())}catch{return!1}}get(t){return this.data[t]}async set(t,r){await this.update({[t]:r})}async update(t){t=Object.assign(this.data,t);let r=this.#f(t);await(0,p.writeFile)(this.path,r,T)}async validate(t){if(t)try{return await this.validate(),!0}catch{return!1}if(e.validade(this.data),!await this.existsMain())throw new w}watch(){return(0,f.existsSync)(this.path)&&(this._watcher??=(0,f.watch)(this.path,{persistent:!1}).on("change",()=>this.#l()).on("close",()=>this.dispose())),this}async#l(){(0,f.existsSync)(this.path)&&(this.#i=await this.#u())}#a(t){return typeof t!="string"?{}:this.#o.parse(t)}async#u(){let t=await(0,p.readFile)(this.path,T);return this.#a(t)}#f(t){return this.#o.stringify(t)}[Symbol.dispose](){this.dispose()}};var y=__nccwpck_require__(5508),N=__nccwpck_require__(9896),Y=__nccwpck_require__(1943),_=__nccwpck_require__(6928),P=__nccwpck_require__(2203),q=__nccwpck_require__(8253);var R=class extends Error{constructor(r,n){super();this.message=r;this.code=n}message;code;name=Bt;emit(){this.emit=At,process.emitWarning(this)}};function At(){}var Bt="Deprecation";var Tt=new R("The contentType property is deprecated. Use mimeType instead."),Pt="null",H=/.*\/+([^?#]+)(?:[?#].*)?/,Ot=H;async function k(e,t){if(e instanceof File)return e;if(e instanceof URL){if(t=(0,_.basename)(e.pathname),e.origin===Pt)return v((0,N.createReadStream)(e),t);let r=await fetch(e);if(!r.ok)throw r;let n=r.headers.get("content-type")||void 0;return r.body?v(P.Readable.from(r.body),t,n):new File([await r.blob()],t,{type:n})}if(typeof e=="string"){if(URL.canParse(e))return k(new URL(e));if((0,N.existsSync)(e)){if(!(await(0,Y.stat)(e)).isFile())throw new TypeError("Invalid file path was provided.");return v((0,N.createReadStream)(e),t??(0,_.basename)(e))}return new File([e],t??"file")}if(e instanceof Blob){if(!t){let r=await(0,y.fileTypeFromBlob)(e);r&&(t=`file.${r.ext}`)}return new File([e],t??"file",{type:e.type})}if(Buffer.isBuffer(e)){let r=await(0,y.fileTypeFromBuffer)(e);return r&&(t??=`file.${r.ext}`),new File([e],t??"file",{type:r?.mime})}if((0,q.isArrayBufferView)(e))return new File([e],t??"file");if(e instanceof P.Stream)return v(e,t);if("data"in e)return"contentType"in e&&Tt.emit(),e.data instanceof File?e.data:e.mimeType||e.contentType?new File([e.data],e.name,{type:e.mimeType||e.contentType}):k(e.data,t);throw new TypeError("Invalid file type was provided.")}function Dt(e,t){if(e instanceof File)return e;if(typeof e=="string")return new File([e],t);if(e instanceof Blob)return new File([e],t);if(Buffer.isBuffer(e))return new File([e],t);if("data"in e)return e.data instanceof File?e.data:new File([e.data],e.name,{type:e.contentType});throw new TypeError("Invalid file type was provided.")}async function v(e,t,r){return new Promise((n,i)=>{let a=[];e.on("data",l=>a.push(l)).once("end",async function(){if(e.removeAllListeners(),!a.length||t&&r)return n(new File(a,t??"file",{type:r}));let l=await(0,y.fileTypeFromBuffer)(a[0]);l&&(t??=`file.${l.ext}`),n(new File(a,t??"file",{type:r??l?.mime}))}).once("error",function(l){e.removeAllListeners(),i(l)})})}function Ct(e,t){return new Promise((r,n)=>{let i=[];e.on("data",a=>i.push(a)).once("end",async function(){if(e.removeAllListeners(),t||!i.length)return r(new Blob(i,{type:t}));let a=await(0,y.fileTypeFromBuffer)(i[0]);r(new Blob(i,{type:a?.mime}))}).once("error",function(a){e.removeAllListeners(),n(a)})})}var nt=__nccwpck_require__(1943),it=__nccwpck_require__(6928);var Et=typeof Array.fromAsync=="function";async function h(e){if(Et)return Array.fromAsync(e);let t=[];for await(let r of e)t.push(r);return t}var O=".discloudignore";var Z=__nccwpck_require__(9896),Q=__nccwpck_require__(1943),tt=__nccwpck_require__(8941),et=__nccwpck_require__(1067),rt=__nccwpck_require__(6928);var D=__nccwpck_require__(6928),Gt=__dirname,_t=(0,D.dirname)(Gt);function X(...e){return(0,D.join)(_t,...e)}var m=class e{constructor(t){this.filename=t}filename;static async globify(t,r,n){let i=[],a=await(0,et.globifyGitIgnore)(t,r,n);for(let l=0;l<a.length;l++){let U=a[l];U.included||i.push(U.glob)}return i}static async#t(t){let r=[];if((0,Z.existsSync)(t)){let n=await(0,Q.readFile)(t,"utf8");r.push(await e.globify(n,(0,rt.dirname)(t)))}return r.flat()}static async#r(t){let r=[];for(let i=0;i<t.length;i++)r.push(e.#t(t[i]));return(await Promise.all(r)).flat()}static resolveIgnoreFile(t){return e.#t(t)}static resolveIgnoreFiles(t){return e.#r(t)}getIgnorePatterns(t){return h(this._getIgnoreIterate(t)).then(r=>r.flat())}async*_getIgnoreIterate(t){let r=X(this.filename),n=await e.resolveIgnoreFile(r);for await(let i of this._findIgnoreFiles(n,t))yield e.#t(i)}async*_findIgnoreFiles(t,r){yield*(0,tt.globIterate)(`**/${this.filename}`,{cwd:r,dot:!0,ignore:t,nodir:!0})}};function kt(e,t){return h(ot(e,t))}async function*ot(e,t){t??={},t.cwd??=process.cwd();let r=new m(O);if(t.exclude=await r.getIgnorePatterns(t.cwd),t.withFileTypes)return yield*Mt(e,t);yield*Lt(e,t)}async function*Lt(e,t){if(!t.withDirectories)return yield*Wt(e,t);let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));yield*r(e,t)}async function*Wt(e,t){let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));for await(let n of r(e,t)){let i=(0,it.join)(t.cwd,n);(await(0,nt.stat)(i)).isFile()&&(yield n)}}async function*Mt(e,t){if(!t.withDirectories)return yield*Jt(e,t);let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));yield*r(e,t)}async function*Jt(e,t){let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));for await(let n of r(e,t))n.isFile()&&(yield n)}var st=d(__nccwpck_require__(8941)),at=__nccwpck_require__(857);function $t(e,t){return h(ct(e,t))}async function*ct(e,t){let n=await new m(O).getIgnorePatterns(t);yield*st.globIterate(e,{cwd:t,dot:!0,ignore:n,nodir:!0,windowsPathsNoEscape:(0,at.type)()==="Windows_NT"})}var lt=__nccwpck_require__(9896),ut=__nccwpck_require__(1943),ft=__nccwpck_require__(6928),L={};function Ut(e,t){return e=(0,ft.normalize)(e),t?L[e]??(0,ut.readFile)(e,"utf8").then(r=>L[e]??=JSON.parse(r)):L[e]??=JSON.parse((0,lt.readFileSync)(e,"utf8"))}var C=(c=>(c[c.backup_app=1]="backup_app",c[c.commit_app=2]="commit_app",c[c.edit_ram=4]="edit_ram",c[c.logs_app=8]="logs_app",c[c.restart_app=16]="restart_app",c[c.start_app=32]="start_app",c[c.status_app=64]="status_app",c[c.stop_app=128]="stop_app",c))(C||{}),W=class e extends V{static DefaultBit=0;static Flags=C;static All=new e(Object.keys(C))};var M=__nccwpck_require__(9023);function zt(e,t){if(e){t??=e;for(let r of Object.getOwnPropertyNames(Object.getPrototypeOf(e)))try{typeof e[r]=="function"&&(t[r]=e[r].bind(t))}catch{}}}var Vt=(0,M.deprecate)(zt,"bindFunctions is deprecated and will be removed in the future.");function Kt(e,t){return Number((Number(e)/Number(t)*100).toFixed(2))}function pt(e,t){if(t===null)return t;if(t===void 0)return e;for(let r in e){if(r==="__proto__"||r==="prototype"||r==="constructor")continue;let n=e[r],i=t[r];typeof n=="object"&&n!==null&&typeof i=="object"&&i!==null&&Object.hasOwn(t,r)?t[r]=pt(n,i):t[r]??=n}return t}var jt=(0,M.deprecate)(pt,"mergeDefaults is deprecated and will be removed in the future.");var g=class{static flexible(){return new $}static fixed(t){return new J(t)}},J=class extends g{_buffer;_index=0;constructor(t){super(),this._buffer=Buffer.alloc(t)}get length(){return this._index}push(t){return this._buffer.set(t,this._index),this._index+=t.length,this}toBuffer(){return this._buffer}toArray(){return Array.from(this._buffer)}clear(){this._buffer.fill(0),this._index=0}toJSON(){return this._buffer.toJSON()}},$=class extends g{_buffer=[];_length=0;get length(){return this._length}push(t){return this._buffer.push(t),this._length+=t.length,this}toBuffer(){return Buffer.concat(this._buffer)}toArray(){return this._buffer}clear(){this._buffer.length=0,this._length=0}toJSON(){return this.toBuffer().toJSON()}};var Yt="1.3.2";0&&(0);
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiaDovY29kZS9kaXNjbG91ZC9kaXNjbG91ZC5hcHAvcGFja2FnZXMvdXRpbC9zcmMvaW5kZXgudHMiLCAiLi4vc3JjL0JpdEZpZWxkLnRzIiwgIi4uL3NyYy9jb25maWcvY29uZmlnLnRzIiwgIi4uL3NyYy9jb25maWcvYXNzZXJ0aW9ucy50cyIsICIuLi9zcmMvY29uZmlnL2NvbW1lbnRzL2VudGl0eS50cyIsICIuLi9zcmMvY29uZmlnL2NvbW1lbnRzL3JlcG9zaXRvcnkudHMiLCAiLi4vc3JjL2NvbmZpZy9lcnJvcnMudHMiLCAiLi4vc3JjL2NvbmZpZy9wYXJzZXIudHMiLCAiLi4vc3JjL0ZpbGVSZXNvbHZlci50cyIsICIuLi9zcmMvdXRpbHMvZGVwcmVjYXRpb24udHMiLCAiLi4vc3JjL2dsb2IvZnNHbG9iLnRzIiwgIi4uL3NyYy91dGlscy9hcnJheS50cyIsICIuLi9zcmMvZ2xvYi9jb25zdGFudHMudHMiLCAiLi4vc3JjL2dsb2IvaWdub3JlLnRzIiwgIi4uL3NyYy9wYXRoLnRzIiwgIi4uL3NyYy9nbG9iL2dsb2IudHMiLCAiLi4vc3JjL0pTT04udHMiLCAiLi4vc3JjL01vZFBlcm1pc3Npb25zQkYudHMiLCAiLi4vc3JjL3V0aWxzLnRzIiwgIi4uL3NyYy9GbGV4aWJsZUJ1ZmZlci50cyJdLAogICJtYXBwaW5ncyI6ICJza0JBQUEsSUFBQUEsR0FBQSxHQUFBQyxHQUFBRCxHQUFBLGNBQUFFLEVBQUEsbUJBQUFDLEVBQUEsbUJBQUFDLEVBQUEsV0FBQUMsRUFBQSxxQkFBQUMsRUFBQSxxQkFBQUMsRUFBQSx3QkFBQUMsRUFBQSxrQkFBQUMsR0FBQSx3QkFBQUMsR0FBQSxvQkFBQUMsR0FBQSxvQkFBQUMsRUFBQSxXQUFBQyxHQUFBLGtCQUFBQyxHQUFBLFNBQUFDLEdBQUEsZ0JBQUFDLEdBQUEsZUFBQUMsR0FBQSxrQkFBQUMsR0FBQSxnQkFBQUMsRUFBQSxvQkFBQUMsR0FBQSxpQkFBQUMsR0FBQSxpQkFBQUMsRUFBQSxZQUFB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QUssU0FBUyxFQUFFLE9BQU8sQ0FDaEMsQ0FDRixFbkJqRk8sSUFBTUMsR0FBa0IiLAogICJuYW1lcyI6IFsiaW5kZXhfZXhwb3J0cyIsICJfX2V4cG9ydCIsICJCaXRGaWVsZCIsICJEaXNjbG91ZENvbmZpZyIsICJGbGV4aWJsZUJ1ZmZlciIsICJJZ25vcmUiLCAiTWlzc2luZ01haW5FcnJvciIsICJNb2RQZXJtaXNzaW9uc0JGIiwgIk1vZFBlcm1pc3Npb25zRmxhZ3MiLCAiYmluZEZ1bmN0aW9ucyIsICJjYWxjdWxhdGVQZXJjZW50YWdlIiwgImZpbGVOYW1lUGF0dGVybiIsICJmaWxlbmFtZVBhdHRlcm4iLCAiZnNHbG9iIiwgImZzR2xvYkl0ZXJhdGUiLCAiZ2xvYiIsICJnbG9iSXRlcmF0ZSIsICJpbXBvcnRKU09OIiwgIm1lcmdlRGVmYXVsdHMiLCAicmVzb2x2ZUZpbGUiLCAicmVzb2x2ZUZpbGVTeW5jIiwgInN0cmVhbVRvQmxvYiIsICJzdHJlYW1Ub0ZpbGUiLCAidmVyc2lvbiIsICJfX3RvQ29tbW9uSlMiLCAiaW1wb3J0X3JlZ2lzdGVyIiwgIkJpdEZpZWxkIiwgIl9CaXRGaWVsZCIsICJiaXRzIiwgInRvdGFsIiwgInAiLCAiYiIsICJiaXQiLCAic2VyaWFsaXplZCIsICJmbGFnIiwgIkRlZmF1bHRCaXQiLCAiQml0RmllbGRfZGVmYXVsdCIsICJpbXBvcnRfdjIiLCAiaW1wb3J0X2ZzIiwgImltcG9ydF9wcm9taXNlcyIsICJpbXBvcnRfcGF0aCIsICJpbXBvcnRfem9kX3ZhbGlkYXRpb25fZXJyb3IiLCAiaW1wb3J0X3YyIiwgImltcG9ydF96b2QiLCAiVkVSU0lPTl9SRUdFWFAiLCAiU1RSSU5HX0FSUkFZX1JFR0VYUCIsICJFbXB0eVN0cmluZ1ByZWRpY2F0ZSIsICJ6IiwgIkFQVFByZWRpY2F0ZSIsICJhcmciLCAiRGlzY2xvdWRDb25maWdDb21tb25SZXF1aXJlZFByZWRpY2F0ZSIsICJEaXNjbG91ZENvbmZpZ09wdGlvbmFsUHJlZGljYXRlIiwgIkRpc2Nsb3VkQ29uZmlnQm90UHJlZGljYXRlIiwgIkRpc2Nsb3VkQ29uZmlnU2l0ZVByZWRpY2F0ZSIsICJEaXNjbG91ZENvbmZpZ1ByZWRpY2F0ZSIsICJDb21tZW50RW50aXR5IiwgImxpbmUiLCAiY2hhcmFjdGVyIiwgImNvbnRlbnQiLCAiQ29tbWVudFJlcG9zaXRvcnkiLCAiX0NvbW1lbnRSZXBvc2l0b3J5IiwgImxpbmUiLCAiI2NhY2hlIiwgImNvbnRlbnQiLCAicmVzdWx0IiwgImNoYXJhY3RlciIsICJjb21tZW50IiwgIkNvbW1lbnRFbnRpdHkiLCAiTWlzc2luZ01haW5FcnJvciIsICJpbXBvcnRfdjIiLCAiQ29uZmlnUGFyc2VyIiwgIl9Db25maWdQYXJzZXIiLCAiX2NvbW1lbnRSZXBvc2l0b3J5IiwgImNvbnRlbnQiLCAibGluZXMiLCAicGFyc2VkIiwgIiNwYXJzZUxpbmVzIiwgIiNwYXJzZVZhbHVlcyIsICJpIiwgIm9iaiIsICJrZXkiLCAiI3dyaXRlQ29tbWVudHMiLCAiI3N0cmluZ2lmeSIsICJyZXN1bHQiLCAiY29tbWVudCIsICJlbmNvbmRpbmciLCAiRGlzY2xvdWRDb25maWciLCAiX0Rpc2Nsb3VkQ29uZmlnIiwgInBhdGgiLCAiY29udGVudCIsICIjcmVzb2x2ZUNvbmZpZ1BhdGhTeW5jIiwgIiNkaXIiLCAiI2RhdGEiLCAiI3BhcnNlIiwgIiNyZXNvbHZlQ29uZmlnUGF0aCIsICJmaWxlU3RhdCIsICIjcmVzb2x2ZUNvbmZpZ1BhdGhXaXRoU3RhdCIsICJkYXRhIiwgInBhcnNlZCIsICJEaXNjbG91ZENvbmZpZ1ByZWRpY2F0ZSIsICIjY29tbWVudFJlcG9zaXRvcnkiLCAiQ29tbWVudFJlcG9zaXRvcnkiLCAiI3BhcnNlciIsICJDb25maWdQYXJzZXIiLCAiI3JlcXVpcmVkUHJvcHMiLCAia2V5IiwgInZhbHVlIiwgImNvbmZpZyIsICIjc3RyaW5naWZ5IiwgImRvTm90VGhyb3dJZkludmFsaWQiLCAiTWlzc2luZ01haW5FcnJvciIsICIjb25DaGFuZ2UiLCAiI3JlYWRGaWxlIiwgInMiLCAib2JqIiwgImltcG9ydF9maWxlX3R5cGUiLCAiaW1wb3J0X2ZzIiwgImltcG9ydF9wcm9taXNlcyIsICJpbXBvcnRfcGF0aCIsICJpbXBvcnRfc3RyZWFtIiwgImltcG9ydF90eXBlcyIsICJEZXByZWNhdGlvbiIsICJtZXNzYWdlIiwgImNvZGUiLCAid2FybmluZ1R5cGUiLCAibm9vcCIsICJjb250ZW50VHlwZURlcHJlY2F0aW9uIiwgIkRlcHJlY2F0aW9uIiwgIkxPQ0FMX1VSTF9PUklHSU4iLCAiZmlsZW5hbWVQYXR0ZXJuIiwgImZpbGVOYW1lUGF0dGVybiIsICJyZXNvbHZlRmlsZSIsICJmaWxlIiwgImZpbGVuYW1lIiwgInN0cmVhbVRvRmlsZSIsICJyZXNwb25zZSIsICJ0eXBlIiwgImZpbGVUeXBlUmVzdWx0IiwgInJlc29sdmVGaWxlU3luYyIsICJzdHJlYW0iLCAibWltZVR5cGUiLCAicmVzb2x2ZSIsICJyZWplY3QiLCAiY2h1bmtzIiwgImNodW5rIiwgImVycm9yIiwgInN0cmVhbVRvQmxvYiIsICJpbXBvcnRfcHJvbWlzZXMiLCAiaW1wb3J0X3BhdGgiLCAiYXJyYXlIYXNGcm9tQXN5bmNGdW5jdGlvbiIsICJhc3luY0dlbmVyYXRvclRvQXJyYXkiLCAiZ2VuZXJhdG9yIiwgImFycmF5IiwgImVsZW1lbnQiLCAiRElTQ0xPVURfSUdOT1JFX0ZJTEVOQU1FIiwgImltcG9ydF9mcyIsICJpbXBvcnRfcHJvbWlzZXMiLCAiaW1wb3J0X2dsb2IiLCAiaW1wb3J0X2dsb2JpZnlfZ2l0aWdub3JlIiwgImltcG9ydF9wYXRoIiwgImltcG9ydF9wYXRoIiwgIkJVSUxEX1JPT1RfUEFUSCIsICJST09UX1BBVEgiLCAiam9pbldpdGhSb290IiwgInBhdGgiLCAiSWdub3JlIiwgIl9JZ25vcmUiLCAiZmlsZW5hbWUiLCAiY29udGVudCIsICJkaXJlY3RvcnkiLCAiYWJzb2x1dGUiLCAicGF0dGVybnMiLCAiZW50cmllcyIsICJpIiwgImVudHJ5IiwgIiNnZXRHbG9iZmllZElnbm9yZUZpbGUiLCAiI2dldEdsb2JmaWVkSWdub3JlRmlsZXMiLCAiZGlyZWN0b3JpZXMiLCAicHJvbWlzZXMiLCAicGF0aCIsICJwYXRocyIsICJjd2QiLCAiYXN5bmNHZW5lcmF0b3JUb0FycmF5IiwgInZhbHVlIiwgInJvb3RJZ25vcmVQYXRoIiwgImpvaW5XaXRoUm9vdCIsICJyb290SWdub3JlIiwgImlnbm9yZSIsICJmc0dsb2IiLCAicGF0dGVybiIsICJvcHRpb25zIiwgImFzeW5jR2VuZXJhdG9yVG9BcnJheSIsICJmc0dsb2JJdGVyYXRlIiwgImlnbm9yZU1vZHVsZSIsICJJZ25vcmUiLCAiRElTQ0xPVURfSUdOT1JFX0ZJTEVOQU1FIiwgIl9mc0dsb2JJdGVyYXRlV2l0aEZpbGVUeXBlcyIsICJfZnNHbG9iSXRlcmF0ZSIsICJfZnNHbG9iSXRlcmF0ZU9ubHlGaWxlcyIsICJnbG9iIiwgInJlbGF0aXZlRmlsZVBhdGgiLCAiZmlsZVBhdGgiLCAiX2ZzR2xvYkl0ZXJhdGVXaXRoRmlsZVR5cGVzT25seUZpbGVzIiwgImRpcmVudCIsICJnbG9iTXVkdWxlIiwgImltcG9ydF9vcyIsICJnbG9iIiwgInBhdHRlcm4iLCAiY3dkIiwgImFzeW5jR2VuZXJhdG9yVG9BcnJheSIsICJnbG9iSXRlcmF0ZSIsICJpZ25vcmUiLCAiSWdub3JlIiwgIkRJU0NMT1VEX0lHTk9SRV9GSUxFTkFNRSIsICJpbXBvcnRfZnMiLCAiaW1wb3J0X3Byb21pc2VzIiwgImltcG9ydF9wYXRoIiwgIkpTT05zIiwgImltcG9ydEpTT04iLCAicGF0aCIsICJhc3luYyIsICJjb250ZW50IiwgIk1vZFBlcm1pc3Npb25zRmxhZ3MiLCAiTW9kUGVybWlzc2lvbnNCRiIsICJfTW9kUGVybWlzc2lvbnNCRiIsICJCaXRGaWVsZF9kZWZhdWx0IiwgImltcG9ydF91dGlsIiwgIl9iaW5kRnVuY3Rpb25zIiwgImluc3RhbmNlIiwgImJpbmQiLCAicHJvcGVydHlOYW1lIiwgImJpbmRGdW5jdGlvbnMiLCAiY2FsY3VsYXRlUGVyY2VudGFnZSIsICJ2YWx1ZSIsICJtYWpvciIsICJfbWVyZ2VEZWZhdWx0cyIsICJkZWZhdWx0cyIsICJvcHRpb25zIiwgImtleSIsICJkZWZhdWx0VmFsdWUiLCAib3B0aW9uVmFsdWUiLCAibWVyZ2VEZWZhdWx0cyIsICJGbGV4aWJsZUJ1ZmZlciIsICJBcnJheUZsZXhpYmxlQnVmZmVyIiwgInNpemUiLCAiQnVmZmVyRmxleGlibGVCdWZmZXIiLCAidmFsdWUiLCAidmVyc2lvbiJdCn0K
 
 
 /***/ }),
@@ -4197,6 +4316,871 @@ function parse(val) {
 
 /***/ }),
 
+/***/ 6110:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+/* eslint-env browser */
+
+/**
+ * This is the web browser implementation of `debug()`.
+ */
+
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = localstorage();
+exports.destroy = (() => {
+	let warned = false;
+
+	return () => {
+		if (!warned) {
+			warned = true;
+			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+		}
+	};
+})();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+// eslint-disable-next-line complexity
+function useColors() {
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
+
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	let m;
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	// eslint-disable-next-line no-return-assign
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && (m = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m[1], 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
+
+	if (!this.useColors) {
+		return;
+	}
+
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
+
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
+
+	args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.debug()` when available.
+ * No-op when `console.debug` is not a "function".
+ * If `console.debug` is not available, falls back
+ * to `console.log`.
+ *
+ * @api public
+ */
+exports.log = console.debug || console.log || (() => {});
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+function load() {
+	let r;
+	try {
+		r = exports.storage.getItem('debug') || exports.storage.getItem('DEBUG') ;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
+
+	return r;
+}
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+module.exports = __nccwpck_require__(897)(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
+
+/***/ }),
+
+/***/ 897:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ */
+
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = __nccwpck_require__(744);
+	createDebug.destroy = destroy;
+
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
+
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
+
+	createDebug.names = [];
+	createDebug.skips = [];
+
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
+
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
+
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
+
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
+
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
+		let enableOverride = null;
+		let namespacesCache;
+		let enabledCache;
+
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return '%';
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.useColors = createDebug.useColors();
+		debug.color = createDebug.selectColor(namespace);
+		debug.extend = extend;
+		debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
+
+		Object.defineProperty(debug, 'enabled', {
+			enumerable: true,
+			configurable: false,
+			get: () => {
+				if (enableOverride !== null) {
+					return enableOverride;
+				}
+				if (namespacesCache !== createDebug.namespaces) {
+					namespacesCache = createDebug.namespaces;
+					enabledCache = createDebug.enabled(namespace);
+				}
+
+				return enabledCache;
+			},
+			set: v => {
+				enableOverride = v;
+			}
+		});
+
+		// Env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		return debug;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+		createDebug.namespaces = namespaces;
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		const split = (typeof namespaces === 'string' ? namespaces : '')
+			.trim()
+			.replace(/\s+/g, ',')
+			.split(',')
+			.filter(Boolean);
+
+		for (const ns of split) {
+			if (ns[0] === '-') {
+				createDebug.skips.push(ns.slice(1));
+			} else {
+				createDebug.names.push(ns);
+			}
+		}
+	}
+
+	/**
+	 * Checks if the given string matches a namespace template, honoring
+	 * asterisks as wildcards.
+	 *
+	 * @param {String} search
+	 * @param {String} template
+	 * @return {Boolean}
+	 */
+	function matchesTemplate(search, template) {
+		let searchIndex = 0;
+		let templateIndex = 0;
+		let starIndex = -1;
+		let matchIndex = 0;
+
+		while (searchIndex < search.length) {
+			if (templateIndex < template.length && (template[templateIndex] === search[searchIndex] || template[templateIndex] === '*')) {
+				// Match character or proceed with wildcard
+				if (template[templateIndex] === '*') {
+					starIndex = templateIndex;
+					matchIndex = searchIndex;
+					templateIndex++; // Skip the '*'
+				} else {
+					searchIndex++;
+					templateIndex++;
+				}
+			} else if (starIndex !== -1) { // eslint-disable-line no-negated-condition
+				// Backtrack to the last '*' and try to match more characters
+				templateIndex = starIndex + 1;
+				matchIndex++;
+				searchIndex = matchIndex;
+			} else {
+				return false; // No match
+			}
+		}
+
+		// Handle trailing '*' in template
+		while (templateIndex < template.length && template[templateIndex] === '*') {
+			templateIndex++;
+		}
+
+		return templateIndex === template.length;
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names,
+			...createDebug.skips.map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		for (const skip of createDebug.skips) {
+			if (matchesTemplate(name, skip)) {
+				return false;
+			}
+		}
+
+		for (const ns of createDebug.names) {
+			if (matchesTemplate(name, ns)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	/**
+	* XXX DO NOT USE. This is a temporary stub function.
+	* XXX It WILL be removed in the next major release.
+	*/
+	function destroy() {
+		console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
+}
+
+module.exports = setup;
+
+
+/***/ }),
+
+/***/ 2830:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+/**
+ * Detect Electron renderer / nwjs process, which is node, but we should
+ * treat as a browser.
+ */
+
+if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
+	module.exports = __nccwpck_require__(6110);
+} else {
+	module.exports = __nccwpck_require__(5108);
+}
+
+
+/***/ }),
+
+/***/ 5108:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+/**
+ * Module dependencies.
+ */
+
+const tty = __nccwpck_require__(2018);
+const util = __nccwpck_require__(9023);
+
+/**
+ * This is the Node.js implementation of `debug()`.
+ */
+
+exports.init = init;
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.destroy = util.deprecate(
+	() => {},
+	'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.'
+);
+
+/**
+ * Colors.
+ */
+
+exports.colors = [6, 2, 3, 4, 5, 1];
+
+try {
+	// Optional dependency (as in, doesn't need to be installed, NOT like optionalDependencies in package.json)
+	// eslint-disable-next-line import/no-extraneous-dependencies
+	const supportsColor = __nccwpck_require__(75);
+
+	if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
+		exports.colors = [
+			20,
+			21,
+			26,
+			27,
+			32,
+			33,
+			38,
+			39,
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			56,
+			57,
+			62,
+			63,
+			68,
+			69,
+			74,
+			75,
+			76,
+			77,
+			78,
+			79,
+			80,
+			81,
+			92,
+			93,
+			98,
+			99,
+			112,
+			113,
+			128,
+			129,
+			134,
+			135,
+			148,
+			149,
+			160,
+			161,
+			162,
+			163,
+			164,
+			165,
+			166,
+			167,
+			168,
+			169,
+			170,
+			171,
+			172,
+			173,
+			178,
+			179,
+			184,
+			185,
+			196,
+			197,
+			198,
+			199,
+			200,
+			201,
+			202,
+			203,
+			204,
+			205,
+			206,
+			207,
+			208,
+			209,
+			214,
+			215,
+			220,
+			221
+		];
+	}
+} catch (error) {
+	// Swallow - we only care if `supports-color` is available; it doesn't have to be.
+}
+
+/**
+ * Build up the default `inspectOpts` object from the environment variables.
+ *
+ *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
+ */
+
+exports.inspectOpts = Object.keys(process.env).filter(key => {
+	return /^debug_/i.test(key);
+}).reduce((obj, key) => {
+	// Camel-case
+	const prop = key
+		.substring(6)
+		.toLowerCase()
+		.replace(/_([a-z])/g, (_, k) => {
+			return k.toUpperCase();
+		});
+
+	// Coerce string value into JS value
+	let val = process.env[key];
+	if (/^(yes|on|true|enabled)$/i.test(val)) {
+		val = true;
+	} else if (/^(no|off|false|disabled)$/i.test(val)) {
+		val = false;
+	} else if (val === 'null') {
+		val = null;
+	} else {
+		val = Number(val);
+	}
+
+	obj[prop] = val;
+	return obj;
+}, {});
+
+/**
+ * Is stdout a TTY? Colored output is enabled when `true`.
+ */
+
+function useColors() {
+	return 'colors' in exports.inspectOpts ?
+		Boolean(exports.inspectOpts.colors) :
+		tty.isatty(process.stderr.fd);
+}
+
+/**
+ * Adds ANSI color escape codes if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	const {namespace: name, useColors} = this;
+
+	if (useColors) {
+		const c = this.color;
+		const colorCode = '\u001B[3' + (c < 8 ? c : '8;5;' + c);
+		const prefix = `  ${colorCode};1m${name} \u001B[0m`;
+
+		args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+		args.push(colorCode + 'm+' + module.exports.humanize(this.diff) + '\u001B[0m');
+	} else {
+		args[0] = getDate() + name + ' ' + args[0];
+	}
+}
+
+function getDate() {
+	if (exports.inspectOpts.hideDate) {
+		return '';
+	}
+	return new Date().toISOString() + ' ';
+}
+
+/**
+ * Invokes `util.formatWithOptions()` with the specified arguments and writes to stderr.
+ */
+
+function log(...args) {
+	return process.stderr.write(util.formatWithOptions(exports.inspectOpts, ...args) + '\n');
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	if (namespaces) {
+		process.env.DEBUG = namespaces;
+	} else {
+		// If you set a process.env field to null or undefined, it gets cast to the
+		// string 'null' or 'undefined'. Just delete instead.
+		delete process.env.DEBUG;
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+	return process.env.DEBUG;
+}
+
+/**
+ * Init logic for `debug` instances.
+ *
+ * Create a new `inspectOpts` object in case `useColors` is set
+ * differently for a particular `debug` instance.
+ */
+
+function init(debug) {
+	debug.inspectOpts = {};
+
+	const keys = Object.keys(exports.inspectOpts);
+	for (let i = 0; i < keys.length; i++) {
+		debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
+	}
+}
+
+module.exports = __nccwpck_require__(897)(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %o to `util.inspect()`, all on a single line.
+ */
+
+formatters.o = function (v) {
+	this.inspectOpts.colors = this.useColors;
+	return util.inspect(v, this.inspectOpts)
+		.split('\n')
+		.map(str => str.trim())
+		.join(' ');
+};
+
+/**
+ * Map %O to `util.inspect()`, allowing multiple lines if needed.
+ */
+
+formatters.O = function (v) {
+	this.inspectOpts.colors = this.useColors;
+	return util.inspect(v, this.inspectOpts);
+};
+
+
+/***/ }),
+
 /***/ 9049:
 /***/ ((module) => {
 
@@ -4259,6 +5243,98 @@ function dedent(strings) {
 
 if (true) {
   module.exports = dedent;
+}
+
+
+/***/ }),
+
+/***/ 7952:
+/***/ ((__unused_webpack_module, exports) => {
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+exports.L = function (buffer, offset, isLE, mLen, nBytes) {
+  var e, m
+  var eLen = (nBytes * 8) - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var nBits = -7
+  var i = isLE ? (nBytes - 1) : 0
+  var d = isLE ? -1 : 1
+  var s = buffer[offset + i]
+
+  i += d
+
+  e = s & ((1 << (-nBits)) - 1)
+  s >>= (-nBits)
+  nBits += eLen
+  for (; nBits > 0; e = (e * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+
+  m = e & ((1 << (-nBits)) - 1)
+  e >>= (-nBits)
+  nBits += mLen
+  for (; nBits > 0; m = (m * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+
+  if (e === 0) {
+    e = 1 - eBias
+  } else if (e === eMax) {
+    return m ? NaN : ((s ? -1 : 1) * Infinity)
+  } else {
+    m = m + Math.pow(2, mLen)
+    e = e - eBias
+  }
+  return (s ? -1 : 1) * m * Math.pow(2, e - mLen)
+}
+
+exports.M = function (buffer, value, offset, isLE, mLen, nBytes) {
+  var e, m, c
+  var eLen = (nBytes * 8) - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
+  var i = isLE ? 0 : (nBytes - 1)
+  var d = isLE ? 1 : -1
+  var s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0
+
+  value = Math.abs(value)
+
+  if (isNaN(value) || value === Infinity) {
+    m = isNaN(value) ? 1 : 0
+    e = eMax
+  } else {
+    e = Math.floor(Math.log(value) / Math.LN2)
+    if (value * (c = Math.pow(2, -e)) < 1) {
+      e--
+      c *= 2
+    }
+    if (e + eBias >= 1) {
+      value += rt / c
+    } else {
+      value += rt * Math.pow(2, 1 - eBias)
+    }
+    if (value * c >= 2) {
+      e++
+      c /= 2
+    }
+
+    if (e + eBias >= eMax) {
+      m = 0
+      e = eMax
+    } else if (e + eBias >= 1) {
+      m = ((value * c) - 1) * Math.pow(2, mLen)
+      e = e + eBias
+    } else {
+      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
+      e = 0
+    }
+  }
+
+  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
+
+  e = (e << mLen) | m
+  eLen += mLen
+  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
+
+  buffer[offset + i - d] |= s * 128
 }
 
 
@@ -4343,6 +5419,175 @@ var isInvalidPath = __nccwpck_require__(4450);
 module.exports = function (str) {
   return isInvalidPath(str) === false;
 };
+
+
+/***/ }),
+
+/***/ 744:
+/***/ ((module) => {
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var w = d * 7;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function (val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isFinite(val)) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (msAbs >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (msAbs >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (msAbs >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
+}
 
 
 /***/ }),
@@ -13027,7 +14272,6 @@ function defaultFactory (origin, opts) {
 
 class Agent extends DispatcherBase {
   constructor ({ factory = defaultFactory, maxRedirections = 0, connect, ...options } = {}) {
-    super()
 
     if (typeof factory !== 'function') {
       throw new InvalidArgumentError('factory must be a function.')
@@ -13040,6 +14284,8 @@ class Agent extends DispatcherBase {
     if (!Number.isInteger(maxRedirections) || maxRedirections < 0) {
       throw new InvalidArgumentError('maxRedirections must be a positive number')
     }
+
+    super(options)
 
     if (connect && typeof connect !== 'function') {
       connect = { ...connect }
@@ -15593,9 +16839,10 @@ class Client extends DispatcherBase {
     autoSelectFamilyAttemptTimeout,
     // h2
     maxConcurrentStreams,
-    allowH2
+    allowH2,
+    webSocket
   } = {}) {
-    super()
+    super({ webSocket })
 
     if (keepAlive !== undefined) {
       throw new InvalidArgumentError('unsupported keepAlive, use pipelining=0 instead')
@@ -16128,15 +17375,23 @@ const { kDestroy, kClose, kClosed, kDestroyed, kDispatch, kInterceptors } = __nc
 const kOnDestroyed = Symbol('onDestroyed')
 const kOnClosed = Symbol('onClosed')
 const kInterceptedDispatch = Symbol('Intercepted Dispatch')
+const kWebSocketOptions = Symbol('webSocketOptions')
 
 class DispatcherBase extends Dispatcher {
-  constructor () {
+  constructor (opts) {
     super()
 
     this[kDestroyed] = false
     this[kOnDestroyed] = null
     this[kClosed] = false
     this[kOnClosed] = []
+    this[kWebSocketOptions] = opts?.webSocket ?? {}
+  }
+
+  get webSocketOptions () {
+    return {
+      maxPayloadSize: this[kWebSocketOptions].maxPayloadSize ?? 128 * 1024 * 1024
+    }
   }
 
   get destroyed () {
@@ -16700,8 +17955,8 @@ const kRemoveClient = Symbol('remove client')
 const kStats = Symbol('stats')
 
 class PoolBase extends DispatcherBase {
-  constructor () {
-    super()
+  constructor (opts) {
+    super(opts)
 
     this[kQueue] = new FixedQueue()
     this[kClients] = []
@@ -16961,8 +18216,6 @@ class Pool extends PoolBase {
     allowH2,
     ...options
   } = {}) {
-    super()
-
     if (connections != null && (!Number.isFinite(connections) || connections < 0)) {
       throw new InvalidArgumentError('invalid connections')
     }
@@ -16986,6 +18239,8 @@ class Pool extends PoolBase {
         ...connect
       })
     }
+
+    super(options)
 
     this[kInterceptors] = options.interceptors?.Pool && Array.isArray(options.interceptors.Pool)
       ? options.interceptors.Pool
@@ -34802,40 +36057,35 @@ const tail = Buffer.from([0x00, 0x00, 0xff, 0xff])
 const kBuffer = Symbol('kBuffer')
 const kLength = Symbol('kLength')
 
-// Default maximum decompressed message size: 4 MB
-const kDefaultMaxDecompressedSize = 4 * 1024 * 1024
-
 class PerMessageDeflate {
   /** @type {import('node:zlib').InflateRaw} */
   #inflate
 
   #options = {}
 
-  /** @type {boolean} */
-  #aborted = false
-
-  /** @type {Function|null} */
-  #currentCallback = null
+  #maxPayloadSize = 0
 
   /**
    * @param {Map<string, string>} extensions
    */
-  constructor (extensions) {
+  constructor (extensions, options) {
     this.#options.serverNoContextTakeover = extensions.has('server_no_context_takeover')
     this.#options.serverMaxWindowBits = extensions.get('server_max_window_bits')
+
+    this.#maxPayloadSize = options.maxPayloadSize
   }
 
+  /**
+   * Decompress a compressed payload.
+   * @param {Buffer} chunk Compressed data
+   * @param {boolean} fin Final fragment flag
+   * @param {Function} callback Callback function
+   */
   decompress (chunk, fin, callback) {
     // An endpoint uses the following algorithm to decompress a message.
     // 1.  Append 4 octets of 0x00 0x00 0xff 0xff to the tail end of the
     //     payload of the message.
     // 2.  Decompress the resulting data using DEFLATE.
-
-    if (this.#aborted) {
-      callback(new MessageSizeExceededError())
-      return
-    }
-
     if (!this.#inflate) {
       let windowBits = Z_DEFAULT_WINDOWBITS
 
@@ -34858,23 +36108,12 @@ class PerMessageDeflate {
       this.#inflate[kLength] = 0
 
       this.#inflate.on('data', (data) => {
-        if (this.#aborted) {
-          return
-        }
-
         this.#inflate[kLength] += data.length
 
-        if (this.#inflate[kLength] > kDefaultMaxDecompressedSize) {
-          this.#aborted = true
+        if (this.#maxPayloadSize > 0 && this.#inflate[kLength] > this.#maxPayloadSize) {
+          callback(new MessageSizeExceededError())
           this.#inflate.removeAllListeners()
-          this.#inflate.destroy()
           this.#inflate = null
-
-          if (this.#currentCallback) {
-            const cb = this.#currentCallback
-            this.#currentCallback = null
-            cb(new MessageSizeExceededError())
-          }
           return
         }
 
@@ -34887,14 +36126,13 @@ class PerMessageDeflate {
       })
     }
 
-    this.#currentCallback = callback
     this.#inflate.write(chunk)
     if (fin) {
       this.#inflate.write(tail)
     }
 
     this.#inflate.flush(() => {
-      if (this.#aborted || !this.#inflate) {
+      if (!this.#inflate) {
         return
       }
 
@@ -34902,7 +36140,6 @@ class PerMessageDeflate {
 
       this.#inflate[kBuffer].length = 0
       this.#inflate[kLength] = 0
-      this.#currentCallback = null
 
       callback(null, full)
     })
@@ -34938,6 +36175,7 @@ const {
 const { WebsocketFrameSend } = __nccwpck_require__(3264)
 const { closeWebSocketConnection } = __nccwpck_require__(6897)
 const { PerMessageDeflate } = __nccwpck_require__(9469)
+const { MessageSizeExceededError } = __nccwpck_require__(8707)
 
 // This code was influenced by ws released under the MIT license.
 // Copyright (c) 2011 Einar Otto Stangvik <einaros@gmail.com>
@@ -34946,6 +36184,7 @@ const { PerMessageDeflate } = __nccwpck_require__(9469)
 
 class ByteParser extends Writable {
   #buffers = []
+  #fragmentsBytes = 0
   #byteOffset = 0
   #loop = false
 
@@ -34957,18 +36196,23 @@ class ByteParser extends Writable {
   /** @type {Map<string, PerMessageDeflate>} */
   #extensions
 
+  /** @type {number} */
+  #maxPayloadSize
+
   /**
    * @param {import('./websocket').WebSocket} ws
    * @param {Map<string, string>|null} extensions
+   * @param {{ maxPayloadSize?: number }} [options]
    */
-  constructor (ws, extensions) {
+  constructor (ws, extensions, options = {}) {
     super()
 
     this.ws = ws
     this.#extensions = extensions == null ? new Map() : extensions
+    this.#maxPayloadSize = options.maxPayloadSize ?? 0
 
     if (this.#extensions.has('permessage-deflate')) {
-      this.#extensions.set('permessage-deflate', new PerMessageDeflate(extensions))
+      this.#extensions.set('permessage-deflate', new PerMessageDeflate(extensions, options))
     }
   }
 
@@ -34982,6 +36226,19 @@ class ByteParser extends Writable {
     this.#loop = true
 
     this.run(callback)
+  }
+
+  #validatePayloadLength () {
+    if (
+      this.#maxPayloadSize > 0 &&
+      !isControlFrame(this.#info.opcode) &&
+      this.#info.payloadLength > this.#maxPayloadSize
+    ) {
+      failWebsocketConnection(this.ws, 'Payload size exceeds maximum allowed size')
+      return false
+    }
+
+    return true
   }
 
   /**
@@ -35072,6 +36329,10 @@ class ByteParser extends Writable {
         if (payloadLength <= 125) {
           this.#info.payloadLength = payloadLength
           this.#state = parserStates.READ_DATA
+
+          if (!this.#validatePayloadLength()) {
+            return
+          }
         } else if (payloadLength === 126) {
           this.#state = parserStates.PAYLOADLENGTH_16
         } else if (payloadLength === 127) {
@@ -35096,6 +36357,10 @@ class ByteParser extends Writable {
 
         this.#info.payloadLength = buffer.readUInt16BE(0)
         this.#state = parserStates.READ_DATA
+
+        if (!this.#validatePayloadLength()) {
+          return
+        }
       } else if (this.#state === parserStates.PAYLOADLENGTH_64) {
         if (this.#byteOffset < 8) {
           return callback()
@@ -35118,6 +36383,10 @@ class ByteParser extends Writable {
 
         this.#info.payloadLength = lower
         this.#state = parserStates.READ_DATA
+
+        if (!this.#validatePayloadLength()) {
+          return
+        }
       } else if (this.#state === parserStates.READ_DATA) {
         if (this.#byteOffset < this.#info.payloadLength) {
           return callback()
@@ -35130,42 +36399,53 @@ class ByteParser extends Writable {
           this.#state = parserStates.INFO
         } else {
           if (!this.#info.compressed) {
-            this.#fragments.push(body)
+            this.writeFragments(body)
+
+            if (this.#maxPayloadSize > 0 && this.#fragmentsBytes > this.#maxPayloadSize) {
+              failWebsocketConnection(this.ws, new MessageSizeExceededError().message)
+              return
+            }
 
             // If the frame is not fragmented, a message has been received.
             // If the frame is fragmented, it will terminate with a fin bit set
             // and an opcode of 0 (continuation), therefore we handle that when
             // parsing continuation frames, not here.
             if (!this.#info.fragmented && this.#info.fin) {
-              const fullMessage = Buffer.concat(this.#fragments)
-              websocketMessageReceived(this.ws, this.#info.binaryType, fullMessage)
-              this.#fragments.length = 0
+              websocketMessageReceived(this.ws, this.#info.binaryType, this.consumeFragments())
             }
 
             this.#state = parserStates.INFO
           } else {
-            this.#extensions.get('permessage-deflate').decompress(body, this.#info.fin, (error, data) => {
-              if (error) {
-                failWebsocketConnection(this.ws, error.message)
-                return
-              }
+            this.#extensions.get('permessage-deflate').decompress(
+              body,
+              this.#info.fin,
+              (error, data) => {
+                if (error) {
+                  failWebsocketConnection(this.ws, error.message)
+                  return
+                }
 
-              this.#fragments.push(data)
+                this.writeFragments(data)
 
-              if (!this.#info.fin) {
-                this.#state = parserStates.INFO
+                if (this.#maxPayloadSize > 0 && this.#fragmentsBytes > this.#maxPayloadSize) {
+                  failWebsocketConnection(this.ws, new MessageSizeExceededError().message)
+                  return
+                }
+
+                if (!this.#info.fin) {
+                  this.#state = parserStates.INFO
+                  this.#loop = true
+                  this.run(callback)
+                  return
+                }
+
+                websocketMessageReceived(this.ws, this.#info.binaryType, this.consumeFragments())
+
                 this.#loop = true
+                this.#state = parserStates.INFO
                 this.run(callback)
-                return
               }
-
-              websocketMessageReceived(this.ws, this.#info.binaryType, Buffer.concat(this.#fragments))
-
-              this.#loop = true
-              this.#state = parserStates.INFO
-              this.#fragments.length = 0
-              this.run(callback)
-            })
+            )
 
             this.#loop = false
             break
@@ -35215,6 +36495,26 @@ class ByteParser extends Writable {
     this.#byteOffset -= n
 
     return buffer
+  }
+
+  writeFragments (fragment) {
+    this.#fragmentsBytes += fragment.length
+    this.#fragments.push(fragment)
+  }
+
+  consumeFragments () {
+    const fragments = this.#fragments
+
+    if (fragments.length === 1) {
+      this.#fragmentsBytes = 0
+      return fragments.shift()
+    }
+
+    const output = Buffer.concat(fragments, this.#fragmentsBytes)
+    this.#fragments = []
+    this.#fragmentsBytes = 0
+
+    return output
   }
 
   parseCloseBody (data) {
@@ -36252,7 +37552,11 @@ class WebSocket extends EventTarget {
     // once this happens, the connection is open
     this[kResponse] = response
 
-    const parser = new ByteParser(this, parsedExtensions)
+    const maxPayloadSize = this[kController]?.dispatcher?.webSocketOptions?.maxPayloadSize
+
+    const parser = new ByteParser(this, parsedExtensions, {
+      maxPayloadSize
+    })
     parser.on('drain', onParserDrain)
     parser.on('error', onParserError.bind(this))
 
@@ -37539,6 +38843,33 @@ async function zip(glob) {
 
 /***/ }),
 
+/***/ 75:
+/***/ ((module) => {
+
+module.exports = eval("require")("supports-color");
+
+
+/***/ }),
+
+/***/ 7224:
+/***/ ((module) => {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncaught exception popping up in devtools
+	return Promise.resolve().then(() => {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	});
+}
+webpackEmptyAsyncContext.keys = () => ([]);
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 7224;
+module.exports = webpackEmptyAsyncContext;
+
+/***/ }),
+
 /***/ 2613:
 /***/ ((module) => {
 
@@ -37744,14 +39075,6 @@ module.exports = require("node:querystring");
 
 "use strict";
 module.exports = require("node:stream");
-
-/***/ }),
-
-/***/ 7830:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:stream/web");
 
 /***/ }),
 
@@ -54532,6 +55855,5641 @@ function default_1() {
 module.exports = exports.default;
 
 
+/***/ }),
+
+/***/ 5508:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__nccwpck_require__.r(__webpack_exports__);
+
+// EXPORTS
+__nccwpck_require__.d(__webpack_exports__, {
+  FileTypeParser: () => (/* binding */ FileTypeParser),
+  fileTypeFromBlob: () => (/* binding */ fileTypeFromBlob),
+  fileTypeFromBuffer: () => (/* binding */ fileTypeFromBuffer),
+  fileTypeFromFile: () => (/* binding */ fileTypeFromFile),
+  fileTypeFromStream: () => (/* binding */ fileTypeFromStream),
+  fileTypeFromTokenizer: () => (/* binding */ fileTypeFromTokenizer),
+  fileTypeStream: () => (/* binding */ fileTypeStream),
+  normalizeSampleSize: () => (/* binding */ normalizeSampleSize),
+  reasonableDetectionSizeInBytes: () => (/* binding */ reasonableDetectionSizeInBytes),
+  supportedExtensions: () => (/* binding */ supportedExtensions),
+  supportedMimeTypes: () => (/* binding */ supportedMimeTypes)
+});
+
+// EXTERNAL MODULE: ./node_modules/ieee754/index.js
+var ieee754 = __nccwpck_require__(7952);
+;// CONCATENATED MODULE: ./node_modules/@borewit/text-codec/lib/index.js
+const WINDOWS_1252_EXTRA = {
+    0x80: "€", 0x82: "‚", 0x83: "ƒ", 0x84: "„", 0x85: "…", 0x86: "†",
+    0x87: "‡", 0x88: "ˆ", 0x89: "‰", 0x8a: "Š", 0x8b: "‹", 0x8c: "Œ",
+    0x8e: "Ž", 0x91: "‘", 0x92: "’", 0x93: "“", 0x94: "”", 0x95: "•",
+    0x96: "–", 0x97: "—", 0x98: "˜", 0x99: "™", 0x9a: "š", 0x9b: "›",
+    0x9c: "œ", 0x9e: "ž", 0x9f: "Ÿ",
+};
+const WINDOWS_1252_REVERSE = {};
+for (const [code, char] of Object.entries(WINDOWS_1252_EXTRA)) {
+    WINDOWS_1252_REVERSE[char] = Number.parseInt(code, 10);
+}
+let _utf8Decoder;
+let _utf8Encoder;
+function utf8Decoder() {
+    if (typeof globalThis.TextDecoder === "undefined")
+        return undefined;
+    return (_utf8Decoder !== null && _utf8Decoder !== void 0 ? _utf8Decoder : (_utf8Decoder = new globalThis.TextDecoder("utf-8")));
+}
+function utf8Encoder() {
+    if (typeof globalThis.TextEncoder === "undefined")
+        return undefined;
+    return (_utf8Encoder !== null && _utf8Encoder !== void 0 ? _utf8Encoder : (_utf8Encoder = new globalThis.TextEncoder()));
+}
+const CHUNK = 32 * 1024;
+const REPLACEMENT = 0xfffd;
+/**
+ * Decode text from binary data
+ */
+function textDecode(bytes, encoding = "utf-8") {
+    switch (encoding.toLowerCase()) {
+        case "utf-8":
+        case "utf8": {
+            const dec = utf8Decoder();
+            return dec ? dec.decode(bytes) : decodeUTF8(bytes);
+        }
+        case "utf-16le":
+            return decodeUTF16LE(bytes);
+        case "us-ascii":
+        case "ascii":
+            return decodeASCII(bytes);
+        case "latin1":
+        case "iso-8859-1":
+            return decodeLatin1(bytes);
+        case "windows-1252":
+            return decodeWindows1252(bytes);
+        default:
+            throw new RangeError(`Encoding '${encoding}' not supported`);
+    }
+}
+function textEncode(input = "", encoding = "utf-8") {
+    switch (encoding.toLowerCase()) {
+        case "utf-8":
+        case "utf8": {
+            const enc = utf8Encoder();
+            return enc ? enc.encode(input) : encodeUTF8(input);
+        }
+        case "utf-16le":
+            return encodeUTF16LE(input);
+        case "us-ascii":
+        case "ascii":
+            return encodeASCII(input);
+        case "latin1":
+        case "iso-8859-1":
+            return encodeLatin1(input);
+        case "windows-1252":
+            return encodeWindows1252(input);
+        default:
+            throw new RangeError(`Encoding '${encoding}' not supported`);
+    }
+}
+function appendCodePoint(out, cp) {
+    if (cp <= 0xffff) {
+        out.push(String.fromCharCode(cp));
+        return;
+    }
+    cp -= 0x10000;
+    out.push(String.fromCharCode(0xd800 + (cp >> 10), 0xdc00 + (cp & 0x3ff)));
+}
+function flushChunk(parts, chunk) {
+    if (chunk.length === 0)
+        return;
+    parts.push(String.fromCharCode.apply(null, chunk));
+    chunk.length = 0;
+}
+function pushCodeUnit(parts, chunk, codeUnit) {
+    chunk.push(codeUnit);
+    if (chunk.length >= CHUNK)
+        flushChunk(parts, chunk);
+}
+function pushCodePoint(parts, chunk, cp) {
+    if (cp <= 0xffff) {
+        pushCodeUnit(parts, chunk, cp);
+        return;
+    }
+    cp -= 0x10000;
+    pushCodeUnit(parts, chunk, 0xd800 + (cp >> 10));
+    pushCodeUnit(parts, chunk, 0xdc00 + (cp & 0x3ff));
+}
+function decodeUTF8(bytes) {
+    const parts = [];
+    const chunk = [];
+    let i = 0;
+    // Match TextDecoder("utf-8") default BOM handling
+    if (bytes.length >= 3 &&
+        bytes[0] === 0xef &&
+        bytes[1] === 0xbb &&
+        bytes[2] === 0xbf) {
+        i = 3;
+    }
+    while (i < bytes.length) {
+        const b1 = bytes[i];
+        if (b1 <= 0x7f) {
+            pushCodeUnit(parts, chunk, b1);
+            i++;
+            continue;
+        }
+        // Invalid leading bytes: continuation byte or impossible prefixes
+        if (b1 < 0xc2 || b1 > 0xf4) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            i++;
+            continue;
+        }
+        // 2-byte sequence
+        if (b1 <= 0xdf) {
+            if (i + 1 >= bytes.length) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const b2 = bytes[i + 1];
+            if ((b2 & 0xc0) !== 0x80) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const cp = ((b1 & 0x1f) << 6) | (b2 & 0x3f);
+            pushCodeUnit(parts, chunk, cp);
+            i += 2;
+            continue;
+        }
+        // 3-byte sequence
+        if (b1 <= 0xef) {
+            if (i + 2 >= bytes.length) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const b2 = bytes[i + 1];
+            const b3 = bytes[i + 2];
+            const valid = (b2 & 0xc0) === 0x80 &&
+                (b3 & 0xc0) === 0x80 &&
+                !(b1 === 0xe0 && b2 < 0xa0) && // overlong
+                !(b1 === 0xed && b2 >= 0xa0); // surrogate range
+            if (!valid) {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+                i++;
+                continue;
+            }
+            const cp = ((b1 & 0x0f) << 12) |
+                ((b2 & 0x3f) << 6) |
+                (b3 & 0x3f);
+            pushCodeUnit(parts, chunk, cp);
+            i += 3;
+            continue;
+        }
+        // 4-byte sequence
+        if (i + 3 >= bytes.length) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            i++;
+            continue;
+        }
+        const b2 = bytes[i + 1];
+        const b3 = bytes[i + 2];
+        const b4 = bytes[i + 3];
+        const valid = (b2 & 0xc0) === 0x80 &&
+            (b3 & 0xc0) === 0x80 &&
+            (b4 & 0xc0) === 0x80 &&
+            !(b1 === 0xf0 && b2 < 0x90) && // overlong
+            !(b1 === 0xf4 && b2 > 0x8f); // > U+10FFFF
+        if (!valid) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            i++;
+            continue;
+        }
+        const cp = ((b1 & 0x07) << 18) |
+            ((b2 & 0x3f) << 12) |
+            ((b3 & 0x3f) << 6) |
+            (b4 & 0x3f);
+        pushCodePoint(parts, chunk, cp);
+        i += 4;
+    }
+    flushChunk(parts, chunk);
+    return parts.join("");
+}
+function decodeUTF16LE(bytes) {
+    const parts = [];
+    const chunk = [];
+    const len = bytes.length;
+    let i = 0;
+    while (i + 1 < len) {
+        const u1 = bytes[i] | (bytes[i + 1] << 8);
+        i += 2;
+        // High surrogate
+        if (u1 >= 0xd800 && u1 <= 0xdbff) {
+            if (i + 1 < len) {
+                const u2 = bytes[i] | (bytes[i + 1] << 8);
+                if (u2 >= 0xdc00 && u2 <= 0xdfff) {
+                    pushCodeUnit(parts, chunk, u1);
+                    pushCodeUnit(parts, chunk, u2);
+                    i += 2;
+                }
+                else {
+                    pushCodeUnit(parts, chunk, REPLACEMENT);
+                }
+            }
+            else {
+                pushCodeUnit(parts, chunk, REPLACEMENT);
+            }
+            continue;
+        }
+        // Lone low surrogate
+        if (u1 >= 0xdc00 && u1 <= 0xdfff) {
+            pushCodeUnit(parts, chunk, REPLACEMENT);
+            continue;
+        }
+        pushCodeUnit(parts, chunk, u1);
+    }
+    // Odd trailing byte
+    if (i < len) {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+    }
+    flushChunk(parts, chunk);
+    return parts.join("");
+}
+function decodeASCII(bytes) {
+    const parts = [];
+    for (let i = 0; i < bytes.length; i += CHUNK) {
+        const end = Math.min(bytes.length, i + CHUNK);
+        const codes = new Array(end - i);
+        for (let j = i, k = 0; j < end; j++, k++) {
+            codes[k] = bytes[j] & 0x7f;
+        }
+        parts.push(String.fromCharCode.apply(null, codes));
+    }
+    return parts.join("");
+}
+function decodeLatin1(bytes) {
+    const parts = [];
+    for (let i = 0; i < bytes.length; i += CHUNK) {
+        const end = Math.min(bytes.length, i + CHUNK);
+        const codes = new Array(end - i);
+        for (let j = i, k = 0; j < end; j++, k++) {
+            codes[k] = bytes[j];
+        }
+        parts.push(String.fromCharCode.apply(null, codes));
+    }
+    return parts.join("");
+}
+function decodeWindows1252(bytes) {
+    const parts = [];
+    let out = "";
+    for (let i = 0; i < bytes.length; i++) {
+        const b = bytes[i];
+        const extra = b >= 0x80 && b <= 0x9f ? WINDOWS_1252_EXTRA[b] : undefined;
+        out += extra !== null && extra !== void 0 ? extra : String.fromCharCode(b);
+        if (out.length >= CHUNK) {
+            parts.push(out);
+            out = "";
+        }
+    }
+    if (out)
+        parts.push(out);
+    return parts.join("");
+}
+function encodeUTF8(str) {
+    const out = [];
+    for (let i = 0; i < str.length; i++) {
+        let cp = str.charCodeAt(i);
+        // Valid surrogate pair
+        if (cp >= 0xd800 && cp <= 0xdbff) {
+            if (i + 1 < str.length) {
+                const lo = str.charCodeAt(i + 1);
+                if (lo >= 0xdc00 && lo <= 0xdfff) {
+                    cp = 0x10000 + ((cp - 0xd800) << 10) + (lo - 0xdc00);
+                    i++;
+                }
+                else {
+                    cp = REPLACEMENT;
+                }
+            }
+            else {
+                cp = REPLACEMENT;
+            }
+        }
+        else if (cp >= 0xdc00 && cp <= 0xdfff) {
+            // Lone low surrogate
+            cp = REPLACEMENT;
+        }
+        if (cp < 0x80) {
+            out.push(cp);
+        }
+        else if (cp < 0x800) {
+            out.push(0xc0 | (cp >> 6), 0x80 | (cp & 0x3f));
+        }
+        else if (cp < 0x10000) {
+            out.push(0xe0 | (cp >> 12), 0x80 | ((cp >> 6) & 0x3f), 0x80 | (cp & 0x3f));
+        }
+        else {
+            out.push(0xf0 | (cp >> 18), 0x80 | ((cp >> 12) & 0x3f), 0x80 | ((cp >> 6) & 0x3f), 0x80 | (cp & 0x3f));
+        }
+    }
+    return new Uint8Array(out);
+}
+function encodeUTF16LE(str) {
+    // Preserve JS string code units, but do not emit non-well-formed UTF-16.
+    // Replace lone surrogates with U+FFFD.
+    const units = [];
+    for (let i = 0; i < str.length; i++) {
+        const u = str.charCodeAt(i);
+        if (u >= 0xd800 && u <= 0xdbff) {
+            if (i + 1 < str.length) {
+                const lo = str.charCodeAt(i + 1);
+                if (lo >= 0xdc00 && lo <= 0xdfff) {
+                    units.push(u, lo);
+                    i++;
+                }
+                else {
+                    units.push(REPLACEMENT);
+                }
+            }
+            else {
+                units.push(REPLACEMENT);
+            }
+            continue;
+        }
+        if (u >= 0xdc00 && u <= 0xdfff) {
+            units.push(REPLACEMENT);
+            continue;
+        }
+        units.push(u);
+    }
+    const out = new Uint8Array(units.length * 2);
+    for (let i = 0; i < units.length; i++) {
+        const code = units[i];
+        const o = i * 2;
+        out[o] = code & 0xff;
+        out[o + 1] = code >>> 8;
+    }
+    return out;
+}
+function encodeASCII(str) {
+    const out = new Uint8Array(str.length);
+    for (let i = 0; i < str.length; i++)
+        out[i] = str.charCodeAt(i) & 0x7f;
+    return out;
+}
+function encodeLatin1(str) {
+    const out = new Uint8Array(str.length);
+    for (let i = 0; i < str.length; i++)
+        out[i] = str.charCodeAt(i) & 0xff;
+    return out;
+}
+function encodeWindows1252(str) {
+    const out = new Uint8Array(str.length);
+    for (let i = 0; i < str.length; i++) {
+        const ch = str[i];
+        const code = ch.charCodeAt(0);
+        if (WINDOWS_1252_REVERSE[ch] !== undefined) {
+            out[i] = WINDOWS_1252_REVERSE[ch];
+            continue;
+        }
+        if ((code >= 0x00 && code <= 0x7f) ||
+            (code >= 0xa0 && code <= 0xff)) {
+            out[i] = code;
+            continue;
+        }
+        out[i] = 0x3f; // '?'
+    }
+    return out;
+}
+
+;// CONCATENATED MODULE: ./node_modules/token-types/lib/index.js
+
+
+// Primitive types
+function dv(array) {
+    return new DataView(array.buffer, array.byteOffset);
+}
+/*
+ * 8-bit unsigned integer
+ */
+const UINT8 = {
+    len: 1,
+    get(array, offset) {
+        return dv(array).getUint8(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setUint8(offset, value);
+        return offset + 1;
+    }
+};
+/**
+ * 16-bit unsigned integer, Little Endian byte order
+ */
+const UINT16_LE = {
+    len: 2,
+    get(array, offset) {
+        return dv(array).getUint16(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setUint16(offset, value, true);
+        return offset + 2;
+    }
+};
+/**
+ * 16-bit unsigned integer, Big Endian byte order
+ */
+const UINT16_BE = {
+    len: 2,
+    get(array, offset) {
+        return dv(array).getUint16(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setUint16(offset, value);
+        return offset + 2;
+    }
+};
+/**
+ * 24-bit unsigned integer, Little Endian byte order
+ */
+const UINT24_LE = {
+    len: 3,
+    get(array, offset) {
+        const dataView = dv(array);
+        return dataView.getUint8(offset) + (dataView.getUint16(offset + 1, true) << 8);
+    },
+    put(array, offset, value) {
+        const dataView = dv(array);
+        dataView.setUint8(offset, value & 0xff);
+        dataView.setUint16(offset + 1, value >> 8, true);
+        return offset + 3;
+    }
+};
+/**
+ * 24-bit unsigned integer, Big Endian byte order
+ */
+const UINT24_BE = {
+    len: 3,
+    get(array, offset) {
+        const dataView = dv(array);
+        return (dataView.getUint16(offset) << 8) + dataView.getUint8(offset + 2);
+    },
+    put(array, offset, value) {
+        const dataView = dv(array);
+        dataView.setUint16(offset, value >> 8);
+        dataView.setUint8(offset + 2, value & 0xff);
+        return offset + 3;
+    }
+};
+/**
+ * 32-bit unsigned integer, Little Endian byte order
+ */
+const UINT32_LE = {
+    len: 4,
+    get(array, offset) {
+        return dv(array).getUint32(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setUint32(offset, value, true);
+        return offset + 4;
+    }
+};
+/**
+ * 32-bit unsigned integer, Big Endian byte order
+ */
+const UINT32_BE = {
+    len: 4,
+    get(array, offset) {
+        return dv(array).getUint32(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setUint32(offset, value);
+        return offset + 4;
+    }
+};
+/**
+ * 8-bit signed integer
+ */
+const INT8 = {
+    len: 1,
+    get(array, offset) {
+        return dv(array).getInt8(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setInt8(offset, value);
+        return offset + 1;
+    }
+};
+/**
+ * 16-bit signed integer, Big Endian byte order
+ */
+const INT16_BE = {
+    len: 2,
+    get(array, offset) {
+        return dv(array).getInt16(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setInt16(offset, value);
+        return offset + 2;
+    }
+};
+/**
+ * 16-bit signed integer, Little Endian byte order
+ */
+const INT16_LE = {
+    len: 2,
+    get(array, offset) {
+        return dv(array).getInt16(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setInt16(offset, value, true);
+        return offset + 2;
+    }
+};
+/**
+ * 24-bit signed integer, Little Endian byte order
+ */
+const INT24_LE = {
+    len: 3,
+    get(array, offset) {
+        const unsigned = UINT24_LE.get(array, offset);
+        return unsigned > 0x7fffff ? unsigned - 0x1000000 : unsigned;
+    },
+    put(array, offset, value) {
+        const dataView = dv(array);
+        dataView.setUint8(offset, value & 0xff);
+        dataView.setUint16(offset + 1, value >> 8, true);
+        return offset + 3;
+    }
+};
+/**
+ * 24-bit signed integer, Big Endian byte order
+ */
+const INT24_BE = {
+    len: 3,
+    get(array, offset) {
+        const unsigned = UINT24_BE.get(array, offset);
+        return unsigned > 0x7fffff ? unsigned - 0x1000000 : unsigned;
+    },
+    put(array, offset, value) {
+        const dataView = dv(array);
+        dataView.setUint16(offset, value >> 8);
+        dataView.setUint8(offset + 2, value & 0xff);
+        return offset + 3;
+    }
+};
+/**
+ * 32-bit signed integer, Big Endian byte order
+ */
+const INT32_BE = {
+    len: 4,
+    get(array, offset) {
+        return dv(array).getInt32(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setInt32(offset, value);
+        return offset + 4;
+    }
+};
+/**
+ * 32-bit signed integer, Big Endian byte order
+ */
+const INT32_LE = {
+    len: 4,
+    get(array, offset) {
+        return dv(array).getInt32(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setInt32(offset, value, true);
+        return offset + 4;
+    }
+};
+/**
+ * 64-bit unsigned integer, Little Endian byte order
+ */
+const UINT64_LE = {
+    len: 8,
+    get(array, offset) {
+        return dv(array).getBigUint64(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setBigUint64(offset, value, true);
+        return offset + 8;
+    }
+};
+/**
+ * 64-bit signed integer, Little Endian byte order
+ */
+const INT64_LE = {
+    len: 8,
+    get(array, offset) {
+        return dv(array).getBigInt64(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setBigInt64(offset, value, true);
+        return offset + 8;
+    }
+};
+/**
+ * 64-bit unsigned integer, Big Endian byte order
+ */
+const UINT64_BE = {
+    len: 8,
+    get(array, offset) {
+        return dv(array).getBigUint64(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setBigUint64(offset, value);
+        return offset + 8;
+    }
+};
+/**
+ * 64-bit signed integer, Big Endian byte order
+ */
+const INT64_BE = {
+    len: 8,
+    get(array, offset) {
+        return dv(array).getBigInt64(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setBigInt64(offset, value);
+        return offset + 8;
+    }
+};
+/**
+ * IEEE 754 16-bit (half precision) float, big endian
+ */
+const Float16_BE = {
+    len: 2,
+    get(dataView, offset) {
+        return ieee754/* read */.L(dataView, offset, false, 10, this.len);
+    },
+    put(dataView, offset, value) {
+        ieee754/* write */.M(dataView, value, offset, false, 10, this.len);
+        return offset + this.len;
+    }
+};
+/**
+ * IEEE 754 16-bit (half precision) float, little endian
+ */
+const Float16_LE = {
+    len: 2,
+    get(array, offset) {
+        return ieee754/* read */.L(array, offset, true, 10, this.len);
+    },
+    put(array, offset, value) {
+        ieee754/* write */.M(array, value, offset, true, 10, this.len);
+        return offset + this.len;
+    }
+};
+/**
+ * IEEE 754 32-bit (single precision) float, big endian
+ */
+const Float32_BE = {
+    len: 4,
+    get(array, offset) {
+        return dv(array).getFloat32(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setFloat32(offset, value);
+        return offset + 4;
+    }
+};
+/**
+ * IEEE 754 32-bit (single precision) float, little endian
+ */
+const Float32_LE = {
+    len: 4,
+    get(array, offset) {
+        return dv(array).getFloat32(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setFloat32(offset, value, true);
+        return offset + 4;
+    }
+};
+/**
+ * IEEE 754 64-bit (double precision) float, big endian
+ */
+const Float64_BE = {
+    len: 8,
+    get(array, offset) {
+        return dv(array).getFloat64(offset);
+    },
+    put(array, offset, value) {
+        dv(array).setFloat64(offset, value);
+        return offset + 8;
+    }
+};
+/**
+ * IEEE 754 64-bit (double precision) float, little endian
+ */
+const Float64_LE = {
+    len: 8,
+    get(array, offset) {
+        return dv(array).getFloat64(offset, true);
+    },
+    put(array, offset, value) {
+        dv(array).setFloat64(offset, value, true);
+        return offset + 8;
+    }
+};
+/**
+ * IEEE 754 80-bit (extended precision) float, big endian
+ */
+const Float80_BE = {
+    len: 10,
+    get(array, offset) {
+        return ieee754/* read */.L(array, offset, false, 63, this.len);
+    },
+    put(array, offset, value) {
+        ieee754/* write */.M(array, value, offset, false, 63, this.len);
+        return offset + this.len;
+    }
+};
+/**
+ * IEEE 754 80-bit (extended precision) float, little endian
+ */
+const Float80_LE = {
+    len: 10,
+    get(array, offset) {
+        return ieee754/* read */.L(array, offset, true, 63, this.len);
+    },
+    put(array, offset, value) {
+        ieee754/* write */.M(array, value, offset, true, 63, this.len);
+        return offset + this.len;
+    }
+};
+/**
+ * Ignore a given number of bytes
+ */
+class IgnoreType {
+    /**
+     * @param len number of bytes to ignore
+     */
+    constructor(len) {
+        this.len = len;
+    }
+    // ToDo: don't read, but skip data
+    get(_array, _off) {
+    }
+}
+class Uint8ArrayType {
+    constructor(len) {
+        this.len = len;
+    }
+    get(array, offset) {
+        return array.subarray(offset, offset + this.len);
+    }
+}
+/**
+ * Consume a fixed number of bytes from the stream and return a string with a specified encoding.
+ * Supports all encodings supported by TextDecoder, plus 'windows-1252'.
+ */
+class StringType {
+    constructor(len, encoding) {
+        this.len = len;
+        this.encoding = encoding;
+    }
+    get(data, offset = 0) {
+        const bytes = data.subarray(offset, offset + this.len);
+        return textDecode(bytes, this.encoding);
+    }
+}
+/**
+ * ANSI Latin 1 String using Windows-1252 (Code Page 1252)
+ * Windows-1252 is a superset of ISO 8859-1 / Latin-1.
+ */
+class AnsiStringType extends StringType {
+    constructor(len) {
+        super(len, 'windows-1252');
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/Errors.js
+const defaultMessages = 'End-Of-Stream';
+/**
+ * Thrown on read operation of the end of file or stream has been reached
+ */
+class EndOfStreamError extends Error {
+    constructor() {
+        super(defaultMessages);
+        this.name = "EndOfStreamError";
+    }
+}
+class AbortError extends Error {
+    constructor(message = "The operation was aborted") {
+        super(message);
+        this.name = "AbortError";
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/Deferred.js
+class Deferred {
+    constructor() {
+        this.resolve = () => null;
+        this.reject = () => null;
+        this.promise = new Promise((resolve, reject) => {
+            this.reject = reject;
+            this.resolve = resolve;
+        });
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/AbstractStreamReader.js
+
+class AbstractStreamReader {
+    constructor() {
+        this.endOfStream = false;
+        this.interrupted = false;
+        /**
+         * Store peeked data
+         * @type {Array}
+         */
+        this.peekQueue = [];
+    }
+    async peek(uint8Array, mayBeLess = false) {
+        const bytesRead = await this.read(uint8Array, mayBeLess);
+        this.peekQueue.push(uint8Array.subarray(0, bytesRead)); // Put read data back to peek buffer
+        return bytesRead;
+    }
+    async read(buffer, mayBeLess = false) {
+        if (buffer.length === 0) {
+            return 0;
+        }
+        let bytesRead = this.readFromPeekBuffer(buffer);
+        if (!this.endOfStream) {
+            bytesRead += await this.readRemainderFromStream(buffer.subarray(bytesRead), mayBeLess);
+        }
+        if (bytesRead === 0 && !mayBeLess) {
+            throw new EndOfStreamError();
+        }
+        return bytesRead;
+    }
+    /**
+     * Read chunk from stream
+     * @param buffer - Target Uint8Array (or Buffer) to store data read from stream in
+     * @returns Number of bytes read
+     */
+    readFromPeekBuffer(buffer) {
+        let remaining = buffer.length;
+        let bytesRead = 0;
+        // consume peeked data first
+        while (this.peekQueue.length > 0 && remaining > 0) {
+            const peekData = this.peekQueue.pop(); // Front of queue
+            if (!peekData)
+                throw new Error('peekData should be defined');
+            const lenCopy = Math.min(peekData.length, remaining);
+            buffer.set(peekData.subarray(0, lenCopy), bytesRead);
+            bytesRead += lenCopy;
+            remaining -= lenCopy;
+            if (lenCopy < peekData.length) {
+                // remainder back to queue
+                this.peekQueue.push(peekData.subarray(lenCopy));
+            }
+        }
+        return bytesRead;
+    }
+    async readRemainderFromStream(buffer, mayBeLess) {
+        let bytesRead = 0;
+        // Continue reading from stream if required
+        while (bytesRead < buffer.length && !this.endOfStream) {
+            if (this.interrupted) {
+                throw new AbortError();
+            }
+            const chunkLen = await this.readFromStream(buffer.subarray(bytesRead), mayBeLess);
+            if (chunkLen === 0)
+                break;
+            bytesRead += chunkLen;
+        }
+        if (!mayBeLess && bytesRead < buffer.length) {
+            throw new EndOfStreamError();
+        }
+        return bytesRead;
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/StreamReader.js
+
+
+
+/**
+ * Node.js Readable Stream Reader
+ * Ref: https://nodejs.org/api/stream.html#readable-streams
+ */
+class StreamReader_StreamReader extends AbstractStreamReader {
+    constructor(s) {
+        super();
+        this.s = s;
+        /**
+         * Deferred used for postponed read request (as not data is yet available to read)
+         */
+        this.deferred = null;
+        if (!s.read || !s.once) {
+            throw new Error('Expected an instance of stream.Readable');
+        }
+        this.s.once('end', () => {
+            this.endOfStream = true;
+            if (this.deferred) {
+                this.deferred.resolve(0);
+            }
+        });
+        this.s.once('error', err => this.reject(err));
+        this.s.once('close', () => this.abort());
+    }
+    /**
+     * Read chunk from stream
+     * @param buffer Target Uint8Array (or Buffer) to store data read from stream in
+     * @param mayBeLess - If true, may fill the buffer partially
+     * @returns Number of bytes read
+     */
+    async readFromStream(buffer, mayBeLess) {
+        if (buffer.length === 0)
+            return 0;
+        const readBuffer = this.s.read(buffer.length);
+        if (readBuffer) {
+            buffer.set(readBuffer);
+            return readBuffer.length;
+        }
+        const request = {
+            buffer,
+            mayBeLess,
+            deferred: new Deferred()
+        };
+        this.deferred = request.deferred;
+        this.s.once('readable', () => {
+            this.readDeferred(request);
+        });
+        return request.deferred.promise;
+    }
+    /**
+     * Process deferred read request
+     * @param request Deferred read request
+     */
+    readDeferred(request) {
+        const readBuffer = this.s.read(request.buffer.length);
+        if (readBuffer) {
+            request.buffer.set(readBuffer);
+            request.deferred.resolve(readBuffer.length);
+            this.deferred = null;
+        }
+        else {
+            this.s.once('readable', () => {
+                this.readDeferred(request);
+            });
+        }
+    }
+    reject(err) {
+        this.interrupted = true;
+        if (this.deferred) {
+            this.deferred.reject(err);
+            this.deferred = null;
+        }
+    }
+    async abort() {
+        this.reject(new AbortError());
+    }
+    async close() {
+        return this.abort();
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/WebStreamReader.js
+
+class WebStreamReader extends AbstractStreamReader {
+    constructor(reader) {
+        super();
+        this.reader = reader;
+    }
+    async abort() {
+        return this.close();
+    }
+    async close() {
+        this.reader.releaseLock();
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/WebStreamByobReader.js
+
+/**
+ * Read from a WebStream using a BYOB reader
+ * Reference: https://nodejs.org/api/webstreams.html#class-readablestreambyobreader
+ */
+class WebStreamByobReader extends WebStreamReader {
+    /**
+     * Read from stream
+     * @param buffer - Target Uint8Array (or Buffer) to store data read from stream in
+     * @param mayBeLess - If true, may fill the buffer partially
+     * @protected Bytes read
+     */
+    async readFromStream(buffer, mayBeLess) {
+        if (buffer.length === 0)
+            return 0;
+        // @ts-expect-error
+        const result = await this.reader.read(new Uint8Array(buffer.length), { min: mayBeLess ? undefined : buffer.length });
+        if (result.done) {
+            this.endOfStream = result.done;
+        }
+        if (result.value) {
+            buffer.set(result.value);
+            return result.value.length;
+        }
+        return 0;
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/WebStreamDefaultReader.js
+
+
+class WebStreamDefaultReader extends AbstractStreamReader {
+    constructor(reader) {
+        super();
+        this.reader = reader;
+        this.buffer = null; // Internal buffer to store excess data
+    }
+    /**
+     * Copy chunk to target, and store the remainder in this.buffer
+     */
+    writeChunk(target, chunk) {
+        const written = Math.min(chunk.length, target.length);
+        target.set(chunk.subarray(0, written));
+        // Adjust the remainder of the buffer
+        if (written < chunk.length) {
+            this.buffer = chunk.subarray(written);
+        }
+        else {
+            this.buffer = null;
+        }
+        return written;
+    }
+    /**
+     * Read from stream
+     * @param buffer - Target Uint8Array (or Buffer) to store data read from stream in
+     * @param mayBeLess - If true, may fill the buffer partially
+     * @protected Bytes read
+     */
+    async readFromStream(buffer, mayBeLess) {
+        if (buffer.length === 0)
+            return 0;
+        let totalBytesRead = 0;
+        // Serve from the internal buffer first
+        if (this.buffer) {
+            totalBytesRead += this.writeChunk(buffer, this.buffer);
+        }
+        // Continue reading from the stream if more data is needed
+        while (totalBytesRead < buffer.length && !this.endOfStream) {
+            const result = await this.reader.read();
+            if (result.done) {
+                this.endOfStream = true;
+                break;
+            }
+            if (result.value) {
+                totalBytesRead += this.writeChunk(buffer.subarray(totalBytesRead), result.value);
+            }
+        }
+        if (!mayBeLess && totalBytesRead === 0 && this.endOfStream) {
+            throw new EndOfStreamError();
+        }
+        return totalBytesRead;
+    }
+    abort() {
+        this.interrupted = true;
+        return this.reader.cancel();
+    }
+    async close() {
+        await this.abort();
+        this.reader.releaseLock();
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/WebStreamReaderFactory.js
+
+
+function makeWebStreamReader(stream) {
+    try {
+        const reader = stream.getReader({ mode: "byob" });
+        if (reader instanceof ReadableStreamDefaultReader) {
+            // Fallback to default reader in case `mode: byob` is ignored
+            return new WebStreamDefaultReader(reader);
+        }
+        return new WebStreamByobReader(reader);
+    }
+    catch (error) {
+        if (error instanceof TypeError) {
+            // Fallback to default reader in case `mode: byob` rejected by a `TypeError`
+            return new WebStreamDefaultReader(stream.getReader());
+        }
+        throw error;
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/stream/index.js
+
+
+
+
+
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/AbstractTokenizer.js
+
+/**
+ * Core tokenizer
+ */
+class AbstractTokenizer {
+    /**
+     * Constructor
+     * @param options Tokenizer options
+     * @protected
+     */
+    constructor(options) {
+        this.numBuffer = new Uint8Array(8);
+        /**
+         * Tokenizer-stream position
+         */
+        this.position = 0;
+        this.onClose = options?.onClose;
+        if (options?.abortSignal) {
+            options.abortSignal.addEventListener('abort', () => {
+                this.abort();
+            });
+        }
+    }
+    /**
+     * Read a token from the tokenizer-stream
+     * @param token - The token to read
+     * @param position - If provided, the desired position in the tokenizer-stream
+     * @returns Promise with token data
+     */
+    async readToken(token, position = this.position) {
+        const uint8Array = new Uint8Array(token.len);
+        const len = await this.readBuffer(uint8Array, { position });
+        if (len < token.len)
+            throw new EndOfStreamError();
+        return token.get(uint8Array, 0);
+    }
+    /**
+     * Peek a token from the tokenizer-stream.
+     * @param token - Token to peek from the tokenizer-stream.
+     * @param position - Offset where to begin reading within the file. If position is null, data will be read from the current file position.
+     * @returns Promise with token data
+     */
+    async peekToken(token, position = this.position) {
+        const uint8Array = new Uint8Array(token.len);
+        const len = await this.peekBuffer(uint8Array, { position });
+        if (len < token.len)
+            throw new EndOfStreamError();
+        return token.get(uint8Array, 0);
+    }
+    /**
+     * Read a numeric token from the stream
+     * @param token - Numeric token
+     * @returns Promise with number
+     */
+    async readNumber(token) {
+        const len = await this.readBuffer(this.numBuffer, { length: token.len });
+        if (len < token.len)
+            throw new EndOfStreamError();
+        return token.get(this.numBuffer, 0);
+    }
+    /**
+     * Read a numeric token from the stream
+     * @param token - Numeric token
+     * @returns Promise with number
+     */
+    async peekNumber(token) {
+        const len = await this.peekBuffer(this.numBuffer, { length: token.len });
+        if (len < token.len)
+            throw new EndOfStreamError();
+        return token.get(this.numBuffer, 0);
+    }
+    /**
+     * Ignore number of bytes, advances the pointer in under tokenizer-stream.
+     * @param length - Number of bytes to ignore.  Must be ≥ 0.
+     * @return resolves the number of bytes ignored, equals length if this available, otherwise the number of bytes available
+     */
+    async ignore(length) {
+        if (length < 0) {
+            throw new RangeError('ignore length must be ≥ 0 bytes');
+        }
+        if (this.fileInfo.size !== undefined) {
+            const bytesLeft = this.fileInfo.size - this.position;
+            if (length > bytesLeft) {
+                this.position += bytesLeft;
+                return bytesLeft;
+            }
+        }
+        this.position += length;
+        return length;
+    }
+    async close() {
+        await this.abort();
+        await this.onClose?.();
+    }
+    normalizeOptions(uint8Array, options) {
+        if (!this.supportsRandomAccess() && options && options.position !== undefined && options.position < this.position) {
+            throw new Error('`options.position` must be equal or greater than `tokenizer.position`');
+        }
+        return {
+            ...{
+                mayBeLess: false,
+                offset: 0,
+                length: uint8Array.length,
+                position: this.position
+            }, ...options
+        };
+    }
+    abort() {
+        return Promise.resolve(); // Ignore abort signal
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/ReadStreamTokenizer.js
+
+
+const maxBufferSize = 256000;
+class ReadStreamTokenizer_ReadStreamTokenizer extends AbstractTokenizer {
+    /**
+     * Constructor
+     * @param streamReader stream-reader to read from
+     * @param options Tokenizer options
+     */
+    constructor(streamReader, options) {
+        super(options);
+        this.streamReader = streamReader;
+        this.fileInfo = options?.fileInfo ?? {};
+    }
+    /**
+     * Read buffer from tokenizer
+     * @param uint8Array - Target Uint8Array to fill with data read from the tokenizer-stream
+     * @param options - Read behaviour options
+     * @returns Promise with number of bytes read
+     */
+    async readBuffer(uint8Array, options) {
+        const normOptions = this.normalizeOptions(uint8Array, options);
+        const skipBytes = normOptions.position - this.position;
+        if (skipBytes > 0) {
+            await this.ignore(skipBytes);
+            return this.readBuffer(uint8Array, options);
+        }
+        if (skipBytes < 0) {
+            throw new Error('`options.position` must be equal or greater than `tokenizer.position`');
+        }
+        if (normOptions.length === 0) {
+            return 0;
+        }
+        const bytesRead = await this.streamReader.read(uint8Array.subarray(0, normOptions.length), normOptions.mayBeLess);
+        this.position += bytesRead;
+        if ((!options || !options.mayBeLess) && bytesRead < normOptions.length) {
+            throw new EndOfStreamError();
+        }
+        return bytesRead;
+    }
+    /**
+     * Peek (read ahead) buffer from tokenizer
+     * @param uint8Array - Uint8Array (or Buffer) to write data to
+     * @param options - Read behaviour options
+     * @returns Promise with number of bytes peeked
+     */
+    async peekBuffer(uint8Array, options) {
+        const normOptions = this.normalizeOptions(uint8Array, options);
+        let bytesRead = 0;
+        if (normOptions.position) {
+            const skipBytes = normOptions.position - this.position;
+            if (skipBytes > 0) {
+                const skipBuffer = new Uint8Array(normOptions.length + skipBytes);
+                bytesRead = await this.peekBuffer(skipBuffer, { mayBeLess: normOptions.mayBeLess });
+                uint8Array.set(skipBuffer.subarray(skipBytes));
+                return bytesRead - skipBytes;
+            }
+            if (skipBytes < 0) {
+                throw new Error('Cannot peek from a negative offset in a stream');
+            }
+        }
+        if (normOptions.length > 0) {
+            try {
+                bytesRead = await this.streamReader.peek(uint8Array.subarray(0, normOptions.length), normOptions.mayBeLess);
+            }
+            catch (err) {
+                if (options?.mayBeLess && err instanceof EndOfStreamError) {
+                    return 0;
+                }
+                throw err;
+            }
+            if ((!normOptions.mayBeLess) && bytesRead < normOptions.length) {
+                throw new EndOfStreamError();
+            }
+        }
+        return bytesRead;
+    }
+    /**
+     * @param length Number of bytes to ignore. Must be ≥ 0.
+     */
+    async ignore(length) {
+        if (length < 0) {
+            throw new RangeError('ignore length must be ≥ 0 bytes');
+        }
+        const bufSize = Math.min(maxBufferSize, length);
+        const buf = new Uint8Array(bufSize);
+        let totBytesRead = 0;
+        while (totBytesRead < length) {
+            const remaining = length - totBytesRead;
+            const bytesRead = await this.readBuffer(buf, { length: Math.min(bufSize, remaining) });
+            if (bytesRead < 0) {
+                return bytesRead;
+            }
+            totBytesRead += bytesRead;
+        }
+        return totBytesRead;
+    }
+    abort() {
+        return this.streamReader.abort();
+    }
+    async close() {
+        return this.streamReader.close();
+    }
+    supportsRandomAccess() {
+        return false;
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/BufferTokenizer.js
+
+
+class BufferTokenizer extends AbstractTokenizer {
+    /**
+     * Construct BufferTokenizer
+     * @param uint8Array - Uint8Array to tokenize
+     * @param options Tokenizer options
+     */
+    constructor(uint8Array, options) {
+        super(options);
+        this.uint8Array = uint8Array;
+        this.fileInfo = { ...options?.fileInfo ?? {}, ...{ size: uint8Array.length } };
+    }
+    /**
+     * Read buffer from tokenizer
+     * @param uint8Array - Uint8Array to tokenize
+     * @param options - Read behaviour options
+     * @returns {Promise<number>}
+     */
+    async readBuffer(uint8Array, options) {
+        if (options?.position) {
+            this.position = options.position;
+        }
+        const bytesRead = await this.peekBuffer(uint8Array, options);
+        this.position += bytesRead;
+        return bytesRead;
+    }
+    /**
+     * Peek (read ahead) buffer from tokenizer
+     * @param uint8Array
+     * @param options - Read behaviour options
+     * @returns {Promise<number>}
+     */
+    async peekBuffer(uint8Array, options) {
+        const normOptions = this.normalizeOptions(uint8Array, options);
+        const bytes2read = Math.min(this.uint8Array.length - normOptions.position, normOptions.length);
+        if ((!normOptions.mayBeLess) && bytes2read < normOptions.length) {
+            throw new EndOfStreamError();
+        }
+        uint8Array.set(this.uint8Array.subarray(normOptions.position, normOptions.position + bytes2read));
+        return bytes2read;
+    }
+    close() {
+        return super.close();
+    }
+    supportsRandomAccess() {
+        return true;
+    }
+    setPosition(position) {
+        this.position = position;
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/BlobTokenizer.js
+
+
+class BlobTokenizer extends AbstractTokenizer {
+    /**
+     * Construct BufferTokenizer
+     * @param blob - Uint8Array to tokenize
+     * @param options Tokenizer options
+     */
+    constructor(blob, options) {
+        super(options);
+        this.blob = blob;
+        this.fileInfo = { ...options?.fileInfo ?? {}, ...{ size: blob.size, mimeType: blob.type } };
+    }
+    /**
+     * Read buffer from tokenizer
+     * @param uint8Array - Uint8Array to tokenize
+     * @param options - Read behaviour options
+     * @returns {Promise<number>}
+     */
+    async readBuffer(uint8Array, options) {
+        if (options?.position) {
+            this.position = options.position;
+        }
+        const bytesRead = await this.peekBuffer(uint8Array, options);
+        this.position += bytesRead;
+        return bytesRead;
+    }
+    /**
+     * Peek (read ahead) buffer from tokenizer
+     * @param buffer
+     * @param options - Read behaviour options
+     * @returns {Promise<number>}
+     */
+    async peekBuffer(buffer, options) {
+        const normOptions = this.normalizeOptions(buffer, options);
+        const bytes2read = Math.min(this.blob.size - normOptions.position, normOptions.length);
+        if ((!normOptions.mayBeLess) && bytes2read < normOptions.length) {
+            throw new EndOfStreamError();
+        }
+        const arrayBuffer = await this.blob.slice(normOptions.position, normOptions.position + bytes2read).arrayBuffer();
+        buffer.set(new Uint8Array(arrayBuffer));
+        return bytes2read;
+    }
+    close() {
+        return super.close();
+    }
+    supportsRandomAccess() {
+        return true;
+    }
+    setPosition(position) {
+        this.position = position;
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/strtok3/lib/core.js
+
+
+
+
+
+
+/**
+ * Construct ReadStreamTokenizer from given Stream.
+ * Will set fileSize, if provided given Stream has set the .path property/
+ * @param stream - Read from Node.js Stream.Readable
+ * @param options - Tokenizer options
+ * @returns ReadStreamTokenizer
+ */
+function fromStream(stream, options) {
+    const streamReader = new StreamReader(stream);
+    const _options = options ?? {};
+    const chainedClose = _options.onClose;
+    _options.onClose = async () => {
+        await streamReader.close();
+        if (chainedClose) {
+            return chainedClose();
+        }
+    };
+    return new ReadStreamTokenizer(streamReader, _options);
+}
+/**
+ * Construct ReadStreamTokenizer from given ReadableStream (WebStream API).
+ * Will set fileSize, if provided given Stream has set the .path property/
+ * @param webStream - Read from Node.js Stream.Readable (must be a byte stream)
+ * @param options - Tokenizer options
+ * @returns ReadStreamTokenizer
+ */
+function fromWebStream(webStream, options) {
+    const webStreamReader = makeWebStreamReader(webStream);
+    const _options = options ?? {};
+    const chainedClose = _options.onClose;
+    _options.onClose = async () => {
+        await webStreamReader.close();
+        if (chainedClose) {
+            return chainedClose();
+        }
+    };
+    return new ReadStreamTokenizer_ReadStreamTokenizer(webStreamReader, _options);
+}
+/**
+ * Construct ReadStreamTokenizer from given Buffer.
+ * @param uint8Array - Uint8Array to tokenize
+ * @param options - Tokenizer options
+ * @returns BufferTokenizer
+ */
+function fromBuffer(uint8Array, options) {
+    return new BufferTokenizer(uint8Array, options);
+}
+/**
+ * Construct ReadStreamTokenizer from given Blob.
+ * @param blob - Uint8Array to tokenize
+ * @param options - Tokenizer options
+ * @returns BufferTokenizer
+ */
+function fromBlob(blob, options) {
+    return new BlobTokenizer(blob, options);
+}
+
+// EXTERNAL MODULE: ./node_modules/debug/src/index.js
+var src = __nccwpck_require__(2830);
+;// CONCATENATED MODULE: ./node_modules/@tokenizer/inflate/lib/ZipToken.js
+/**
+ * Ref https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
+ */
+
+const Signature = {
+    LocalFileHeader: 0x04034b50,
+    DataDescriptor: 0x08074b50,
+    CentralFileHeader: 0x02014b50,
+    EndOfCentralDirectory: 0x06054b50
+};
+const DataDescriptor = {
+    get(array) {
+        return {
+            signature: UINT32_LE.get(array, 0),
+            compressedSize: UINT32_LE.get(array, 8),
+            uncompressedSize: UINT32_LE.get(array, 12),
+        };
+    }, len: 16
+};
+/**
+ * First part of the ZIP Local File Header
+ * Offset | Bytes| Description
+ * -------|------+-------------------------------------------------------------------
+ *      0 |    4 | Signature (0x04034b50)
+ *      4 |    2 | Minimum version needed to extract
+ *      6 |    2 | Bit flag
+ *      8 |    2 | Compression method
+ *     10 |    2 | File last modification time (MS-DOS format)
+ *     12 |    2 | File last modification date (MS-DOS format)
+ *     14 |    4 | CRC-32 of uncompressed data
+ *     18 |    4 | Compressed size
+ *     22 |    4 | Uncompressed size
+ *     26 |    2 | File name length (n)
+ *     28 |    2 | Extra field length (m)
+ *     30 |    n | File name
+ * 30 + n |    m | Extra field
+ */
+const LocalFileHeaderToken = {
+    get(array) {
+        const flags = UINT16_LE.get(array, 6);
+        return {
+            signature: UINT32_LE.get(array, 0),
+            minVersion: UINT16_LE.get(array, 4),
+            dataDescriptor: !!(flags & 0x0008),
+            compressedMethod: UINT16_LE.get(array, 8),
+            compressedSize: UINT32_LE.get(array, 18),
+            uncompressedSize: UINT32_LE.get(array, 22),
+            filenameLength: UINT16_LE.get(array, 26),
+            extraFieldLength: UINT16_LE.get(array, 28),
+            filename: null
+        };
+    }, len: 30
+};
+/**
+ * 4.3.16  End of central directory record:
+ *  end of central dir signature (0x06064b50)                                      4 bytes
+ *  number of this disk                                                            2 bytes
+ *  number of the disk with the start of the central directory                     2 bytes
+ *  total number of entries in the central directory on this disk                  2 bytes
+ *  total number of entries in the size of the central directory                   2 bytes
+ *  sizeOfTheCentralDirectory                                                      4 bytes
+ *  offset of start of central directory with respect to the starting disk number  4 bytes
+ *  .ZIP file comment length                                                       2 bytes
+ *  .ZIP file comment       (variable size)
+ */
+const EndOfCentralDirectoryRecordToken = {
+    get(array) {
+        return {
+            signature: UINT32_LE.get(array, 0),
+            nrOfThisDisk: UINT16_LE.get(array, 4),
+            nrOfThisDiskWithTheStart: UINT16_LE.get(array, 6),
+            nrOfEntriesOnThisDisk: UINT16_LE.get(array, 8),
+            nrOfEntriesOfSize: UINT16_LE.get(array, 10),
+            sizeOfCd: UINT32_LE.get(array, 12),
+            offsetOfStartOfCd: UINT32_LE.get(array, 16),
+            zipFileCommentLength: UINT16_LE.get(array, 20),
+        };
+    }, len: 22
+};
+/**
+ * File header:
+ *    central file header signature   4 bytes   0 (0x02014b50)
+ *    version made by                 2 bytes   4
+ *    version needed to extract       2 bytes   6
+ *    general purpose bit flag        2 bytes   8
+ *    compression method              2 bytes  10
+ *    last mod file time              2 bytes  12
+ *    last mod file date              2 bytes  14
+ *    crc-32                          4 bytes  16
+ *    compressed size                 4 bytes  20
+ *    uncompressed size               4 bytes  24
+ *    file name length                2 bytes  28
+ *    extra field length              2 bytes  30
+ *    file comment length             2 bytes  32
+ *    disk number start               2 bytes  34
+ *    internal file attributes        2 bytes  36
+ *    external file attributes        4 bytes  38
+ *    relative offset of local header 4 bytes  42
+ */
+const FileHeader = {
+    get(array) {
+        const flags = UINT16_LE.get(array, 8);
+        return {
+            signature: UINT32_LE.get(array, 0),
+            minVersion: UINT16_LE.get(array, 6),
+            dataDescriptor: !!(flags & 0x0008),
+            compressedMethod: UINT16_LE.get(array, 10),
+            compressedSize: UINT32_LE.get(array, 20),
+            uncompressedSize: UINT32_LE.get(array, 24),
+            filenameLength: UINT16_LE.get(array, 28),
+            extraFieldLength: UINT16_LE.get(array, 30),
+            fileCommentLength: UINT16_LE.get(array, 32),
+            relativeOffsetOfLocalHeader: UINT32_LE.get(array, 42),
+            filename: null
+        };
+    }, len: 46
+};
+
+;// CONCATENATED MODULE: ./node_modules/@tokenizer/inflate/lib/ZipHandler.js
+
+
+
+function signatureToArray(signature) {
+    const signatureBytes = new Uint8Array(UINT32_LE.len);
+    UINT32_LE.put(signatureBytes, 0, signature);
+    return signatureBytes;
+}
+const debug = src('tokenizer:inflate');
+const syncBufferSize = 256 * 1024;
+const ddSignatureArray = signatureToArray(Signature.DataDescriptor);
+const eocdSignatureBytes = signatureToArray(Signature.EndOfCentralDirectory);
+class ZipHandler {
+    constructor(tokenizer) {
+        this.tokenizer = tokenizer;
+        this.syncBuffer = new Uint8Array(syncBufferSize);
+    }
+    async isZip() {
+        return await this.peekSignature() === Signature.LocalFileHeader;
+    }
+    peekSignature() {
+        return this.tokenizer.peekToken(UINT32_LE);
+    }
+    async findEndOfCentralDirectoryLocator() {
+        const randomReadTokenizer = this.tokenizer;
+        const chunkLength = Math.min(16 * 1024, randomReadTokenizer.fileInfo.size);
+        const buffer = this.syncBuffer.subarray(0, chunkLength);
+        await this.tokenizer.readBuffer(buffer, { position: randomReadTokenizer.fileInfo.size - chunkLength });
+        // Search the buffer from end to beginning for EOCD signature
+        // const signature = 0x06054b50;
+        for (let i = buffer.length - 4; i >= 0; i--) {
+            // Compare 4 bytes directly without calling readUInt32LE
+            if (buffer[i] === eocdSignatureBytes[0] &&
+                buffer[i + 1] === eocdSignatureBytes[1] &&
+                buffer[i + 2] === eocdSignatureBytes[2] &&
+                buffer[i + 3] === eocdSignatureBytes[3]) {
+                return randomReadTokenizer.fileInfo.size - chunkLength + i;
+            }
+        }
+        return -1;
+    }
+    async readCentralDirectory() {
+        if (!this.tokenizer.supportsRandomAccess()) {
+            debug('Cannot reading central-directory without random-read support');
+            return;
+        }
+        debug('Reading central-directory...');
+        const pos = this.tokenizer.position;
+        const offset = await this.findEndOfCentralDirectoryLocator();
+        if (offset > 0) {
+            debug('Central-directory 32-bit signature found');
+            const eocdHeader = await this.tokenizer.readToken(EndOfCentralDirectoryRecordToken, offset);
+            const files = [];
+            this.tokenizer.setPosition(eocdHeader.offsetOfStartOfCd);
+            for (let n = 0; n < eocdHeader.nrOfEntriesOfSize; ++n) {
+                const entry = await this.tokenizer.readToken(FileHeader);
+                if (entry.signature !== Signature.CentralFileHeader) {
+                    throw new Error('Expected Central-File-Header signature');
+                }
+                entry.filename = await this.tokenizer.readToken(new StringType(entry.filenameLength, 'utf-8'));
+                await this.tokenizer.ignore(entry.extraFieldLength);
+                await this.tokenizer.ignore(entry.fileCommentLength);
+                files.push(entry);
+                debug(`Add central-directory file-entry: n=${n + 1}/${files.length}: filename=${files[n].filename}`);
+            }
+            this.tokenizer.setPosition(pos);
+            return files;
+        }
+        this.tokenizer.setPosition(pos);
+    }
+    async unzip(fileCb) {
+        const entries = await this.readCentralDirectory();
+        if (entries) {
+            // Use Central Directory to iterate over files
+            return this.iterateOverCentralDirectory(entries, fileCb);
+        }
+        // Scan Zip files for local-file-header
+        let stop = false;
+        do {
+            const zipHeader = await this.readLocalFileHeader();
+            if (!zipHeader)
+                break;
+            const next = fileCb(zipHeader);
+            stop = !!next.stop;
+            let fileData;
+            await this.tokenizer.ignore(zipHeader.extraFieldLength);
+            if (zipHeader.dataDescriptor && zipHeader.compressedSize === 0) {
+                const chunks = [];
+                let len = syncBufferSize;
+                debug('Compressed-file-size unknown, scanning for next data-descriptor-signature....');
+                let nextHeaderIndex = -1;
+                while (nextHeaderIndex < 0 && len === syncBufferSize) {
+                    len = await this.tokenizer.peekBuffer(this.syncBuffer, { mayBeLess: true });
+                    nextHeaderIndex = indexOf(this.syncBuffer.subarray(0, len), ddSignatureArray);
+                    const size = nextHeaderIndex >= 0 ? nextHeaderIndex : len;
+                    if (next.handler) {
+                        const data = new Uint8Array(size);
+                        await this.tokenizer.readBuffer(data);
+                        chunks.push(data);
+                    }
+                    else {
+                        // Move position to the next header if found, skip the whole buffer otherwise
+                        await this.tokenizer.ignore(size);
+                    }
+                }
+                debug(`Found data-descriptor-signature at pos=${this.tokenizer.position}`);
+                if (next.handler) {
+                    await this.inflate(zipHeader, mergeArrays(chunks), next.handler);
+                }
+            }
+            else {
+                if (next.handler) {
+                    debug(`Reading compressed-file-data: ${zipHeader.compressedSize} bytes`);
+                    fileData = new Uint8Array(zipHeader.compressedSize);
+                    await this.tokenizer.readBuffer(fileData);
+                    await this.inflate(zipHeader, fileData, next.handler);
+                }
+                else {
+                    debug(`Ignoring compressed-file-data: ${zipHeader.compressedSize} bytes`);
+                    await this.tokenizer.ignore(zipHeader.compressedSize);
+                }
+            }
+            debug(`Reading data-descriptor at pos=${this.tokenizer.position}`);
+            if (zipHeader.dataDescriptor) {
+                // await this.tokenizer.ignore(DataDescriptor.len);
+                const dataDescriptor = await this.tokenizer.readToken(DataDescriptor);
+                if (dataDescriptor.signature !== 0x08074b50) {
+                    throw new Error(`Expected data-descriptor-signature at position ${this.tokenizer.position - DataDescriptor.len}`);
+                }
+            }
+        } while (!stop);
+    }
+    async iterateOverCentralDirectory(entries, fileCb) {
+        for (const fileHeader of entries) {
+            const next = fileCb(fileHeader);
+            if (next.handler) {
+                this.tokenizer.setPosition(fileHeader.relativeOffsetOfLocalHeader);
+                const zipHeader = await this.readLocalFileHeader();
+                if (zipHeader) {
+                    await this.tokenizer.ignore(zipHeader.extraFieldLength);
+                    const fileData = new Uint8Array(fileHeader.compressedSize);
+                    await this.tokenizer.readBuffer(fileData);
+                    await this.inflate(zipHeader, fileData, next.handler);
+                }
+            }
+            if (next.stop)
+                break;
+        }
+    }
+    async inflate(zipHeader, fileData, cb) {
+        if (zipHeader.compressedMethod === 0) {
+            // Stored (uncompressed)
+            return cb(fileData);
+        }
+        if (zipHeader.compressedMethod !== 8) {
+            throw new Error(`Unsupported ZIP compression method: ${zipHeader.compressedMethod}`);
+        }
+        debug(`Decompress filename=${zipHeader.filename}, compressed-size=${fileData.length}`);
+        const uncompressedData = await ZipHandler.decompressDeflateRaw(fileData);
+        return cb(uncompressedData);
+    }
+    static async decompressDeflateRaw(data) {
+        // Wrap Uint8Array in a ReadableStream without copying
+        const input = new ReadableStream({
+            start(controller) {
+                controller.enqueue(data);
+                controller.close();
+            }
+        });
+        const ds = new DecompressionStream("deflate-raw");
+        const output = input.pipeThrough(ds);
+        try {
+            // Collect decompressed bytes from the output stream
+            const response = new Response(output);
+            const buffer = await response.arrayBuffer();
+            return new Uint8Array(buffer);
+        }
+        catch (err) {
+            // Provide ZIP-specific error context
+            const message = err instanceof Error
+                ? `Failed to deflate ZIP entry: ${err.message}`
+                : "Unknown decompression error in ZIP entry";
+            throw new TypeError(message);
+        }
+    }
+    async readLocalFileHeader() {
+        const signature = await this.tokenizer.peekToken(UINT32_LE);
+        if (signature === Signature.LocalFileHeader) {
+            const header = await this.tokenizer.readToken(LocalFileHeaderToken);
+            header.filename = await this.tokenizer.readToken(new StringType(header.filenameLength, 'utf-8'));
+            return header;
+        }
+        if (signature === Signature.CentralFileHeader) {
+            return false;
+        }
+        if (signature === 0xE011CFD0) {
+            throw new Error('Encrypted ZIP');
+        }
+        throw new Error('Unexpected signature');
+    }
+}
+function indexOf(buffer, portion) {
+    const bufferLength = buffer.length;
+    const portionLength = portion.length;
+    // Return -1 if the portion is longer than the buffer
+    if (portionLength > bufferLength)
+        return -1;
+    // Search for the portion in the buffer
+    for (let i = 0; i <= bufferLength - portionLength; i++) {
+        let found = true;
+        for (let j = 0; j < portionLength; j++) {
+            if (buffer[i + j] !== portion[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            return i; // Return the starting offset
+        }
+    }
+    return -1; // Not found
+}
+function mergeArrays(chunks) {
+    // Concatenate chunks into a single Uint8Array
+    const totalLength = chunks.reduce((acc, curr) => acc + curr.length, 0);
+    const mergedArray = new Uint8Array(totalLength);
+    let offset = 0;
+    for (const chunk of chunks) {
+        mergedArray.set(chunk, offset);
+        offset += chunk.length;
+    }
+    return mergedArray;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@tokenizer/inflate/lib/GzipHandler.js
+class GzipHandler {
+    constructor(tokenizer) {
+        this.tokenizer = tokenizer;
+    }
+    inflate() {
+        const tokenizer = this.tokenizer;
+        return new ReadableStream({
+            async pull(controller) {
+                const buffer = new Uint8Array(1024);
+                const size = await tokenizer.readBuffer(buffer, { mayBeLess: true });
+                if (size === 0) {
+                    controller.close();
+                    return;
+                }
+                controller.enqueue(buffer.subarray(0, size));
+            }
+        }).pipeThrough(new DecompressionStream("gzip"));
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/@tokenizer/inflate/lib/index.js
+
+
+
+;// CONCATENATED MODULE: ./node_modules/uint8array-extras/index.js
+const objectToString = Object.prototype.toString;
+const uint8ArrayStringified = '[object Uint8Array]';
+const arrayBufferStringified = '[object ArrayBuffer]';
+
+function isType(value, typeConstructor, typeStringified) {
+	if (!value) {
+		return false;
+	}
+
+	if (value.constructor === typeConstructor) {
+		return true;
+	}
+
+	return objectToString.call(value) === typeStringified;
+}
+
+function isUint8Array(value) {
+	return isType(value, Uint8Array, uint8ArrayStringified);
+}
+
+function isArrayBuffer(value) {
+	return isType(value, ArrayBuffer, arrayBufferStringified);
+}
+
+function isUint8ArrayOrArrayBuffer(value) {
+	return isUint8Array(value) || isArrayBuffer(value);
+}
+
+function assertUint8Array(value) {
+	if (!isUint8Array(value)) {
+		throw new TypeError(`Expected \`Uint8Array\`, got \`${typeof value}\``);
+	}
+}
+
+function assertUint8ArrayOrArrayBuffer(value) {
+	if (!isUint8ArrayOrArrayBuffer(value)) {
+		throw new TypeError(`Expected \`Uint8Array\` or \`ArrayBuffer\`, got \`${typeof value}\``);
+	}
+}
+
+function toUint8Array(value) {
+	if (value instanceof ArrayBuffer) {
+		return new Uint8Array(value);
+	}
+
+	if (ArrayBuffer.isView(value)) {
+		return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+	}
+
+	throw new TypeError(`Unsupported value, got \`${typeof value}\`.`);
+}
+
+function concatUint8Arrays(arrays, totalLength) {
+	if (arrays.length === 0) {
+		return new Uint8Array(0);
+	}
+
+	totalLength ??= arrays.reduce((accumulator, currentValue) => accumulator + currentValue.length, 0);
+
+	const returnValue = new Uint8Array(totalLength);
+
+	let offset = 0;
+	for (const array of arrays) {
+		assertUint8Array(array);
+		returnValue.set(array, offset);
+		offset += array.length;
+	}
+
+	return returnValue;
+}
+
+function areUint8ArraysEqual(a, b) {
+	assertUint8Array(a);
+	assertUint8Array(b);
+
+	if (a === b) {
+		return true;
+	}
+
+	if (a.length !== b.length) {
+		return false;
+	}
+
+	// eslint-disable-next-line unicorn/no-for-loop
+	for (let index = 0; index < a.length; index++) {
+		if (a[index] !== b[index]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function compareUint8Arrays(a, b) {
+	assertUint8Array(a);
+	assertUint8Array(b);
+
+	const length = Math.min(a.length, b.length);
+
+	for (let index = 0; index < length; index++) {
+		const diff = a[index] - b[index];
+		if (diff !== 0) {
+			return Math.sign(diff);
+		}
+	}
+
+	// At this point, all the compared elements are equal.
+	// The shorter array should come first if the arrays are of different lengths.
+	return Math.sign(a.length - b.length);
+}
+
+const cachedDecoders = {
+	utf8: new globalThis.TextDecoder('utf8'),
+};
+
+function uint8ArrayToString(array, encoding = 'utf8') {
+	assertUint8ArrayOrArrayBuffer(array);
+	cachedDecoders[encoding] ??= new globalThis.TextDecoder(encoding);
+	return cachedDecoders[encoding].decode(array);
+}
+
+function assertString(value) {
+	if (typeof value !== 'string') {
+		throw new TypeError(`Expected \`string\`, got \`${typeof value}\``);
+	}
+}
+
+const cachedEncoder = new globalThis.TextEncoder();
+
+function stringToUint8Array(string) {
+	assertString(string);
+	return cachedEncoder.encode(string);
+}
+
+function base64ToBase64Url(base64) {
+	return base64.replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
+}
+
+function base64UrlToBase64(base64url) {
+	const base64 = base64url.replaceAll('-', '+').replaceAll('_', '/');
+	const padding = (4 - (base64.length % 4)) % 4;
+	return base64 + '='.repeat(padding);
+}
+
+// Reference: https://phuoc.ng/collection/this-vs-that/concat-vs-push/
+// Important: Keep this value divisible by 3 so intermediate chunks produce no Base64 padding.
+const MAX_BLOCK_SIZE = 65_535;
+
+function uint8ArrayToBase64(array, {urlSafe = false} = {}) {
+	assertUint8Array(array);
+
+	let base64 = '';
+
+	for (let index = 0; index < array.length; index += MAX_BLOCK_SIZE) {
+		const chunk = array.subarray(index, index + MAX_BLOCK_SIZE);
+		// Required as `btoa` and `atob` don't properly support Unicode: https://developer.mozilla.org/en-US/docs/Glossary/Base64#the_unicode_problem
+		base64 += globalThis.btoa(String.fromCodePoint.apply(undefined, chunk));
+	}
+
+	return urlSafe ? base64ToBase64Url(base64) : base64;
+}
+
+function base64ToUint8Array(base64String) {
+	assertString(base64String);
+	return Uint8Array.from(globalThis.atob(base64UrlToBase64(base64String)), x => x.codePointAt(0));
+}
+
+function stringToBase64(string, {urlSafe = false} = {}) {
+	assertString(string);
+	return uint8ArrayToBase64(stringToUint8Array(string), {urlSafe});
+}
+
+function base64ToString(base64String) {
+	assertString(base64String);
+	return uint8ArrayToString(base64ToUint8Array(base64String));
+}
+
+const byteToHexLookupTable = Array.from({length: 256}, (_, index) => index.toString(16).padStart(2, '0'));
+
+function uint8ArrayToHex(array) {
+	assertUint8Array(array);
+
+	// Concatenating a string is faster than using an array.
+	let hexString = '';
+
+	// eslint-disable-next-line unicorn/no-for-loop -- Max performance is critical.
+	for (let index = 0; index < array.length; index++) {
+		hexString += byteToHexLookupTable[array[index]];
+	}
+
+	return hexString;
+}
+
+const hexToDecimalLookupTable = {
+	0: 0,
+	1: 1,
+	2: 2,
+	3: 3,
+	4: 4,
+	5: 5,
+	6: 6,
+	7: 7,
+	8: 8,
+	9: 9,
+	a: 10,
+	b: 11,
+	c: 12,
+	d: 13,
+	e: 14,
+	f: 15,
+	A: 10,
+	B: 11,
+	C: 12,
+	D: 13,
+	E: 14,
+	F: 15,
+};
+
+function hexToUint8Array(hexString) {
+	assertString(hexString);
+
+	if (hexString.length % 2 !== 0) {
+		throw new Error('Invalid Hex string length.');
+	}
+
+	const resultLength = hexString.length / 2;
+	const bytes = new Uint8Array(resultLength);
+
+	for (let index = 0; index < resultLength; index++) {
+		const highNibble = hexToDecimalLookupTable[hexString[index * 2]];
+		const lowNibble = hexToDecimalLookupTable[hexString[(index * 2) + 1]];
+
+		if (highNibble === undefined || lowNibble === undefined) {
+			throw new Error(`Invalid Hex character encountered at position ${index * 2}`);
+		}
+
+		bytes[index] = (highNibble << 4) | lowNibble; // eslint-disable-line no-bitwise
+	}
+
+	return bytes;
+}
+
+/**
+@param {DataView} view
+@returns {number}
+*/
+function getUintBE(view) {
+	const {byteLength} = view;
+
+	if (byteLength === 6) {
+		return (view.getUint16(0) * (2 ** 32)) + view.getUint32(2);
+	}
+
+	if (byteLength === 5) {
+		return (view.getUint8(0) * (2 ** 32)) + view.getUint32(1);
+	}
+
+	if (byteLength === 4) {
+		return view.getUint32(0);
+	}
+
+	if (byteLength === 3) {
+		return (view.getUint8(0) * (2 ** 16)) + view.getUint16(1);
+	}
+
+	if (byteLength === 2) {
+		return view.getUint16(0);
+	}
+
+	if (byteLength === 1) {
+		return view.getUint8(0);
+	}
+}
+
+/**
+@param {Uint8Array} array
+@param {Uint8Array} value
+@returns {number}
+*/
+function uint8array_extras_indexOf(array, value) {
+	const arrayLength = array.length;
+	const valueLength = value.length;
+
+	if (valueLength === 0) {
+		return -1;
+	}
+
+	if (valueLength > arrayLength) {
+		return -1;
+	}
+
+	const validOffsetLength = arrayLength - valueLength;
+
+	for (let index = 0; index <= validOffsetLength; index++) {
+		let isMatch = true;
+		for (let index2 = 0; index2 < valueLength; index2++) {
+			if (array[index + index2] !== value[index2]) {
+				isMatch = false;
+				break;
+			}
+		}
+
+		if (isMatch) {
+			return index;
+		}
+	}
+
+	return -1;
+}
+
+/**
+@param {Uint8Array} array
+@param {Uint8Array} value
+@returns {boolean}
+*/
+function includes(array, value) {
+	return uint8array_extras_indexOf(array, value) !== -1;
+}
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/tokens.js
+
+
+function stringToBytes(string, encoding) {
+	if (encoding === 'utf-16le') {
+		const bytes = [];
+		for (let index = 0; index < string.length; index++) {
+			const code = string.charCodeAt(index); // eslint-disable-line unicorn/prefer-code-point
+			bytes.push(code & 0xFF, (code >> 8) & 0xFF); // High byte
+		}
+
+		return bytes;
+	}
+
+	if (encoding === 'utf-16be') {
+		const bytes = [];
+		for (let index = 0; index < string.length; index++) {
+			const code = string.charCodeAt(index); // eslint-disable-line unicorn/prefer-code-point
+			bytes.push((code >> 8) & 0xFF, code & 0xFF); // Low byte
+		}
+
+		return bytes;
+	}
+
+	return [...string].map(character => character.charCodeAt(0)); // eslint-disable-line unicorn/prefer-code-point
+}
+
+/**
+Checks whether the TAR checksum is valid.
+
+@param {Uint8Array} arrayBuffer - The TAR header `[offset ... offset + 512]`.
+@param {number} offset - TAR header offset.
+@returns {boolean} `true` if the TAR checksum is valid, otherwise `false`.
+*/
+function tarHeaderChecksumMatches(arrayBuffer, offset = 0) {
+	const readSum = Number.parseInt(new StringType(6).get(arrayBuffer, 148).replace(/\0.*$/v, '').trim(), 8); // Read sum in header
+	if (Number.isNaN(readSum)) {
+		return false;
+	}
+
+	let sum = 8 * 0x20; // Initialize signed bit sum
+
+	for (let index = offset; index < offset + 148; index++) {
+		sum += arrayBuffer[index];
+	}
+
+	for (let index = offset + 156; index < offset + 512; index++) {
+		sum += arrayBuffer[index];
+	}
+
+	return readSum === sum;
+}
+
+/**
+ID3 UINT32 sync-safe tokenizer token.
+28 bits (representing up to 256MB) integer, the msb is 0 to avoid "false syncsignals".
+*/
+const uint32SyncSafeToken = {
+	get: (buffer, offset) => (buffer[offset + 3] & 0x7F) | ((buffer[offset + 2] & 0x7F) << 7) | ((buffer[offset + 1] & 0x7F) << 14) | ((buffer[offset] & 0x7F) << 21),
+	len: 4,
+};
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/supported.js
+// MIME media subtypes prefixed with `x-ft-` are custom and defined by us. They are neither formally registered with IANA nor based on any informal conventions.
+
+const extensions = [
+	'jpg',
+	'png',
+	'apng',
+	'gif',
+	'webp',
+	'flif',
+	'xcf',
+	'cr2',
+	'cr3',
+	'orf',
+	'arw',
+	'dng',
+	'nef',
+	'rw2',
+	'raf',
+	'tif',
+	'bmp',
+	'icns',
+	'jxr',
+	'psd',
+	'indd',
+	'zip',
+	'tar',
+	'rar',
+	'gz',
+	'bz2',
+	'7z',
+	'dmg',
+	'mp4',
+	'mid',
+	'mkv',
+	'webm',
+	'mov',
+	'avi',
+	'mpg',
+	'mp2',
+	'mp3',
+	'm4a',
+	'oga',
+	'ogg',
+	'ogv',
+	'opus',
+	'flac',
+	'wav',
+	'spx',
+	'amr',
+	'pdf',
+	'epub',
+	'elf',
+	'macho',
+	'exe',
+	'swf',
+	'rtf',
+	'wasm',
+	'woff',
+	'woff2',
+	'eot',
+	'ttf',
+	'otf',
+	'ttc',
+	'ico',
+	'flv',
+	'ps',
+	'xz',
+	'sqlite',
+	'nes',
+	'crx',
+	'xpi',
+	'cab',
+	'deb',
+	'ar',
+	'rpm',
+	'Z',
+	'lz',
+	'cfb',
+	'mxf',
+	'mts',
+	'blend',
+	'bpg',
+	'docx',
+	'pptx',
+	'xlsx',
+	'3gp',
+	'3g2',
+	'j2c',
+	'jp2',
+	'jpm',
+	'jpx',
+	'mj2',
+	'aif',
+	'qcp',
+	'odt',
+	'ods',
+	'odp',
+	'xml',
+	'mobi',
+	'heic',
+	'cur',
+	'ktx',
+	'ape',
+	'wv',
+	'dcm',
+	'ics',
+	'glb',
+	'pcap',
+	'dsf',
+	'lnk',
+	'alias',
+	'voc',
+	'ac3',
+	'm4v',
+	'm4p',
+	'm4b',
+	'f4v',
+	'f4p',
+	'f4b',
+	'f4a',
+	'mie',
+	'asf',
+	'ogm',
+	'ogx',
+	'mpc',
+	'arrow',
+	'shp',
+	'aac',
+	'mp1',
+	'it',
+	's3m',
+	'xm',
+	'skp',
+	'avif',
+	'eps',
+	'lzh',
+	'pgp',
+	'asar',
+	'stl',
+	'chm',
+	'3mf',
+	'zst',
+	'jxl',
+	'vcf',
+	'jls',
+	'pst',
+	'dwg',
+	'parquet',
+	'class',
+	'arj',
+	'cpio',
+	'ace',
+	'avro',
+	'icc',
+	'fbx',
+	'vsdx',
+	'vtt',
+	'apk',
+	'drc',
+	'lz4',
+	'potx',
+	'xltx',
+	'dotx',
+	'xltm',
+	'ott',
+	'ots',
+	'otp',
+	'odg',
+	'otg',
+	'xlsm',
+	'docm',
+	'dotm',
+	'potm',
+	'pptm',
+	'jar',
+	'jmp',
+	'rm',
+	'sav',
+	'ppsm',
+	'ppsx',
+	'tar.gz',
+	'reg',
+	'dat',
+	'key',
+	'numbers',
+	'pages',
+];
+
+const supported_mimeTypes = [
+	'image/jpeg',
+	'image/png',
+	'image/gif',
+	'image/webp',
+	'image/flif',
+	'image/x-xcf',
+	'image/x-canon-cr2',
+	'image/x-canon-cr3',
+	'image/tiff',
+	'image/bmp',
+	'image/vnd.ms-photo',
+	'image/vnd.adobe.photoshop',
+	'application/x-indesign',
+	'application/epub+zip',
+	'application/x-xpinstall',
+	'application/vnd.ms-powerpoint.slideshow.macroenabled.12',
+	'application/vnd.oasis.opendocument.text',
+	'application/vnd.oasis.opendocument.spreadsheet',
+	'application/vnd.oasis.opendocument.presentation',
+	'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+	'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+	'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+	'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+	'application/zip',
+	'application/x-tar',
+	'application/x-rar-compressed',
+	'application/gzip',
+	'application/x-bzip2',
+	'application/x-7z-compressed',
+	'application/x-apple-diskimage',
+	'application/vnd.apache.arrow.file',
+	'video/mp4',
+	'audio/midi',
+	'video/matroska',
+	'video/webm',
+	'video/quicktime',
+	'video/vnd.avi',
+	'audio/wav',
+	'audio/qcelp',
+	'audio/x-ms-asf',
+	'video/x-ms-asf',
+	'application/vnd.ms-asf',
+	'video/mpeg',
+	'video/3gpp',
+	'audio/mpeg',
+	'audio/mp4', // RFC 4337
+	'video/ogg',
+	'audio/ogg',
+	'audio/ogg; codecs=opus',
+	'application/ogg',
+	'audio/flac',
+	'audio/ape',
+	'audio/wavpack',
+	'audio/amr',
+	'application/pdf',
+	'application/x-elf',
+	'application/x-mach-binary',
+	'application/x-msdownload',
+	'application/x-shockwave-flash',
+	'application/rtf',
+	'application/wasm',
+	'font/woff',
+	'font/woff2',
+	'application/vnd.ms-fontobject',
+	'font/ttf',
+	'font/otf',
+	'font/collection',
+	'image/x-icon',
+	'video/x-flv',
+	'application/postscript',
+	'application/eps',
+	'application/x-xz',
+	'application/x-sqlite3',
+	'application/x-nintendo-nes-rom',
+	'application/x-google-chrome-extension',
+	'application/vnd.ms-cab-compressed',
+	'application/x-deb',
+	'application/x-unix-archive',
+	'application/x-rpm',
+	'application/x-compress',
+	'application/lzip',
+	'application/x-cfb',
+	'application/x-mie',
+	'application/mxf',
+	'video/mp2t',
+	'application/x-blender',
+	'image/bpg',
+	'image/j2c',
+	'image/jp2',
+	'image/jpx',
+	'image/jpm',
+	'image/mj2',
+	'audio/aiff',
+	'application/xml',
+	'application/x-mobipocket-ebook',
+	'image/heif',
+	'image/heif-sequence',
+	'image/heic',
+	'image/heic-sequence',
+	'image/icns',
+	'image/ktx',
+	'application/dicom',
+	'audio/x-musepack',
+	'text/calendar',
+	'text/vcard',
+	'text/vtt',
+	'model/gltf-binary',
+	'application/vnd.tcpdump.pcap',
+	'audio/x-dsf', // Non-standard
+	'application/x-ms-shortcut', // Informal, used by freedesktop.org shared-mime-info
+	'application/x-ft-apple.alias',
+	'audio/x-voc',
+	'audio/vnd.dolby.dd-raw',
+	'audio/x-m4a',
+	'image/apng',
+	'image/x-olympus-orf',
+	'image/x-sony-arw',
+	'image/x-adobe-dng',
+	'image/x-nikon-nef',
+	'image/x-panasonic-rw2',
+	'image/x-fujifilm-raf',
+	'video/x-m4v',
+	'video/3gpp2',
+	'application/x-esri-shape',
+	'audio/aac',
+	'audio/x-it',
+	'audio/x-s3m',
+	'audio/x-xm',
+	'video/MP1S',
+	'video/MP2P',
+	'application/vnd.sketchup.skp',
+	'image/avif',
+	'application/x-lzh-compressed',
+	'application/pgp-encrypted',
+	'application/x-asar',
+	'model/stl',
+	'application/vnd.ms-htmlhelp',
+	'model/3mf',
+	'image/jxl',
+	'application/zstd',
+	'image/jls',
+	'application/vnd.ms-outlook',
+	'image/vnd.dwg',
+	'application/vnd.apache.parquet',
+	'application/java-vm',
+	'application/x-arj',
+	'application/x-cpio',
+	'application/x-ace-compressed',
+	'application/avro',
+	'application/vnd.iccprofile',
+	'application/x-ft-fbx',
+	'application/vnd.visio',
+	'application/vnd.android.package-archive',
+	'application/x-ft-draco',
+	'application/x-lz4', // Informal, used by freedesktop.org shared-mime-info
+	'application/vnd.openxmlformats-officedocument.presentationml.template',
+	'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+	'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+	'application/vnd.ms-excel.template.macroenabled.12',
+	'application/vnd.oasis.opendocument.text-template',
+	'application/vnd.oasis.opendocument.spreadsheet-template',
+	'application/vnd.oasis.opendocument.presentation-template',
+	'application/vnd.oasis.opendocument.graphics',
+	'application/vnd.oasis.opendocument.graphics-template',
+	'application/vnd.ms-excel.sheet.macroenabled.12',
+	'application/vnd.ms-word.document.macroenabled.12',
+	'application/vnd.ms-word.template.macroenabled.12',
+	'application/vnd.ms-powerpoint.template.macroenabled.12',
+	'application/vnd.ms-powerpoint.presentation.macroenabled.12',
+	'application/java-archive',
+	'application/vnd.rn-realmedia',
+	'application/x-spss-sav',
+	'application/x-ms-regedit',
+	'application/x-ft-windows-registry-hive',
+	'application/x-jmp-data',
+	'application/vnd.apple.keynote',
+	'application/vnd.apple.numbers',
+	'application/vnd.apple.pages',
+];
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/parser.js
+const maximumUntrustedSkipSizeInBytes = 16 * 1024 * 1024;
+
+class ParserHardLimitError extends Error {}
+
+function getSafeBound(value, maximum, reason) {
+	if (
+		!Number.isFinite(value)
+		|| value < 0
+		|| value > maximum
+	) {
+		throw new ParserHardLimitError(`${reason} has invalid size ${value} (maximum ${maximum} bytes)`);
+	}
+
+	return value;
+}
+
+async function safeIgnore(tokenizer, length, {maximumLength = maximumUntrustedSkipSizeInBytes, reason = 'skip'} = {}) {
+	const safeLength = getSafeBound(length, maximumLength, reason);
+	await tokenizer.ignore(safeLength);
+}
+
+async function safeReadBuffer(tokenizer, buffer, options, {maximumLength = buffer.length, reason = 'read'} = {}) {
+	const length = options?.length ?? buffer.length;
+	const safeLength = getSafeBound(length, maximumLength, reason);
+	return tokenizer.readBuffer(buffer, {
+		...options,
+		length: safeLength,
+	});
+}
+
+function checkBytes(buffer, headers, options) {
+	options = {
+		offset: 0,
+		...options,
+	};
+
+	for (const [index, header] of headers.entries()) {
+		// If a bitmask is set
+		if (options.mask) {
+			// If header doesn't equal `buf` with bits masked off
+			if (header !== (options.mask[index] & buffer[index + options.offset])) {
+				return false;
+			}
+		} else if (header !== buffer[index + options.offset]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function hasUnknownFileSize(tokenizer) {
+	const fileSize = tokenizer.fileInfo.size;
+	return (
+		!Number.isFinite(fileSize)
+		|| fileSize === Number.MAX_SAFE_INTEGER
+	);
+}
+
+function hasExceededUnknownSizeScanBudget(tokenizer, startOffset, maximumBytes) {
+	return (
+		hasUnknownFileSize(tokenizer)
+		&& tokenizer.position - startOffset > maximumBytes
+	);
+}
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/detectors/zip.js
+
+
+
+
+
+const maximumZipEntrySizeInBytes = 1024 * 1024;
+const maximumZipEntryCount = 1024;
+const maximumZipBufferedReadSizeInBytes = (2 ** 31) - 1;
+const maximumZipTextEntrySizeInBytes = maximumZipEntrySizeInBytes;
+
+const recoverableZipErrorMessages = new Set([
+	'Unexpected signature',
+	'Encrypted ZIP',
+	'Expected Central-File-Header signature',
+]);
+const recoverableZipErrorMessagePrefixes = [
+	'ZIP entry count exceeds ',
+	'Unsupported ZIP compression method:',
+	'ZIP entry compressed data exceeds ',
+	'ZIP entry decompressed data exceeds ',
+	'Expected data-descriptor-signature at position ',
+];
+const recoverableZipErrorCodes = new Set([
+	'Z_BUF_ERROR',
+	'Z_DATA_ERROR',
+	'ERR_INVALID_STATE',
+]);
+
+async function decompressDeflateRawWithLimit(data, {maximumLength = maximumZipEntrySizeInBytes} = {}) {
+	const input = new ReadableStream({
+		start(controller) {
+			controller.enqueue(data);
+			controller.close();
+		},
+	});
+	const output = input.pipeThrough(new DecompressionStream('deflate-raw'));
+	const reader = output.getReader();
+	const chunks = [];
+	let totalLength = 0;
+
+	try {
+		for (;;) {
+			const {done, value} = await reader.read();
+			if (done) {
+				break;
+			}
+
+			totalLength += value.length;
+			if (totalLength > maximumLength) {
+				await reader.cancel();
+				throw new Error(`ZIP entry decompressed data exceeds ${maximumLength} bytes`);
+			}
+
+			chunks.push(value);
+		}
+	} finally {
+		reader.releaseLock();
+	}
+
+	const uncompressedData = new Uint8Array(totalLength);
+	let offset = 0;
+	for (const chunk of chunks) {
+		uncompressedData.set(chunk, offset);
+		offset += chunk.length;
+	}
+
+	return uncompressedData;
+}
+
+function mergeByteChunks(chunks, totalLength) {
+	const merged = new Uint8Array(totalLength);
+	let offset = 0;
+
+	for (const chunk of chunks) {
+		merged.set(chunk, offset);
+		offset += chunk.length;
+	}
+
+	return merged;
+}
+
+function getMaximumZipBufferedReadLength(tokenizer) {
+	const fileSize = tokenizer.fileInfo.size;
+	const remainingBytes = Number.isFinite(fileSize)
+		? Math.max(0, fileSize - tokenizer.position)
+		: Number.MAX_SAFE_INTEGER;
+
+	return Math.min(remainingBytes, maximumZipBufferedReadSizeInBytes);
+}
+
+function isRecoverableZipError(error) {
+	if (error instanceof EndOfStreamError) {
+		return true;
+	}
+
+	if (error instanceof ParserHardLimitError) {
+		return true;
+	}
+
+	if (!(error instanceof Error)) {
+		return false;
+	}
+
+	if (recoverableZipErrorMessages.has(error.message)) {
+		return true;
+	}
+
+	if (recoverableZipErrorCodes.has(error.code)) {
+		return true;
+	}
+
+	for (const prefix of recoverableZipErrorMessagePrefixes) {
+		if (error.message.startsWith(prefix)) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function canReadZipEntryForDetection(zipHeader, maximumSize = maximumZipEntrySizeInBytes) {
+	const sizes = [zipHeader.compressedSize, zipHeader.uncompressedSize];
+	for (const size of sizes) {
+		if (
+			!Number.isFinite(size)
+			|| size < 0
+			|| size > maximumSize
+		) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+// -- iWork helpers --
+
+function createIWorkZipDetectionState() {
+	return {
+		hasDocumentEntry: false,
+		hasMasterSlideEntry: false,
+		hasTablesEntry: false,
+		hasCalculationEngineEntry: false,
+	};
+}
+
+function updateIWorkZipDetectionStateFromFilename(iWorkState, filename) {
+	if (filename === 'Index/Document.iwa') {
+		iWorkState.hasDocumentEntry = true;
+	}
+
+	if (filename.startsWith('Index/MasterSlide')) {
+		iWorkState.hasMasterSlideEntry = true;
+	}
+
+	if (filename.startsWith('Index/Tables/')) {
+		iWorkState.hasTablesEntry = true;
+	}
+
+	if (filename === 'Index/CalculationEngine.iwa') {
+		iWorkState.hasCalculationEngineEntry = true;
+	}
+}
+
+function getIWorkFileTypeFromZipEntries(iWorkState) {
+	if (!iWorkState.hasDocumentEntry) {
+		return;
+	}
+
+	if (iWorkState.hasMasterSlideEntry) {
+		return {ext: 'key', mime: 'application/vnd.apple.keynote'};
+	}
+
+	if (iWorkState.hasTablesEntry) {
+		return {ext: 'numbers', mime: 'application/vnd.apple.numbers'};
+	}
+
+	return {ext: 'pages', mime: 'application/vnd.apple.pages'};
+}
+
+// -- OpenXML helpers --
+
+function getFileTypeFromMimeType(mimeType) {
+	mimeType = mimeType.toLowerCase();
+	switch (mimeType) {
+		case 'application/epub+zip':
+			return {ext: 'epub', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.text':
+			return {ext: 'odt', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.text-template':
+			return {ext: 'ott', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.spreadsheet':
+			return {ext: 'ods', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.spreadsheet-template':
+			return {ext: 'ots', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.presentation':
+			return {ext: 'odp', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.presentation-template':
+			return {ext: 'otp', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.graphics':
+			return {ext: 'odg', mime: mimeType};
+		case 'application/vnd.oasis.opendocument.graphics-template':
+			return {ext: 'otg', mime: mimeType};
+		case 'application/vnd.openxmlformats-officedocument.presentationml.slideshow':
+			return {ext: 'ppsx', mime: mimeType};
+		case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+			return {ext: 'xlsx', mime: mimeType};
+		case 'application/vnd.ms-excel.sheet.macroenabled':
+			return {ext: 'xlsm', mime: 'application/vnd.ms-excel.sheet.macroenabled.12'};
+		case 'application/vnd.openxmlformats-officedocument.spreadsheetml.template':
+			return {ext: 'xltx', mime: mimeType};
+		case 'application/vnd.ms-excel.template.macroenabled':
+			return {ext: 'xltm', mime: 'application/vnd.ms-excel.template.macroenabled.12'};
+		case 'application/vnd.ms-powerpoint.slideshow.macroenabled':
+			return {ext: 'ppsm', mime: 'application/vnd.ms-powerpoint.slideshow.macroenabled.12'};
+		case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+			return {ext: 'docx', mime: mimeType};
+		case 'application/vnd.ms-word.document.macroenabled':
+			return {ext: 'docm', mime: 'application/vnd.ms-word.document.macroenabled.12'};
+		case 'application/vnd.openxmlformats-officedocument.wordprocessingml.template':
+			return {ext: 'dotx', mime: mimeType};
+		case 'application/vnd.ms-word.template.macroenabledtemplate':
+			return {ext: 'dotm', mime: 'application/vnd.ms-word.template.macroenabled.12'};
+		case 'application/vnd.openxmlformats-officedocument.presentationml.template':
+			return {ext: 'potx', mime: mimeType};
+		case 'application/vnd.ms-powerpoint.template.macroenabled':
+			return {ext: 'potm', mime: 'application/vnd.ms-powerpoint.template.macroenabled.12'};
+		case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+			return {ext: 'pptx', mime: mimeType};
+		case 'application/vnd.ms-powerpoint.presentation.macroenabled':
+			return {ext: 'pptm', mime: 'application/vnd.ms-powerpoint.presentation.macroenabled.12'};
+		case 'application/vnd.ms-visio.drawing':
+			return {ext: 'vsdx', mime: 'application/vnd.visio'};
+		case 'application/vnd.ms-package.3dmanufacturing-3dmodel+xml':
+			return {ext: '3mf', mime: 'model/3mf'};
+		default:
+	}
+}
+
+function createOpenXmlZipDetectionState() {
+	return {
+		hasContentTypesEntry: false,
+		hasParsedContentTypesEntry: false,
+		isParsingContentTypes: false,
+		hasUnparseableContentTypes: false,
+		hasWordDirectory: false,
+		hasPresentationDirectory: false,
+		hasSpreadsheetDirectory: false,
+		hasThreeDimensionalModelEntry: false,
+	};
+}
+
+function updateOpenXmlZipDetectionStateFromFilename(openXmlState, filename) {
+	if (filename.startsWith('word/')) {
+		openXmlState.hasWordDirectory = true;
+	}
+
+	if (filename.startsWith('ppt/')) {
+		openXmlState.hasPresentationDirectory = true;
+	}
+
+	if (filename.startsWith('xl/')) {
+		openXmlState.hasSpreadsheetDirectory = true;
+	}
+
+	if (
+		filename.startsWith('3D/')
+		&& filename.endsWith('.model')
+	) {
+		openXmlState.hasThreeDimensionalModelEntry = true;
+	}
+}
+
+function getOpenXmlFileTypeFromDirectoryNames(openXmlState) {
+	if (openXmlState.hasWordDirectory) {
+		return {
+			ext: 'docx',
+			mime: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+		};
+	}
+
+	if (openXmlState.hasPresentationDirectory) {
+		return {
+			ext: 'pptx',
+			mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+		};
+	}
+
+	if (openXmlState.hasSpreadsheetDirectory) {
+		return {
+			ext: 'xlsx',
+			mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+		};
+	}
+
+	if (openXmlState.hasThreeDimensionalModelEntry) {
+		return {
+			ext: '3mf',
+			mime: 'model/3mf',
+		};
+	}
+}
+
+function getOpenXmlFileTypeFromZipEntries(openXmlState) {
+	// Only use directory-name heuristic when [Content_Types].xml was present in the archive
+	// but its handler was skipped (not invoked, not currently running, and not already resolved).
+	// This avoids guessing from directory names when content-type parsing already gave a definitive answer or failed.
+	if (
+		!openXmlState.hasContentTypesEntry
+		|| openXmlState.hasUnparseableContentTypes
+		|| openXmlState.isParsingContentTypes
+		|| openXmlState.hasParsedContentTypesEntry
+	) {
+		return;
+	}
+
+	return getOpenXmlFileTypeFromDirectoryNames(openXmlState);
+}
+
+function getOpenXmlMimeTypeFromContentTypesXml(xmlContent) {
+	// We only need the `ContentType="...main+xml"` value, so a small string scan is enough and avoids full XML parsing.
+	const endPosition = xmlContent.indexOf('.main+xml"');
+	if (endPosition === -1) {
+		const mimeType = 'application/vnd.ms-package.3dmanufacturing-3dmodel+xml';
+		if (xmlContent.includes(`ContentType="${mimeType}"`)) {
+			return mimeType;
+		}
+
+		return;
+	}
+
+	const truncatedContent = xmlContent.slice(0, endPosition);
+	const firstQuotePosition = truncatedContent.lastIndexOf('"');
+	// If no quote is found, `lastIndexOf` returns -1 and this intentionally falls back to the full truncated prefix.
+	return truncatedContent.slice(firstQuotePosition + 1);
+}
+
+const zipDataDescriptorSignature = 0x08_07_4B_50;
+const zipDataDescriptorLengthInBytes = 16;
+const zipDataDescriptorOverlapLengthInBytes = zipDataDescriptorLengthInBytes - 1;
+
+function findZipDataDescriptorOffset(buffer, bytesConsumed) {
+	if (buffer.length < zipDataDescriptorLengthInBytes) {
+		return -1;
+	}
+
+	const lastPossibleDescriptorOffset = buffer.length - zipDataDescriptorLengthInBytes;
+	for (let index = 0; index <= lastPossibleDescriptorOffset; index++) {
+		if (
+			UINT32_LE.get(buffer, index) === zipDataDescriptorSignature
+			&& UINT32_LE.get(buffer, index + 8) === bytesConsumed + index
+		) {
+			return index;
+		}
+	}
+
+	return -1;
+}
+
+async function readZipDataDescriptorEntryWithLimit(zipHandler, {shouldBuffer, maximumLength = maximumZipEntrySizeInBytes} = {}) {
+	const {syncBuffer} = zipHandler;
+	const {length: syncBufferLength} = syncBuffer;
+	const chunks = [];
+	let bytesConsumed = 0;
+
+	for (;;) {
+		const length = await zipHandler.tokenizer.peekBuffer(syncBuffer, {mayBeLess: true});
+		const dataDescriptorOffset = findZipDataDescriptorOffset(syncBuffer.subarray(0, length), bytesConsumed);
+		const retainedLength = dataDescriptorOffset >= 0
+			? 0
+			: (
+				length === syncBufferLength
+					? Math.min(zipDataDescriptorOverlapLengthInBytes, length - 1)
+					: 0
+			);
+		const chunkLength = dataDescriptorOffset >= 0 ? dataDescriptorOffset : length - retainedLength;
+
+		if (chunkLength === 0) {
+			break;
+		}
+
+		bytesConsumed += chunkLength;
+		if (bytesConsumed > maximumLength) {
+			throw new Error(`ZIP entry compressed data exceeds ${maximumLength} bytes`);
+		}
+
+		if (shouldBuffer) {
+			const data = new Uint8Array(chunkLength);
+			await zipHandler.tokenizer.readBuffer(data);
+			chunks.push(data);
+		} else {
+			await zipHandler.tokenizer.ignore(chunkLength);
+		}
+
+		if (dataDescriptorOffset >= 0) {
+			break;
+		}
+	}
+
+	if (!hasUnknownFileSize(zipHandler.tokenizer)) {
+		zipHandler.knownSizeDescriptorScannedBytes += bytesConsumed;
+	}
+
+	if (!shouldBuffer) {
+		return;
+	}
+
+	return mergeByteChunks(chunks, bytesConsumed);
+}
+
+function getRemainingZipScanBudget(zipHandler, startOffset) {
+	if (hasUnknownFileSize(zipHandler.tokenizer)) {
+		return Math.max(0, maximumUntrustedSkipSizeInBytes - (zipHandler.tokenizer.position - startOffset));
+	}
+
+	return Math.max(0, maximumZipEntrySizeInBytes - zipHandler.knownSizeDescriptorScannedBytes);
+}
+
+async function readZipEntryData(zipHandler, zipHeader, {shouldBuffer, maximumDescriptorLength = maximumZipEntrySizeInBytes} = {}) {
+	if (
+		zipHeader.dataDescriptor
+		&& zipHeader.compressedSize === 0
+	) {
+		return readZipDataDescriptorEntryWithLimit(zipHandler, {
+			shouldBuffer,
+			maximumLength: maximumDescriptorLength,
+		});
+	}
+
+	if (!shouldBuffer) {
+		await safeIgnore(zipHandler.tokenizer, zipHeader.compressedSize, {
+			maximumLength: hasUnknownFileSize(zipHandler.tokenizer) ? maximumZipEntrySizeInBytes : zipHandler.tokenizer.fileInfo.size,
+			reason: 'ZIP entry compressed data',
+		});
+		return;
+	}
+
+	const maximumLength = getMaximumZipBufferedReadLength(zipHandler.tokenizer);
+	if (
+		!Number.isFinite(zipHeader.compressedSize)
+		|| zipHeader.compressedSize < 0
+		|| zipHeader.compressedSize > maximumLength
+	) {
+		throw new Error(`ZIP entry compressed data exceeds ${maximumLength} bytes`);
+	}
+
+	const fileData = new Uint8Array(zipHeader.compressedSize);
+	await zipHandler.tokenizer.readBuffer(fileData);
+	return fileData;
+}
+
+// Override the default inflate to enforce decompression size limits, since @tokenizer/inflate does not expose a configuration hook for this.
+ZipHandler.prototype.inflate = async function (zipHeader, fileData, callback) {
+	if (zipHeader.compressedMethod === 0) {
+		return callback(fileData);
+	}
+
+	if (zipHeader.compressedMethod !== 8) {
+		throw new Error(`Unsupported ZIP compression method: ${zipHeader.compressedMethod}`);
+	}
+
+	const uncompressedData = await decompressDeflateRawWithLimit(fileData, {maximumLength: maximumZipEntrySizeInBytes});
+	return callback(uncompressedData);
+};
+
+ZipHandler.prototype.unzip = async function (fileCallback) {
+	let stop = false;
+	let zipEntryCount = 0;
+	const zipScanStart = this.tokenizer.position;
+	this.knownSizeDescriptorScannedBytes = 0;
+	do {
+		if (hasExceededUnknownSizeScanBudget(this.tokenizer, zipScanStart, maximumUntrustedSkipSizeInBytes)) {
+			throw new ParserHardLimitError(`ZIP stream probing exceeds ${maximumUntrustedSkipSizeInBytes} bytes`);
+		}
+
+		const zipHeader = await this.readLocalFileHeader();
+		if (!zipHeader) {
+			break;
+		}
+
+		zipEntryCount++;
+		if (zipEntryCount > maximumZipEntryCount) {
+			throw new Error(`ZIP entry count exceeds ${maximumZipEntryCount}`);
+		}
+
+		const next = fileCallback(zipHeader);
+		stop = Boolean(next.stop);
+		await this.tokenizer.ignore(zipHeader.extraFieldLength);
+		const fileData = await readZipEntryData(this, zipHeader, {
+			shouldBuffer: Boolean(next.handler),
+			maximumDescriptorLength: Math.min(maximumZipEntrySizeInBytes, getRemainingZipScanBudget(this, zipScanStart)),
+		});
+
+		if (next.handler) {
+			await this.inflate(zipHeader, fileData, next.handler);
+		}
+
+		if (zipHeader.dataDescriptor) {
+			const dataDescriptor = new Uint8Array(zipDataDescriptorLengthInBytes);
+			await this.tokenizer.readBuffer(dataDescriptor);
+			if (UINT32_LE.get(dataDescriptor, 0) !== zipDataDescriptorSignature) {
+				throw new Error(`Expected data-descriptor-signature at position ${this.tokenizer.position - dataDescriptor.length}`);
+			}
+		}
+
+		if (hasExceededUnknownSizeScanBudget(this.tokenizer, zipScanStart, maximumUntrustedSkipSizeInBytes)) {
+			throw new ParserHardLimitError(`ZIP stream probing exceeds ${maximumUntrustedSkipSizeInBytes} bytes`);
+		}
+	} while (!stop);
+};
+
+async function detectZip(tokenizer) {
+	let fileType;
+	const openXmlState = createOpenXmlZipDetectionState();
+	const iWorkState = createIWorkZipDetectionState();
+
+	try {
+		await new ZipHandler(tokenizer).unzip(zipHeader => {
+			updateOpenXmlZipDetectionStateFromFilename(openXmlState, zipHeader.filename);
+			updateIWorkZipDetectionStateFromFilename(iWorkState, zipHeader.filename);
+
+			// Early exit for Keynote or Numbers when markers are definitive
+			if (iWorkState.hasDocumentEntry && (iWorkState.hasMasterSlideEntry || iWorkState.hasTablesEntry)) {
+				fileType = getIWorkFileTypeFromZipEntries(iWorkState);
+				return {stop: true};
+			}
+
+			const isOpenXmlContentTypesEntry = zipHeader.filename === '[Content_Types].xml';
+			const openXmlFileTypeFromEntries = getOpenXmlFileTypeFromZipEntries(openXmlState);
+			if (
+				!isOpenXmlContentTypesEntry
+				&& openXmlFileTypeFromEntries
+			) {
+				fileType = openXmlFileTypeFromEntries;
+				return {
+					stop: true,
+				};
+			}
+
+			switch (zipHeader.filename) {
+				case 'META-INF/mozilla.rsa':
+					fileType = {
+						ext: 'xpi',
+						mime: 'application/x-xpinstall',
+					};
+					return {
+						stop: true,
+					};
+				case 'META-INF/MANIFEST.MF':
+					fileType = {
+						ext: 'jar',
+						mime: 'application/java-archive',
+					};
+					return {
+						stop: true,
+					};
+				case 'mimetype':
+					if (!canReadZipEntryForDetection(zipHeader, maximumZipTextEntrySizeInBytes)) {
+						return {};
+					}
+
+					return {
+						async handler(fileData) {
+							// Use TextDecoder to decode the UTF-8 encoded data
+							const mimeType = new TextDecoder('utf-8').decode(fileData).trim();
+							fileType = getFileTypeFromMimeType(mimeType);
+						},
+						stop: true,
+					};
+
+				case '[Content_Types].xml': {
+					openXmlState.hasContentTypesEntry = true;
+
+					if (!canReadZipEntryForDetection(zipHeader, maximumZipTextEntrySizeInBytes)) {
+						openXmlState.hasUnparseableContentTypes = true;
+						return {};
+					}
+
+					openXmlState.isParsingContentTypes = true;
+					return {
+						async handler(fileData) {
+							// Use TextDecoder to decode the UTF-8 encoded data
+							const xmlContent = new TextDecoder('utf-8').decode(fileData);
+							const mimeType = getOpenXmlMimeTypeFromContentTypesXml(xmlContent);
+							if (mimeType) {
+								fileType = getFileTypeFromMimeType(mimeType);
+							}
+
+							openXmlState.hasParsedContentTypesEntry = true;
+							openXmlState.isParsingContentTypes = false;
+						},
+						stop: true,
+					};
+				}
+
+				default:
+					if (/classes\d*\.dex/v.test(zipHeader.filename)) {
+						fileType = {
+							ext: 'apk',
+							mime: 'application/vnd.android.package-archive',
+						};
+						return {stop: true};
+					}
+
+					return {};
+			}
+		});
+	} catch (error) {
+		if (!isRecoverableZipError(error)) {
+			throw error;
+		}
+
+		if (openXmlState.isParsingContentTypes) {
+			openXmlState.isParsingContentTypes = false;
+			openXmlState.hasUnparseableContentTypes = true;
+		}
+
+		// When the stream was truncated before reaching [Content_Types].xml, use directory names as a fallback.
+		// This handles LibreOffice-created OOXML files where [Content_Types].xml appears after content entries.
+		if (!fileType && error instanceof EndOfStreamError && !openXmlState.hasContentTypesEntry) {
+			fileType = getOpenXmlFileTypeFromDirectoryNames(openXmlState);
+		}
+	}
+
+	const iWorkFileType = hasUnknownFileSize(tokenizer)
+		&& iWorkState.hasDocumentEntry
+		&& !iWorkState.hasMasterSlideEntry
+		&& !iWorkState.hasTablesEntry
+		&& !iWorkState.hasCalculationEngineEntry
+		? undefined
+		: getIWorkFileTypeFromZipEntries(iWorkState);
+
+	return fileType ?? getOpenXmlFileTypeFromZipEntries(openXmlState) ?? iWorkFileType ?? {
+		ext: 'zip',
+		mime: 'application/zip',
+	};
+}
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/detectors/ebml.js
+
+
+
+
+const maximumEbmlDocumentTypeSizeInBytes = 64;
+const maximumEbmlElementPayloadSizeInBytes = 1024 * 1024;
+const maximumEbmlElementCount = 256;
+
+async function detectEbml(tokenizer) {
+	async function readField() {
+		const msb = await tokenizer.peekNumber(UINT8);
+		let mask = 0x80;
+		let ic = 0; // 0 = A, 1 = B, 2 = C, 3 = D
+
+		while ((msb & mask) === 0 && mask !== 0) {
+			++ic;
+			mask >>= 1;
+		}
+
+		const id = new Uint8Array(ic + 1);
+		await safeReadBuffer(tokenizer, id, undefined, {
+			maximumLength: id.length,
+			reason: 'EBML field',
+		});
+		return id;
+	}
+
+	async function readElement() {
+		const idField = await readField();
+		const lengthField = await readField();
+
+		lengthField[0] ^= 0x80 >> (lengthField.length - 1);
+		const nrLength = Math.min(6, lengthField.length); // JavaScript can max read 6 bytes integer
+
+		const idView = new DataView(idField.buffer);
+		const lengthView = new DataView(lengthField.buffer, lengthField.length - nrLength, nrLength);
+
+		return {
+			id: getUintBE(idView),
+			len: getUintBE(lengthView),
+		};
+	}
+
+	async function readChildren(children) {
+		let ebmlElementCount = 0;
+		while (children > 0) {
+			ebmlElementCount++;
+			if (ebmlElementCount > maximumEbmlElementCount) {
+				return;
+			}
+
+			if (hasExceededUnknownSizeScanBudget(tokenizer, ebmlScanStart, maximumUntrustedSkipSizeInBytes)) {
+				return;
+			}
+
+			const previousPosition = tokenizer.position;
+			const element = await readElement();
+
+			if (element.id === 0x42_82) {
+				// `DocType` is a short string ("webm", "matroska", ...), reject implausible lengths to avoid large allocations.
+				if (element.len > maximumEbmlDocumentTypeSizeInBytes) {
+					return;
+				}
+
+				const documentTypeLength = getSafeBound(element.len, maximumEbmlDocumentTypeSizeInBytes, 'EBML DocType');
+				const rawValue = await tokenizer.readToken(new StringType(documentTypeLength));
+				return rawValue.replaceAll(/\0.*$/gv, ''); // Return DocType
+			}
+
+			if (
+				hasUnknownFileSize(tokenizer)
+				&& (
+					!Number.isFinite(element.len)
+					|| element.len < 0
+					|| element.len > maximumEbmlElementPayloadSizeInBytes
+				)
+			) {
+				return;
+			}
+
+			await safeIgnore(tokenizer, element.len, {
+				maximumLength: hasUnknownFileSize(tokenizer) ? maximumEbmlElementPayloadSizeInBytes : tokenizer.fileInfo.size,
+				reason: 'EBML payload',
+			}); // ignore payload
+			--children;
+
+			// Safeguard against malformed files: bail if the position did not advance.
+			if (tokenizer.position <= previousPosition) {
+				return;
+			}
+		}
+	}
+
+	const rootElement = await readElement();
+	const ebmlScanStart = tokenizer.position;
+	const documentType = await readChildren(rootElement.len);
+
+	switch (documentType) {
+		case 'webm':
+			return {
+				ext: 'webm',
+				mime: 'video/webm',
+			};
+
+		case 'matroska':
+			return {
+				ext: 'mkv',
+				mime: 'video/matroska',
+			};
+
+		default:
+	}
+}
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/detectors/png.js
+
+
+
+
+const maximumPngChunkCount = 512;
+const maximumPngStreamScanBudgetInBytes = 16 * 1024 * 1024;
+const maximumPngChunkSizeInBytes = 1024 * 1024;
+
+function isPngAncillaryChunk(type) {
+	return (type.codePointAt(0) & 0x20) !== 0;
+}
+
+async function detectPng(tokenizer) {
+	const pngFileType = {
+		ext: 'png',
+		mime: 'image/png',
+	};
+
+	const apngFileType = {
+		ext: 'apng',
+		mime: 'image/apng',
+	};
+
+	// APNG format (https://wiki.mozilla.org/APNG_Specification)
+	// 1. Find the first IDAT (image data) chunk (49 44 41 54)
+	// 2. Check if there is an "acTL" chunk before the IDAT one (61 63 54 4C)
+
+	// Offset calculated as follows:
+	// - 8 bytes: PNG signature
+	// - 4 (length) + 4 (chunk type) + 13 (chunk data) + 4 (CRC): IHDR chunk
+
+	await tokenizer.ignore(8); // ignore PNG signature
+
+	async function readChunkHeader() {
+		return {
+			length: await tokenizer.readToken(INT32_BE),
+			type: await tokenizer.readToken(new StringType(4, 'latin1')),
+		};
+	}
+
+	const isUnknownPngStream = hasUnknownFileSize(tokenizer);
+	const pngScanStart = tokenizer.position;
+	let pngChunkCount = 0;
+	let hasSeenImageHeader = false;
+	do {
+		pngChunkCount++;
+		if (pngChunkCount > maximumPngChunkCount) {
+			break;
+		}
+
+		if (hasExceededUnknownSizeScanBudget(tokenizer, pngScanStart, maximumPngStreamScanBudgetInBytes)) {
+			break;
+		}
+
+		const previousPosition = tokenizer.position;
+		const chunk = await readChunkHeader();
+		if (chunk.length < 0) {
+			return; // Invalid chunk length
+		}
+
+		if (chunk.type === 'IHDR') {
+			// PNG requires the first real image header to be a 13-byte IHDR chunk.
+			if (chunk.length !== 13) {
+				return;
+			}
+
+			hasSeenImageHeader = true;
+		}
+
+		switch (chunk.type) {
+			case 'IDAT':
+				return pngFileType;
+			case 'acTL':
+				return apngFileType;
+			default:
+				if (
+					!hasSeenImageHeader
+					&& chunk.type !== 'CgBI'
+				) {
+					return;
+				}
+
+				if (
+					isUnknownPngStream
+					&& chunk.length > maximumPngChunkSizeInBytes
+				) {
+					// Avoid huge attacker-controlled skips when probing unknown-size streams.
+					return hasSeenImageHeader && isPngAncillaryChunk(chunk.type) ? pngFileType : undefined;
+				}
+
+				try {
+					await safeIgnore(tokenizer, chunk.length + 4, {
+						maximumLength: isUnknownPngStream ? maximumPngChunkSizeInBytes + 4 : tokenizer.fileInfo.size,
+						reason: 'PNG chunk payload',
+					}); // Ignore chunk-data + CRC
+				} catch (error) {
+					if (
+						!isUnknownPngStream
+						&& (
+							error instanceof ParserHardLimitError
+							|| error instanceof EndOfStreamError
+						)
+					) {
+						return pngFileType;
+					}
+
+					throw error;
+				}
+		}
+
+		// Safeguard against malformed files: bail if the position did not advance.
+		if (tokenizer.position <= previousPosition) {
+			break;
+		}
+	} while (tokenizer.position + 8 < tokenizer.fileInfo.size);
+
+	return pngFileType;
+}
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/detectors/asf.js
+
+
+
+
+const maximumAsfHeaderObjectCount = 512;
+const maximumAsfHeaderPayloadSizeInBytes = 1024 * 1024;
+
+async function detectAsf(tokenizer) {
+	let isMalformedAsf = false;
+	try {
+		async function readHeader() {
+			const guid = new Uint8Array(16);
+			await safeReadBuffer(tokenizer, guid, undefined, {
+				maximumLength: guid.length,
+				reason: 'ASF header GUID',
+			});
+			return {
+				id: guid,
+				size: Number(await tokenizer.readToken(UINT64_LE)),
+			};
+		}
+
+		await safeIgnore(tokenizer, 30, {
+			maximumLength: 30,
+			reason: 'ASF header prelude',
+		});
+		const isUnknownFileSize = hasUnknownFileSize(tokenizer);
+		const asfHeaderScanStart = tokenizer.position;
+		let asfHeaderObjectCount = 0;
+		while (tokenizer.position + 24 < tokenizer.fileInfo.size) {
+			asfHeaderObjectCount++;
+			if (asfHeaderObjectCount > maximumAsfHeaderObjectCount) {
+				break;
+			}
+
+			if (hasExceededUnknownSizeScanBudget(tokenizer, asfHeaderScanStart, maximumUntrustedSkipSizeInBytes)) {
+				break;
+			}
+
+			const previousPosition = tokenizer.position;
+			const header = await readHeader();
+			let payload = header.size - 24;
+			if (
+				!Number.isFinite(payload)
+				|| payload < 0
+			) {
+				isMalformedAsf = true;
+				break;
+			}
+
+			if (checkBytes(header.id, [0x91, 0x07, 0xDC, 0xB7, 0xB7, 0xA9, 0xCF, 0x11, 0x8E, 0xE6, 0x00, 0xC0, 0x0C, 0x20, 0x53, 0x65])) {
+				// Sync on Stream-Properties-Object (B7DC0791-A9B7-11CF-8EE6-00C00C205365)
+				const typeId = new Uint8Array(16);
+				payload -= await safeReadBuffer(tokenizer, typeId, undefined, {
+					maximumLength: typeId.length,
+					reason: 'ASF stream type GUID',
+				});
+
+				if (checkBytes(typeId, [0x40, 0x9E, 0x69, 0xF8, 0x4D, 0x5B, 0xCF, 0x11, 0xA8, 0xFD, 0x00, 0x80, 0x5F, 0x5C, 0x44, 0x2B])) {
+					// Found audio:
+					return {
+						ext: 'asf',
+						mime: 'audio/x-ms-asf',
+					};
+				}
+
+				if (checkBytes(typeId, [0xC0, 0xEF, 0x19, 0xBC, 0x4D, 0x5B, 0xCF, 0x11, 0xA8, 0xFD, 0x00, 0x80, 0x5F, 0x5C, 0x44, 0x2B])) {
+					// Found video:
+					return {
+						ext: 'asf',
+						mime: 'video/x-ms-asf',
+					};
+				}
+
+				break;
+			}
+
+			if (
+				isUnknownFileSize
+				&& payload > maximumAsfHeaderPayloadSizeInBytes
+			) {
+				isMalformedAsf = true;
+				break;
+			}
+
+			await safeIgnore(tokenizer, payload, {
+				maximumLength: isUnknownFileSize ? maximumAsfHeaderPayloadSizeInBytes : tokenizer.fileInfo.size,
+				reason: 'ASF header payload',
+			});
+
+			// Safeguard against malformed files: break if the position did not advance.
+			if (tokenizer.position <= previousPosition) {
+				isMalformedAsf = true;
+				break;
+			}
+		}
+	} catch (error) {
+		if (
+			error instanceof EndOfStreamError
+			|| error instanceof ParserHardLimitError
+		) {
+			if (hasUnknownFileSize(tokenizer)) {
+				isMalformedAsf = true;
+			}
+		} else {
+			throw error;
+		}
+	}
+
+	if (isMalformedAsf) {
+		return;
+	}
+
+	// Default to ASF generic extension
+	return {
+		ext: 'asf',
+		mime: 'application/vnd.ms-asf',
+	};
+}
+
+;// CONCATENATED MODULE: ./node_modules/file-type/source/index.js
+/**
+Primary entry point, Node.js specific entry point is index.js
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+const reasonableDetectionSizeInBytes = 4100; // A fair amount of file-types are detectable within this range.
+const maximumMpegOffsetTolerance = reasonableDetectionSizeInBytes - 2;
+const maximumNestedGzipDetectionSizeInBytes = maximumUntrustedSkipSizeInBytes;
+const maximumNestedGzipProbeDepth = 1;
+const unknownSizeGzipProbeTimeoutInMilliseconds = 100;
+const maximumId3HeaderSizeInBytes = maximumUntrustedSkipSizeInBytes;
+const maximumTiffTagCount = 512;
+const maximumDetectionReentryCount = 256;
+const maximumTiffStreamIfdOffsetInBytes = 1024 * 1024;
+const maximumTiffIfdOffsetInBytes = maximumUntrustedSkipSizeInBytes;
+
+function normalizeSampleSize(sampleSize) {
+	// `sampleSize` is an explicit caller-controlled tuning knob, not untrusted file input.
+	// Preserve valid caller-requested probe depth here; applications must bound attacker-derived option values themselves.
+	if (!Number.isFinite(sampleSize)) {
+		return reasonableDetectionSizeInBytes;
+	}
+
+	return Math.max(1, Math.trunc(sampleSize));
+}
+
+function normalizeMpegOffsetTolerance(mpegOffsetTolerance) {
+	// This value controls scan depth and therefore worst-case CPU work.
+	if (!Number.isFinite(mpegOffsetTolerance)) {
+		return 0;
+	}
+
+	return Math.max(0, Math.min(maximumMpegOffsetTolerance, Math.trunc(mpegOffsetTolerance)));
+}
+
+function getKnownFileSizeOrMaximum(fileSize) {
+	if (!Number.isFinite(fileSize)) {
+		return Number.MAX_SAFE_INTEGER;
+	}
+
+	return Math.max(0, fileSize);
+}
+
+// Keep the specifier non-literal at the call site so browser bundlers do not try to resolve Node-only imports.
+function importAtRuntime(specifier) {
+	return __nccwpck_require__(7224)(specifier);
+}
+
+// Wrap stream in an identity TransformStream to avoid BYOB readers.
+// Node.js has a bug where calling controller.close() inside a BYOB stream's
+// pull() callback does not resolve pending reader.read() calls, causing
+// permanent hangs on streams shorter than the requested read size.
+// Using a default (non-BYOB) reader via TransformStream avoids this.
+function toDefaultStream(stream) {
+	return stream.pipeThrough(new TransformStream());
+}
+
+function readWithSignal(reader, signal) {
+	if (signal === undefined) {
+		return reader.read();
+	}
+
+	signal.throwIfAborted();
+
+	return Promise.race([
+		reader.read(),
+		new Promise((_resolve, reject) => {
+			signal.addEventListener('abort', () => {
+				reject(signal.reason);
+				reader.cancel(signal.reason).catch(() => {});
+			}, {once: true});
+		}),
+	]);
+}
+
+function createByteLimitedReadableStream(stream, maximumBytes) {
+	const reader = stream.getReader();
+	let emittedBytes = 0;
+	let sourceDone = false;
+	let sourceCanceled = false;
+
+	const cancelSource = async reason => {
+		if (
+			sourceDone
+			|| sourceCanceled
+		) {
+			return;
+		}
+
+		sourceCanceled = true;
+		await reader.cancel(reason);
+	};
+
+	return new ReadableStream({
+		async pull(controller) {
+			if (emittedBytes >= maximumBytes) {
+				controller.close();
+				await cancelSource();
+				return;
+			}
+
+			const {done, value} = await reader.read();
+			if (
+				done
+				|| !value
+			) {
+				sourceDone = true;
+				controller.close();
+				return;
+			}
+
+			const remainingBytes = maximumBytes - emittedBytes;
+			if (value.length > remainingBytes) {
+				controller.enqueue(value.subarray(0, remainingBytes));
+				emittedBytes += remainingBytes;
+				controller.close();
+				await cancelSource();
+				return;
+			}
+
+			controller.enqueue(value);
+			emittedBytes += value.length;
+		},
+		async cancel(reason) {
+			await cancelSource(reason);
+		},
+	});
+}
+
+async function fileTypeFromStream(stream, options) {
+	return new FileTypeParser(options).fromStream(stream);
+}
+
+async function fileTypeFromBuffer(input, options) {
+	return new FileTypeParser(options).fromBuffer(input);
+}
+
+async function fileTypeFromBlob(blob, options) {
+	return new FileTypeParser(options).fromBlob(blob);
+}
+
+async function fileTypeFromTokenizer(tokenizer, options) {
+	return new FileTypeParser(options).fromTokenizer(tokenizer);
+}
+
+async function fileTypeStream(webStream, options) {
+	return new FileTypeParser(options).toDetectionStream(webStream, options);
+}
+
+class FileTypeParser {
+	constructor(options) {
+		const normalizedMpegOffsetTolerance = normalizeMpegOffsetTolerance(options?.mpegOffsetTolerance);
+		this.options = {
+			...options,
+			mpegOffsetTolerance: normalizedMpegOffsetTolerance,
+		};
+
+		this.detectors = [...(this.options.customDetectors ?? []),
+			{id: 'core', detect: this.detectConfident},
+			{id: 'core.imprecise', detect: this.detectImprecise}];
+		this.tokenizerOptions = {
+			abortSignal: this.options.signal,
+		};
+		this.gzipProbeDepth = 0;
+	}
+
+	getTokenizerOptions() {
+		return {
+			...this.tokenizerOptions,
+		};
+	}
+
+	createTokenizerFromWebStream(stream) {
+		return fromWebStream(toDefaultStream(stream), this.getTokenizerOptions());
+	}
+
+	async parseTokenizer(tokenizer, detectionReentryCount = 0) {
+		this.detectionReentryCount = detectionReentryCount;
+		const initialPosition = tokenizer.position;
+		// Iterate through all file-type detectors
+		for (const detector of this.detectors) {
+			let fileType;
+			try {
+				fileType = await detector.detect(tokenizer);
+			} catch (error) {
+				if (error instanceof EndOfStreamError) {
+					return;
+				}
+
+				if (error instanceof ParserHardLimitError) {
+					return;
+				}
+
+				throw error;
+			}
+
+			if (fileType) {
+				return fileType;
+			}
+
+			if (initialPosition !== tokenizer.position) {
+				return undefined; // Cannot proceed scanning of the tokenizer is at an arbitrary position
+			}
+		}
+	}
+
+	async fromTokenizer(tokenizer) {
+		try {
+			return await this.parseTokenizer(tokenizer);
+		} finally {
+			await tokenizer.close();
+		}
+	}
+
+	async fromBuffer(input) {
+		if (!(input instanceof Uint8Array || input instanceof ArrayBuffer)) {
+			throw new TypeError(`Expected the \`input\` argument to be of type \`Uint8Array\` or \`ArrayBuffer\`, got \`${typeof input}\``);
+		}
+
+		const buffer = input instanceof Uint8Array ? input : new Uint8Array(input);
+
+		if (!(buffer?.length > 1)) {
+			return;
+		}
+
+		return this.fromTokenizer(fromBuffer(buffer, this.getTokenizerOptions()));
+	}
+
+	async fromBlob(blob) {
+		this.options.signal?.throwIfAborted();
+		const tokenizer = fromBlob(blob, this.getTokenizerOptions());
+		return this.fromTokenizer(tokenizer);
+	}
+
+	async fromStream(stream) {
+		this.options.signal?.throwIfAborted();
+		const tokenizer = this.createTokenizerFromWebStream(stream);
+		return this.fromTokenizer(tokenizer);
+	}
+
+	async fromFile(path) {
+		this.options.signal?.throwIfAborted();
+		// TODO: Remove this when `strtok3.fromFile()` safely rejects non-regular filesystem objects without a pathname race.
+		const [{default: fsPromises}, {FileTokenizer}] = await Promise.all([
+			importAtRuntime('node:fs/promises'),
+			importAtRuntime('strtok3'),
+		]);
+		const fileHandle = await fsPromises.open(path, fsPromises.constants.O_RDONLY | fsPromises.constants.O_NONBLOCK);
+		const fileStat = await fileHandle.stat();
+		if (!fileStat.isFile()) {
+			await fileHandle.close();
+			return;
+		}
+
+		const tokenizer = new FileTokenizer(fileHandle, {
+			...this.getTokenizerOptions(),
+			fileInfo: {path, size: fileStat.size},
+		});
+		return this.fromTokenizer(tokenizer);
+	}
+
+	async toDetectionStream(stream, options) {
+		this.options.signal?.throwIfAborted();
+		const sampleSize = normalizeSampleSize(options?.sampleSize ?? reasonableDetectionSizeInBytes);
+		let detectedFileType;
+		let streamEnded = false;
+
+		const reader = stream.getReader();
+		const chunks = [];
+		let totalSize = 0;
+
+		try {
+			while (totalSize < sampleSize) {
+				const {value, done} = await readWithSignal(reader, this.options.signal);
+				if (done || !value) {
+					streamEnded = true;
+					break;
+				}
+
+				chunks.push(value);
+				totalSize += value.length;
+			}
+
+			if (
+				!streamEnded
+				&& totalSize === sampleSize
+			) {
+				const {value, done} = await readWithSignal(reader, this.options.signal);
+				if (done || !value) {
+					streamEnded = true;
+				} else {
+					chunks.push(value);
+					totalSize += value.length;
+				}
+			}
+		} finally {
+			reader.releaseLock();
+		}
+
+		if (totalSize > 0) {
+			const sample = chunks.length === 1 ? chunks[0] : concatUint8Arrays(chunks);
+			try {
+				detectedFileType = await this.fromBuffer(sample.subarray(0, sampleSize));
+			} catch (error) {
+				if (!(error instanceof EndOfStreamError)) {
+					throw error;
+				}
+
+				detectedFileType = undefined;
+			}
+
+			if (
+				!streamEnded
+				&& detectedFileType?.ext === 'pages'
+			) {
+				detectedFileType = {
+					ext: 'zip',
+					mime: 'application/zip',
+				};
+			}
+		}
+
+		// Prepend collected chunks and pipe the rest through
+		const transformStream = new TransformStream({
+			start(controller) {
+				for (const chunk of chunks) {
+					controller.enqueue(chunk);
+				}
+			},
+			transform(chunk, controller) {
+				controller.enqueue(chunk);
+			},
+		});
+
+		const newStream = stream.pipeThrough(transformStream);
+		newStream.fileType = detectedFileType;
+
+		return newStream;
+	}
+
+	async detectGzip(tokenizer) {
+		if (this.gzipProbeDepth >= maximumNestedGzipProbeDepth) {
+			return {
+				ext: 'gz',
+				mime: 'application/gzip',
+			};
+		}
+
+		const gzipHandler = new GzipHandler(tokenizer);
+		const limitedInflatedStream = createByteLimitedReadableStream(gzipHandler.inflate(), maximumNestedGzipDetectionSizeInBytes);
+		const hasUnknownSize = hasUnknownFileSize(tokenizer);
+		let timeout;
+		let probeSignal;
+		let probeParser;
+		let compressedFileType;
+
+		if (hasUnknownSize) {
+			const timeoutController = new AbortController();
+			timeout = setTimeout(() => {
+				timeoutController.abort(new DOMException(`Operation timed out after ${unknownSizeGzipProbeTimeoutInMilliseconds} ms`, 'TimeoutError'));
+			}, unknownSizeGzipProbeTimeoutInMilliseconds);
+			probeSignal = this.options.signal === undefined
+				? timeoutController.signal
+				: AbortSignal.any([this.options.signal, timeoutController.signal]);
+			probeParser = new FileTypeParser({
+				...this.options,
+				signal: probeSignal,
+			});
+			probeParser.gzipProbeDepth = this.gzipProbeDepth + 1;
+		} else {
+			this.gzipProbeDepth++;
+		}
+
+		try {
+			compressedFileType = await (probeParser ?? this).fromStream(limitedInflatedStream);
+		} catch (error) {
+			if (
+				error?.name === 'AbortError'
+				&& probeSignal?.reason?.name !== 'TimeoutError'
+			) {
+				throw error;
+			}
+
+			// Timeout, decompression, or inner-detection failures are expected for non-tar gzip files.
+		} finally {
+			clearTimeout(timeout);
+			if (!hasUnknownSize) {
+				this.gzipProbeDepth--;
+			}
+		}
+
+		if (compressedFileType?.ext === 'tar') {
+			return {
+				ext: 'tar.gz',
+				mime: 'application/gzip',
+			};
+		}
+
+		return {
+			ext: 'gz',
+			mime: 'application/gzip',
+		};
+	}
+
+	check(header, options) {
+		return checkBytes(this.buffer, header, options);
+	}
+
+	checkString(header, options) {
+		return this.check(stringToBytes(header, options?.encoding), options);
+	}
+
+	// Detections with a high degree of certainty in identifying the correct file type
+	detectConfident = async tokenizer => {
+		this.buffer = new Uint8Array(reasonableDetectionSizeInBytes);
+
+		// Keep reading until EOF if the file size is unknown.
+		if (tokenizer.fileInfo.size === undefined) {
+			tokenizer.fileInfo.size = Number.MAX_SAFE_INTEGER;
+		}
+
+		this.tokenizer = tokenizer;
+
+		if (hasUnknownFileSize(tokenizer)) {
+			await tokenizer.peekBuffer(this.buffer, {length: 3, mayBeLess: true});
+			if (this.check([0x1F, 0x8B, 0x8])) {
+				return this.detectGzip(tokenizer);
+			}
+		}
+
+		await tokenizer.peekBuffer(this.buffer, {length: 32, mayBeLess: true});
+
+		// -- 2-byte signatures --
+
+		if (this.check([0x42, 0x4D])) {
+			return {
+				ext: 'bmp',
+				mime: 'image/bmp',
+			};
+		}
+
+		if (this.check([0x0B, 0x77])) {
+			return {
+				ext: 'ac3',
+				mime: 'audio/vnd.dolby.dd-raw',
+			};
+		}
+
+		if (this.check([0x78, 0x01])) {
+			return {
+				ext: 'dmg',
+				mime: 'application/x-apple-diskimage',
+			};
+		}
+
+		if (this.check([0x4D, 0x5A])) {
+			return {
+				ext: 'exe',
+				mime: 'application/x-msdownload',
+			};
+		}
+
+		if (this.check([0x25, 0x21])) {
+			await tokenizer.peekBuffer(this.buffer, {length: 24, mayBeLess: true});
+
+			if (
+				this.checkString('PS-Adobe-', {offset: 2})
+				&& this.checkString(' EPSF-', {offset: 14})
+			) {
+				return {
+					ext: 'eps',
+					mime: 'application/eps',
+				};
+			}
+
+			return {
+				ext: 'ps',
+				mime: 'application/postscript',
+			};
+		}
+
+		if (
+			this.check([0x1F, 0xA0])
+			|| this.check([0x1F, 0x9D])
+		) {
+			return {
+				ext: 'Z',
+				mime: 'application/x-compress',
+			};
+		}
+
+		if (this.check([0xC7, 0x71])) {
+			return {
+				ext: 'cpio',
+				mime: 'application/x-cpio',
+			};
+		}
+
+		if (this.check([0x60, 0xEA])) {
+			return {
+				ext: 'arj',
+				mime: 'application/x-arj',
+			};
+		}
+
+		// -- 3-byte signatures --
+
+		if (this.check([0xEF, 0xBB, 0xBF])) { // UTF-8-BOM
+			if (this.detectionReentryCount >= maximumDetectionReentryCount) {
+				return;
+			}
+
+			this.detectionReentryCount++;
+			// Strip off UTF-8-BOM
+			await this.tokenizer.ignore(3);
+			return this.detectConfident(tokenizer);
+		}
+
+		if (this.check([0x47, 0x49, 0x46])) {
+			return {
+				ext: 'gif',
+				mime: 'image/gif',
+			};
+		}
+
+		if (this.check([0x49, 0x49, 0xBC])) {
+			return {
+				ext: 'jxr',
+				mime: 'image/vnd.ms-photo',
+			};
+		}
+
+		if (this.check([0x1F, 0x8B, 0x8])) {
+			return this.detectGzip(tokenizer);
+		}
+
+		if (this.check([0x42, 0x5A, 0x68])) {
+			return {
+				ext: 'bz2',
+				mime: 'application/x-bzip2',
+			};
+		}
+
+		if (this.checkString('ID3')) {
+			await safeIgnore(tokenizer, 6, {
+				maximumLength: 6,
+				reason: 'ID3 header prefix',
+			}); // Skip ID3 header until the header size
+			const id3HeaderLength = await tokenizer.readToken(uint32SyncSafeToken);
+			const isUnknownFileSize = hasUnknownFileSize(tokenizer);
+			if (
+				!Number.isFinite(id3HeaderLength)
+				|| id3HeaderLength < 0
+				// Keep ID3 probing bounded for unknown-size streams to avoid attacker-controlled large skips.
+				|| (
+					isUnknownFileSize
+					&& (
+						id3HeaderLength > maximumId3HeaderSizeInBytes
+						|| (tokenizer.position + id3HeaderLength) > maximumId3HeaderSizeInBytes
+					)
+				)
+			) {
+				return;
+			}
+
+			if (tokenizer.position + id3HeaderLength > tokenizer.fileInfo.size) {
+				if (isUnknownFileSize) {
+					return;
+				}
+
+				return {
+					ext: 'mp3',
+					mime: 'audio/mpeg',
+				};
+			}
+
+			try {
+				await safeIgnore(tokenizer, id3HeaderLength, {
+					maximumLength: isUnknownFileSize ? maximumId3HeaderSizeInBytes : tokenizer.fileInfo.size,
+					reason: 'ID3 payload',
+				});
+			} catch (error) {
+				if (error instanceof EndOfStreamError) {
+					return;
+				}
+
+				throw error;
+			}
+
+			if (this.detectionReentryCount >= maximumDetectionReentryCount) {
+				return;
+			}
+
+			this.detectionReentryCount++;
+			return this.parseTokenizer(tokenizer, this.detectionReentryCount); // Skip ID3 header, recursion
+		}
+
+		// Musepack, SV7
+		if (this.checkString('MP+')) {
+			return {
+				ext: 'mpc',
+				mime: 'audio/x-musepack',
+			};
+		}
+
+		if (
+			(this.buffer[0] === 0x43 || this.buffer[0] === 0x46)
+			&& this.check([0x57, 0x53], {offset: 1})
+		) {
+			return {
+				ext: 'swf',
+				mime: 'application/x-shockwave-flash',
+			};
+		}
+
+		// -- 4-byte signatures --
+
+		// Requires a sample size of 4 bytes
+		if (this.check([0xFF, 0xD8, 0xFF])) {
+			if (this.check([0xF7], {offset: 3})) { // JPG7/SOF55, indicating a ISO/IEC 14495 / JPEG-LS file
+				return {
+					ext: 'jls',
+					mime: 'image/jls',
+				};
+			}
+
+			return {
+				ext: 'jpg',
+				mime: 'image/jpeg',
+			};
+		}
+
+		if (this.check([0x4F, 0x62, 0x6A, 0x01])) {
+			return {
+				ext: 'avro',
+				mime: 'application/avro',
+			};
+		}
+
+		if (this.checkString('FLIF')) {
+			return {
+				ext: 'flif',
+				mime: 'image/flif',
+			};
+		}
+
+		if (this.checkString('8BPS')) {
+			return {
+				ext: 'psd',
+				mime: 'image/vnd.adobe.photoshop',
+			};
+		}
+
+		// Musepack, SV8
+		if (this.checkString('MPCK')) {
+			return {
+				ext: 'mpc',
+				mime: 'audio/x-musepack',
+			};
+		}
+
+		if (this.checkString('FORM')) {
+			return {
+				ext: 'aif',
+				mime: 'audio/aiff',
+			};
+		}
+
+		if (this.checkString('icns', {offset: 0})) {
+			return {
+				ext: 'icns',
+				mime: 'image/icns',
+			};
+		}
+
+		// Zip-based file formats
+		// Need to be before the `zip` check
+		if (this.check([0x50, 0x4B, 0x3, 0x4])) { // Local file header signature
+			return detectZip(tokenizer);
+		}
+
+		if (this.checkString('OggS')) {
+			// This is an OGG container
+			await tokenizer.ignore(28);
+			const type = new Uint8Array(8);
+			await tokenizer.readBuffer(type);
+
+			// Needs to be before `ogg` check
+			if (checkBytes(type, [0x4F, 0x70, 0x75, 0x73, 0x48, 0x65, 0x61, 0x64])) {
+				return {
+					ext: 'opus',
+					mime: 'audio/ogg; codecs=opus',
+				};
+			}
+
+			// If ' theora' in header.
+			if (checkBytes(type, [0x80, 0x74, 0x68, 0x65, 0x6F, 0x72, 0x61])) {
+				return {
+					ext: 'ogv',
+					mime: 'video/ogg',
+				};
+			}
+
+			// If '\x01video' in header.
+			if (checkBytes(type, [0x01, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x00])) {
+				return {
+					ext: 'ogm',
+					mime: 'video/ogg',
+				};
+			}
+
+			// If ' FLAC' in header  https://xiph.org/flac/faq.html
+			if (checkBytes(type, [0x7F, 0x46, 0x4C, 0x41, 0x43])) {
+				return {
+					ext: 'oga',
+					mime: 'audio/ogg',
+				};
+			}
+
+			// 'Speex  ' in header https://en.wikipedia.org/wiki/Speex
+			if (checkBytes(type, [0x53, 0x70, 0x65, 0x65, 0x78, 0x20, 0x20])) {
+				return {
+					ext: 'spx',
+					mime: 'audio/ogg',
+				};
+			}
+
+			// If '\x01vorbis' in header
+			if (checkBytes(type, [0x01, 0x76, 0x6F, 0x72, 0x62, 0x69, 0x73])) {
+				return {
+					ext: 'ogg',
+					mime: 'audio/ogg',
+				};
+			}
+
+			// Default OGG container https://www.iana.org/assignments/media-types/application/ogg
+			return {
+				ext: 'ogx',
+				mime: 'application/ogg',
+			};
+		}
+
+		if (
+			this.check([0x50, 0x4B])
+			&& (this.buffer[2] === 0x3 || this.buffer[2] === 0x5 || this.buffer[2] === 0x7)
+			&& (this.buffer[3] === 0x4 || this.buffer[3] === 0x6 || this.buffer[3] === 0x8)
+		) {
+			return {
+				ext: 'zip',
+				mime: 'application/zip',
+			};
+		}
+
+		if (this.checkString('MThd')) {
+			return {
+				ext: 'mid',
+				mime: 'audio/midi',
+			};
+		}
+
+		if (
+			this.checkString('wOFF')
+			&& (
+				this.check([0x00, 0x01, 0x00, 0x00], {offset: 4})
+				|| this.checkString('OTTO', {offset: 4})
+			)
+		) {
+			return {
+				ext: 'woff',
+				mime: 'font/woff',
+			};
+		}
+
+		if (
+			this.checkString('wOF2')
+			&& (
+				this.check([0x00, 0x01, 0x00, 0x00], {offset: 4})
+				|| this.checkString('OTTO', {offset: 4})
+			)
+		) {
+			return {
+				ext: 'woff2',
+				mime: 'font/woff2',
+			};
+		}
+
+		if (this.check([0xD4, 0xC3, 0xB2, 0xA1]) || this.check([0xA1, 0xB2, 0xC3, 0xD4])) {
+			return {
+				ext: 'pcap',
+				mime: 'application/vnd.tcpdump.pcap',
+			};
+		}
+
+		// Sony DSD Stream File (DSF)
+		if (this.checkString('DSD ')) {
+			return {
+				ext: 'dsf',
+				mime: 'audio/x-dsf', // Non-standard
+			};
+		}
+
+		if (this.checkString('LZIP')) {
+			return {
+				ext: 'lz',
+				mime: 'application/lzip',
+			};
+		}
+
+		if (this.checkString('fLaC')) {
+			return {
+				ext: 'flac',
+				mime: 'audio/flac',
+			};
+		}
+
+		if (this.check([0x42, 0x50, 0x47, 0xFB])) {
+			return {
+				ext: 'bpg',
+				mime: 'image/bpg',
+			};
+		}
+
+		if (this.checkString('wvpk')) {
+			return {
+				ext: 'wv',
+				mime: 'audio/wavpack',
+			};
+		}
+
+		if (this.checkString('%PDF')) {
+			// Assume this is just a normal PDF
+			return {
+				ext: 'pdf',
+				mime: 'application/pdf',
+			};
+		}
+
+		if (this.check([0x00, 0x61, 0x73, 0x6D])) {
+			return {
+				ext: 'wasm',
+				mime: 'application/wasm',
+			};
+		}
+
+		// TIFF, little-endian type
+		if (this.check([0x49, 0x49])) {
+			const fileType = await this.readTiffHeader(false);
+			if (fileType) {
+				return fileType;
+			}
+		}
+
+		// TIFF, big-endian type
+		if (this.check([0x4D, 0x4D])) {
+			const fileType = await this.readTiffHeader(true);
+			if (fileType) {
+				return fileType;
+			}
+		}
+
+		if (this.checkString('MAC ')) {
+			return {
+				ext: 'ape',
+				mime: 'audio/ape',
+			};
+		}
+
+		// https://github.com/file/file/blob/master/magic/Magdir/matroska
+		if (this.check([0x1A, 0x45, 0xDF, 0xA3])) { // Root element: EBML
+			return detectEbml(tokenizer);
+		}
+
+		if (this.checkString('SQLi')) {
+			return {
+				ext: 'sqlite',
+				mime: 'application/x-sqlite3',
+			};
+		}
+
+		if (this.check([0x4E, 0x45, 0x53, 0x1A])) {
+			return {
+				ext: 'nes',
+				mime: 'application/x-nintendo-nes-rom',
+			};
+		}
+
+		if (this.checkString('Cr24')) {
+			return {
+				ext: 'crx',
+				mime: 'application/x-google-chrome-extension',
+			};
+		}
+
+		if (
+			this.checkString('MSCF')
+			|| this.checkString('ISc(')
+		) {
+			return {
+				ext: 'cab',
+				mime: 'application/vnd.ms-cab-compressed',
+			};
+		}
+
+		if (this.check([0xED, 0xAB, 0xEE, 0xDB])) {
+			return {
+				ext: 'rpm',
+				mime: 'application/x-rpm',
+			};
+		}
+
+		if (this.check([0xC5, 0xD0, 0xD3, 0xC6])) {
+			return {
+				ext: 'eps',
+				mime: 'application/eps',
+			};
+		}
+
+		if (this.check([0x28, 0xB5, 0x2F, 0xFD])) {
+			return {
+				ext: 'zst',
+				mime: 'application/zstd',
+			};
+		}
+
+		if (this.check([0x7F, 0x45, 0x4C, 0x46])) {
+			return {
+				ext: 'elf',
+				mime: 'application/x-elf',
+			};
+		}
+
+		if (this.check([0x21, 0x42, 0x44, 0x4E])) {
+			return {
+				ext: 'pst',
+				mime: 'application/vnd.ms-outlook',
+			};
+		}
+
+		if (this.checkString('PAR1') || this.checkString('PARE')) {
+			return {
+				ext: 'parquet',
+				mime: 'application/vnd.apache.parquet',
+			};
+		}
+
+		if (this.checkString('ttcf')) {
+			return {
+				ext: 'ttc',
+				mime: 'font/collection',
+			};
+		}
+
+		if (
+			this.check([0xFE, 0xED, 0xFA, 0xCE]) // 32-bit, big-endian
+			|| this.check([0xFE, 0xED, 0xFA, 0xCF]) // 64-bit, big-endian
+			|| this.check([0xCE, 0xFA, 0xED, 0xFE]) // 32-bit, little-endian
+			|| this.check([0xCF, 0xFA, 0xED, 0xFE]) // 64-bit, little-endian
+		) {
+			return {
+				ext: 'macho',
+				mime: 'application/x-mach-binary',
+			};
+		}
+
+		if (this.check([0x04, 0x22, 0x4D, 0x18])) {
+			return {
+				ext: 'lz4',
+				mime: 'application/x-lz4', // Informal, used by freedesktop.org shared-mime-info
+			};
+		}
+
+		if (this.checkString('regf')) {
+			return {
+				ext: 'dat',
+				mime: 'application/x-ft-windows-registry-hive',
+			};
+		}
+
+		// SPSS Statistical Data File
+		if (this.checkString('$FL2') || this.checkString('$FL3')) {
+			return {
+				ext: 'sav',
+				mime: 'application/x-spss-sav',
+			};
+		}
+
+		// -- 5-byte signatures --
+
+		if (this.check([0x4F, 0x54, 0x54, 0x4F, 0x00])) {
+			return {
+				ext: 'otf',
+				mime: 'font/otf',
+			};
+		}
+
+		if (this.checkString('#!AMR')) {
+			return {
+				ext: 'amr',
+				mime: 'audio/amr',
+			};
+		}
+
+		if (this.checkString(String.raw`{\rtf`)) {
+			return {
+				ext: 'rtf',
+				mime: 'application/rtf',
+			};
+		}
+
+		if (this.check([0x46, 0x4C, 0x56, 0x01])) {
+			return {
+				ext: 'flv',
+				mime: 'video/x-flv',
+			};
+		}
+
+		if (this.checkString('IMPM')) {
+			return {
+				ext: 'it',
+				mime: 'audio/x-it',
+			};
+		}
+
+		if (
+			this.checkString('-lh0-', {offset: 2})
+			|| this.checkString('-lh1-', {offset: 2})
+			|| this.checkString('-lh2-', {offset: 2})
+			|| this.checkString('-lh3-', {offset: 2})
+			|| this.checkString('-lh4-', {offset: 2})
+			|| this.checkString('-lh5-', {offset: 2})
+			|| this.checkString('-lh6-', {offset: 2})
+			|| this.checkString('-lh7-', {offset: 2})
+			|| this.checkString('-lzs-', {offset: 2})
+			|| this.checkString('-lz4-', {offset: 2})
+			|| this.checkString('-lz5-', {offset: 2})
+			|| this.checkString('-lhd-', {offset: 2})
+		) {
+			return {
+				ext: 'lzh',
+				mime: 'application/x-lzh-compressed',
+			};
+		}
+
+		// MPEG program stream (PS or MPEG-PS)
+		if (this.check([0x00, 0x00, 0x01, 0xBA])) {
+			//  MPEG-PS, MPEG-1 Part 1
+			if (this.check([0x21], {offset: 4, mask: [0xF1]})) {
+				return {
+					ext: 'mpg', // May also be .ps, .mpeg
+					mime: 'video/MP1S',
+				};
+			}
+
+			// MPEG-PS, MPEG-2 Part 1
+			if (this.check([0x44], {offset: 4, mask: [0xC4]})) {
+				return {
+					ext: 'mpg', // May also be .mpg, .m2p, .vob or .sub
+					mime: 'video/MP2P',
+				};
+			}
+		}
+
+		if (this.checkString('ITSF')) {
+			return {
+				ext: 'chm',
+				mime: 'application/vnd.ms-htmlhelp',
+			};
+		}
+
+		if (this.check([0xCA, 0xFE, 0xBA, 0xBE])) {
+			// Java bytecode and Mach-O universal binaries have the same magic number.
+			// We disambiguate based on the next 4 bytes, as done by `file`.
+			// See https://github.com/file/file/blob/master/magic/Magdir/cafebabe
+			const machOArchitectureCount = UINT32_BE.get(this.buffer, 4);
+			const javaClassFileMajorVersion = UINT16_BE.get(this.buffer, 6);
+
+			if (machOArchitectureCount > 0 && machOArchitectureCount <= 30) {
+				return {
+					ext: 'macho',
+					mime: 'application/x-mach-binary',
+				};
+			}
+
+			if (javaClassFileMajorVersion > 30) {
+				return {
+					ext: 'class',
+					mime: 'application/java-vm',
+				};
+			}
+		}
+
+		if (this.checkString('.RMF')) {
+			return {
+				ext: 'rm',
+				mime: 'application/vnd.rn-realmedia',
+			};
+		}
+
+		// -- 5-byte signatures --
+
+		if (this.checkString('DRACO')) {
+			return {
+				ext: 'drc',
+				mime: 'application/x-ft-draco',
+			};
+		}
+
+		// -- 6-byte signatures --
+
+		if (this.check([0xFD, 0x37, 0x7A, 0x58, 0x5A, 0x00])) {
+			return {
+				ext: 'xz',
+				mime: 'application/x-xz',
+			};
+		}
+
+		if (this.checkString('<?xml ')) {
+			return {
+				ext: 'xml',
+				mime: 'application/xml',
+			};
+		}
+
+		if (this.check([0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C])) {
+			return {
+				ext: '7z',
+				mime: 'application/x-7z-compressed',
+			};
+		}
+
+		if (
+			this.check([0x52, 0x61, 0x72, 0x21, 0x1A, 0x7])
+			&& (this.buffer[6] === 0x0 || this.buffer[6] === 0x1)
+		) {
+			return {
+				ext: 'rar',
+				mime: 'application/x-rar-compressed',
+			};
+		}
+
+		if (this.checkString('solid ')) {
+			return {
+				ext: 'stl',
+				mime: 'model/stl',
+			};
+		}
+
+		if (this.checkString('AC')) {
+			const version = new StringType(4, 'latin1').get(this.buffer, 2);
+			if (/^\d+$/v.test(version) && version >= 1000 && version <= 1050) {
+				return {
+					ext: 'dwg',
+					mime: 'image/vnd.dwg',
+				};
+			}
+		}
+
+		if (this.checkString('070707')) {
+			return {
+				ext: 'cpio',
+				mime: 'application/x-cpio',
+			};
+		}
+
+		// -- 7-byte signatures --
+
+		if (this.checkString('BLENDER')) {
+			return {
+				ext: 'blend',
+				mime: 'application/x-blender',
+			};
+		}
+
+		if (this.checkString('!<arch>')) {
+			await tokenizer.ignore(8);
+			const string = await tokenizer.readToken(new StringType(13, 'ascii'));
+			if (string === 'debian-binary') {
+				return {
+					ext: 'deb',
+					mime: 'application/x-deb',
+				};
+			}
+
+			return {
+				ext: 'ar',
+				mime: 'application/x-unix-archive',
+			};
+		}
+
+		if (
+			this.checkString('WEBVTT')
+			&&	(
+				// One of LF, CR, tab, space, or end of file must follow "WEBVTT" per the spec (see `fixture/fixture-vtt-*.vtt` for examples). Note that `\0` is technically the null character (there is no such thing as an EOF character). However, checking for `\0` gives us the same result as checking for the end of the stream.
+				(['\n', '\r', '\t', ' ', '\0'].some(char7 => this.checkString(char7, {offset: 6}))))
+		) {
+			return {
+				ext: 'vtt',
+				mime: 'text/vtt',
+			};
+		}
+
+		// -- 8-byte signatures --
+
+		if (this.check([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])) {
+			return detectPng(tokenizer);
+		}
+
+		if (this.check([0x41, 0x52, 0x52, 0x4F, 0x57, 0x31, 0x00, 0x00])) {
+			return {
+				ext: 'arrow',
+				mime: 'application/vnd.apache.arrow.file',
+			};
+		}
+
+		if (this.check([0x67, 0x6C, 0x54, 0x46, 0x02, 0x00, 0x00, 0x00])) {
+			return {
+				ext: 'glb',
+				mime: 'model/gltf-binary',
+			};
+		}
+
+		// `mov` format variants
+		if (
+			this.check([0x66, 0x72, 0x65, 0x65], {offset: 4}) // `free`
+			|| this.check([0x6D, 0x64, 0x61, 0x74], {offset: 4}) // `mdat` MJPEG
+			|| this.check([0x6D, 0x6F, 0x6F, 0x76], {offset: 4}) // `moov`
+			|| this.check([0x77, 0x69, 0x64, 0x65], {offset: 4}) // `wide`
+		) {
+			return {
+				ext: 'mov',
+				mime: 'video/quicktime',
+			};
+		}
+
+		// -- 9-byte signatures --
+
+		if (this.check([0x49, 0x49, 0x52, 0x4F, 0x08, 0x00, 0x00, 0x00, 0x18])) {
+			return {
+				ext: 'orf',
+				mime: 'image/x-olympus-orf',
+			};
+		}
+
+		if (this.checkString('gimp xcf ')) {
+			return {
+				ext: 'xcf',
+				mime: 'image/x-xcf',
+			};
+		}
+
+		// File Type Box (https://en.wikipedia.org/wiki/ISO_base_media_file_format)
+		// It's not required to be first, but it's recommended to be. Almost all ISO base media files start with `ftyp` box.
+		// `ftyp` box must contain a brand major identifier, which must consist of ISO 8859-1 printable characters.
+		// Here we check for 8859-1 printable characters (for simplicity, it's a mask which also catches one non-printable character).
+		if (
+			this.checkString('ftyp', {offset: 4})
+			&& (this.buffer[8] & 0x60) !== 0x00 // Brand major, first character ASCII?
+		) {
+			// They all can have MIME `video/mp4` except `application/mp4` special-case which is hard to detect.
+			// For some cases, we're specific, everything else falls to `video/mp4` with `mp4` extension.
+			const brandMajor = new StringType(4, 'latin1').get(this.buffer, 8).replace('\0', ' ').trim();
+			switch (brandMajor) {
+				case 'avif':
+				case 'avis':
+					return {ext: 'avif', mime: 'image/avif'};
+				case 'mif1':
+					return {ext: 'heic', mime: 'image/heif'};
+				case 'msf1':
+					return {ext: 'heic', mime: 'image/heif-sequence'};
+				case 'heic':
+				case 'heix':
+					return {ext: 'heic', mime: 'image/heic'};
+				case 'hevc':
+				case 'hevx':
+					return {ext: 'heic', mime: 'image/heic-sequence'};
+				case 'qt':
+					return {ext: 'mov', mime: 'video/quicktime'};
+				case 'M4V':
+				case 'M4VH':
+				case 'M4VP':
+					return {ext: 'm4v', mime: 'video/x-m4v'};
+				case 'M4P':
+					return {ext: 'm4p', mime: 'video/mp4'};
+				case 'M4B':
+					return {ext: 'm4b', mime: 'audio/mp4'};
+				case 'M4A':
+					return {ext: 'm4a', mime: 'audio/x-m4a'};
+				case 'F4V':
+					return {ext: 'f4v', mime: 'video/mp4'};
+				case 'F4P':
+					return {ext: 'f4p', mime: 'video/mp4'};
+				case 'F4A':
+					return {ext: 'f4a', mime: 'audio/mp4'};
+				case 'F4B':
+					return {ext: 'f4b', mime: 'audio/mp4'};
+				case 'crx':
+					return {ext: 'cr3', mime: 'image/x-canon-cr3'};
+				default:
+					if (brandMajor.startsWith('3g')) {
+						if (brandMajor.startsWith('3g2')) {
+							return {ext: '3g2', mime: 'video/3gpp2'};
+						}
+
+						return {ext: '3gp', mime: 'video/3gpp'};
+					}
+
+					return {ext: 'mp4', mime: 'video/mp4'};
+			}
+		}
+
+		// -- 10-byte signatures --
+
+		if (this.checkString('REGEDIT4\r\n')) {
+			return {
+				ext: 'reg',
+				mime: 'application/x-ms-regedit',
+			};
+		}
+
+		// -- 12-byte signatures --
+
+		// RIFF file format which might be AVI, WAV, QCP, etc
+		if (this.check([0x52, 0x49, 0x46, 0x46])) {
+			if (this.checkString('WEBP', {offset: 8})) {
+				return {
+					ext: 'webp',
+					mime: 'image/webp',
+				};
+			}
+
+			if (this.check([0x41, 0x56, 0x49], {offset: 8})) {
+				return {
+					ext: 'avi',
+					mime: 'video/vnd.avi',
+				};
+			}
+
+			if (this.check([0x57, 0x41, 0x56, 0x45], {offset: 8})) {
+				return {
+					ext: 'wav',
+					mime: 'audio/wav',
+				};
+			}
+
+			// QLCM, QCP file
+			if (this.check([0x51, 0x4C, 0x43, 0x4D], {offset: 8})) {
+				return {
+					ext: 'qcp',
+					mime: 'audio/qcelp',
+				};
+			}
+		}
+
+		if (this.check([0x49, 0x49, 0x55, 0x00, 0x18, 0x00, 0x00, 0x00, 0x88, 0xE7, 0x74, 0xD8])) {
+			return {
+				ext: 'rw2',
+				mime: 'image/x-panasonic-rw2',
+			};
+		}
+
+		// ASF_Header_Object first 80 bytes
+		if (this.check([0x30, 0x26, 0xB2, 0x75, 0x8E, 0x66, 0xCF, 0x11, 0xA6, 0xD9])) {
+			return detectAsf(tokenizer);
+		}
+
+		if (this.check([0xAB, 0x4B, 0x54, 0x58, 0x20, 0x31, 0x31, 0xBB, 0x0D, 0x0A, 0x1A, 0x0A])) {
+			return {
+				ext: 'ktx',
+				mime: 'image/ktx',
+			};
+		}
+
+		if ((this.check([0x7E, 0x10, 0x04]) || this.check([0x7E, 0x18, 0x04])) && this.check([0x30, 0x4D, 0x49, 0x45], {offset: 4})) {
+			return {
+				ext: 'mie',
+				mime: 'application/x-mie',
+			};
+		}
+
+		if (this.check([0x27, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00], {offset: 2})) {
+			return {
+				ext: 'shp',
+				mime: 'application/x-esri-shape',
+			};
+		}
+
+		if (this.check([0xFF, 0x4F, 0xFF, 0x51])) {
+			return {
+				ext: 'j2c',
+				mime: 'image/j2c',
+			};
+		}
+
+		if (this.check([0x00, 0x00, 0x00, 0x0C, 0x6A, 0x50, 0x20, 0x20, 0x0D, 0x0A, 0x87, 0x0A])) {
+			// JPEG-2000 family
+
+			await tokenizer.ignore(20);
+			const type = await tokenizer.readToken(new StringType(4, 'ascii'));
+			switch (type) {
+				case 'jp2 ':
+					return {
+						ext: 'jp2',
+						mime: 'image/jp2',
+					};
+				case 'jpx ':
+					return {
+						ext: 'jpx',
+						mime: 'image/jpx',
+					};
+				case 'jpm ':
+					return {
+						ext: 'jpm',
+						mime: 'image/jpm',
+					};
+				case 'mjp2':
+					return {
+						ext: 'mj2',
+						mime: 'image/mj2',
+					};
+				default:
+					return;
+			}
+		}
+
+		if (
+			this.check([0xFF, 0x0A])
+			|| this.check([0x00, 0x00, 0x00, 0x0C, 0x4A, 0x58, 0x4C, 0x20, 0x0D, 0x0A, 0x87, 0x0A])
+		) {
+			return {
+				ext: 'jxl',
+				mime: 'image/jxl',
+			};
+		}
+
+		if (this.check([0xFE, 0xFF])) { // UTF-16-BOM-BE
+			if (this.checkString('<?xml ', {offset: 2, encoding: 'utf-16be'})) {
+				return {
+					ext: 'xml',
+					mime: 'application/xml',
+				};
+			}
+
+			return undefined; // Some unknown text based format
+		}
+
+		if (this.check([0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1])) {
+			// Detected Microsoft Compound File Binary File (MS-CFB) Format.
+			return {
+				ext: 'cfb',
+				mime: 'application/x-cfb',
+			};
+		}
+
+		// Increase sample size from 32 to 256.
+		await tokenizer.peekBuffer(this.buffer, {length: Math.min(256, tokenizer.fileInfo.size), mayBeLess: true});
+
+		if (this.check([0x61, 0x63, 0x73, 0x70], {offset: 36})) {
+			return {
+				ext: 'icc',
+				mime: 'application/vnd.iccprofile',
+			};
+		}
+
+		// ACE: requires 14 bytes in the buffer
+		if (this.checkString('**ACE', {offset: 7}) && this.checkString('**', {offset: 12})) {
+			return {
+				ext: 'ace',
+				mime: 'application/x-ace-compressed',
+			};
+		}
+
+		// -- 15-byte signatures --
+
+		if (this.checkString('BEGIN:')) {
+			if (this.checkString('VCARD', {offset: 6})) {
+				return {
+					ext: 'vcf',
+					mime: 'text/vcard',
+				};
+			}
+
+			if (this.checkString('VCALENDAR', {offset: 6})) {
+				return {
+					ext: 'ics',
+					mime: 'text/calendar',
+				};
+			}
+		}
+
+		// `raf` is here just to keep all the raw image detectors together.
+		if (this.checkString('FUJIFILMCCD-RAW')) {
+			return {
+				ext: 'raf',
+				mime: 'image/x-fujifilm-raf',
+			};
+		}
+
+		if (this.checkString('Extended Module:')) {
+			return {
+				ext: 'xm',
+				mime: 'audio/x-xm',
+			};
+		}
+
+		if (this.checkString('Creative Voice File')) {
+			return {
+				ext: 'voc',
+				mime: 'audio/x-voc',
+			};
+		}
+
+		if (this.check([0x04, 0x00, 0x00, 0x00]) && this.buffer.length >= 16) { // Rough & quick check Pickle/ASAR
+			const jsonSize = new DataView(this.buffer.buffer).getUint32(12, true);
+
+			if (jsonSize > 12 && this.buffer.length >= jsonSize + 16) {
+				try {
+					const header = new TextDecoder().decode(this.buffer.subarray(16, jsonSize + 16));
+					const json = JSON.parse(header);
+					// Check if Pickle is ASAR
+					if (json.files) { // Final check, assuring Pickle/ASAR format
+						return {
+							ext: 'asar',
+							mime: 'application/x-asar',
+						};
+					}
+				} catch {}
+			}
+		}
+
+		if (this.check([0x06, 0x0E, 0x2B, 0x34, 0x02, 0x05, 0x01, 0x01, 0x0D, 0x01, 0x02, 0x01, 0x01, 0x02])) {
+			return {
+				ext: 'mxf',
+				mime: 'application/mxf',
+			};
+		}
+
+		if (this.checkString('SCRM', {offset: 44})) {
+			return {
+				ext: 's3m',
+				mime: 'audio/x-s3m',
+			};
+		}
+
+		// Raw MPEG-2 transport stream (188-byte packets)
+		if (this.check([0x47]) && this.check([0x47], {offset: 188})) {
+			return {
+				ext: 'mts',
+				mime: 'video/mp2t',
+			};
+		}
+
+		// Blu-ray Disc Audio-Video (BDAV) MPEG-2 transport stream has 4-byte TP_extra_header before each 188-byte packet
+		if (this.check([0x47], {offset: 4}) && this.check([0x47], {offset: 196})) {
+			return {
+				ext: 'mts',
+				mime: 'video/mp2t',
+			};
+		}
+
+		if (this.check([0x42, 0x4F, 0x4F, 0x4B, 0x4D, 0x4F, 0x42, 0x49], {offset: 60})) {
+			return {
+				ext: 'mobi',
+				mime: 'application/x-mobipocket-ebook',
+			};
+		}
+
+		if (this.check([0x44, 0x49, 0x43, 0x4D], {offset: 128})) {
+			return {
+				ext: 'dcm',
+				mime: 'application/dicom',
+			};
+		}
+
+		if (this.check([0x4C, 0x00, 0x00, 0x00, 0x01, 0x14, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46])) {
+			return {
+				ext: 'lnk',
+				mime: 'application/x-ms-shortcut', // Informal, used by freedesktop.org shared-mime-info
+			};
+		}
+
+		if (this.check([0x62, 0x6F, 0x6F, 0x6B, 0x00, 0x00, 0x00, 0x00, 0x6D, 0x61, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00])) {
+			return {
+				ext: 'alias',
+				mime: 'application/x-ft-apple.alias',
+			};
+		}
+
+		if (this.checkString('Kaydara FBX Binary  \u0000')) {
+			return {
+				ext: 'fbx',
+				mime: 'application/x-ft-fbx',
+			};
+		}
+
+		if (
+			this.check([0x4C, 0x50], {offset: 34})
+			&& (
+				this.check([0x00, 0x00, 0x01], {offset: 8})
+				|| this.check([0x01, 0x00, 0x02], {offset: 8})
+				|| this.check([0x02, 0x00, 0x02], {offset: 8})
+			)
+		) {
+			return {
+				ext: 'eot',
+				mime: 'application/vnd.ms-fontobject',
+			};
+		}
+
+		if (this.check([0x06, 0x06, 0xED, 0xF5, 0xD8, 0x1D, 0x46, 0xE5, 0xBD, 0x31, 0xEF, 0xE7, 0xFE, 0x74, 0xB7, 0x1D])) {
+			return {
+				ext: 'indd',
+				mime: 'application/x-indesign',
+			};
+		}
+
+		// -- 16-byte signatures --
+
+		// JMP files - check for both Little Endian and Big Endian signatures
+		if (this.check([0xFF, 0xFF, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00])
+			|| this.check([0x00, 0x00, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x04, 0x00, 0x01, 0x00, 0x01])) {
+			return {
+				ext: 'jmp',
+				mime: 'application/x-jmp-data',
+			};
+		}
+
+		// Increase sample size from 256 to 512
+		await tokenizer.peekBuffer(this.buffer, {length: Math.min(512, tokenizer.fileInfo.size), mayBeLess: true});
+
+		// Requires a buffer size of 512 bytes
+		if ((this.checkString('ustar', {offset: 257}) && (this.checkString('\0', {offset: 262}) || this.checkString(' ', {offset: 262})))
+			|| (this.check([0, 0, 0, 0, 0, 0], {offset: 257}) && tarHeaderChecksumMatches(this.buffer))) {
+			return {
+				ext: 'tar',
+				mime: 'application/x-tar',
+			};
+		}
+
+		if (this.check([0xFF, 0xFE])) { // UTF-16-BOM-LE
+			const encoding = 'utf-16le';
+			if (this.checkString('<?xml ', {offset: 2, encoding})) {
+				return {
+					ext: 'xml',
+					mime: 'application/xml',
+				};
+			}
+
+			if (this.check([0xFF, 0x0E], {offset: 2}) && this.checkString('SketchUp Model', {offset: 4, encoding})) {
+				return {
+					ext: 'skp',
+					mime: 'application/vnd.sketchup.skp',
+				};
+			}
+
+			if (this.checkString('Windows Registry Editor Version 5.00\r\n', {offset: 2, encoding})) {
+				return {
+					ext: 'reg',
+					mime: 'application/x-ms-regedit',
+				};
+			}
+
+			return undefined; // Some text based format
+		}
+
+		if (this.checkString('-----BEGIN PGP MESSAGE-----')) {
+			return {
+				ext: 'pgp',
+				mime: 'application/pgp-encrypted',
+			};
+		}
+	};
+	// Detections with limited supporting data, resulting in a higher likelihood of false positives
+	detectImprecise = async tokenizer => {
+		this.buffer = new Uint8Array(reasonableDetectionSizeInBytes);
+		const fileSize = getKnownFileSizeOrMaximum(tokenizer.fileInfo.size);
+
+		// Read initial sample size of 8 bytes
+		await tokenizer.peekBuffer(this.buffer, {length: Math.min(8, fileSize), mayBeLess: true});
+
+		if (
+			this.check([0x0, 0x0, 0x1, 0xBA])
+			|| this.check([0x0, 0x0, 0x1, 0xB3])
+		) {
+			return {
+				ext: 'mpg',
+				mime: 'video/mpeg',
+			};
+		}
+
+		if (this.check([0x00, 0x01, 0x00, 0x00, 0x00])) {
+			return {
+				ext: 'ttf',
+				mime: 'font/ttf',
+			};
+		}
+
+		if (this.check([0x00, 0x00, 0x01, 0x00])) {
+			return {
+				ext: 'ico',
+				mime: 'image/x-icon',
+			};
+		}
+
+		if (this.check([0x00, 0x00, 0x02, 0x00])) {
+			return {
+				ext: 'cur',
+				mime: 'image/x-icon',
+			};
+		}
+
+		// Adjust buffer to `mpegOffsetTolerance`
+		await tokenizer.peekBuffer(this.buffer, {length: Math.min(2 + this.options.mpegOffsetTolerance, fileSize), mayBeLess: true});
+
+		// Check MPEG 1 or 2 Layer 3 header, or 'layer 0' for ADTS (MPEG sync-word 0xFFE)
+		if (this.buffer.length >= (2 + this.options.mpegOffsetTolerance)) {
+			for (let depth = 0; depth <= this.options.mpegOffsetTolerance; ++depth) {
+				const type = this.scanMpeg(depth);
+				if (type) {
+					return type;
+				}
+			}
+		}
+	};
+
+	async readTiffTag(bigEndian) {
+		const tagId = await this.tokenizer.readToken(bigEndian ? UINT16_BE : UINT16_LE);
+		await this.tokenizer.ignore(10);
+		switch (tagId) {
+			case 50_341:
+				return {
+					ext: 'arw',
+					mime: 'image/x-sony-arw',
+				};
+			case 50_706:
+				return {
+					ext: 'dng',
+					mime: 'image/x-adobe-dng',
+				};
+			default:
+		}
+	}
+
+	async readTiffIFD(bigEndian) {
+		const numberOfTags = await this.tokenizer.readToken(bigEndian ? UINT16_BE : UINT16_LE);
+		if (numberOfTags > maximumTiffTagCount) {
+			return;
+		}
+
+		if (
+			hasUnknownFileSize(this.tokenizer)
+			&& (2 + (numberOfTags * 12)) > maximumTiffIfdOffsetInBytes
+		) {
+			return;
+		}
+
+		for (let n = 0; n < numberOfTags; ++n) {
+			const fileType = await this.readTiffTag(bigEndian);
+			if (fileType) {
+				return fileType;
+			}
+		}
+	}
+
+	async readTiffHeader(bigEndian) {
+		const tiffFileType = {
+			ext: 'tif',
+			mime: 'image/tiff',
+		};
+
+		const version = (bigEndian ? UINT16_BE : UINT16_LE).get(this.buffer, 2);
+		const ifdOffset = (bigEndian ? UINT32_BE : UINT32_LE).get(this.buffer, 4);
+
+		if (version === 42) {
+			// TIFF file header
+			if (ifdOffset >= 6) {
+				if (this.checkString('CR', {offset: 8})) {
+					return {
+						ext: 'cr2',
+						mime: 'image/x-canon-cr2',
+					};
+				}
+
+				if (ifdOffset >= 8) {
+					const someId1 = (bigEndian ? UINT16_BE : UINT16_LE).get(this.buffer, 8);
+					const someId2 = (bigEndian ? UINT16_BE : UINT16_LE).get(this.buffer, 10);
+
+					if (
+						(someId1 === 0x1C && someId2 === 0xFE)
+						|| (someId1 === 0x1F && someId2 === 0x0B)) {
+						return {
+							ext: 'nef',
+							mime: 'image/x-nikon-nef',
+						};
+					}
+				}
+			}
+
+			if (
+				hasUnknownFileSize(this.tokenizer)
+				&& ifdOffset > maximumTiffStreamIfdOffsetInBytes
+			) {
+				return tiffFileType;
+			}
+
+			const maximumTiffOffset = hasUnknownFileSize(this.tokenizer) ? maximumTiffIfdOffsetInBytes : this.tokenizer.fileInfo.size;
+
+			try {
+				await safeIgnore(this.tokenizer, ifdOffset, {
+					maximumLength: maximumTiffOffset,
+					reason: 'TIFF IFD offset',
+				});
+			} catch (error) {
+				if (error instanceof EndOfStreamError) {
+					return;
+				}
+
+				throw error;
+			}
+
+			let fileType;
+			try {
+				fileType = await this.readTiffIFD(bigEndian);
+			} catch (error) {
+				if (error instanceof EndOfStreamError) {
+					return;
+				}
+
+				throw error;
+			}
+
+			return fileType ?? tiffFileType;
+		}
+
+		if (version === 43) {	// Big TIFF file header
+			return tiffFileType;
+		}
+	}
+
+	/**
+	Scan check MPEG 1 or 2 Layer 3 header, or 'layer 0' for ADTS (MPEG sync-word 0xFFE).
+
+	@param offset - Offset to scan for sync-preamble.
+	@returns {{ext: string, mime: string}}
+	*/
+	scanMpeg(offset) {
+		if (this.check([0xFF, 0xE0], {offset, mask: [0xFF, 0xE0]})) {
+			if (this.check([0x10], {offset: offset + 1, mask: [0x16]})) {
+				// Check for (ADTS) MPEG-2
+				if (this.check([0x08], {offset: offset + 1, mask: [0x08]})) {
+					return {
+						ext: 'aac',
+						mime: 'audio/aac',
+					};
+				}
+
+				// Must be (ADTS) MPEG-4
+				return {
+					ext: 'aac',
+					mime: 'audio/aac',
+				};
+			}
+
+			// MPEG 1 or 2 Layer 3 header
+			// Check for MPEG layer 3
+			if (this.check([0x02], {offset: offset + 1, mask: [0x06]})) {
+				return {
+					ext: 'mp3',
+					mime: 'audio/mpeg',
+				};
+			}
+
+			// Check for MPEG layer 2
+			if (this.check([0x04], {offset: offset + 1, mask: [0x06]})) {
+				return {
+					ext: 'mp2',
+					mime: 'audio/mpeg',
+				};
+			}
+
+			// Check for MPEG layer 1
+			if (this.check([0x06], {offset: offset + 1, mask: [0x06]})) {
+				return {
+					ext: 'mp1',
+					mime: 'audio/mpeg',
+				};
+			}
+		}
+	}
+}
+
+const supportedExtensions = new Set(extensions);
+const supportedMimeTypes = new Set(supported_mimeTypes);
+
+async function fileTypeFromFile(path, options) {
+	return (new FileTypeParser(options)).fromFile(path);
+}
+
+
 /***/ })
 
 /******/ 	});
@@ -54569,10 +61527,37 @@ module.exports = exports.default;
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nccwpck_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/create fake namespace object */
+/******/ 	(() => {
+/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
+/******/ 		var leafPrototypes;
+/******/ 		// create a fake namespace object
+/******/ 		// mode & 1: value is a module id, require it
+/******/ 		// mode & 2: merge all properties of value into the ns
+/******/ 		// mode & 4: return value when already ns object
+/******/ 		// mode & 16: return value when it's Promise-like
+/******/ 		// mode & 8|1: behave like require
+/******/ 		__nccwpck_require__.t = function(value, mode) {
+/******/ 			if(mode & 1) value = this(value);
+/******/ 			if(mode & 8) return value;
+/******/ 			if(typeof value === 'object' && value) {
+/******/ 				if((mode & 4) && value.__esModule) return value;
+/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
+/******/ 			}
+/******/ 			var ns = Object.create(null);
+/******/ 			__nccwpck_require__.r(ns);
+/******/ 			var def = {};
+/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
+/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
+/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
+/******/ 			}
+/******/ 			def['default'] = () => (value);
+/******/ 			__nccwpck_require__.d(ns, def);
+/******/ 			return ns;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -54582,28 +61567,6 @@ module.exports = exports.default;
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/ensure chunk */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.f = {};
-/******/ 		// This file contains only the entry chunk.
-/******/ 		// The chunk loading function for additional chunks
-/******/ 		__nccwpck_require__.e = (chunkId) => {
-/******/ 			return Promise.all(Object.keys(__nccwpck_require__.f).reduce((promises, key) => {
-/******/ 				__nccwpck_require__.f[key](chunkId, promises);
-/******/ 				return promises;
-/******/ 			}, []));
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/get javascript chunk filename */
-/******/ 	(() => {
-/******/ 		// This function allow to reference async chunks
-/******/ 		__nccwpck_require__.u = (chunkId) => {
-/******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".index.js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -54635,48 +61598,6 @@ module.exports = exports.default;
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
-/******/ 	
-/******/ 	/* webpack/runtime/require chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded chunks
-/******/ 		// "1" means "loaded", otherwise not loaded yet
-/******/ 		var installedChunks = {
-/******/ 			792: 1
-/******/ 		};
-/******/ 		
-/******/ 		// no on chunks loaded
-/******/ 		
-/******/ 		var installChunk = (chunk) => {
-/******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids, runtime = chunk.runtime;
-/******/ 			for(var moduleId in moreModules) {
-/******/ 				if(__nccwpck_require__.o(moreModules, moduleId)) {
-/******/ 					__nccwpck_require__.m[moduleId] = moreModules[moduleId];
-/******/ 				}
-/******/ 			}
-/******/ 			if(runtime) runtime(__nccwpck_require__);
-/******/ 			for(var i = 0; i < chunkIds.length; i++)
-/******/ 				installedChunks[chunkIds[i]] = 1;
-/******/ 		
-/******/ 		};
-/******/ 		
-/******/ 		// require() chunk loading for javascript
-/******/ 		__nccwpck_require__.f.require = (chunkId, promises) => {
-/******/ 			// "1" is the signal for "already loaded"
-/******/ 			if(!installedChunks[chunkId]) {
-/******/ 				if(true) { // all chunks have JS
-/******/ 					installChunk(require("./" + __nccwpck_require__.u(chunkId)));
-/******/ 				} else installedChunks[chunkId] = 1;
-/******/ 			}
-/******/ 		};
-/******/ 		
-/******/ 		// no external install chunk
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
