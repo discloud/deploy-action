@@ -9,9 +9,7 @@ suite("ZIP", async () => {
     const glob = `__not_expected_files__${Math.random()}`;
     const expectedBufferSize = 22;
 
-    const buffer = await zip(glob);
-
-    const file = new File(buffer, "");
+    const file = await zip(glob, "file.zip");
 
     t.assert.strictEqual(file.size, expectedBufferSize);
   });

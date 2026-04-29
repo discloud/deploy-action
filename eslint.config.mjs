@@ -1,27 +1,52 @@
-import pluginJs from "@eslint/js";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
+import js from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
+import tseslint from "typescript-eslint";
 
-/** @type {import("eslint").Linter.Config[]} */
-export default [
-  { files: ["**/*.?(c|m)ts", "*.mjs"] },
-  { ignores: ["**/node_modules/**", "dist/**/*.?(c|m)js", "out/**/*.?(c|m)js", "**/*.d.?(c|m)ts"] },
+export default defineConfig([
+  {
+    ignores: [
+      "**/node_modules/**",
+      "dist/**/*.?(c|m)js",
+      "out/**/*.?(c|m)js",
+      "**/*.d.?(c|m)ts",
+      "**/*.js",
+      "test/**",
+    ],
+  },
+  { files: ["**/*.{mjs,ts}"], plugins: { js }, extends: ["js/recommended"] },
+  { files: ["**/*.mjs"], languageOptions: { sourceType: "script" } },
+  { files: ["**/*.{mjs,ts}"], languageOptions: { globals: globals.node } },
+  tseslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
-      globals: globals.node,
-      parser: tsParser,
-      sourceType: "script",
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ["*.mjs"],
+        },
+      },
     },
   },
-  { plugins: { "@typescript-eslint": typescriptEslint } },
-  pluginJs.configs.recommended,
+  {
+    files: ["*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
   {
     rules: {
       "@typescript-eslint/consistent-type-imports": ["warn", { fixStyle: "inline-type-imports" }],
+      "@typescript-eslint/only-throw-error": "warn",
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+      "@typescript-eslint/no-unsafe-argument": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
       "@typescript-eslint/no-unsafe-declaration-merging": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
       "@typescript-eslint/no-unused-vars": ["warn", {
         argsIgnorePattern: "^_",
         caughtErrorsIgnorePattern: "^_",
@@ -29,16 +54,16 @@ export default [
         varsIgnorePattern: "^_",
       }],
       "@typescript-eslint/prefer-ts-expect-error": "warn",
+      "@typescript-eslint/require-await": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/return-await": "off",
+      "@typescript-eslint/sort-type-constituents": "off",
       "comma-dangle": ["warn", "always-multiline"],
       "func-style": ["warn", "declaration"],
-      "getter-return": "off",
       indent: ["warn", 2, { SwitchCase: 1 }],
       "no-case-declarations": "off",
-      "no-dupe-class-members": "off",
       "no-duplicate-imports": ["warn", { includeExports: true }],
       "no-empty": "off",
-      "no-redeclare": "off",
-      "no-undef": "off",
       "no-unused-private-class-members": "warn",
       "no-unused-vars": "off",
       "prefer-const": "warn",
@@ -48,4 +73,4 @@ export default [
       semi: ["warn", "always"],
     },
   },
-];
+]);

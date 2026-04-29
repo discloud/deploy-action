@@ -4,11 +4,11 @@ import bytes from "bytes";
 import { MAX_ZIP_SIZE } from "./constants";
 
 /** @returns Array of chunks */
-export default async function zip(glob?: string | string[]) {
+export default async function zip(glob: string | string[], filename: string) {
   if (!glob) glob = ["**"];
   if (!Array.isArray(glob)) glob = [glob];
 
-  const chunks: Buffer[] = [];
+  const chunks: Buffer<ArrayBufferLike>[] = [];
   await getExecOutput("npx", [
     "-y",
     "discloud-cli@latest",
@@ -31,12 +31,12 @@ export default async function zip(glob?: string | string[]) {
     silent: true,
   });
 
-  const file = new File(chunks, "");
+  const file = new File(chunks as BlobPart[], filename);
 
   if (file.size > MAX_ZIP_SIZE)
     throw new Error(`The ZIP size cannot exceed 100 MB (1048576 KB). ZIP size: ${bytes(file.size)}`);
 
   notice(`ZIP size: ${bytes(file.size)}`);
 
-  return chunks;
+  return file;
 }

@@ -29,9 +29,7 @@ async function run() {
     inputs.glob.push(inputs.envFile);
   }
 
-  const arrayBuffer = await zip(inputs.glob);
-
-  const file = new File(arrayBuffer, "file.zip");
+  const file = await zip(inputs.glob, "file.zip");
 
   const body = new FormData();
   body.append(file.name, file);
@@ -66,7 +64,7 @@ async function resolveResponseBody(response: Response) {
 
   if (typeof contentType === "string") {
     if (contentType.includes("application/json")) {
-      const body = await response.json() as any;
+      const body = await response.json();
       if (typeof body === "object" && body !== null)
         body.statusCode ??= response.status;
       return body;
