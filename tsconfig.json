@@ -4,9 +4,9 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
     "esModuleInterop": true,
+    "importHelpers": true,
     "inlineSourceMap": true,
     "module": "commonjs",
-    "moduleResolution": "bundler",
     "noEmitHelpers": true,
     "outDir": "dist",
     "removeComments": true,
