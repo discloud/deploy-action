@@ -4053,7 +4053,7 @@ tslib_1.__exportStar(__nccwpck_require__(7003), exports);
 
 "use strict";
 var mt=Object.create;var I=Object.defineProperty;var dt=Object.getOwnPropertyDescriptor;var yt=Object.getOwnPropertyNames;var ht=Object.getPrototypeOf,gt=Object.prototype.hasOwnProperty;var bt=(e,t)=>{for(var r in t)I(e,r,{get:t[r],enumerable:!0})},z=(e,t,r,n)=>{if(t&&typeof t=="object"||typeof t=="function")for(let i of yt(t))!gt.call(e,i)&&i!==r&&I(e,i,{get:()=>t[i],enumerable:!(n=dt(t,i))||n.enumerable});return e};var d=(e,t,r)=>(r=e!=null?mt(ht(e)):{},z(t||!e||!e.__esModule?I(r,"default",{value:e,enumerable:!0}):r,e)),Ft=e=>z(I({},"__esModule",{value:!0}),e);var qt={};bt(qt,{BitField:()=>A,DiscloudConfig:()=>G,FlexibleBuffer:()=>g,Ignore:()=>m,MissingMainError:()=>w,ModPermissionsBF:()=>W,ModPermissionsFlags:()=>C,bindFunctions:()=>Vt,calculatePercentage:()=>Kt,fileNamePattern:()=>Ot,filenamePattern:()=>H,fsGlob:()=>kt,fsGlobIterate:()=>ot,glob:()=>$t,globIterate:()=>ct,importJSON:()=>Ut,mergeDefaults:()=>jt,resolveFile:()=>k,resolveFileSync:()=>Dt,streamToBlob:()=>Ct,streamToFile:()=>v,version:()=>Yt});module.exports=Ft(qt);var We=__nccwpck_require__(7959);var A=class e{static DefaultBit=0;static Flags={};constructor(...t){this.bitField=this.constructor.resolve(t??this.constructor.DefaultBit)}add(...t){let r=t.reduce((n,i)=>n|this.constructor.resolve(i),this.constructor.DefaultBit);return Object.isFrozen(this)?new this.constructor(this.bitField|r):(this.bitField|=r,this)}any(...t){return(this.bitField&this.constructor.resolve(t))!==this.constructor.DefaultBit}equals(...t){return this.bitField===this.constructor.resolve(t)}freeze(){return Object.freeze(this)}has(...t){let r=this.constructor.resolve(t);return(this.bitField&r)===r}missing(...t){return new this.constructor(t).remove(this).toArray()}remove(...t){let r=t.reduce((n,i)=>n|this.constructor.resolve(i),this.constructor.DefaultBit);return Object.isFrozen(this)?new this.constructor(this.bitField&~r):(this.bitField&=~r,this)}serialize(){let t={};for(let r in this.constructor.Flags)isNaN(r)&&(t[r]=this.has(this.constructor.Flags[r]));return t}set(...t){return Object.isFrozen(this)?new this.constructor(t):(this.bitField=this.constructor.resolve(t),this)}toArray(){return this[Symbol.iterator]().toArray?.()??Array.from(this[Symbol.iterator]())}toJSON(){return typeof this.bitField=="number"?this.bitField:`${this.bitField}`}toString(){return`${this.bitField}`}valueOf(){return this.bitField}*[Symbol.iterator](){for(let t in this.constructor.Flags)isNaN(t)&&this.has(this.constructor.Flags[t])&&(yield t)}static resolve(t){if(t instanceof e)return t.bitField;let r=this.DefaultBit;if(Array.isArray(t))return t.reduce((n,i)=>n|this.resolve(i),r);if(typeof r==typeof t&&t>=r)return t;if(typeof t=="string"){if(this.Flags[t]!==void 0)return this.Flags[t];if(!isNaN(Number(t)))return typeof r=="bigint"?BigInt(t):Number(t)}throw new RangeError(`Invalid BitField: ${t}`)}},V=A;var E=__nccwpck_require__(2287),f=__nccwpck_require__(9896),p=__nccwpck_require__(1943),u=__nccwpck_require__(6928),j=__nccwpck_require__(9611);var s=__nccwpck_require__(2287),o=d(__nccwpck_require__(924)),wt=/^(current|latest|lts|suja|(?:\d+(?:\.(?:\d+|x)){0,2}))$/,St=/\s*,\s*/,b=o.default.string().max(0),xt=o.default.union([o.default.array(o.default.string()),o.default.string().trim().refine(e=>e.split(St))]),Rt=o.default.object({[s.DiscloudConfigScopes.MAIN]:o.default.string().min(1)}),vt=o.default.object({[s.DiscloudConfigScopes.APT]:xt,[s.DiscloudConfigScopes.AUTORESTART]:o.default.coerce.boolean(),[s.DiscloudConfigScopes.AVATAR]:o.default.url().or(b),[s.DiscloudConfigScopes.HOSTNAME]:o.default.string(),[s.DiscloudConfigScopes.ID]:o.default.string(),[s.DiscloudConfigScopes.MAIN]:o.default.string(),[s.DiscloudConfigScopes.NAME]:o.default.string(),[s.DiscloudConfigScopes.RAM]:o.default.coerce.number().min(100).or(b),[s.DiscloudConfigScopes.START]:o.default.string(),[s.DiscloudConfigScopes.STORAGE]:o.default.string(),[s.DiscloudConfigScopes.TYPE]:o.default.enum(["bot","site"]).or(b),[s.DiscloudConfigScopes.VERSION]:o.default.string().trim().regex(wt).or(b),[s.DiscloudConfigScopes.VLAN]:o.default.coerce.boolean()}).partial(),Nt=o.default.object({[s.DiscloudConfigScopes.TYPE]:o.default.string().refine(e=>!e||e==="bot").optional()}),It=o.default.object({[s.DiscloudConfigScopes.TYPE]:o.default.string().refine(e=>e==="site"),[s.DiscloudConfigScopes.ID]:o.default.string().min(1),[s.DiscloudConfigScopes.RAM]:o.default.coerce.number().min(512).or(b).optional()}),K=Rt.and(vt).and(o.default.union([It,Nt]));var B=class{constructor(t,r,n){this.line=t;this.character=r;this.content=n}line;character;content;toString(){return this.content}toJSON(){return Object.assign({},this)}};var F=class e{static char="#";static pattern=/(?<content>\s*#.*$)/;static match(t){return e.pattern.exec(t)}#t=new Map;get size(){return this.#t.size}clear(){this.#t.clear()}delete(t){return this.#t.delete(t)}get(t){return this.#t.get(t)}parse(t,r){let n=e.match(r);if(!n)return r;if(this.set(t,n.index,n.groups.content),!(n.index<1))return r.substring(0,n.index)}set(t,r,n){let i=new B(t,r,n);this.#t.set(r,i)}toJSON(){return this.#t.values().toArray()}*values(){yield*this.#t.values()}[Symbol.dispose](){this.clear()}*[Symbol.iterator](){yield*this.#t.values()}};var w=class extends Error{name="MissingMain"};var S=__nccwpck_require__(2287),x=class e{constructor(t){this._commentRepository=t}_commentRepository;static arraySplitterPattern=/\s*,\s*/g;static arraySplitterCharacter=",";static assignmentCharacter="=";static lineBreakCharacter=`
-`;static lineBreakSplitterPattern=/[\r\n]+/g;static falseString="false";static trueString="true";static stringBoolean=new Set([e.falseString,e.trueString]);parse(t){let r=t.split(e.lineBreakSplitterPattern),n=Object.fromEntries(Array.from(this.#t(r)));return this.#r(n)}*#t(t){this._commentRepository.clear();for(let r=0;r<t.length;r++){let n=this._commentRepository.parse(r,t[r].trimEnd());n&&(yield n.split(e.assignmentCharacter))}}#r(t){let r=S.DiscloudConfigScopes.APT;return r in t&&(t[r]=t[r].split(e.arraySplitterPattern).filter(Boolean)),r=S.DiscloudConfigScopes.AUTORESTART,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),r=S.DiscloudConfigScopes.RAM,r in t&&t[r]&&(t[r]=Number(t[r])),r=S.DiscloudConfigScopes.VLAN,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),t}stringify(t){return this.#n(this.#e(t))}#e(t){switch(typeof t){case"bigint":case"boolean":case"number":return`${t}`;case"object":{if(t===null)return"";let r=[];if(Array.isArray(t)){for(let n=0;n<t.length;n++)r.push(this.#e(t[n]));return r.join(e.arraySplitterCharacter)}for(let n in t)r.push(`${n}${e.assignmentCharacter}${this.#e(t[n])}`);return r.join(e.lineBreakCharacter)}case"string":return t;case"symbol":return String(t);default:return""}}#n(t){if(!this._commentRepository.size)return t;if(!Array.isArray(t))return this.#n(t.split(e.lineBreakSplitterPattern));for(let r of this._commentRepository){if(r.character){t[r.line]+=r.content;continue}t.splice(r.line,0,r.content)}return t.join(e.lineBreakCharacter)}};var T="utf8",G=class e{constructor(t,r){this.path=t;if(!r){this.path=e.#r(this.path);try{r=(0,f.readFileSync)(this.path,T)}catch{}}this.#s=(0,u.dirname)(this.path),this.#i=this.#a(r)}path;static filename="discloud.config";static async fromPath(t){t=await this.#t(t);let r=await(0,p.readFile)(t,T).catch(()=>null);return new e(t,r)}static async#t(t){let r=await(0,p.stat)(t).catch(()=>null);return e.#e(t,r)}static#r(t){let r=(0,f.statSync)(t,{throwIfNoEntry:!1});return e.#e(t,r)}static#e(t,r){return r?.isFile()&&(0,u.basename)(t)!==e.filename&&(t=(0,u.dirname)(t)),(0,u.basename)(t)!==e.filename&&(t=(0,u.join)(t,e.filename)),t}static validade(t){let r=K.safeParse(t);if(!r.success)throw(0,j.fromZodError)(r.error)}#n=new F;#o=new x(this.#n);#i={};#s;get data(){return this.#i}get exists(){return(0,f.existsSync)(this.path)}get mainFileExt(){if(this.data.MAIN)return(0,u.extname)(this.data.MAIN)}get missingProps(){return this.#c.filter(t=>!this.data[t])}get#c(){return E.discloudConfigRequiredScopes[this.data.TYPE||"common"]??E.discloudConfigRequiredScopes.common}dispose(){this._watcher&&(this._watcher.removeAllListeners().close(),delete this._watcher),this.#n.clear()}async existsMain(){if(!this.data.MAIN)return!1;try{return await(0,p.stat)((0,u.join)(this.#s,this.data.MAIN)).then(t=>t.isFile())}catch{return!1}}get(t){return this.data[t]}async set(t,r){await this.update({[t]:r})}async update(t){t=Object.assign(this.data,t);let r=this.#f(t);await(0,p.writeFile)(this.path,r,T)}async validate(t){if(t)try{return await this.validate(),!0}catch{return!1}if(e.validade(this.data),!await this.existsMain())throw new w}watch(){return(0,f.existsSync)(this.path)&&(this._watcher??=(0,f.watch)(this.path,{persistent:!1}).on("change",()=>this.#l()).on("close",()=>this.dispose())),this}async#l(){(0,f.existsSync)(this.path)&&(this.#i=await this.#u())}#a(t){return typeof t!="string"?{}:this.#o.parse(t)}async#u(){let t=await(0,p.readFile)(this.path,T);return this.#a(t)}#f(t){return this.#o.stringify(t)}[Symbol.dispose](){this.dispose()}};var y=__nccwpck_require__(5508),N=__nccwpck_require__(9896),Y=__nccwpck_require__(1943),_=__nccwpck_require__(6928),P=__nccwpck_require__(2203),q=__nccwpck_require__(8253);var R=class extends Error{constructor(r,n){super();this.message=r;this.code=n}message;code;name=Bt;emit(){this.emit=At,process.emitWarning(this)}};function At(){}var Bt="Deprecation";var Tt=new R("The contentType property is deprecated. Use mimeType instead."),Pt="null",H=/.*\/+([^?#]+)(?:[?#].*)?/,Ot=H;async function k(e,t){if(e instanceof File)return e;if(e instanceof URL){if(t=(0,_.basename)(e.pathname),e.origin===Pt)return v((0,N.createReadStream)(e),t);let r=await fetch(e);if(!r.ok)throw r;let n=r.headers.get("content-type")||void 0;return r.body?v(P.Readable.from(r.body),t,n):new File([await r.blob()],t,{type:n})}if(typeof e=="string"){if(URL.canParse(e))return k(new URL(e));if((0,N.existsSync)(e)){if(!(await(0,Y.stat)(e)).isFile())throw new TypeError("Invalid file path was provided.");return v((0,N.createReadStream)(e),t??(0,_.basename)(e))}return new File([e],t??"file")}if(e instanceof Blob){if(!t){let r=await(0,y.fileTypeFromBlob)(e);r&&(t=`file.${r.ext}`)}return new File([e],t??"file",{type:e.type})}if(Buffer.isBuffer(e)){let r=await(0,y.fileTypeFromBuffer)(e);return r&&(t??=`file.${r.ext}`),new File([e],t??"file",{type:r?.mime})}if((0,q.isArrayBufferView)(e))return new File([e],t??"file");if(e instanceof P.Stream)return v(e,t);if("data"in e)return"contentType"in e&&Tt.emit(),e.data instanceof File?e.data:e.mimeType||e.contentType?new File([e.data],e.name,{type:e.mimeType||e.contentType}):k(e.data,t);throw new TypeError("Invalid file type was provided.")}function Dt(e,t){if(e instanceof File)return e;if(typeof e=="string")return new File([e],t);if(e instanceof Blob)return new File([e],t);if(Buffer.isBuffer(e))return new File([e],t);if("data"in e)return e.data instanceof File?e.data:new File([e.data],e.name,{type:e.contentType});throw new TypeError("Invalid file type was provided.")}async function v(e,t,r){return new Promise((n,i)=>{let a=[];e.on("data",l=>a.push(l)).once("end",async function(){if(e.removeAllListeners(),!a.length||t&&r)return n(new File(a,t??"file",{type:r}));let l=await(0,y.fileTypeFromBuffer)(a[0]);l&&(t??=`file.${l.ext}`),n(new File(a,t??"file",{type:r??l?.mime}))}).once("error",function(l){e.removeAllListeners(),i(l)})})}function Ct(e,t){return new Promise((r,n)=>{let i=[];e.on("data",a=>i.push(a)).once("end",async function(){if(e.removeAllListeners(),t||!i.length)return r(new Blob(i,{type:t}));let a=await(0,y.fileTypeFromBuffer)(i[0]);r(new Blob(i,{type:a?.mime}))}).once("error",function(a){e.removeAllListeners(),n(a)})})}var nt=__nccwpck_require__(1943),it=__nccwpck_require__(6928);var Et=typeof Array.fromAsync=="function";async function h(e){if(Et)return Array.fromAsync(e);let t=[];for await(let r of e)t.push(r);return t}var O=".discloudignore";var Z=__nccwpck_require__(9896),Q=__nccwpck_require__(1943),tt=__nccwpck_require__(8941),et=__nccwpck_require__(1067),rt=__nccwpck_require__(6928);var D=__nccwpck_require__(6928),Gt=__dirname,_t=(0,D.dirname)(Gt);function X(...e){return(0,D.join)(_t,...e)}var m=class e{constructor(t){this.filename=t}filename;static async globify(t,r,n){let i=[],a=await(0,et.globifyGitIgnore)(t,r,n);for(let l=0;l<a.length;l++){let U=a[l];U.included||i.push(U.glob)}return i}static async#t(t){let r=[];if((0,Z.existsSync)(t)){let n=await(0,Q.readFile)(t,"utf8");r.push(await e.globify(n,(0,rt.dirname)(t)))}return r.flat()}static async#r(t){let r=[];for(let i=0;i<t.length;i++)r.push(e.#t(t[i]));return(await Promise.all(r)).flat()}static resolveIgnoreFile(t){return e.#t(t)}static resolveIgnoreFiles(t){return e.#r(t)}getIgnorePatterns(t){return h(this._getIgnoreIterate(t)).then(r=>r.flat())}async*_getIgnoreIterate(t){let r=X(this.filename),n=await e.resolveIgnoreFile(r);for await(let i of this._findIgnoreFiles(n,t))yield e.#t(i)}async*_findIgnoreFiles(t,r){yield*(0,tt.globIterate)(`**/${this.filename}`,{cwd:r,dot:!0,ignore:t,nodir:!0})}};function kt(e,t){return h(ot(e,t))}async function*ot(e,t){t??={},t.cwd??=process.cwd();let r=new m(O);if(t.exclude=await r.getIgnorePatterns(t.cwd),t.withFileTypes)return yield*Mt(e,t);yield*Lt(e,t)}async function*Lt(e,t){if(!t.withDirectories)return yield*Wt(e,t);let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));yield*r(e,t)}async function*Wt(e,t){let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));for await(let n of r(e,t)){let i=(0,it.join)(t.cwd,n);(await(0,nt.stat)(i)).isFile()&&(yield n)}}async function*Mt(e,t){if(!t.withDirectories)return yield*Jt(e,t);let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));yield*r(e,t)}async function*Jt(e,t){let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));for await(let n of r(e,t))n.isFile()&&(yield n)}var st=d(__nccwpck_require__(8941)),at=__nccwpck_require__(857);function $t(e,t){return h(ct(e,t))}async function*ct(e,t){let n=await new m(O).getIgnorePatterns(t);yield*st.globIterate(e,{cwd:t,dot:!0,ignore:n,nodir:!0,windowsPathsNoEscape:(0,at.type)()==="Windows_NT"})}var lt=__nccwpck_require__(9896),ut=__nccwpck_require__(1943),ft=__nccwpck_require__(6928),L={};function Ut(e,t){return e=(0,ft.normalize)(e),t?L[e]??(0,ut.readFile)(e,"utf8").then(r=>L[e]??=JSON.parse(r)):L[e]??=JSON.parse((0,lt.readFileSync)(e,"utf8"))}var C=(c=>(c[c.backup_app=1]="backup_app",c[c.commit_app=2]="commit_app",c[c.edit_ram=4]="edit_ram",c[c.logs_app=8]="logs_app",c[c.restart_app=16]="restart_app",c[c.start_app=32]="start_app",c[c.status_app=64]="status_app",c[c.stop_app=128]="stop_app",c))(C||{}),W=class e extends V{static DefaultBit=0;static Flags=C;static All=new e(Object.keys(C))};var M=__nccwpck_require__(9023);function zt(e,t){if(e){t??=e;for(let r of Object.getOwnPropertyNames(Object.getPrototypeOf(e)))try{typeof e[r]=="function"&&(t[r]=e[r].bind(t))}catch{}}}var Vt=(0,M.deprecate)(zt,"bindFunctions is deprecated and will be removed in the future.");function Kt(e,t){return Number((Number(e)/Number(t)*100).toFixed(2))}function pt(e,t){if(t===null)return t;if(t===void 0)return e;for(let r in e){if(r==="__proto__"||r==="prototype"||r==="constructor")continue;let n=e[r],i=t[r];typeof n=="object"&&n!==null&&typeof i=="object"&&i!==null&&Object.hasOwn(t,r)?t[r]=pt(n,i):t[r]??=n}return t}var jt=(0,M.deprecate)(pt,"mergeDefaults is deprecated and will be removed in the future.");var g=class{static flexible(){return new $}static fixed(t){return new J(t)}},J=class extends g{_buffer;_index=0;constructor(t){super(),this._buffer=Buffer.alloc(t)}get length(){return this._index}push(t){return this._buffer.set(t,this._index),this._index+=t.length,this}toBuffer(){return this._buffer}toArray(){return Array.from(this._buffer)}clear(){this._buffer.fill(0),this._index=0}toJSON(){return this._buffer.toJSON()}},$=class extends g{_buffer=[];_length=0;get length(){return this._length}push(t){return this._buffer.push(t),this._length+=t.length,this}toBuffer(){return Buffer.concat(this._buffer)}toArray(){return this._buffer}clear(){this._buffer.length=0,this._length=0}toJSON(){return this.toBuffer().toJSON()}};var Yt="1.3.2";0&&(0);
+`;static lineBreakSplitterPattern=/[\r\n]+/g;static falseString="false";static trueString="true";static stringBoolean=new Set([e.falseString,e.trueString]);parse(t){let r=t.split(e.lineBreakSplitterPattern),n=Object.fromEntries(Array.from(this.#t(r)));return this.#r(n)}*#t(t){this._commentRepository.clear();for(let r=0;r<t.length;r++){let n=this._commentRepository.parse(r,t[r].trimEnd());n&&(yield n.split(e.assignmentCharacter))}}#r(t){let r=S.DiscloudConfigScopes.APT;return r in t&&(t[r]=t[r].split(e.arraySplitterPattern).filter(Boolean)),r=S.DiscloudConfigScopes.AUTORESTART,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),r=S.DiscloudConfigScopes.RAM,r in t&&t[r]&&(t[r]=Number(t[r])),r=S.DiscloudConfigScopes.VLAN,r in t&&e.stringBoolean.has(t[r])&&(t[r]=t[r]==e.trueString),t}stringify(t){return this.#n(this.#e(t))}#e(t){switch(typeof t){case"bigint":case"boolean":case"number":return`${t}`;case"object":{if(t===null)return"";let r=[];if(Array.isArray(t)){for(let n=0;n<t.length;n++)r.push(this.#e(t[n]));return r.join(e.arraySplitterCharacter)}for(let n in t)r.push(`${n}${e.assignmentCharacter}${this.#e(t[n])}`);return r.join(e.lineBreakCharacter)}case"string":return t;case"symbol":return String(t);default:return""}}#n(t){if(!this._commentRepository.size)return t;if(!Array.isArray(t))return this.#n(t.split(e.lineBreakSplitterPattern));for(let r of this._commentRepository){if(r.character){t[r.line]+=r.content;continue}t.splice(r.line,0,r.content)}return t.join(e.lineBreakCharacter)}};var T="utf8",G=class e{constructor(t,r){this.path=t;if(!r){this.path=e.#r(this.path);try{r=(0,f.readFileSync)(this.path,T)}catch{}}this.#s=(0,u.dirname)(this.path),this.#i=this.#a(r)}path;static filename="discloud.config";static async fromPath(t){t=await this.#t(t);let r=await(0,p.readFile)(t,T).catch(()=>null);return new e(t,r)}static async#t(t){let r=await(0,p.stat)(t).catch(()=>null);return e.#e(t,r)}static#r(t){let r=(0,f.statSync)(t,{throwIfNoEntry:!1});return e.#e(t,r)}static#e(t,r){return r?.isFile()&&(0,u.basename)(t)!==e.filename&&(t=(0,u.dirname)(t)),(0,u.basename)(t)!==e.filename&&(t=(0,u.join)(t,e.filename)),t}static validade(t){let r=K.safeParse(t);if(!r.success)throw(0,j.fromZodError)(r.error)}#n=new F;#o=new x(this.#n);#i={};#s;get data(){return this.#i}get exists(){return(0,f.existsSync)(this.path)}get mainFileExt(){if(this.data.MAIN)return(0,u.extname)(this.data.MAIN)}get missingProps(){return this.#c.filter(t=>!this.data[t])}get#c(){return E.discloudConfigRequiredScopes[this.data.TYPE||"common"]??E.discloudConfigRequiredScopes.common}dispose(){this._watcher&&(this._watcher.removeAllListeners().close(),delete this._watcher),this.#n.clear()}async existsMain(){if(!this.data.MAIN)return!1;try{return await(0,p.stat)((0,u.join)(this.#s,this.data.MAIN)).then(t=>t.isFile())}catch{return!1}}get(t){return this.data[t]}async set(t,r){await this.update({[t]:r})}async update(t){t=Object.assign(this.data,t);let r=this.#f(t);await(0,p.writeFile)(this.path,r,T)}async validate(t){if(t)try{return await this.validate(),!0}catch{return!1}if(e.validade(this.data),!await this.existsMain())throw new w}watch(){return(0,f.existsSync)(this.path)&&(this._watcher??=(0,f.watch)(this.path,{persistent:!1}).on("change",()=>this.#l()).on("close",()=>this.dispose())),this}async#l(){(0,f.existsSync)(this.path)&&(this.#i=await this.#u())}#a(t){return typeof t!="string"?{}:this.#o.parse(t)}async#u(){let t=await(0,p.readFile)(this.path,T);return this.#a(t)}#f(t){return this.#o.stringify(t)}[Symbol.dispose](){this.dispose()}};var y=__nccwpck_require__(5508),N=__nccwpck_require__(9896),Y=__nccwpck_require__(1943),_=__nccwpck_require__(6928),P=__nccwpck_require__(2203),q=__nccwpck_require__(8253);var R=class extends Error{constructor(r,n){super();this.message=r;this.code=n}message;code;name=Bt;emit(){this.emit=At,process.emitWarning(this)}};function At(){}var Bt="Deprecation";var Tt=new R("The contentType property is deprecated. Use mimeType instead."),Pt="null",H=/.*\/+([^?#]+)(?:[?#].*)?/,Ot=H;async function k(e,t){if(e instanceof File)return e;if(e instanceof URL){if(t=(0,_.basename)(e.pathname),e.origin===Pt)return v((0,N.createReadStream)(e),t);let r=await fetch(e);if(!r.ok)throw r;let n=r.headers.get("content-type")||void 0;return r.body?v(P.Readable.from(r.body),t,n):new File([await r.blob()],t,{type:n})}if(typeof e=="string"){if(URL.canParse(e))return k(new URL(e));if((0,N.existsSync)(e)){if(!(await(0,Y.stat)(e)).isFile())throw new TypeError("Invalid file path was provided.");return v((0,N.createReadStream)(e),t??(0,_.basename)(e))}return new File([e],t??"file")}if(e instanceof Blob){if(!t){let r=await(0,y.fileTypeFromBlob)(e);r&&(t=`file.${r.ext}`)}return new File([e],t??"file",{type:e.type})}if(Buffer.isBuffer(e)){let r=await(0,y.fileTypeFromBuffer)(e);return r&&(t??=`file.${r.ext}`),new File([e],t??"file",{type:r?.mime})}if((0,q.isArrayBufferView)(e))return new File([e],t??"file");if(e instanceof P.Stream)return v(e,t);if("data"in e)return"contentType"in e&&Tt.emit(),e.data instanceof File?e.data:e.mimeType||e.contentType?new File([e.data],e.name,{type:e.mimeType||e.contentType}):k(e.data,t);throw new TypeError("Invalid file type was provided.")}function Dt(e,t){if(e instanceof File)return e;if(typeof e=="string")return new File([e],t);if(e instanceof Blob)return new File([e],t);if(Buffer.isBuffer(e))return new File([e],t);if("data"in e)return e.data instanceof File?e.data:new File([e.data],e.name,{type:e.contentType});throw new TypeError("Invalid file type was provided.")}async function v(e,t,r){return new Promise((n,i)=>{let a=[];e.on("data",l=>a.push(l)).once("end",async function(){if(e.removeAllListeners(),!a.length||t&&r)return n(new File(a,t??"file",{type:r}));let l=await(0,y.fileTypeFromBuffer)(a[0]);l&&(t??=`file.${l.ext}`),n(new File(a,t??"file",{type:r??l?.mime}))}).once("error",function(l){e.removeAllListeners(),i(l)})})}function Ct(e,t){return new Promise((r,n)=>{let i=[];e.on("data",a=>i.push(a)).once("end",async function(){if(e.removeAllListeners(),t||!i.length)return r(new Blob(i,{type:t}));let a=await(0,y.fileTypeFromBuffer)(i[0]);r(new Blob(i,{type:a?.mime}))}).once("error",function(a){e.removeAllListeners(),n(a)})})}var nt=__nccwpck_require__(1943),it=__nccwpck_require__(6928);var Et=typeof Array.fromAsync=="function";async function h(e){if(Et)return Array.fromAsync(e);let t=[];for await(let r of e)t.push(r);return t}var O=".discloudignore";var Z=__nccwpck_require__(9896),Q=__nccwpck_require__(1943),tt=__nccwpck_require__(8941),et=__nccwpck_require__(1067),rt=__nccwpck_require__(6928);var D=__nccwpck_require__(6928),Gt=__dirname,_t=(0,D.dirname)(Gt);function X(...e){return(0,D.join)(_t,...e)}var m=class e{constructor(t){this.filename=t}filename;static async globify(t,r,n){let i=[],a=await(0,et.globifyGitIgnore)(t,r,n);for(let l=0;l<a.length;l++){let U=a[l];U.included||i.push(U.glob)}return i}static async#t(t){let r=[];if((0,Z.existsSync)(t)){let n=await(0,Q.readFile)(t,"utf8");r.push(await e.globify(n,(0,rt.dirname)(t)))}return r.flat()}static async#r(t){let r=[];for(let i=0;i<t.length;i++)r.push(e.#t(t[i]));return(await Promise.all(r)).flat()}static resolveIgnoreFile(t){return e.#t(t)}static resolveIgnoreFiles(t){return e.#r(t)}getIgnorePatterns(t){return h(this._getIgnoreIterate(t)).then(r=>r.flat())}async*_getIgnoreIterate(t){let r=X(this.filename),n=await e.resolveIgnoreFile(r);for await(let i of this._findIgnoreFiles(n,t))yield e.#t(i)}async*_findIgnoreFiles(t,r){yield*(0,tt.globIterate)(`**/${this.filename}`,{cwd:r,dot:!0,ignore:t,nodir:!0})}};function kt(e,t){return h(ot(e,t))}async function*ot(e,t){t??={},t.cwd??=process.cwd();let r=new m(O);if(t.exclude=await r.getIgnorePatterns(t.cwd),t.withFileTypes)return yield*Mt(e,t);yield*Lt(e,t)}async function*Lt(e,t){if(!t.withDirectories)return yield*Wt(e,t);let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));yield*r(e,t)}async function*Wt(e,t){let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));for await(let n of r(e,t)){let i=(0,it.join)(t.cwd,n);(await(0,nt.stat)(i)).isFile()&&(yield n)}}async function*Mt(e,t){if(!t.withDirectories)return yield*Jt(e,t);let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));yield*r(e,t)}async function*Jt(e,t){let{glob:r}=await Promise.resolve(/* import() */).then(__nccwpck_require__.t.bind(__nccwpck_require__, 1943, 23));for await(let n of r(e,t))n.isFile()&&(yield n)}var st=d(__nccwpck_require__(8941)),at=__nccwpck_require__(857);function $t(e,t){return h(ct(e,t))}async function*ct(e,t){let n=await new m(O).getIgnorePatterns(t);yield*st.globIterate(e,{cwd:t,dot:!0,ignore:n,nodir:!0,windowsPathsNoEscape:(0,at.type)()==="Windows_NT"})}var lt=__nccwpck_require__(9896),ut=__nccwpck_require__(1943),ft=__nccwpck_require__(6928),L={};function Ut(e,t){return e=(0,ft.normalize)(e),t?L[e]??(0,ut.readFile)(e,"utf8").then(r=>L[e]??=JSON.parse(r)):L[e]??=JSON.parse((0,lt.readFileSync)(e,"utf8"))}var C=(c=>(c[c.backup_app=1]="backup_app",c[c.commit_app=2]="commit_app",c[c.edit_ram=4]="edit_ram",c[c.logs_app=8]="logs_app",c[c.restart_app=16]="restart_app",c[c.start_app=32]="start_app",c[c.status_app=64]="status_app",c[c.stop_app=128]="stop_app",c))(C||{}),W=class e extends V{static DefaultBit=0;static Flags=C;static All=new e(Object.keys(C))};var M=__nccwpck_require__(9023);function zt(e,t){if(e){t??=e;for(let r of Object.getOwnPropertyNames(Object.getPrototypeOf(e)))try{typeof e[r]=="function"&&(t[r]=e[r].bind(t))}catch{}}}var Vt=(0,M.deprecate)(zt,"bindFunctions is deprecated and will be removed in the future.");function Kt(e,t){return Number((Number(e)/Number(t)*100).toFixed(2))}function pt(e,t){if(t===null)return t;if(t===void 0)return e;for(let r in e){if(r==="__proto__"||r==="prototype"||r==="constructor")continue;let n=e[r],i=t[r];typeof n=="object"&&n!==null&&typeof i=="object"&&i!==null&&Object.hasOwn(t,r)?t[r]=pt(n,i):t[r]??=n}return t}var jt=(0,M.deprecate)(pt,"mergeDefaults is deprecated and will be removed in the future.");var g=class{static flexible(){return new $}static fixed(t){return new J(t)}},J=class extends g{_buffer;_index=0;constructor(t){super(),this._buffer=Buffer.alloc(t)}get length(){return this._index}push(t){return this._buffer.set(t,this._index),this._index+=t.length,this}toBuffer(){return this._buffer}toArray(){return Array.from(this._buffer)}clear(){this._buffer.fill(0),this._index=0}toJSON(){return this._buffer.toJSON()}},$=class extends g{_buffer=[];_length=0;get length(){return this._length}push(t){return this._buffer.push(t),this._length+=t.length,this}toBuffer(){return Buffer.concat(this._buffer)}toArray(){return this._buffer}clear(){this._buffer.length=0,this._length=0}toJSON(){return this.toBuffer().toJSON()}};var Yt="1.3.3";0&&(0);
 //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiaDovY29kZS9kaXNjbG91ZC9kaXNjbG91ZC5hcHAvcGFja2FnZXMvdXRpbC9zcmMvaW5kZXgudHMiLCAiLi4vc3JjL0JpdEZpZWxkLnRzIiwgIi4uL3NyYy9jb25maWcvY29uZmlnLnRzIiwgIi4uL3NyYy9jb25maWcvYXNzZXJ0aW9ucy50cyIsICIuLi9zcmMvY29uZmlnL2NvbW1lbnRzL2VudGl0eS50cyIsICIuLi9zcmMvY29uZmlnL2NvbW1lbnRzL3JlcG9zaXRvcnkudHMiLCAiLi4vc3JjL2NvbmZpZy9lcnJvcnMudHMiLCAiLi4vc3JjL2NvbmZpZy9wYXJzZXIudHMiLCAiLi4vc3JjL0ZpbGVSZXNvbHZlci50cyIsICIuLi9zcmMvdXRpbHMvZGVwcmVjYXRpb24udHMiLCAiLi4vc3JjL2dsb2IvZnNHbG9iLnRzIiwgIi4uL3NyYy91dGlscy9hcnJheS50cyIsICIuLi9zcmMvZ2xvYi9jb25zdGFudHMudHMiLCAiLi4vc3JjL2dsb2IvaWdub3JlLnRzIiwgIi4uL3NyYy9wYXRoLnRzIiwgIi4uL3NyYy9nbG9iL2dsb2IudHMiLCAiLi4vc3JjL0pTT04udHMiLCAiLi4vc3JjL01vZFBlcm1pc3Npb25zQkYudHMiLCAiLi4vc3JjL3V0aWxzLnRzIiwgIi4uL3NyYy9GbGV4aWJsZUJ1ZmZlci50cyJdLAogICJtYXBwaW5ncyI6ICJza0JBQUEsSUFBQUEsR0FBQSxHQUFBQyxHQUFBRCxHQUFBLGNBQUFFLEVBQUEsbUJBQUFDLEVBQUEsbUJBQUFDLEVBQUEsV0FBQUMsRUFBQSxxQkFBQUMsRUFBQSxxQkFBQUMsRUFBQSx3QkFBQUMsRUFBQSxrQkFBQUMsR0FBQSx3QkFBQUMsR0FBQSxvQkFBQUMsR0FBQSxvQkFBQUMsRUFBQSxXQUFBQyxHQUFBLGtCQUFBQyxHQUFBLFNBQUFDLEdBQUEsZ0JBQUFDLEdBQUEsZUFBQUMsR0FBQSxrQkFBQUMsR0FBQSxnQkFBQUMsRUFBQSxvQkFBQUMsR0FBQSxpQkFBQUMsR0FBQSxpQkFBQUMsRUFBQSxZQUFB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QUssU0FBUyxFQUFFLE9BQU8sQ0FDaEMsQ0FDRixFbkJqRk8sSUFBTUMsR0FBa0IiLAogICJuYW1lcyI6IFsiaW5kZXhfZXhwb3J0cyIsICJfX2V4cG9ydCIsICJCaXRGaWVsZCIsICJEaXNjbG91ZENvbmZpZyIsICJGbGV4aWJsZUJ1ZmZlciIsICJJZ25vcmUiLCAiTWlzc2luZ01haW5FcnJvciIsICJNb2RQZXJtaXNzaW9uc0JGIiwgIk1vZFBlcm1pc3Npb25zRmxhZ3MiLCAiYmluZEZ1bmN0aW9ucyIsICJjYWxjdWxhdGVQZXJjZW50YWdlIiwgImZpbGVOYW1lUGF0dGVybiIsICJmaWxlbmFtZVBhdHRlcm4iLCAiZnNHbG9iIiwgImZzR2xvYkl0ZXJhdGUiLCAiZ2xvYiIsICJnbG9iSXRlcmF0ZSIsICJpbXBvcnRKU09OIiwgIm1lcmdlRGVmYXVsdHMiLCAicmVzb2x2ZUZpbGUiLCAicmVzb2x2ZUZpbGVTeW5jIiwgInN0cmVhbVRvQmxvYiIsICJzdHJlYW1Ub0ZpbGUiLCAidmVyc2lvbiIsICJfX3RvQ29tbW9uSlMiLCAiaW1wb3J0X3JlZ2lzdGVyIiwgIkJpdEZpZWxkIiwgIl9CaXRGaWVsZCIsICJiaXRzIiwgInRvdGFsIiwgInAiLCAiYiIsICJiaXQiLCAic2VyaWFsaXplZCIsICJmbGFnIiwgIkRlZmF1bHRCaXQiLCAiQml0RmllbGRfZGVmYXVsdCIsICJpbXBvcnRfdjIiLCAiaW1wb3J0X2ZzIiwgImltcG9ydF9wcm9taXNlcyIsICJpbXBvcnRfcGF0aCIsICJpbXBvcnRfem9kX3ZhbGlkYXRpb25fZXJyb3IiLCAiaW1wb3J0X3YyIiwgImltcG9ydF96b2QiLCAiVkVSU0lPTl9SRUdFWFAiLCAiU1RSSU5HX0FSUkFZX1JFR0VYUCIsICJFbXB0eVN0cmluZ1ByZWRpY2F0ZSIsICJ6IiwgIkFQVFByZWRpY2F0ZSIsICJhcmciLCAiRGlzY2xvdWRDb25maWdDb21tb25SZXF1aXJlZFByZWRpY2F0ZSIsICJEaXNjbG91ZENvbmZpZ09wdGlvbmFsUHJlZGljYXRlIiwgIkRpc2Nsb3VkQ29uZmlnQm90UHJlZGljYXRlIiwgIkRpc2Nsb3VkQ29uZmlnU2l0ZVByZWRpY2F0ZSIsICJEaXNjbG91ZENvbmZpZ1ByZWRpY2F0ZSIsICJDb21tZW50RW50aXR5IiwgImxpbmUiLCAiY2hhcmFjdGVyIiwgImNvbnRlbnQiLCAiQ29tbWVudFJlcG9zaXRvcnkiLCAiX0NvbW1lbnRSZXBvc2l0b3J5IiwgImxpbmUiLCAiI2NhY2hlIiwgImNvbnRlbnQiLCAicmVzdWx0IiwgImNoYXJhY3RlciIsICJjb21tZW50IiwgIkNvbW1lbnRFbnRpdHkiLCAiTWlzc2luZ01haW5FcnJvciIsICJpbXBvcnRfdjIiLCAiQ29uZmlnUGFyc2VyIiwgIl9Db25maWdQYXJzZXIiLCAiX2NvbW1lbnRSZXBvc2l0b3J5IiwgImNvbnRlbnQiLCAibGluZXMiLCAicGFyc2VkIiwgIiNwYXJzZUxpbmVzIiwgIiNwYXJzZVZhbHVlcyIsICJpIiwgIm9iaiIsICJrZXkiLCAiI3dyaXRlQ29tbWVudHMiLCAiI3N0cmluZ2lmeSIsICJyZXN1bHQiLCAiY29tbWVudCIsICJlbmNvbmRpbmciLCAiRGlzY2xvdWRDb25maWciLCAiX0Rpc2Nsb3VkQ29uZmlnIiwgInBhdGgiLCAiY29udGVudCIsICIjcmVzb2x2ZUNvbmZpZ1BhdGhTeW5jIiwgIiNkaXIiLCAiI2RhdGEiLCAiI3BhcnNlIiwgIiNyZXNvbHZlQ29uZmlnUGF0aCIsICJmaWxlU3RhdCIsICIjcmVzb2x2ZUNvbmZpZ1BhdGhXaXRoU3RhdCIsICJkYXRhIiwgInBhcnNlZCIsICJEaXNjbG91ZENvbmZpZ1ByZWRpY2F0ZSIsICIjY29tbWVudFJlcG9zaXRvcnkiLCAiQ29tbWVudFJlcG9zaXRvcnkiLCAiI3BhcnNlciIsICJDb25maWdQYXJzZXIiLCAiI3JlcXVpcmVkUHJvcHMiLCAia2V5IiwgInZhbHVlIiwgImNvbmZpZyIsICIjc3RyaW5naWZ5IiwgImRvTm90VGhyb3dJZkludmFsaWQiLCAiTWlzc2luZ01haW5FcnJvciIsICIjb25DaGFuZ2UiLCAiI3JlYWRGaWxlIiwgInMiLCAib2JqIiwgImltcG9ydF9maWxlX3R5cGUiLCAiaW1wb3J0X2ZzIiwgImltcG9ydF9wcm9taXNlcyIsICJpbXBvcnRfcGF0aCIsICJpbXBvcnRfc3RyZWFtIiwgImltcG9ydF90eXBlcyIsICJEZXByZWNhdGlvbiIsICJtZXNzYWdlIiwgImNvZGUiLCAid2FybmluZ1R5cGUiLCAibm9vcCIsICJjb250ZW50VHlwZURlcHJlY2F0aW9uIiwgIkRlcHJlY2F0aW9uIiwgIkxPQ0FMX1VSTF9PUklHSU4iLCAiZmlsZW5hbWVQYXR0ZXJuIiwgImZpbGVOYW1lUGF0dGVybiIsICJyZXNvbHZlRmlsZSIsICJmaWxlIiwgImZpbGVuYW1lIiwgInN0cmVhbVRvRmlsZSIsICJyZXNwb25zZSIsICJ0eXBlIiwgImZpbGVUeXBlUmVzdWx0IiwgInJlc29sdmVGaWxlU3luYyIsICJzdHJlYW0iLCAibWltZVR5cGUiLCAicmVzb2x2ZSIsICJyZWplY3QiLCAiY2h1bmtzIiwgImNodW5rIiwgImVycm9yIiwgInN0cmVhbVRvQmxvYiIsICJpbXBvcnRfcHJvbWlzZXMiLCAiaW1wb3J0X3BhdGgiLCAiYXJyYXlIYXNGcm9tQXN5bmNGdW5jdGlvbiIsICJhc3luY0dlbmVyYXRvclRvQXJyYXkiLCAiZ2VuZXJhdG9yIiwgImFycmF5IiwgImVsZW1lbnQiLCAiRElTQ0xPVURfSUdOT1JFX0ZJTEVOQU1FIiwgImltcG9ydF9mcyIsICJpbXBvcnRfcHJvbWlzZXMiLCAiaW1wb3J0X2dsb2IiLCAiaW1wb3J0X2dsb2JpZnlfZ2l0aWdub3JlIiwgImltcG9ydF9wYXRoIiwgImltcG9ydF9wYXRoIiwgIkJVSUxEX1JPT1RfUEFUSCIsICJST09UX1BBVEgiLCAiam9pbldpdGhSb290IiwgInBhdGgiLCAiSWdub3JlIiwgIl9JZ25vcmUiLCAiZmlsZW5hbWUiLCAiY29udGVudCIsICJkaXJlY3RvcnkiLCAiYWJzb2x1dGUiLCAicGF0dGVybnMiLCAiZW50cmllcyIsICJpIiwgImVudHJ5IiwgIiNnZXRHbG9iZmllZElnbm9yZUZpbGUiLCAiI2dldEdsb2JmaWVkSWdub3JlRmlsZXMiLCAiZGlyZWN0b3JpZXMiLCAicHJvbWlzZXMiLCAicGF0aCIsICJwYXRocyIsICJjd2QiLCAiYXN5bmNHZW5lcmF0b3JUb0FycmF5IiwgInZhbHVlIiwgInJvb3RJZ25vcmVQYXRoIiwgImpvaW5XaXRoUm9vdCIsICJyb290SWdub3JlIiwgImlnbm9yZSIsICJmc0dsb2IiLCAicGF0dGVybiIsICJvcHRpb25zIiwgImFzeW5jR2VuZXJhdG9yVG9BcnJheSIsICJmc0dsb2JJdGVyYXRlIiwgImlnbm9yZU1vZHVsZSIsICJJZ25vcmUiLCAiRElTQ0xPVURfSUdOT1JFX0ZJTEVOQU1FIiwgIl9mc0dsb2JJdGVyYXRlV2l0aEZpbGVUeXBlcyIsICJfZnNHbG9iSXRlcmF0ZSIsICJfZnNHbG9iSXRlcmF0ZU9ubHlGaWxlcyIsICJnbG9iIiwgInJlbGF0aXZlRmlsZVBhdGgiLCAiZmlsZVBhdGgiLCAiX2ZzR2xvYkl0ZXJhdGVXaXRoRmlsZVR5cGVzT25seUZpbGVzIiwgImRpcmVudCIsICJnbG9iTXVkdWxlIiwgImltcG9ydF9vcyIsICJnbG9iIiwgInBhdHRlcm4iLCAiY3dkIiwgImFzeW5jR2VuZXJhdG9yVG9BcnJheSIsICJnbG9iSXRlcmF0ZSIsICJpZ25vcmUiLCAiSWdub3JlIiwgIkRJU0NMT1VEX0lHTk9SRV9GSUxFTkFNRSIsICJpbXBvcnRfZnMiLCAiaW1wb3J0X3Byb21pc2VzIiwgImltcG9ydF9wYXRoIiwgIkpTT05zIiwgImltcG9ydEpTT04iLCAicGF0aCIsICJhc3luYyIsICJjb250ZW50IiwgIk1vZFBlcm1pc3Npb25zRmxhZ3MiLCAiTW9kUGVybWlzc2lvbnNCRiIsICJfTW9kUGVybWlzc2lvbnNCRiIsICJCaXRGaWVsZF9kZWZhdWx0IiwgImltcG9ydF91dGlsIiwgIl9iaW5kRnVuY3Rpb25zIiwgImluc3RhbmNlIiwgImJpbmQiLCAicHJvcGVydHlOYW1lIiwgImJpbmRGdW5jdGlvbnMiLCAiY2FsY3VsYXRlUGVyY2VudGFnZSIsICJ2YWx1ZSIsICJtYWpvciIsICJfbWVyZ2VEZWZhdWx0cyIsICJkZWZhdWx0cyIsICJvcHRpb25zIiwgImtleSIsICJkZWZhdWx0VmFsdWUiLCAib3B0aW9uVmFsdWUiLCAibWVyZ2VEZWZhdWx0cyIsICJGbGV4aWJsZUJ1ZmZlciIsICJBcnJheUZsZXhpYmxlQnVmZmVyIiwgInNpemUiLCAiQnVmZmVyRmxleGlibGVCdWZmZXIiLCAidmFsdWUiLCAidmVyc2lvbiJdCn0K
 
 
@@ -39857,7 +39857,7 @@ const z = {
     iso: _iso,
 };
 // Keys that are recognized and handled by the conversion logic
-const RECOGNIZED_KEYS = new Set([
+const RECOGNIZED_KEYS = /*@__PURE__*/ new Set([
     // Schema identification
     "$schema",
     "$ref",
@@ -40333,13 +40333,6 @@ function convertBaseSchema(schema, ctx) {
         default:
             throw new Error(`Unsupported type: ${type}`);
     }
-    // Apply metadata
-    if (schema.description) {
-        zodSchema = zodSchema.describe(schema.description);
-    }
-    if (schema.default !== undefined) {
-        zodSchema = zodSchema.default(schema.default);
-    }
     return zodSchema;
 }
 function convertSchema(schema, ctx) {
@@ -40384,23 +40377,28 @@ function convertSchema(schema, ctx) {
     if (schema.readOnly === true) {
         baseSchema = z.readonly(baseSchema);
     }
-    // Collect metadata: core schema keywords and unrecognized keys
+    // Apply `default` so it wraps the fully-composed schema. This ensures
+    // `parse(undefined) -> default` works regardless of which branch of
+    // `convertBaseSchema` produced the inner schema (enum/const/not/typed/etc.).
+    if (schema.default !== undefined) {
+        baseSchema = baseSchema.default(schema.default);
+    }
+    // Collect non-description annotation metadata into the user-supplied
+    // registry. Description is handled separately below via `.describe()` to
+    // preserve the contract that `schema.description` reads from globalRegistry.
     const extraMeta = {};
-    // Core schema keywords that should be captured as metadata
     const coreMetadataKeys = ["$id", "id", "$comment", "$anchor", "$vocabulary", "$dynamicRef", "$dynamicAnchor"];
     for (const key of coreMetadataKeys) {
         if (key in schema) {
             extraMeta[key] = schema[key];
         }
     }
-    // Content keywords - store as metadata
     const contentMetadataKeys = ["contentEncoding", "contentMediaType", "contentSchema"];
     for (const key of contentMetadataKeys) {
         if (key in schema) {
             extraMeta[key] = schema[key];
         }
     }
-    // Unrecognized keys (custom metadata)
     for (const key of Object.keys(schema)) {
         if (!RECOGNIZED_KEYS.has(key)) {
             extraMeta[key] = schema[key];
@@ -40408,6 +40406,12 @@ function convertSchema(schema, ctx) {
     }
     if (Object.keys(extraMeta).length > 0) {
         ctx.registry.add(baseSchema, extraMeta);
+    }
+    // Apply description last. `.describe()` clones the schema and sets
+    // `_zod.parent` on the clone, so registry lookups on the returned reference
+    // still resolve `extraMeta` via parent inheritance.
+    if (schema.description) {
+        baseSchema = baseSchema.describe(schema.description);
     }
     return baseSchema;
 }
@@ -40418,17 +40422,28 @@ function fromJSONSchema(schema, params) {
     if (typeof schema === "boolean") {
         return schema ? z.any() : z.never();
     }
-    const version = detectVersion(schema, params?.defaultTarget);
-    const defs = (schema.$defs || schema.definitions || {});
+    // Normalize input via a JSON round-trip. This guarantees the converter
+    // walks a plain, finite, JSON-valid object graph: cyclic inputs fail here,
+    // getter/Proxy-based properties are materialized into static values, and
+    // class instances collapse to plain objects.
+    let normalized;
+    try {
+        normalized = JSON.parse(JSON.stringify(schema));
+    }
+    catch {
+        throw new Error("fromJSONSchema input is not valid JSON (possibly cyclic); use $defs/$ref for recursive schemas");
+    }
+    const version = detectVersion(normalized, params?.defaultTarget);
+    const defs = (normalized.$defs || normalized.definitions || {});
     const ctx = {
         version,
         defs,
         refs: new Map(),
         processing: new Set(),
-        rootSchema: schema,
+        rootSchema: normalized,
         registry: params?.registry ?? registries_js_1.globalRegistry,
     };
-    return convertSchema(schema, ctx);
+    return convertSchema(normalized, ctx);
 }
 
 
@@ -40581,7 +40596,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ZodLiteral = exports.ZodEnum = exports.ZodSet = exports.ZodMap = exports.ZodRecord = exports.ZodTuple = exports.ZodIntersection = exports.ZodDiscriminatedUnion = exports.ZodXor = exports.ZodUnion = exports.ZodObject = exports.ZodArray = exports.ZodDate = exports.ZodVoid = exports.ZodNever = exports.ZodUnknown = exports.ZodAny = exports.ZodNull = exports.ZodUndefined = exports.ZodSymbol = exports.ZodBigIntFormat = exports.ZodBigInt = exports.ZodBoolean = exports.ZodNumberFormat = exports.ZodNumber = exports.ZodCustomStringFormat = exports.ZodJWT = exports.ZodE164 = exports.ZodBase64URL = exports.ZodBase64 = exports.ZodCIDRv6 = exports.ZodCIDRv4 = exports.ZodIPv6 = exports.ZodMAC = exports.ZodIPv4 = exports.ZodKSUID = exports.ZodXID = exports.ZodULID = exports.ZodCUID2 = exports.ZodCUID = exports.ZodNanoID = exports.ZodEmoji = exports.ZodURL = exports.ZodUUID = exports.ZodGUID = exports.ZodEmail = exports.ZodStringFormat = exports.ZodString = exports._ZodString = exports.ZodType = void 0;
-exports.stringbool = exports.meta = exports.describe = exports.ZodCustom = exports.ZodFunction = exports.ZodPromise = exports.ZodLazy = exports.ZodTemplateLiteral = exports.ZodReadonly = exports.ZodCodec = exports.ZodPipe = exports.ZodNaN = exports.ZodCatch = exports.ZodSuccess = exports.ZodNonOptional = exports.ZodPrefault = exports.ZodDefault = exports.ZodNullable = exports.ZodExactOptional = exports.ZodOptional = exports.ZodTransform = exports.ZodFile = void 0;
+exports.stringbool = exports.meta = exports.describe = exports.ZodCustom = exports.ZodFunction = exports.ZodPromise = exports.ZodLazy = exports.ZodTemplateLiteral = exports.ZodReadonly = exports.ZodPreprocess = exports.ZodCodec = exports.ZodPipe = exports.ZodNaN = exports.ZodCatch = exports.ZodSuccess = exports.ZodNonOptional = exports.ZodPrefault = exports.ZodDefault = exports.ZodNullable = exports.ZodExactOptional = exports.ZodOptional = exports.ZodTransform = exports.ZodFile = void 0;
 exports.string = string;
 exports.email = email;
 exports.guid = guid;
@@ -40661,6 +40676,7 @@ exports["catch"] = _catch;
 exports.nan = nan;
 exports.pipe = pipe;
 exports.codec = codec;
+exports.invertCodec = invertCodec;
 exports.readonly = readonly;
 exports.templateLiteral = templateLiteral;
 exports.lazy = lazy;
@@ -40683,6 +40699,54 @@ const to_json_schema_js_1 = __nccwpck_require__(7633);
 const checks = __importStar(__nccwpck_require__(4937));
 const iso = __importStar(__nccwpck_require__(2081));
 const parse = __importStar(__nccwpck_require__(2463));
+// Lazy-bind builder methods.
+//
+// Builder methods (`.optional`, `.array`, `.refine`, ...) live as
+// non-enumerable getters on each concrete schema constructor's
+// prototype. On first access from an instance the getter allocates
+// `fn.bind(this)` and caches it as an own property on that instance,
+// so detached usage (`const m = schema.optional; m()`) still works
+// and the per-instance allocation only happens for methods actually
+// touched.
+//
+// One install per (prototype, group), memoized by `_installedGroups`.
+const _installedGroups = /* @__PURE__ */ new WeakMap();
+function _installLazyMethods(inst, group, methods) {
+    const proto = Object.getPrototypeOf(inst);
+    let installed = _installedGroups.get(proto);
+    if (!installed) {
+        installed = new Set();
+        _installedGroups.set(proto, installed);
+    }
+    if (installed.has(group))
+        return;
+    installed.add(group);
+    for (const key in methods) {
+        const fn = methods[key];
+        Object.defineProperty(proto, key, {
+            configurable: true,
+            enumerable: false,
+            get() {
+                const bound = fn.bind(this);
+                Object.defineProperty(this, key, {
+                    configurable: true,
+                    writable: true,
+                    enumerable: true,
+                    value: bound,
+                });
+                return bound;
+            },
+            set(v) {
+                Object.defineProperty(this, key, {
+                    configurable: true,
+                    writable: true,
+                    enumerable: true,
+                    value: v,
+                });
+            },
+        });
+    }
+}
 exports.ZodType = core.$constructor("ZodType", (inst, def) => {
     core.$ZodType.init(inst, def);
     Object.assign(inst["~standard"], {
@@ -40695,31 +40759,16 @@ exports.ZodType = core.$constructor("ZodType", (inst, def) => {
     inst.def = def;
     inst.type = def.type;
     Object.defineProperty(inst, "_def", { value: def });
-    // base methods
-    inst.check = (...checks) => {
-        return inst.clone(index_js_1.util.mergeDefs(def, {
-            checks: [
-                ...(def.checks ?? []),
-                ...checks.map((ch) => typeof ch === "function" ? { _zod: { check: ch, def: { check: "custom" }, onattach: [] } } : ch),
-            ],
-        }), {
-            parent: true,
-        });
-    };
-    inst.with = inst.check;
-    inst.clone = (def, params) => core.clone(inst, def, params);
-    inst.brand = () => inst;
-    inst.register = ((reg, meta) => {
-        reg.add(inst, meta);
-        return inst;
-    });
-    // parsing
+    // Parse-family is intentionally kept as per-instance closures: these are
+    // the hot path AND the most-detached methods (`arr.map(schema.parse)`,
+    // `const { parse } = schema`, etc.). Eager closures here mean callers pay
+    // ~12 closure allocations per schema but get monomorphic call sites and
+    // detached usage that "just works".
     inst.parse = (data, params) => parse.parse(inst, data, params, { callee: inst.parse });
     inst.safeParse = (data, params) => parse.safeParse(inst, data, params);
     inst.parseAsync = async (data, params) => parse.parseAsync(inst, data, params, { callee: inst.parseAsync });
     inst.safeParseAsync = async (data, params) => parse.safeParseAsync(inst, data, params);
     inst.spa = inst.safeParseAsync;
-    // encoding/decoding
     inst.encode = (data, params) => parse.encode(inst, data, params);
     inst.decode = (data, params) => parse.decode(inst, data, params);
     inst.encodeAsync = async (data, params) => parse.encodeAsync(inst, data, params);
@@ -40728,50 +40777,118 @@ exports.ZodType = core.$constructor("ZodType", (inst, def) => {
     inst.safeDecode = (data, params) => parse.safeDecode(inst, data, params);
     inst.safeEncodeAsync = async (data, params) => parse.safeEncodeAsync(inst, data, params);
     inst.safeDecodeAsync = async (data, params) => parse.safeDecodeAsync(inst, data, params);
-    // refinements
-    inst.refine = (check, params) => inst.check(refine(check, params));
-    inst.superRefine = (refinement) => inst.check(superRefine(refinement));
-    inst.overwrite = (fn) => inst.check(checks.overwrite(fn));
-    // wrappers
-    inst.optional = () => optional(inst);
-    inst.exactOptional = () => exactOptional(inst);
-    inst.nullable = () => nullable(inst);
-    inst.nullish = () => optional(nullable(inst));
-    inst.nonoptional = (params) => nonoptional(inst, params);
-    inst.array = () => array(inst);
-    inst.or = (arg) => union([inst, arg]);
-    inst.and = (arg) => intersection(inst, arg);
-    inst.transform = (tx) => pipe(inst, transform(tx));
-    inst.default = (def) => _default(inst, def);
-    inst.prefault = (def) => prefault(inst, def);
-    // inst.coalesce = (def, params) => coalesce(inst, def, params);
-    inst.catch = (params) => _catch(inst, params);
-    inst.pipe = (target) => pipe(inst, target);
-    inst.readonly = () => readonly(inst);
-    // meta
-    inst.describe = (description) => {
-        const cl = inst.clone();
-        core.globalRegistry.add(cl, { description });
-        return cl;
-    };
+    // All builder methods are placed on the internal prototype as lazy-bind
+    // getters. On first access per-instance, a bound thunk is allocated and
+    // cached as an own property; subsequent accesses skip the getter. This
+    // means: no per-instance allocation for unused methods, full
+    // detachability preserved (`const m = schema.optional; m()` works), and
+    // shared underlying function references across all instances.
+    _installLazyMethods(inst, "ZodType", {
+        check(...chks) {
+            const def = this.def;
+            return this.clone(index_js_1.util.mergeDefs(def, {
+                checks: [
+                    ...(def.checks ?? []),
+                    ...chks.map((ch) => typeof ch === "function" ? { _zod: { check: ch, def: { check: "custom" }, onattach: [] } } : ch),
+                ],
+            }), { parent: true });
+        },
+        with(...chks) {
+            return this.check(...chks);
+        },
+        clone(def, params) {
+            return core.clone(this, def, params);
+        },
+        brand() {
+            return this;
+        },
+        register(reg, meta) {
+            reg.add(this, meta);
+            return this;
+        },
+        refine(check, params) {
+            return this.check(refine(check, params));
+        },
+        superRefine(refinement, params) {
+            return this.check(superRefine(refinement, params));
+        },
+        overwrite(fn) {
+            return this.check(checks.overwrite(fn));
+        },
+        optional() {
+            return optional(this);
+        },
+        exactOptional() {
+            return exactOptional(this);
+        },
+        nullable() {
+            return nullable(this);
+        },
+        nullish() {
+            return optional(nullable(this));
+        },
+        nonoptional(params) {
+            return nonoptional(this, params);
+        },
+        array() {
+            return array(this);
+        },
+        or(arg) {
+            return union([this, arg]);
+        },
+        and(arg) {
+            return intersection(this, arg);
+        },
+        transform(tx) {
+            return pipe(this, transform(tx));
+        },
+        default(d) {
+            return _default(this, d);
+        },
+        prefault(d) {
+            return prefault(this, d);
+        },
+        catch(params) {
+            return _catch(this, params);
+        },
+        pipe(target) {
+            return pipe(this, target);
+        },
+        readonly() {
+            return readonly(this);
+        },
+        describe(description) {
+            const cl = this.clone();
+            core.globalRegistry.add(cl, { description });
+            return cl;
+        },
+        meta(...args) {
+            // overloaded: meta() returns the registered metadata, meta(data)
+            // returns a clone with `data` registered. The mapped type picks
+            // up the second overload, so we accept variadic any-args and
+            // return `any` to satisfy both at runtime.
+            if (args.length === 0)
+                return core.globalRegistry.get(this);
+            const cl = this.clone();
+            core.globalRegistry.add(cl, args[0]);
+            return cl;
+        },
+        isOptional() {
+            return this.safeParse(undefined).success;
+        },
+        isNullable() {
+            return this.safeParse(null).success;
+        },
+        apply(fn) {
+            return fn(this);
+        },
+    });
     Object.defineProperty(inst, "description", {
         get() {
             return core.globalRegistry.get(inst)?.description;
         },
         configurable: true,
     });
-    inst.meta = (...args) => {
-        if (args.length === 0) {
-            return core.globalRegistry.get(inst);
-        }
-        const cl = inst.clone();
-        core.globalRegistry.add(cl, args[0]);
-        return cl;
-    };
-    // helpers
-    inst.isOptional = () => inst.safeParse(undefined).success;
-    inst.isNullable = () => inst.safeParse(null).success;
-    inst.apply = (fn) => fn(inst);
     return inst;
 });
 /** @internal */
@@ -40783,23 +40900,53 @@ exports._ZodString = core.$constructor("_ZodString", (inst, def) => {
     inst.format = bag.format ?? null;
     inst.minLength = bag.minimum ?? null;
     inst.maxLength = bag.maximum ?? null;
-    // validations
-    inst.regex = (...args) => inst.check(checks.regex(...args));
-    inst.includes = (...args) => inst.check(checks.includes(...args));
-    inst.startsWith = (...args) => inst.check(checks.startsWith(...args));
-    inst.endsWith = (...args) => inst.check(checks.endsWith(...args));
-    inst.min = (...args) => inst.check(checks.minLength(...args));
-    inst.max = (...args) => inst.check(checks.maxLength(...args));
-    inst.length = (...args) => inst.check(checks.length(...args));
-    inst.nonempty = (...args) => inst.check(checks.minLength(1, ...args));
-    inst.lowercase = (params) => inst.check(checks.lowercase(params));
-    inst.uppercase = (params) => inst.check(checks.uppercase(params));
-    // transforms
-    inst.trim = () => inst.check(checks.trim());
-    inst.normalize = (...args) => inst.check(checks.normalize(...args));
-    inst.toLowerCase = () => inst.check(checks.toLowerCase());
-    inst.toUpperCase = () => inst.check(checks.toUpperCase());
-    inst.slugify = () => inst.check(checks.slugify());
+    _installLazyMethods(inst, "_ZodString", {
+        regex(...args) {
+            return this.check(checks.regex(...args));
+        },
+        includes(...args) {
+            return this.check(checks.includes(...args));
+        },
+        startsWith(...args) {
+            return this.check(checks.startsWith(...args));
+        },
+        endsWith(...args) {
+            return this.check(checks.endsWith(...args));
+        },
+        min(...args) {
+            return this.check(checks.minLength(...args));
+        },
+        max(...args) {
+            return this.check(checks.maxLength(...args));
+        },
+        length(...args) {
+            return this.check(checks.length(...args));
+        },
+        nonempty(...args) {
+            return this.check(checks.minLength(1, ...args));
+        },
+        lowercase(params) {
+            return this.check(checks.lowercase(params));
+        },
+        uppercase(params) {
+            return this.check(checks.uppercase(params));
+        },
+        trim() {
+            return this.check(checks.trim());
+        },
+        normalize(...args) {
+            return this.check(checks.normalize(...args));
+        },
+        toLowerCase() {
+            return this.check(checks.toLowerCase());
+        },
+        toUpperCase() {
+            return this.check(checks.toUpperCase());
+        },
+        slugify() {
+            return this.check(checks.slugify());
+        },
+    });
 });
 exports.ZodString = core.$constructor("ZodString", (inst, def) => {
     core.$ZodString.init(inst, def);
@@ -40885,7 +41032,7 @@ function url(params) {
 }
 function httpUrl(params) {
     return core._url(exports.ZodURL, {
-        protocol: /^https?$/,
+        protocol: core.regexes.httpProtocol,
         hostname: core.regexes.domain,
         ...index_js_1.util.normalizeParams(params),
     });
@@ -40906,11 +41053,23 @@ exports.ZodNanoID = core.$constructor("ZodNanoID", (inst, def) => {
 function nanoid(params) {
     return core._nanoid(exports.ZodNanoID, params);
 }
+/**
+ * @deprecated CUID v1 is deprecated by its authors due to information leakage
+ * (timestamps embedded in the id). Use {@link ZodCUID2} instead.
+ * See https://github.com/paralleldrive/cuid.
+ */
 exports.ZodCUID = core.$constructor("ZodCUID", (inst, def) => {
     // ZodStringFormat.init(inst, def);
     core.$ZodCUID.init(inst, def);
     exports.ZodStringFormat.init(inst, def);
 });
+/**
+ * Validates a CUID v1 string.
+ *
+ * @deprecated CUID v1 is deprecated by its authors due to information leakage
+ * (timestamps embedded in the id). Use {@link cuid2 | `z.cuid2()`} instead.
+ * See https://github.com/paralleldrive/cuid.
+ */
 function cuid(params) {
     return core._cuid(exports.ZodCUID, params);
 }
@@ -41042,22 +41201,53 @@ exports.ZodNumber = core.$constructor("ZodNumber", (inst, def) => {
     core.$ZodNumber.init(inst, def);
     exports.ZodType.init(inst, def);
     inst._zod.processJSONSchema = (ctx, json, params) => processors.numberProcessor(inst, ctx, json, params);
-    inst.gt = (value, params) => inst.check(checks.gt(value, params));
-    inst.gte = (value, params) => inst.check(checks.gte(value, params));
-    inst.min = (value, params) => inst.check(checks.gte(value, params));
-    inst.lt = (value, params) => inst.check(checks.lt(value, params));
-    inst.lte = (value, params) => inst.check(checks.lte(value, params));
-    inst.max = (value, params) => inst.check(checks.lte(value, params));
-    inst.int = (params) => inst.check(int(params));
-    inst.safe = (params) => inst.check(int(params));
-    inst.positive = (params) => inst.check(checks.gt(0, params));
-    inst.nonnegative = (params) => inst.check(checks.gte(0, params));
-    inst.negative = (params) => inst.check(checks.lt(0, params));
-    inst.nonpositive = (params) => inst.check(checks.lte(0, params));
-    inst.multipleOf = (value, params) => inst.check(checks.multipleOf(value, params));
-    inst.step = (value, params) => inst.check(checks.multipleOf(value, params));
-    // inst.finite = (params) => inst.check(core.finite(params));
-    inst.finite = () => inst;
+    _installLazyMethods(inst, "ZodNumber", {
+        gt(value, params) {
+            return this.check(checks.gt(value, params));
+        },
+        gte(value, params) {
+            return this.check(checks.gte(value, params));
+        },
+        min(value, params) {
+            return this.check(checks.gte(value, params));
+        },
+        lt(value, params) {
+            return this.check(checks.lt(value, params));
+        },
+        lte(value, params) {
+            return this.check(checks.lte(value, params));
+        },
+        max(value, params) {
+            return this.check(checks.lte(value, params));
+        },
+        int(params) {
+            return this.check(int(params));
+        },
+        safe(params) {
+            return this.check(int(params));
+        },
+        positive(params) {
+            return this.check(checks.gt(0, params));
+        },
+        nonnegative(params) {
+            return this.check(checks.gte(0, params));
+        },
+        negative(params) {
+            return this.check(checks.lt(0, params));
+        },
+        nonpositive(params) {
+            return this.check(checks.lte(0, params));
+        },
+        multipleOf(value, params) {
+            return this.check(checks.multipleOf(value, params));
+        },
+        step(value, params) {
+            return this.check(checks.multipleOf(value, params));
+        },
+        finite() {
+            return this;
+        },
+    });
     const bag = inst._zod.bag;
     inst.minValue =
         Math.max(bag.minimum ?? Number.NEGATIVE_INFINITY, bag.exclusiveMinimum ?? Number.NEGATIVE_INFINITY) ?? null;
@@ -41208,11 +41398,23 @@ exports.ZodArray = core.$constructor("ZodArray", (inst, def) => {
     exports.ZodType.init(inst, def);
     inst._zod.processJSONSchema = (ctx, json, params) => processors.arrayProcessor(inst, ctx, json, params);
     inst.element = def.element;
-    inst.min = (minLength, params) => inst.check(checks.minLength(minLength, params));
-    inst.nonempty = (params) => inst.check(checks.minLength(1, params));
-    inst.max = (maxLength, params) => inst.check(checks.maxLength(maxLength, params));
-    inst.length = (len, params) => inst.check(checks.length(len, params));
-    inst.unwrap = () => inst.element;
+    _installLazyMethods(inst, "ZodArray", {
+        min(n, params) {
+            return this.check(checks.minLength(n, params));
+        },
+        nonempty(params) {
+            return this.check(checks.minLength(1, params));
+        },
+        max(n, params) {
+            return this.check(checks.maxLength(n, params));
+        },
+        length(n, params) {
+            return this.check(checks.length(n, params));
+        },
+        unwrap() {
+            return this.element;
+        },
+    });
 });
 function array(element, params) {
     return core._array(exports.ZodArray, element, params);
@@ -41229,23 +41431,47 @@ exports.ZodObject = core.$constructor("ZodObject", (inst, def) => {
     index_js_1.util.defineLazy(inst, "shape", () => {
         return def.shape;
     });
-    inst.keyof = () => _enum(Object.keys(inst._zod.def.shape));
-    inst.catchall = (catchall) => inst.clone({ ...inst._zod.def, catchall: catchall });
-    inst.passthrough = () => inst.clone({ ...inst._zod.def, catchall: unknown() });
-    inst.loose = () => inst.clone({ ...inst._zod.def, catchall: unknown() });
-    inst.strict = () => inst.clone({ ...inst._zod.def, catchall: never() });
-    inst.strip = () => inst.clone({ ...inst._zod.def, catchall: undefined });
-    inst.extend = (incoming) => {
-        return index_js_1.util.extend(inst, incoming);
-    };
-    inst.safeExtend = (incoming) => {
-        return index_js_1.util.safeExtend(inst, incoming);
-    };
-    inst.merge = (other) => index_js_1.util.merge(inst, other);
-    inst.pick = (mask) => index_js_1.util.pick(inst, mask);
-    inst.omit = (mask) => index_js_1.util.omit(inst, mask);
-    inst.partial = (...args) => index_js_1.util.partial(exports.ZodOptional, inst, args[0]);
-    inst.required = (...args) => index_js_1.util.required(exports.ZodNonOptional, inst, args[0]);
+    _installLazyMethods(inst, "ZodObject", {
+        keyof() {
+            return _enum(Object.keys(this._zod.def.shape));
+        },
+        catchall(catchall) {
+            return this.clone({ ...this._zod.def, catchall: catchall });
+        },
+        passthrough() {
+            return this.clone({ ...this._zod.def, catchall: unknown() });
+        },
+        loose() {
+            return this.clone({ ...this._zod.def, catchall: unknown() });
+        },
+        strict() {
+            return this.clone({ ...this._zod.def, catchall: never() });
+        },
+        strip() {
+            return this.clone({ ...this._zod.def, catchall: undefined });
+        },
+        extend(incoming) {
+            return index_js_1.util.extend(this, incoming);
+        },
+        safeExtend(incoming) {
+            return index_js_1.util.safeExtend(this, incoming);
+        },
+        merge(other) {
+            return index_js_1.util.merge(this, other);
+        },
+        pick(mask) {
+            return index_js_1.util.pick(this, mask);
+        },
+        omit(mask) {
+            return index_js_1.util.omit(this, mask);
+        },
+        partial(...args) {
+            return index_js_1.util.partial(exports.ZodOptional, this, args[0]);
+        },
+        required(...args) {
+            return index_js_1.util.required(exports.ZodNonOptional, this, args[0]);
+        },
+    });
 });
 function object(shape, params) {
     const def = {
@@ -41356,6 +41582,15 @@ exports.ZodRecord = core.$constructor("ZodRecord", (inst, def) => {
     inst.valueType = def.valueType;
 });
 function record(keyType, valueType, params) {
+    // v3-compat: z.record(valueType, params?) — defaults keyType to z.string()
+    if (!valueType || !valueType._zod) {
+        return new exports.ZodRecord({
+            type: "record",
+            keyType: string(),
+            valueType: keyType,
+            ...index_js_1.util.normalizeParams(valueType),
+        });
+    }
     return new exports.ZodRecord({
         type: "record",
         keyType,
@@ -41540,10 +41775,12 @@ exports.ZodTransform = core.$constructor("ZodTransform", (inst, def) => {
         if (output instanceof Promise) {
             return output.then((output) => {
                 payload.value = output;
+                payload.fallback = true;
                 return payload;
             });
         }
         payload.value = output;
+        payload.fallback = true;
         return payload;
     };
 });
@@ -41699,6 +41936,20 @@ function codec(in_, out, params) {
         reverseTransform: params.encode,
     });
 }
+function invertCodec(codec) {
+    const def = codec._zod.def;
+    return new exports.ZodCodec({
+        type: "pipe",
+        in: def.out,
+        out: def.in,
+        transform: def.reverseTransform,
+        reverseTransform: def.transform,
+    });
+}
+exports.ZodPreprocess = core.$constructor("ZodPreprocess", (inst, def) => {
+    exports.ZodPipe.init(inst, def);
+    core.$ZodPreprocess.init(inst, def);
+});
 exports.ZodReadonly = core.$constructor("ZodReadonly", (inst, def) => {
     core.$ZodReadonly.init(inst, def);
     exports.ZodType.init(inst, def);
@@ -41780,8 +42031,8 @@ function refine(fn, _params = {}) {
     return core._refine(exports.ZodCustom, fn, _params);
 }
 // superRefine
-function superRefine(fn) {
-    return core._superRefine(fn);
+function superRefine(fn, params) {
+    return core._superRefine(fn, params);
 }
 // Re-export describe and meta from core
 exports.describe = core.describe;
@@ -41823,9 +42074,12 @@ function json(params) {
     return jsonSchema;
 }
 // preprocess
-// /** @deprecated Use `z.pipe()` and `z.transform()` instead. */
 function preprocess(fn, schema) {
-    return pipe(transform(fn), schema);
+    return new exports.ZodPreprocess({
+        type: "pipe",
+        in: transform(fn),
+        out: schema,
+    });
 }
 
 
@@ -42093,6 +42347,11 @@ function _nanoid(Class, params) {
         ...util.normalizeParams(params),
     });
 }
+/**
+ * @deprecated CUID v1 is deprecated by its authors due to information leakage
+ * (timestamps embedded in the id). Use {@link _cuid2} instead.
+ * See https://github.com/paralleldrive/cuid.
+ */
 // @__NO_SIDE_EFFECTS__
 function _cuid(Class, params) {
     return new Class({
@@ -42931,7 +43190,7 @@ function _refine(Class, fn, _params) {
     return schema;
 }
 // @__NO_SIDE_EFFECTS__
-function _superRefine(fn) {
+function _superRefine(fn, params) {
     const ch = _check((payload) => {
         payload.addIssue = (issue) => {
             if (typeof issue === "string") {
@@ -42950,7 +43209,7 @@ function _superRefine(fn) {
             }
         };
         return fn(payload.value, payload);
-    });
+    }, params);
     return ch;
 }
 // @__NO_SIDE_EFFECTS__
@@ -43675,6 +43934,7 @@ exports.$ZodCheckOverwrite = core.$constructor("$ZodCheckOverwrite", (inst, def)
 
 "use strict";
 
+var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.globalConfig = exports.$ZodEncodeError = exports.$ZodAsyncError = exports.$brand = exports.NEVER = void 0;
 exports.$constructor = $constructor;
@@ -43751,7 +44011,8 @@ class $ZodEncodeError extends Error {
     }
 }
 exports.$ZodEncodeError = $ZodEncodeError;
-exports.globalConfig = {};
+(_a = globalThis).__zod_globalConfig ?? (_a.__zod_globalConfig = {});
+exports.globalConfig = globalThis.__zod_globalConfig;
 function config(newConfig) {
     if (newConfig)
         Object.assign(exports.globalConfig, newConfig);
@@ -43879,35 +44140,38 @@ function flattenError(error, mapper = (issue) => issue.message) {
 }
 function formatError(error, mapper = (issue) => issue.message) {
     const fieldErrors = { _errors: [] };
-    const processError = (error) => {
+    const processError = (error, path = []) => {
         for (const issue of error.issues) {
             if (issue.code === "invalid_union" && issue.errors.length) {
-                issue.errors.map((issues) => processError({ issues }));
+                issue.errors.map((issues) => processError({ issues }, [...path, ...issue.path]));
             }
             else if (issue.code === "invalid_key") {
-                processError({ issues: issue.issues });
+                processError({ issues: issue.issues }, [...path, ...issue.path]);
             }
             else if (issue.code === "invalid_element") {
-                processError({ issues: issue.issues });
-            }
-            else if (issue.path.length === 0) {
-                fieldErrors._errors.push(mapper(issue));
+                processError({ issues: issue.issues }, [...path, ...issue.path]);
             }
             else {
-                let curr = fieldErrors;
-                let i = 0;
-                while (i < issue.path.length) {
-                    const el = issue.path[i];
-                    const terminal = i === issue.path.length - 1;
-                    if (!terminal) {
-                        curr[el] = curr[el] || { _errors: [] };
+                const fullpath = [...path, ...issue.path];
+                if (fullpath.length === 0) {
+                    fieldErrors._errors.push(mapper(issue));
+                }
+                else {
+                    let curr = fieldErrors;
+                    let i = 0;
+                    while (i < fullpath.length) {
+                        const el = fullpath[i];
+                        const terminal = i === fullpath.length - 1;
+                        if (!terminal) {
+                            curr[el] = curr[el] || { _errors: [] };
+                        }
+                        else {
+                            curr[el] = curr[el] || { _errors: [] };
+                            curr[el]._errors.push(mapper(issue));
+                        }
+                        curr = curr[el];
+                        i++;
                     }
-                    else {
-                        curr[el] = curr[el] || { _errors: [] };
-                        curr[el]._errors.push(mapper(issue));
-                    }
-                    curr = curr[el];
-                    i++;
                 }
             }
         }
@@ -43922,13 +44186,13 @@ function treeifyError(error, mapper = (issue) => issue.message) {
         for (const issue of error.issues) {
             if (issue.code === "invalid_union" && issue.errors.length) {
                 // regular union error
-                issue.errors.map((issues) => processError({ issues }, issue.path));
+                issue.errors.map((issues) => processError({ issues }, [...path, ...issue.path]));
             }
             else if (issue.code === "invalid_key") {
-                processError({ issues: issue.issues }, issue.path);
+                processError({ issues: issue.issues }, [...path, ...issue.path]);
             }
             else if (issue.code === "invalid_element") {
-                processError({ issues: issue.issues }, issue.path);
+                processError({ issues: issue.issues }, [...path, ...issue.path]);
             }
             else {
                 const fullpath = [...path, ...issue.path];
@@ -44255,8 +44519,12 @@ const numberProcessor = (schema, ctx, _json, _params) => {
         json.type = "integer";
     else
         json.type = "number";
-    if (typeof exclusiveMinimum === "number") {
-        if (ctx.target === "draft-04" || ctx.target === "openapi-3.0") {
+    // when both minimum and exclusiveMinimum exist, pick the more restrictive one
+    const exMin = typeof exclusiveMinimum === "number" && exclusiveMinimum >= (minimum ?? Number.NEGATIVE_INFINITY);
+    const exMax = typeof exclusiveMaximum === "number" && exclusiveMaximum <= (maximum ?? Number.POSITIVE_INFINITY);
+    const legacy = ctx.target === "draft-04" || ctx.target === "openapi-3.0";
+    if (exMin) {
+        if (legacy) {
             json.minimum = exclusiveMinimum;
             json.exclusiveMinimum = true;
         }
@@ -44264,17 +44532,11 @@ const numberProcessor = (schema, ctx, _json, _params) => {
             json.exclusiveMinimum = exclusiveMinimum;
         }
     }
-    if (typeof minimum === "number") {
+    else if (typeof minimum === "number") {
         json.minimum = minimum;
-        if (typeof exclusiveMinimum === "number" && ctx.target !== "draft-04") {
-            if (exclusiveMinimum >= minimum)
-                delete json.minimum;
-            else
-                delete json.exclusiveMinimum;
-        }
     }
-    if (typeof exclusiveMaximum === "number") {
-        if (ctx.target === "draft-04" || ctx.target === "openapi-3.0") {
+    if (exMax) {
+        if (legacy) {
             json.maximum = exclusiveMaximum;
             json.exclusiveMaximum = true;
         }
@@ -44282,14 +44544,8 @@ const numberProcessor = (schema, ctx, _json, _params) => {
             json.exclusiveMaximum = exclusiveMaximum;
         }
     }
-    if (typeof maximum === "number") {
+    else if (typeof maximum === "number") {
         json.maximum = maximum;
-        if (typeof exclusiveMaximum === "number" && ctx.target !== "draft-04") {
-            if (exclusiveMaximum <= maximum)
-                delete json.maximum;
-            else
-                delete json.exclusiveMaximum;
-        }
     }
     if (typeof multipleOf === "number")
         json.multipleOf = multipleOf;
@@ -44499,7 +44755,10 @@ const arrayProcessor = (schema, ctx, _json, params) => {
     if (typeof maximum === "number")
         json.maxItems = maximum;
     json.type = "array";
-    json.items = (0, to_json_schema_js_1.process)(def.element, ctx, { ...params, path: [...params.path, "items"] });
+    json.items = (0, to_json_schema_js_1.process)(def.element, ctx, {
+        ...params,
+        path: [...params.path, "items"],
+    });
 };
 exports.arrayProcessor = arrayProcessor;
 const objectProcessor = (schema, ctx, _json, params) => {
@@ -44727,7 +44986,8 @@ const catchProcessor = (schema, ctx, json, params) => {
 exports.catchProcessor = catchProcessor;
 const pipeProcessor = (schema, ctx, _json, params) => {
     const def = schema._zod.def;
-    const innerType = ctx.io === "input" ? (def.in._zod.def.type === "transform" ? def.out : def.in) : def.out;
+    const inIsTransform = def.in._zod.traits.has("$ZodTransform");
+    const innerType = ctx.io === "input" ? (inIsTransform ? def.out : def.in) : def.out;
     (0, to_json_schema_js_1.process)(innerType, ctx, params);
     const seen = ctx.seen.get(schema);
     seen.ref = innerType;
@@ -44891,7 +45151,7 @@ const core = __importStar(__nccwpck_require__(2990));
 const errors = __importStar(__nccwpck_require__(9686));
 const util = __importStar(__nccwpck_require__(1327));
 const _parse = (_Err) => (schema, value, _ctx, _params) => {
-    const ctx = _ctx ? Object.assign(_ctx, { async: false }) : { async: false };
+    const ctx = _ctx ? { ..._ctx, async: false } : { async: false };
     const result = schema._zod.run({ value, issues: [] }, ctx);
     if (result instanceof Promise) {
         throw new core.$ZodAsyncError();
@@ -44906,7 +45166,7 @@ const _parse = (_Err) => (schema, value, _ctx, _params) => {
 exports._parse = _parse;
 exports.parse = (0, exports._parse)(errors.$ZodRealError);
 const _parseAsync = (_Err) => async (schema, value, _ctx, params) => {
-    const ctx = _ctx ? Object.assign(_ctx, { async: true }) : { async: true };
+    const ctx = _ctx ? { ..._ctx, async: true } : { async: true };
     let result = schema._zod.run({ value, issues: [] }, ctx);
     if (result instanceof Promise)
         result = await result;
@@ -44935,7 +45195,7 @@ const _safeParse = (_Err) => (schema, value, _ctx) => {
 exports._safeParse = _safeParse;
 exports.safeParse = (0, exports._safeParse)(errors.$ZodRealError);
 const _safeParseAsync = (_Err) => async (schema, value, _ctx) => {
-    const ctx = _ctx ? Object.assign(_ctx, { async: true }) : { async: true };
+    const ctx = _ctx ? { ..._ctx, async: true } : { async: true };
     let result = schema._zod.run({ value, issues: [] }, ctx);
     if (result instanceof Promise)
         result = await result;
@@ -44949,7 +45209,7 @@ const _safeParseAsync = (_Err) => async (schema, value, _ctx) => {
 exports._safeParseAsync = _safeParseAsync;
 exports.safeParseAsync = (0, exports._safeParseAsync)(errors.$ZodRealError);
 const _encode = (_Err) => (schema, value, _ctx) => {
-    const ctx = _ctx ? Object.assign(_ctx, { direction: "backward" }) : { direction: "backward" };
+    const ctx = _ctx ? { ..._ctx, direction: "backward" } : { direction: "backward" };
     return (0, exports._parse)(_Err)(schema, value, ctx);
 };
 exports._encode = _encode;
@@ -44960,7 +45220,7 @@ const _decode = (_Err) => (schema, value, _ctx) => {
 exports._decode = _decode;
 exports.decode = (0, exports._decode)(errors.$ZodRealError);
 const _encodeAsync = (_Err) => async (schema, value, _ctx) => {
-    const ctx = _ctx ? Object.assign(_ctx, { direction: "backward" }) : { direction: "backward" };
+    const ctx = _ctx ? { ..._ctx, direction: "backward" } : { direction: "backward" };
     return (0, exports._parseAsync)(_Err)(schema, value, ctx);
 };
 exports._encodeAsync = _encodeAsync;
@@ -44971,7 +45231,7 @@ const _decodeAsync = (_Err) => async (schema, value, _ctx) => {
 exports._decodeAsync = _decodeAsync;
 exports.decodeAsync = (0, exports._decodeAsync)(errors.$ZodRealError);
 const _safeEncode = (_Err) => (schema, value, _ctx) => {
-    const ctx = _ctx ? Object.assign(_ctx, { direction: "backward" }) : { direction: "backward" };
+    const ctx = _ctx ? { ..._ctx, direction: "backward" } : { direction: "backward" };
     return (0, exports._safeParse)(_Err)(schema, value, ctx);
 };
 exports._safeEncode = _safeEncode;
@@ -44982,7 +45242,7 @@ const _safeDecode = (_Err) => (schema, value, _ctx) => {
 exports._safeDecode = _safeDecode;
 exports.safeDecode = (0, exports._safeDecode)(errors.$ZodRealError);
 const _safeEncodeAsync = (_Err) => async (schema, value, _ctx) => {
-    const ctx = _ctx ? Object.assign(_ctx, { direction: "backward" }) : { direction: "backward" };
+    const ctx = _ctx ? { ..._ctx, direction: "backward" } : { direction: "backward" };
     return (0, exports._safeParseAsync)(_Err)(schema, value, ctx);
 };
 exports._safeEncodeAsync = _safeEncodeAsync;
@@ -45025,13 +45285,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.sha384_hex = exports.sha256_base64url = exports.sha256_base64 = exports.sha256_hex = exports.sha1_base64url = exports.sha1_base64 = exports.sha1_hex = exports.md5_base64url = exports.md5_base64 = exports.md5_hex = exports.hex = exports.uppercase = exports.lowercase = exports.undefined = exports["null"] = exports.boolean = exports.number = exports.integer = exports.bigint = exports.string = exports.date = exports.e164 = exports.domain = exports.hostname = exports.base64url = exports.base64 = exports.cidrv6 = exports.cidrv4 = exports.mac = exports.ipv6 = exports.ipv4 = exports.browserEmail = exports.idnEmail = exports.unicodeEmail = exports.rfc5322Email = exports.html5Email = exports.email = exports.uuid7 = exports.uuid6 = exports.uuid4 = exports.uuid = exports.guid = exports.extendedDuration = exports.duration = exports.nanoid = exports.ksuid = exports.xid = exports.ulid = exports.cuid2 = exports.cuid = void 0;
-exports.sha512_base64url = exports.sha512_base64 = exports.sha512_hex = exports.sha384_base64url = exports.sha384_base64 = void 0;
+exports.sha256_base64url = exports.sha256_base64 = exports.sha256_hex = exports.sha1_base64url = exports.sha1_base64 = exports.sha1_hex = exports.md5_base64url = exports.md5_base64 = exports.md5_hex = exports.hex = exports.uppercase = exports.lowercase = exports.undefined = exports["null"] = exports.boolean = exports.number = exports.integer = exports.bigint = exports.string = exports.date = exports.e164 = exports.httpProtocol = exports.domain = exports.hostname = exports.base64url = exports.base64 = exports.cidrv6 = exports.cidrv4 = exports.mac = exports.ipv6 = exports.ipv4 = exports.browserEmail = exports.idnEmail = exports.unicodeEmail = exports.rfc5322Email = exports.html5Email = exports.email = exports.uuid7 = exports.uuid6 = exports.uuid4 = exports.uuid = exports.guid = exports.extendedDuration = exports.duration = exports.nanoid = exports.ksuid = exports.xid = exports.ulid = exports.cuid2 = exports.cuid = void 0;
+exports.sha512_base64url = exports.sha512_base64 = exports.sha512_hex = exports.sha384_base64url = exports.sha384_base64 = exports.sha384_hex = void 0;
 exports.emoji = emoji;
 exports.time = time;
 exports.datetime = datetime;
 const util = __importStar(__nccwpck_require__(1327));
-exports.cuid = /^[cC][^\s-]{8,}$/;
+/**
+ * @deprecated CUID v1 is deprecated by its authors due to information leakage
+ * (timestamps embedded in the id). Use {@link cuid2} instead.
+ * See https://github.com/paralleldrive/cuid.
+ */
+exports.cuid = /^[cC][0-9a-z]{6,}$/;
 exports.cuid2 = /^[0-9a-z]+$/;
 exports.ulid = /^[0-9A-HJKMNP-TV-Za-hjkmnp-tv-z]{26}$/;
 exports.xid = /^[0-9a-vA-V]{20}$/;
@@ -45086,6 +45351,7 @@ exports.base64url = /^[A-Za-z0-9_-]*$/;
 // export const hostname: RegExp = /^([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+$/;
 exports.hostname = /^(?=.{1,253}\.?$)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[-0-9a-zA-Z]{0,61}[0-9a-zA-Z])?)*\.?$/;
 exports.domain = /^([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/;
+exports.httpProtocol = /^https?$/;
 // https://blog.stevenlevithan.com/archives/validate-phone-number#r4-3 (regex sans spaces)
 // E.164: leading digit must be 1-9; total digits (excluding '+') between 7-15
 exports.e164 = /^\+[1-9]\d{6,14}$/;
@@ -45264,7 +45530,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.$ZodTuple = exports.$ZodIntersection = exports.$ZodDiscriminatedUnion = exports.$ZodXor = exports.$ZodUnion = exports.$ZodObjectJIT = exports.$ZodObject = exports.$ZodArray = exports.$ZodDate = exports.$ZodVoid = exports.$ZodNever = exports.$ZodUnknown = exports.$ZodAny = exports.$ZodNull = exports.$ZodUndefined = exports.$ZodSymbol = exports.$ZodBigIntFormat = exports.$ZodBigInt = exports.$ZodBoolean = exports.$ZodNumberFormat = exports.$ZodNumber = exports.$ZodCustomStringFormat = exports.$ZodJWT = exports.$ZodE164 = exports.$ZodBase64URL = exports.$ZodBase64 = exports.$ZodCIDRv6 = exports.$ZodCIDRv4 = exports.$ZodMAC = exports.$ZodIPv6 = exports.$ZodIPv4 = exports.$ZodISODuration = exports.$ZodISOTime = exports.$ZodISODate = exports.$ZodISODateTime = exports.$ZodKSUID = exports.$ZodXID = exports.$ZodULID = exports.$ZodCUID2 = exports.$ZodCUID = exports.$ZodNanoID = exports.$ZodEmoji = exports.$ZodURL = exports.$ZodEmail = exports.$ZodUUID = exports.$ZodGUID = exports.$ZodStringFormat = exports.$ZodString = exports.clone = exports.$ZodType = void 0;
-exports.$ZodCustom = exports.$ZodLazy = exports.$ZodPromise = exports.$ZodFunction = exports.$ZodTemplateLiteral = exports.$ZodReadonly = exports.$ZodCodec = exports.$ZodPipe = exports.$ZodNaN = exports.$ZodCatch = exports.$ZodSuccess = exports.$ZodNonOptional = exports.$ZodPrefault = exports.$ZodDefault = exports.$ZodNullable = exports.$ZodExactOptional = exports.$ZodOptional = exports.$ZodTransform = exports.$ZodFile = exports.$ZodLiteral = exports.$ZodEnum = exports.$ZodSet = exports.$ZodMap = exports.$ZodRecord = void 0;
+exports.$ZodCustom = exports.$ZodLazy = exports.$ZodPromise = exports.$ZodFunction = exports.$ZodTemplateLiteral = exports.$ZodReadonly = exports.$ZodPreprocess = exports.$ZodCodec = exports.$ZodPipe = exports.$ZodNaN = exports.$ZodCatch = exports.$ZodSuccess = exports.$ZodNonOptional = exports.$ZodPrefault = exports.$ZodDefault = exports.$ZodNullable = exports.$ZodExactOptional = exports.$ZodOptional = exports.$ZodTransform = exports.$ZodFile = exports.$ZodLiteral = exports.$ZodEnum = exports.$ZodSet = exports.$ZodMap = exports.$ZodRecord = void 0;
 exports.isValidBase64 = isValidBase64;
 exports.isValidBase64URL = isValidBase64URL;
 exports.isValidJWT = isValidJWT;
@@ -45305,6 +45571,8 @@ exports.$ZodType = core.$constructor("$ZodType", (inst, def) => {
             let asyncResult;
             for (const ch of checks) {
                 if (ch._zod.def.when) {
+                    if (util.explicitlyAborted(payload))
+                        continue;
                     const shouldRun = ch._zod.def.when(payload);
                     if (!shouldRun)
                         continue;
@@ -45459,6 +45727,21 @@ exports.$ZodURL = core.$constructor("$ZodURL", (inst, def) => {
         try {
             // Trim whitespace from input
             const trimmed = payload.value.trim();
+            // When normalize is off, require :// for http/https URLs
+            // This prevents strings like "http:example.com" or "https:/path" from being silently accepted
+            if (!def.normalize && def.protocol?.source === regexes.httpProtocol.source) {
+                if (!/^https?:\/\//i.test(trimmed)) {
+                    payload.issues.push({
+                        code: "invalid_format",
+                        format: "url",
+                        note: "Invalid URL format",
+                        input: payload.value,
+                        inst,
+                        continue: !def.abort,
+                    });
+                    return;
+                }
+            }
             // @ts-ignore
             const url = new URL(trimmed);
             if (def.hostname) {
@@ -45519,6 +45802,11 @@ exports.$ZodNanoID = core.$constructor("$ZodNanoID", (inst, def) => {
     def.pattern ?? (def.pattern = regexes.nanoid);
     exports.$ZodStringFormat.init(inst, def);
 });
+/**
+ * @deprecated CUID v1 is deprecated by its authors due to information leakage
+ * (timestamps embedded in the id). Use {@link $ZodCUID2} instead.
+ * See https://github.com/paralleldrive/cuid.
+ */
 exports.$ZodCUID = core.$constructor("$ZodCUID", (inst, def) => {
     def.pattern ?? (def.pattern = regexes.cuid);
     exports.$ZodStringFormat.init(inst, def);
@@ -45624,6 +45912,9 @@ exports.$ZodCIDRv6 = core.$constructor("$ZodCIDRv6", (inst, def) => {
 function isValidBase64(data) {
     if (data === "")
         return true;
+    // atob ignores whitespace, so reject it up front.
+    if (/\s/.test(data))
+        return false;
     if (data.length % 4 !== 0)
         return false;
     try {
@@ -45828,8 +46119,6 @@ exports.$ZodUndefined = core.$constructor("$ZodUndefined", (inst, def) => {
     exports.$ZodType.init(inst, def);
     inst._zod.pattern = regexes.undefined;
     inst._zod.values = new Set([undefined]);
-    inst._zod.optin = "optional";
-    inst._zod.optout = "optional";
     inst._zod.parse = (payload, _ctx) => {
         const input = payload.value;
         if (typeof input === "undefined")
@@ -45959,16 +46248,28 @@ exports.$ZodArray = core.$constructor("$ZodArray", (inst, def) => {
         return payload; //handleArrayResultsAsync(parseResults, final);
     };
 });
-function handlePropertyResult(result, final, key, input, isOptionalOut) {
+function handlePropertyResult(result, final, key, input, isOptionalIn, isOptionalOut) {
+    const isPresent = key in input;
     if (result.issues.length) {
-        // For optional-out schemas, ignore errors on absent keys
-        if (isOptionalOut && !(key in input)) {
+        // For optional-in/out schemas, ignore errors on absent keys.
+        if (isOptionalIn && isOptionalOut && !isPresent) {
             return;
         }
         final.issues.push(...util.prefixIssues(key, result.issues));
     }
+    if (!isPresent && !isOptionalIn) {
+        if (!result.issues.length) {
+            final.issues.push({
+                code: "invalid_type",
+                expected: "nonoptional",
+                input: undefined,
+                path: [key],
+            });
+        }
+        return;
+    }
     if (result.value === undefined) {
-        if (key in input) {
+        if (isPresent) {
             final.value[key] = undefined;
         }
     }
@@ -45994,12 +46295,16 @@ function normalizeDef(def) {
 }
 function handleCatchall(proms, input, payload, ctx, def, inst) {
     const unrecognized = [];
-    // iterate over input keys
     const keySet = def.keySet;
     const _catchall = def.catchall._zod;
     const t = _catchall.def.type;
+    const isOptionalIn = _catchall.optin === "optional";
     const isOptionalOut = _catchall.optout === "optional";
     for (const key in input) {
+        // skip __proto__ so it can't replace the result prototype via the
+        // assignment setter on the plain {} we build into
+        if (key === "__proto__")
+            continue;
         if (keySet.has(key))
             continue;
         if (t === "never") {
@@ -46008,10 +46313,10 @@ function handleCatchall(proms, input, payload, ctx, def, inst) {
         }
         const r = _catchall.run({ value: input[key], issues: [] }, ctx);
         if (r instanceof Promise) {
-            proms.push(r.then((r) => handlePropertyResult(r, payload, key, input, isOptionalOut)));
+            proms.push(r.then((r) => handlePropertyResult(r, payload, key, input, isOptionalIn, isOptionalOut)));
         }
         else {
-            handlePropertyResult(r, payload, key, input, isOptionalOut);
+            handlePropertyResult(r, payload, key, input, isOptionalIn, isOptionalOut);
         }
     }
     if (unrecognized.length) {
@@ -46079,13 +46384,14 @@ exports.$ZodObject = core.$constructor("$ZodObject", (inst, def) => {
         const shape = value.shape;
         for (const key of value.keys) {
             const el = shape[key];
+            const isOptionalIn = el._zod.optin === "optional";
             const isOptionalOut = el._zod.optout === "optional";
             const r = el._zod.run({ value: input[key], issues: [] }, ctx);
             if (r instanceof Promise) {
-                proms.push(r.then((r) => handlePropertyResult(r, payload, key, input, isOptionalOut)));
+                proms.push(r.then((r) => handlePropertyResult(r, payload, key, input, isOptionalIn, isOptionalOut)));
             }
             else {
-                handlePropertyResult(r, payload, key, input, isOptionalOut);
+                handlePropertyResult(r, payload, key, input, isOptionalIn, isOptionalOut);
             }
         }
         if (!catchall) {
@@ -46118,10 +46424,11 @@ exports.$ZodObjectJIT = core.$constructor("$ZodObjectJIT", (inst, def) => {
             const id = ids[key];
             const k = util.esc(key);
             const schema = shape[key];
+            const isOptionalIn = schema?._zod?.optin === "optional";
             const isOptionalOut = schema?._zod?.optout === "optional";
             doc.write(`const ${id} = ${parseStr(key)};`);
-            if (isOptionalOut) {
-                // For optional-out schemas, ignore errors on absent keys
+            if (isOptionalIn && isOptionalOut) {
+                // For optional-in/out schemas, ignore errors on absent keys
                 doc.write(`
         if (${id}.issues.length) {
           if (${k} in input) {
@@ -46140,6 +46447,34 @@ exports.$ZodObjectJIT = core.$constructor("$ZodObjectJIT", (inst, def) => {
           newResult[${k}] = ${id}.value;
         }
         
+      `);
+            }
+            else if (!isOptionalIn) {
+                doc.write(`
+        const ${id}_present = ${k} in input;
+        if (${id}.issues.length) {
+          payload.issues = payload.issues.concat(${id}.issues.map(iss => ({
+            ...iss,
+            path: iss.path ? [${k}, ...iss.path] : [${k}]
+          })));
+        }
+        if (!${id}_present && !${id}.issues.length) {
+          payload.issues.push({
+            code: "invalid_type",
+            expected: "nonoptional",
+            input: undefined,
+            path: [${k}]
+          });
+        }
+
+        if (${id}_present) {
+          if (${id}.value === undefined) {
+            newResult[${k}] = undefined;
+          } else {
+            newResult[${k}] = ${id}.value;
+          }
+        }
+
       `);
             }
             else {
@@ -46235,10 +46570,9 @@ exports.$ZodUnion = core.$constructor("$ZodUnion", (inst, def) => {
         }
         return undefined;
     });
-    const single = def.options.length === 1;
-    const first = def.options[0]._zod.run;
+    const first = def.options.length === 1 ? def.options[0]._zod.run : null;
     inst._zod.parse = (payload, ctx) => {
-        if (single) {
+        if (first) {
             return first(payload, ctx);
         }
         let async = false;
@@ -46295,10 +46629,9 @@ function handleExclusiveUnionResults(results, final, inst, ctx) {
 exports.$ZodXor = core.$constructor("$ZodXor", (inst, def) => {
     exports.$ZodUnion.init(inst, def);
     def.inclusive = false;
-    const single = def.options.length === 1;
-    const first = def.options[0]._zod.run;
+    const first = def.options.length === 1 ? def.options[0]._zod.run : null;
     inst._zod.parse = (payload, ctx) => {
-        if (single) {
+        if (first) {
             return first(payload, ctx);
         }
         let async = false;
@@ -46376,7 +46709,11 @@ core.$constructor("$ZodDiscriminatedUnion", (inst, def) => {
         if (opt) {
             return opt._zod.run(payload, ctx);
         }
-        if (def.unionFallback) {
+        // Fall back to union matching when the fast discriminator path fails:
+        // - explicitly enabled via unionFallback, or
+        // - during backward direction (encode), since codec-based discriminators
+        //   have different values in forward vs backward directions
+        if (def.unionFallback || ctx.direction === "backward") {
             return _super(payload, ctx);
         }
         // no matching discriminator
@@ -46385,6 +46722,7 @@ core.$constructor("$ZodDiscriminatedUnion", (inst, def) => {
             errors: [],
             note: "No matching discriminator",
             discriminator: def.discriminator,
+            options: Array.from(disc.value.keys()),
             input,
             path: [def.discriminator],
             inst,
@@ -46512,66 +46850,111 @@ exports.$ZodTuple = core.$constructor("$ZodTuple", (inst, def) => {
         }
         payload.value = [];
         const proms = [];
-        const reversedIndex = [...items].reverse().findIndex((item) => item._zod.optin !== "optional");
-        const optStart = reversedIndex === -1 ? 0 : items.length - reversedIndex;
+        const optinStart = getTupleOptStart(items, "optin");
+        const optoutStart = getTupleOptStart(items, "optout");
         if (!def.rest) {
-            const tooBig = input.length > items.length;
-            const tooSmall = input.length < optStart - 1;
-            if (tooBig || tooSmall) {
+            if (input.length < optinStart) {
                 payload.issues.push({
-                    ...(tooBig
-                        ? { code: "too_big", maximum: items.length, inclusive: true }
-                        : { code: "too_small", minimum: items.length }),
+                    code: "too_small",
+                    minimum: optinStart,
+                    inclusive: true,
                     input,
                     inst,
                     origin: "array",
                 });
                 return payload;
             }
+            if (input.length > items.length) {
+                payload.issues.push({
+                    code: "too_big",
+                    maximum: items.length,
+                    inclusive: true,
+                    input,
+                    inst,
+                    origin: "array",
+                });
+            }
         }
-        let i = -1;
-        for (const item of items) {
-            i++;
-            if (i >= input.length)
-                if (i >= optStart)
-                    continue;
-            const result = item._zod.run({
-                value: input[i],
-                issues: [],
-            }, ctx);
-            if (result instanceof Promise) {
-                proms.push(result.then((result) => handleTupleResult(result, payload, i)));
+        // Run every item in parallel, collecting results into an indexed
+        // array. The post-processing in `handleTupleResults` walks them in
+        // order so it can decide whether an absent optional-output error can
+        // truncate the tail or must be reported to preserve required output.
+        const itemResults = new Array(items.length);
+        for (let i = 0; i < items.length; i++) {
+            const r = items[i]._zod.run({ value: input[i], issues: [] }, ctx);
+            if (r instanceof Promise) {
+                proms.push(r.then((rr) => {
+                    itemResults[i] = rr;
+                }));
             }
             else {
-                handleTupleResult(result, payload, i);
+                itemResults[i] = r;
             }
         }
         if (def.rest) {
+            let i = items.length - 1;
             const rest = input.slice(items.length);
             for (const el of rest) {
                 i++;
-                const result = def.rest._zod.run({
-                    value: el,
-                    issues: [],
-                }, ctx);
+                const result = def.rest._zod.run({ value: el, issues: [] }, ctx);
                 if (result instanceof Promise) {
-                    proms.push(result.then((result) => handleTupleResult(result, payload, i)));
+                    proms.push(result.then((r) => handleTupleResult(r, payload, i)));
                 }
                 else {
                     handleTupleResult(result, payload, i);
                 }
             }
         }
-        if (proms.length)
-            return Promise.all(proms).then(() => payload);
-        return payload;
+        if (proms.length) {
+            return Promise.all(proms).then(() => handleTupleResults(itemResults, payload, items, input, optoutStart));
+        }
+        return handleTupleResults(itemResults, payload, items, input, optoutStart);
     };
 });
+function getTupleOptStart(items, key) {
+    for (let i = items.length - 1; i >= 0; i--) {
+        if (items[i]._zod[key] !== "optional")
+            return i + 1;
+    }
+    return 0;
+}
 function handleTupleResult(result, final, index) {
     if (result.issues.length) {
         final.issues.push(...util.prefixIssues(index, result.issues));
     }
     final.value[index] = result.value;
+}
+function handleTupleResults(itemResults, final, items, input, optoutStart) {
+    // Walk results in order. Mirror $ZodObject's swallow-on-absent-optional
+    // rule, but only after `optoutStart`: the first index where the output
+    // tuple tail can be absent.
+    for (let i = 0; i < items.length; i++) {
+        const r = itemResults[i];
+        const isPresent = i < input.length;
+        if (r.issues.length) {
+            if (!isPresent && i >= optoutStart) {
+                final.value.length = i;
+                break;
+            }
+            final.issues.push(...util.prefixIssues(i, r.issues));
+        }
+        final.value[i] = r.value;
+    }
+    // Drop trailing slots that produced `undefined` for absent input
+    // (the array analog of an absent optional key on an object). The
+    // `i >= input.length` floor is critical: an explicit `undefined`
+    // *inside* the input must be preserved even when the schema is
+    // optional-out (e.g. `z.string().or(z.undefined())` accepting an
+    // explicit undefined value).
+    for (let i = final.value.length - 1; i >= input.length; i--) {
+        if (items[i]._zod.optout === "optional" && final.value[i] === undefined) {
+            final.value.length = i;
+        }
+        else {
+            break;
+        }
+    }
+    return final;
 }
 exports.$ZodRecord = core.$constructor("$ZodRecord", (inst, def) => {
     exports.$ZodType.init(inst, def);
@@ -46594,20 +46977,36 @@ exports.$ZodRecord = core.$constructor("$ZodRecord", (inst, def) => {
             for (const key of values) {
                 if (typeof key === "string" || typeof key === "number" || typeof key === "symbol") {
                     recordKeys.add(typeof key === "number" ? key.toString() : key);
+                    const keyResult = def.keyType._zod.run({ value: key, issues: [] }, ctx);
+                    if (keyResult instanceof Promise) {
+                        throw new Error("Async schemas not supported in object keys currently");
+                    }
+                    if (keyResult.issues.length) {
+                        payload.issues.push({
+                            code: "invalid_key",
+                            origin: "record",
+                            issues: keyResult.issues.map((iss) => util.finalizeIssue(iss, ctx, core.config())),
+                            input: key,
+                            path: [key],
+                            inst,
+                        });
+                        continue;
+                    }
+                    const outKey = keyResult.value;
                     const result = def.valueType._zod.run({ value: input[key], issues: [] }, ctx);
                     if (result instanceof Promise) {
                         proms.push(result.then((result) => {
                             if (result.issues.length) {
                                 payload.issues.push(...util.prefixIssues(key, result.issues));
                             }
-                            payload.value[key] = result.value;
+                            payload.value[outKey] = result.value;
                         }));
                     }
                     else {
                         if (result.issues.length) {
                             payload.issues.push(...util.prefixIssues(key, result.issues));
                         }
-                        payload.value[key] = result.value;
+                        payload.value[outKey] = result.value;
                     }
                 }
             }
@@ -46629,8 +47028,11 @@ exports.$ZodRecord = core.$constructor("$ZodRecord", (inst, def) => {
         }
         else {
             payload.value = {};
+            // Reflect.ownKeys for Symbol-key support; filter non-enumerable to match z.object()
             for (const key of Reflect.ownKeys(input)) {
                 if (key === "__proto__")
+                    continue;
+                if (!Object.prototype.propertyIsEnumerable.call(input, key))
                     continue;
                 let keyResult = def.keyType._zod.run({ value: key, issues: [] }, ctx);
                 if (keyResult instanceof Promise) {
@@ -46852,6 +47254,7 @@ exports.$ZodFile = core.$constructor("$ZodFile", (inst, def) => {
 });
 exports.$ZodTransform = core.$constructor("$ZodTransform", (inst, def) => {
     exports.$ZodType.init(inst, def);
+    inst._zod.optin = "optional";
     inst._zod.parse = (payload, ctx) => {
         if (ctx.direction === "backward") {
             throw new core.$ZodEncodeError(inst.constructor.name);
@@ -46861,6 +47264,7 @@ exports.$ZodTransform = core.$constructor("$ZodTransform", (inst, def) => {
             const output = _out instanceof Promise ? _out : Promise.resolve(_out);
             return output.then((output) => {
                 payload.value = output;
+                payload.fallback = true;
                 return payload;
             });
         }
@@ -46868,11 +47272,12 @@ exports.$ZodTransform = core.$constructor("$ZodTransform", (inst, def) => {
             throw new core.$ZodAsyncError();
         }
         payload.value = _out;
+        payload.fallback = true;
         return payload;
     };
 });
 function handleOptionalResult(result, input) {
-    if (result.issues.length && input === undefined) {
+    if (input === undefined && (result.issues.length || result.fallback)) {
         return { issues: [], value: undefined };
     }
     return result;
@@ -46890,10 +47295,11 @@ exports.$ZodOptional = core.$constructor("$ZodOptional", (inst, def) => {
     });
     inst._zod.parse = (payload, ctx) => {
         if (def.innerType._zod.optin === "optional") {
+            const input = payload.value;
             const result = def.innerType._zod.run(payload, ctx);
             if (result instanceof Promise)
-                return result.then((r) => handleOptionalResult(r, payload.value));
-            return handleOptionalResult(result, payload.value);
+                return result.then((r) => handleOptionalResult(r, input));
+            return handleOptionalResult(result, input);
         }
         if (payload.value === undefined) {
             return payload;
@@ -47020,7 +47426,7 @@ exports.$ZodSuccess = core.$constructor("$ZodSuccess", (inst, def) => {
 });
 exports.$ZodCatch = core.$constructor("$ZodCatch", (inst, def) => {
     exports.$ZodType.init(inst, def);
-    util.defineLazy(inst._zod, "optin", () => def.innerType._zod.optin);
+    inst._zod.optin = "optional";
     util.defineLazy(inst._zod, "optout", () => def.innerType._zod.optout);
     util.defineLazy(inst._zod, "values", () => def.innerType._zod.values);
     inst._zod.parse = (payload, ctx) => {
@@ -47041,6 +47447,7 @@ exports.$ZodCatch = core.$constructor("$ZodCatch", (inst, def) => {
                         input: payload.value,
                     });
                     payload.issues = [];
+                    payload.fallback = true;
                 }
                 return payload;
             });
@@ -47055,6 +47462,7 @@ exports.$ZodCatch = core.$constructor("$ZodCatch", (inst, def) => {
                 input: payload.value,
             });
             payload.issues = [];
+            payload.fallback = true;
         }
         return payload;
     };
@@ -47101,7 +47509,7 @@ function handlePipeResult(left, next, ctx) {
         left.aborted = true;
         return left;
     }
-    return next._zod.run({ value: left.value, issues: left.issues }, ctx);
+    return next._zod.run({ value: left.value, issues: left.issues, fallback: left.fallback }, ctx);
 }
 exports.$ZodCodec = core.$constructor("$ZodCodec", (inst, def) => {
     exports.$ZodType.init(inst, def);
@@ -47157,6 +47565,9 @@ function handleCodecTxResult(left, value, nextSchema, ctx) {
     }
     return nextSchema._zod.run({ value, issues: left.issues }, ctx);
 }
+exports.$ZodPreprocess = core.$constructor("$ZodPreprocess", (inst, def) => {
+    exports.$ZodPipe.init(inst, def);
+});
 exports.$ZodReadonly = core.$constructor("$ZodReadonly", (inst, def) => {
     exports.$ZodType.init(inst, def);
     util.defineLazy(inst._zod, "propValues", () => def.innerType._zod.propValues);
@@ -47314,14 +47725,15 @@ exports.$ZodPromise = core.$constructor("$ZodPromise", (inst, def) => {
 });
 exports.$ZodLazy = core.$constructor("$ZodLazy", (inst, def) => {
     exports.$ZodType.init(inst, def);
-    // let _innerType!: any;
-    // util.defineLazy(def, "getter", () => {
-    //   if (!_innerType) {
-    //     _innerType = def.getter();
-    //   }
-    //   return () => _innerType;
-    // });
-    util.defineLazy(inst._zod, "innerType", () => def.getter());
+    // Cache the resolved inner type on the shared `def` so all clones of this
+    // lazy (e.g. via `.describe()`/`.meta()`) share the same inner instance,
+    // preserving identity for cycle detection on recursive schemas.
+    util.defineLazy(inst._zod, "innerType", () => {
+        const d = def;
+        if (!d._cachedInner)
+            d._cachedInner = def.getter();
+        return d._cachedInner;
+    });
     util.defineLazy(inst._zod, "pattern", () => inst._zod.innerType?._zod?.pattern);
     util.defineLazy(inst._zod, "propValues", () => inst._zod.innerType?._zod?.propValues);
     util.defineLazy(inst._zod, "optin", () => inst._zod.innerType?._zod?.optin ?? undefined);
@@ -47465,7 +47877,7 @@ function process(schema, ctx, _params = { path: [], schemaPath: [] }) {
         delete result.schema.default;
     }
     // set prefault as default
-    if (ctx.io === "input" && result.schema._prefault)
+    if (ctx.io === "input" && "_prefault" in result.schema)
         (_a = result.schema).default ?? (_a.default = result.schema._prefault);
     delete result.schema._prefault;
     // pulling fresh from ctx.seen in case it was overwritten
@@ -47697,11 +48109,20 @@ function finalize(ctx, schema) {
         result.$id = ctx.external.uri(id);
     }
     Object.assign(result, root.def ?? root.schema);
+    // The `id` in `.meta()` is a Zod-specific registration tag used to extract
+    // schemas into $defs — it is not user-facing JSON Schema metadata. Strip it
+    // from the output body where it would otherwise leak. The id is preserved
+    // implicitly via the $defs key (and via $ref paths).
+    const rootMetaId = ctx.metadataRegistry.get(schema)?.id;
+    if (rootMetaId !== undefined && result.id === rootMetaId)
+        delete result.id;
     // build defs object
     const defs = ctx.external?.defs ?? {};
     for (const entry of ctx.seen.entries()) {
         const seen = entry[1];
         if (seen.def && seen.defId) {
+            if (seen.def.id === seen.defId)
+                delete seen.def.id;
             defs[seen.defId] = seen.def;
         }
     }
@@ -47770,6 +48191,8 @@ function isTransforming(_schema, _ctx) {
         return isTransforming(def.keyType, ctx) || isTransforming(def.valueType, ctx);
     }
     if (def.type === "pipe") {
+        if (_schema._zod.traits.has("$ZodCodec"))
+            return true;
         return isTransforming(def.in, ctx) || isTransforming(def.out, ctx);
     }
     if (def.type === "object") {
@@ -47821,7 +48244,7 @@ exports.createStandardJSONSchemaMethod = createStandardJSONSchemaMethod;
 /***/ }),
 
 /***/ 1327:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
@@ -47867,6 +48290,7 @@ exports.merge = merge;
 exports.partial = partial;
 exports.required = required;
 exports.aborted = aborted;
+exports.explicitlyAborted = explicitlyAborted;
 exports.prefixIssues = prefixIssues;
 exports.unwrapMessage = unwrapMessage;
 exports.finalizeIssue = finalizeIssue;
@@ -47881,6 +48305,7 @@ exports.base64urlToUint8Array = base64urlToUint8Array;
 exports.uint8ArrayToBase64url = uint8ArrayToBase64url;
 exports.hexToUint8Array = hexToUint8Array;
 exports.uint8ArrayToHex = uint8ArrayToHex;
+const core_js_1 = __nccwpck_require__(2990);
 // functions
 function assertEqual(val) {
     return val;
@@ -47930,21 +48355,15 @@ function cleanRegex(source) {
     return source.slice(start, end);
 }
 function floatSafeRemainder(val, step) {
-    const valDecCount = (val.toString().split(".")[1] || "").length;
-    const stepString = step.toString();
-    let stepDecCount = (stepString.split(".")[1] || "").length;
-    if (stepDecCount === 0 && /\d?e-\d?/.test(stepString)) {
-        const match = stepString.match(/\d?e-(\d?)/);
-        if (match?.[1]) {
-            stepDecCount = Number.parseInt(match[1]);
-        }
-    }
-    const decCount = valDecCount > stepDecCount ? valDecCount : stepDecCount;
-    const valInt = Number.parseInt(val.toFixed(decCount).replace(".", ""));
-    const stepInt = Number.parseInt(step.toFixed(decCount).replace(".", ""));
-    return (valInt % stepInt) / 10 ** decCount;
+    const ratio = val / step;
+    const roundedRatio = Math.round(ratio);
+    // Use a relative epsilon scaled to the magnitude of the result
+    const tolerance = Number.EPSILON * Math.max(Math.abs(ratio), 1);
+    if (Math.abs(ratio - roundedRatio) < tolerance)
+        return 0;
+    return ratio - roundedRatio;
 }
-const EVALUATING = Symbol("evaluating");
+const EVALUATING = /* @__PURE__*/ Symbol("evaluating");
 function defineLazy(object, key, getter) {
     let value = undefined;
     Object.defineProperty(object, key, {
@@ -48031,6 +48450,11 @@ function isObject(data) {
     return typeof data === "object" && data !== null && !Array.isArray(data);
 }
 exports.allowsEval = cached(() => {
+    // Skip the probe under `jitless`: strict CSPs report the caught `new Function`
+    // as a `securitypolicyviolation` even though the throw is swallowed.
+    if (core_js_1.globalConfig.jitless) {
+        return false;
+    }
     // @ts-ignore
     if (typeof navigator !== "undefined" && navigator?.userAgent?.includes("Cloudflare")) {
         return false;
@@ -48068,6 +48492,10 @@ function shallowClone(o) {
         return { ...o };
     if (Array.isArray(o))
         return [...o];
+    if (o instanceof Map)
+        return new Map(o);
+    if (o instanceof Set)
+        return new Set(o);
     return o;
 }
 function numKeys(data) {
@@ -48126,7 +48554,14 @@ const getParsedType = (data) => {
 };
 exports.getParsedType = getParsedType;
 exports.propertyKeyTypes = new Set(["string", "number", "symbol"]);
-exports.primitiveTypes = new Set(["string", "number", "bigint", "boolean", "symbol", "undefined"]);
+exports.primitiveTypes = new Set([
+    "string",
+    "number",
+    "bigint",
+    "boolean",
+    "symbol",
+    "undefined",
+]);
 function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -48298,6 +48733,9 @@ function safeExtend(schema, shape) {
     return clone(schema, def);
 }
 function merge(a, b) {
+    if (a._zod.def.checks?.length) {
+        throw new Error(".merge() cannot be used on object schemas containing refinements. Use .safeExtend() instead.");
+    }
     const def = mergeDefs(a._zod.def, {
         get shape() {
             const _shape = { ...a._zod.def.shape, ...b._zod.def.shape };
@@ -48307,7 +48745,7 @@ function merge(a, b) {
         get catchall() {
             return b._zod.def.catchall;
         },
-        checks: [], // delete existing checks
+        checks: b._zod.def.checks ?? [],
     });
     return clone(a, def);
 }
@@ -48401,6 +48839,18 @@ function aborted(x, startIndex = 0) {
     }
     return false;
 }
+// Checks for explicit abort (continue === false), as opposed to implicit abort (continue === undefined).
+// Used to respect `abort: true` in .refine() even for checks that have a `when` function.
+function explicitlyAborted(x, startIndex = 0) {
+    if (x.aborted === true)
+        return true;
+    for (let i = startIndex; i < x.issues.length; i++) {
+        if (x.issues[i]?.continue === false) {
+            return true;
+        }
+    }
+    return false;
+}
 function prefixIssues(path, issues) {
     return issues.map((iss) => {
         var _a;
@@ -48413,23 +48863,20 @@ function unwrapMessage(message) {
     return typeof message === "string" ? message : message?.message;
 }
 function finalizeIssue(iss, ctx, config) {
-    const full = { ...iss, path: iss.path ?? [] };
-    // for backwards compatibility
-    if (!iss.message) {
-        const message = unwrapMessage(iss.inst?._zod.def?.error?.(iss)) ??
+    const message = iss.message
+        ? iss.message
+        : (unwrapMessage(iss.inst?._zod.def?.error?.(iss)) ??
             unwrapMessage(ctx?.error?.(iss)) ??
             unwrapMessage(config.customError?.(iss)) ??
             unwrapMessage(config.localeError?.(iss)) ??
-            "Invalid input";
-        full.message = message;
+            "Invalid input");
+    const { inst: _inst, continue: _continue, input: _input, ...rest } = iss;
+    rest.path ?? (rest.path = []);
+    rest.message = message;
+    if (ctx?.reportInput) {
+        rest.input = _input;
     }
-    // delete (full as any).def;
-    delete full.inst;
-    delete full.continue;
-    if (!ctx?.reportInput) {
-        delete full.input;
-    }
-    return full;
+    return rest;
 }
 function getSizableOrigin(input) {
     if (input instanceof Set)
@@ -48547,8 +48994,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.version = void 0;
 exports.version = {
     major: 4,
-    minor: 3,
-    patch: 6,
+    minor: 4,
+    patch: 3,
 };
 
 
@@ -49762,6 +50209,150 @@ module.exports = exports.default;
 
 /***/ }),
 
+/***/ 2182:
+/***/ (function(module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = default_1;
+const util = __importStar(__nccwpck_require__(1327));
+const error = () => {
+    const Sizable = {
+        string: { unit: "χαρακτήρες", verb: "να έχει" },
+        file: { unit: "bytes", verb: "να έχει" },
+        array: { unit: "στοιχεία", verb: "να έχει" },
+        set: { unit: "στοιχεία", verb: "να έχει" },
+        map: { unit: "καταχωρήσεις", verb: "να έχει" },
+    };
+    function getSizing(origin) {
+        return Sizable[origin] ?? null;
+    }
+    const FormatDictionary = {
+        regex: "είσοδος",
+        email: "διεύθυνση email",
+        url: "URL",
+        emoji: "emoji",
+        uuid: "UUID",
+        uuidv4: "UUIDv4",
+        uuidv6: "UUIDv6",
+        nanoid: "nanoid",
+        guid: "GUID",
+        cuid: "cuid",
+        cuid2: "cuid2",
+        ulid: "ULID",
+        xid: "XID",
+        ksuid: "KSUID",
+        datetime: "ISO ημερομηνία και ώρα",
+        date: "ISO ημερομηνία",
+        time: "ISO ώρα",
+        duration: "ISO διάρκεια",
+        ipv4: "διεύθυνση IPv4",
+        ipv6: "διεύθυνση IPv6",
+        mac: "διεύθυνση MAC",
+        cidrv4: "εύρος IPv4",
+        cidrv6: "εύρος IPv6",
+        base64: "συμβολοσειρά κωδικοποιημένη σε base64",
+        base64url: "συμβολοσειρά κωδικοποιημένη σε base64url",
+        json_string: "συμβολοσειρά JSON",
+        e164: "αριθμός E.164",
+        jwt: "JWT",
+        template_literal: "είσοδος",
+    };
+    const TypeDictionary = {
+        nan: "NaN",
+    };
+    return (issue) => {
+        switch (issue.code) {
+            case "invalid_type": {
+                const expected = TypeDictionary[issue.expected] ?? issue.expected;
+                const receivedType = util.parsedType(issue.input);
+                const received = TypeDictionary[receivedType] ?? receivedType;
+                if (typeof issue.expected === "string" && /^[A-Z]/.test(issue.expected)) {
+                    return `Μη έγκυρη είσοδος: αναμενόταν instanceof ${issue.expected}, λήφθηκε ${received}`;
+                }
+                return `Μη έγκυρη είσοδος: αναμενόταν ${expected}, λήφθηκε ${received}`;
+            }
+            case "invalid_value":
+                if (issue.values.length === 1)
+                    return `Μη έγκυρη είσοδος: αναμενόταν ${util.stringifyPrimitive(issue.values[0])}`;
+                return `Μη έγκυρη επιλογή: αναμενόταν ένα από ${util.joinValues(issue.values, "|")}`;
+            case "too_big": {
+                const adj = issue.inclusive ? "<=" : "<";
+                const sizing = getSizing(issue.origin);
+                if (sizing)
+                    return `Πολύ μεγάλο: αναμενόταν ${issue.origin ?? "τιμή"} να έχει ${adj}${issue.maximum.toString()} ${sizing.unit ?? "στοιχεία"}`;
+                return `Πολύ μεγάλο: αναμενόταν ${issue.origin ?? "τιμή"} να είναι ${adj}${issue.maximum.toString()}`;
+            }
+            case "too_small": {
+                const adj = issue.inclusive ? ">=" : ">";
+                const sizing = getSizing(issue.origin);
+                if (sizing) {
+                    return `Πολύ μικρό: αναμενόταν ${issue.origin} να έχει ${adj}${issue.minimum.toString()} ${sizing.unit}`;
+                }
+                return `Πολύ μικρό: αναμενόταν ${issue.origin} να είναι ${adj}${issue.minimum.toString()}`;
+            }
+            case "invalid_format": {
+                const _issue = issue;
+                if (_issue.format === "starts_with") {
+                    return `Μη έγκυρη συμβολοσειρά: πρέπει να ξεκινά με "${_issue.prefix}"`;
+                }
+                if (_issue.format === "ends_with")
+                    return `Μη έγκυρη συμβολοσειρά: πρέπει να τελειώνει με "${_issue.suffix}"`;
+                if (_issue.format === "includes")
+                    return `Μη έγκυρη συμβολοσειρά: πρέπει να περιέχει "${_issue.includes}"`;
+                if (_issue.format === "regex")
+                    return `Μη έγκυρη συμβολοσειρά: πρέπει να ταιριάζει με το μοτίβο ${_issue.pattern}`;
+                return `Μη έγκυρο: ${FormatDictionary[_issue.format] ?? issue.format}`;
+            }
+            case "not_multiple_of":
+                return `Μη έγκυρος αριθμός: πρέπει να είναι πολλαπλάσιο του ${issue.divisor}`;
+            case "unrecognized_keys":
+                return `Άγνωστ${issue.keys.length > 1 ? "α" : "ο"} κλειδ${issue.keys.length > 1 ? "ιά" : "ί"}: ${util.joinValues(issue.keys, ", ")}`;
+            case "invalid_key":
+                return `Μη έγκυρο κλειδί στο ${issue.origin}`;
+            case "invalid_union":
+                return "Μη έγκυρη είσοδος";
+            case "invalid_element":
+                return `Μη έγκυρη τιμή στο ${issue.origin}`;
+            default:
+                return `Μη έγκυρη είσοδος`;
+        }
+    };
+};
+function default_1() {
+    return {
+        localeError: error(),
+    };
+}
+module.exports = exports.default;
+
+
+/***/ }),
+
 /***/ 4948:
 /***/ (function(module, exports, __nccwpck_require__) {
 
@@ -49888,6 +50479,10 @@ const error = () => {
             case "invalid_key":
                 return `Invalid key in ${issue.origin}`;
             case "invalid_union":
+                if (issue.options && Array.isArray(issue.options) && issue.options.length > 0) {
+                    const opts = issue.options.map((o) => `'${o}'`).join(" | ");
+                    return `Invalid discriminator value. Expected ${opts}`;
+                }
                 return "Invalid input";
             case "invalid_element":
                 return `Invalid value in ${issue.origin}`;
@@ -50727,9 +51322,27 @@ const error = () => {
         template_literal: "entrée",
     };
     const TypeDictionary = {
-        nan: "NaN",
+        string: "chaîne",
         number: "nombre",
+        int: "entier",
+        boolean: "booléen",
+        bigint: "grand entier",
+        symbol: "symbole",
+        undefined: "indéfini",
+        null: "null",
+        never: "jamais",
+        void: "vide",
+        date: "date",
         array: "tableau",
+        object: "objet",
+        tuple: "tuple",
+        record: "enregistrement",
+        map: "carte",
+        set: "ensemble",
+        file: "fichier",
+        nonoptional: "non-optionnel",
+        nan: "NaN",
+        function: "fonction",
     };
     return (issue) => {
         switch (issue.code) {
@@ -50750,16 +51363,15 @@ const error = () => {
                 const adj = issue.inclusive ? "<=" : "<";
                 const sizing = getSizing(issue.origin);
                 if (sizing)
-                    return `Trop grand : ${issue.origin ?? "valeur"} doit ${sizing.verb} ${adj}${issue.maximum.toString()} ${sizing.unit ?? "élément(s)"}`;
-                return `Trop grand : ${issue.origin ?? "valeur"} doit être ${adj}${issue.maximum.toString()}`;
+                    return `Trop grand : ${TypeDictionary[issue.origin] ?? "valeur"} doit ${sizing.verb} ${adj}${issue.maximum.toString()} ${sizing.unit ?? "élément(s)"}`;
+                return `Trop grand : ${TypeDictionary[issue.origin] ?? "valeur"} doit être ${adj}${issue.maximum.toString()}`;
             }
             case "too_small": {
                 const adj = issue.inclusive ? ">=" : ">";
                 const sizing = getSizing(issue.origin);
-                if (sizing) {
-                    return `Trop petit : ${issue.origin} doit ${sizing.verb} ${adj}${issue.minimum.toString()} ${sizing.unit}`;
-                }
-                return `Trop petit : ${issue.origin} doit être ${adj}${issue.minimum.toString()}`;
+                if (sizing)
+                    return `Trop petit : ${TypeDictionary[issue.origin] ?? "valeur"} doit ${sizing.verb} ${adj}${issue.minimum.toString()} ${sizing.unit}`;
+                return `Trop petit : ${TypeDictionary[issue.origin] ?? "valeur"} doit être ${adj}${issue.minimum.toString()}`;
             }
             case "invalid_format": {
                 const _issue = issue;
@@ -51034,6 +51646,163 @@ const error = () => {
             }
             default:
                 return `קלט לא תקין`;
+        }
+    };
+};
+function default_1() {
+    return {
+        localeError: error(),
+    };
+}
+module.exports = exports.default;
+
+
+/***/ }),
+
+/***/ 3075:
+/***/ (function(module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = default_1;
+const util = __importStar(__nccwpck_require__(1327));
+const error = () => {
+    const Sizable = {
+        string: { unit: "znakova", verb: "imati" },
+        file: { unit: "bajtova", verb: "imati" },
+        array: { unit: "stavki", verb: "imati" },
+        set: { unit: "stavki", verb: "imati" },
+    };
+    function getSizing(origin) {
+        return Sizable[origin] ?? null;
+    }
+    const FormatDictionary = {
+        regex: "unos",
+        email: "email adresa",
+        url: "URL",
+        emoji: "emoji",
+        uuid: "UUID",
+        uuidv4: "UUIDv4",
+        uuidv6: "UUIDv6",
+        nanoid: "nanoid",
+        guid: "GUID",
+        cuid: "cuid",
+        cuid2: "cuid2",
+        ulid: "ULID",
+        xid: "XID",
+        ksuid: "KSUID",
+        datetime: "ISO datum i vrijeme",
+        date: "ISO datum",
+        time: "ISO vrijeme",
+        duration: "ISO trajanje",
+        ipv4: "IPv4 adresa",
+        ipv6: "IPv6 adresa",
+        cidrv4: "IPv4 raspon",
+        cidrv6: "IPv6 raspon",
+        base64: "base64 kodirani tekst",
+        base64url: "base64url kodirani tekst",
+        json_string: "JSON tekst",
+        e164: "E.164 broj",
+        jwt: "JWT",
+        template_literal: "unos",
+    };
+    const TypeDictionary = {
+        nan: "NaN",
+        string: "tekst",
+        number: "broj",
+        boolean: "boolean",
+        array: "niz",
+        object: "objekt",
+        set: "skup",
+        file: "datoteka",
+        date: "datum",
+        bigint: "bigint",
+        symbol: "simbol",
+        undefined: "undefined",
+        null: "null",
+        function: "funkcija",
+        map: "mapa",
+    };
+    return (issue) => {
+        switch (issue.code) {
+            case "invalid_type": {
+                const expected = TypeDictionary[issue.expected] ?? issue.expected;
+                const receivedType = util.parsedType(issue.input);
+                const received = TypeDictionary[receivedType] ?? receivedType;
+                if (/^[A-Z]/.test(issue.expected)) {
+                    return `Neispravan unos: očekuje se instanceof ${issue.expected}, a primljeno je ${received}`;
+                }
+                return `Neispravan unos: očekuje se ${expected}, a primljeno je ${received}`;
+            }
+            case "invalid_value":
+                if (issue.values.length === 1)
+                    return `Neispravna vrijednost: očekivano ${util.stringifyPrimitive(issue.values[0])}`;
+                return `Neispravna opcija: očekivano jedno od ${util.joinValues(issue.values, "|")}`;
+            case "too_big": {
+                const adj = issue.inclusive ? "<=" : "<";
+                const sizing = getSizing(issue.origin);
+                const origin = TypeDictionary[issue.origin] ?? issue.origin;
+                if (sizing)
+                    return `Preveliko: očekivano da ${origin ?? "vrijednost"} ima ${adj}${issue.maximum.toString()} ${sizing.unit ?? "elemenata"}`;
+                return `Preveliko: očekivano da ${origin ?? "vrijednost"} bude ${adj}${issue.maximum.toString()}`;
+            }
+            case "too_small": {
+                const adj = issue.inclusive ? ">=" : ">";
+                const sizing = getSizing(issue.origin);
+                const origin = TypeDictionary[issue.origin] ?? issue.origin;
+                if (sizing) {
+                    return `Premalo: očekivano da ${origin} ima ${adj}${issue.minimum.toString()} ${sizing.unit}`;
+                }
+                return `Premalo: očekivano da ${origin} bude ${adj}${issue.minimum.toString()}`;
+            }
+            case "invalid_format": {
+                const _issue = issue;
+                if (_issue.format === "starts_with")
+                    return `Neispravan tekst: mora započinjati s "${_issue.prefix}"`;
+                if (_issue.format === "ends_with")
+                    return `Neispravan tekst: mora završavati s "${_issue.suffix}"`;
+                if (_issue.format === "includes")
+                    return `Neispravan tekst: mora sadržavati "${_issue.includes}"`;
+                if (_issue.format === "regex")
+                    return `Neispravan tekst: mora odgovarati uzorku ${_issue.pattern}`;
+                return `Neispravna ${FormatDictionary[_issue.format] ?? issue.format}`;
+            }
+            case "not_multiple_of":
+                return `Neispravan broj: mora biti višekratnik od ${issue.divisor}`;
+            case "unrecognized_keys":
+                return `Neprepoznat${issue.keys.length > 1 ? "i ključevi" : " ključ"}: ${util.joinValues(issue.keys, ", ")}`;
+            case "invalid_key":
+                return `Neispravan ključ u ${TypeDictionary[issue.origin] ?? issue.origin}`;
+            case "invalid_union":
+                return "Neispravan unos";
+            case "invalid_element":
+                return `Neispravna vrijednost u ${TypeDictionary[issue.origin] ?? issue.origin}`;
+            default:
+                return `Neispravan unos`;
         }
     };
 };
@@ -51522,7 +52291,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.yo = exports.zhTW = exports.zhCN = exports.vi = exports.uz = exports.ur = exports.uk = exports.ua = exports.tr = exports.th = exports.ta = exports.sv = exports.sl = exports.ru = exports.pt = exports.pl = exports.ps = exports.ota = exports.no = exports.nl = exports.ms = exports.mk = exports.lt = exports.ko = exports.km = exports.kh = exports.ka = exports.ja = exports.it = exports.is = exports.id = exports.hy = exports.hu = exports.he = exports.frCA = exports.fr = exports.fi = exports.fa = exports.es = exports.eo = exports.en = exports.de = exports.da = exports.cs = exports.ca = exports.bg = exports.be = exports.az = exports.ar = void 0;
+exports.zhCN = exports.vi = exports.uz = exports.ur = exports.uk = exports.ua = exports.tr = exports.th = exports.ta = exports.sv = exports.sl = exports.ru = exports.ro = exports.pt = exports.pl = exports.ps = exports.ota = exports.no = exports.nl = exports.ms = exports.mk = exports.lt = exports.ko = exports.km = exports.kh = exports.ka = exports.ja = exports.it = exports.is = exports.id = exports.hy = exports.hu = exports.hr = exports.he = exports.frCA = exports.fr = exports.fi = exports.fa = exports.es = exports.eo = exports.en = exports.el = exports.de = exports.da = exports.cs = exports.ca = exports.bg = exports.be = exports.az = exports.ar = void 0;
+exports.yo = exports.zhTW = void 0;
 var ar_js_1 = __nccwpck_require__(2284);
 Object.defineProperty(exports, "ar", ({ enumerable: true, get: function () { return __importDefault(ar_js_1).default; } }));
 var az_js_1 = __nccwpck_require__(6964);
@@ -51539,6 +52309,8 @@ var da_js_1 = __nccwpck_require__(812);
 Object.defineProperty(exports, "da", ({ enumerable: true, get: function () { return __importDefault(da_js_1).default; } }));
 var de_js_1 = __nccwpck_require__(6992);
 Object.defineProperty(exports, "de", ({ enumerable: true, get: function () { return __importDefault(de_js_1).default; } }));
+var el_js_1 = __nccwpck_require__(2182);
+Object.defineProperty(exports, "el", ({ enumerable: true, get: function () { return __importDefault(el_js_1).default; } }));
 var en_js_1 = __nccwpck_require__(4948);
 Object.defineProperty(exports, "en", ({ enumerable: true, get: function () { return __importDefault(en_js_1).default; } }));
 var eo_js_1 = __nccwpck_require__(5389);
@@ -51555,6 +52327,8 @@ var fr_CA_js_1 = __nccwpck_require__(9646);
 Object.defineProperty(exports, "frCA", ({ enumerable: true, get: function () { return __importDefault(fr_CA_js_1).default; } }));
 var he_js_1 = __nccwpck_require__(8268);
 Object.defineProperty(exports, "he", ({ enumerable: true, get: function () { return __importDefault(he_js_1).default; } }));
+var hr_js_1 = __nccwpck_require__(3075);
+Object.defineProperty(exports, "hr", ({ enumerable: true, get: function () { return __importDefault(hr_js_1).default; } }));
 var hu_js_1 = __nccwpck_require__(124);
 Object.defineProperty(exports, "hu", ({ enumerable: true, get: function () { return __importDefault(hu_js_1).default; } }));
 var hy_js_1 = __nccwpck_require__(968);
@@ -51593,6 +52367,8 @@ var pl_js_1 = __nccwpck_require__(9205);
 Object.defineProperty(exports, "pl", ({ enumerable: true, get: function () { return __importDefault(pl_js_1).default; } }));
 var pt_js_1 = __nccwpck_require__(8477);
 Object.defineProperty(exports, "pt", ({ enumerable: true, get: function () { return __importDefault(pt_js_1).default; } }));
+var ro_js_1 = __nccwpck_require__(8628);
+Object.defineProperty(exports, "ro", ({ enumerable: true, get: function () { return __importDefault(ro_js_1).default; } }));
 var ru_js_1 = __nccwpck_require__(1470);
 Object.defineProperty(exports, "ru", ({ enumerable: true, get: function () { return __importDefault(ru_js_1).default; } }));
 var sl_js_1 = __nccwpck_require__(7636);
@@ -51885,7 +52661,7 @@ const error = () => {
                     return `Stringa non valida: deve includere "${_issue.includes}"`;
                 if (_issue.format === "regex")
                     return `Stringa non valida: deve corrispondere al pattern ${_issue.pattern}`;
-                return `Invalid ${FormatDictionary[_issue.format] ?? issue.format}`;
+                return `Input non valido: ${FormatDictionary[_issue.format] ?? issue.format}`;
             }
             case "not_multiple_of":
                 return `Numero non valido: deve essere un multiplo di ${issue.divisor}`;
@@ -52118,9 +52894,9 @@ const error = () => {
         ipv6: "IPv6 მისამართი",
         cidrv4: "IPv4 დიაპაზონი",
         cidrv6: "IPv6 დიაპაზონი",
-        base64: "base64-კოდირებული სტრინგი",
-        base64url: "base64url-კოდირებული სტრინგი",
-        json_string: "JSON სტრინგი",
+        base64: "base64-კოდირებული ველი",
+        base64url: "base64url-კოდირებული ველი",
+        json_string: "JSON ველი",
         e164: "E.164 ნომერი",
         jwt: "JWT",
         template_literal: "შეყვანა",
@@ -52128,7 +52904,7 @@ const error = () => {
     const TypeDictionary = {
         nan: "NaN",
         number: "რიცხვი",
-        string: "სტრინგი",
+        string: "ველი",
         boolean: "ბულეანი",
         function: "ფუნქცია",
         array: "მასივი",
@@ -52166,14 +52942,14 @@ const error = () => {
             case "invalid_format": {
                 const _issue = issue;
                 if (_issue.format === "starts_with") {
-                    return `არასწორი სტრინგი: უნდა იწყებოდეს "${_issue.prefix}"-ით`;
+                    return `არასწორი ველი: უნდა იწყებოდეს "${_issue.prefix}"-ით`;
                 }
                 if (_issue.format === "ends_with")
-                    return `არასწორი სტრინგი: უნდა მთავრდებოდეს "${_issue.suffix}"-ით`;
+                    return `არასწორი ველი: უნდა მთავრდებოდეს "${_issue.suffix}"-ით`;
                 if (_issue.format === "includes")
-                    return `არასწორი სტრინგი: უნდა შეიცავდეს "${_issue.includes}"-ს`;
+                    return `არასწორი ველი: უნდა შეიცავდეს "${_issue.includes}"-ს`;
                 if (_issue.format === "regex")
-                    return `არასწორი სტრინგი: უნდა შეესაბამებოდეს შაბლონს ${_issue.pattern}`;
+                    return `არასწორი ველი: უნდა შეესაბამებოდეს შაბლონს ${_issue.pattern}`;
                 return `არასწორი ${FormatDictionary[_issue.format] ?? issue.format}`;
             }
             case "not_multiple_of":
@@ -53904,6 +54680,160 @@ module.exports = exports.default;
 
 /***/ }),
 
+/***/ 8628:
+/***/ (function(module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = default_1;
+const util = __importStar(__nccwpck_require__(1327));
+const error = () => {
+    const Sizable = {
+        string: { unit: "caractere", verb: "să aibă" },
+        file: { unit: "octeți", verb: "să aibă" },
+        array: { unit: "elemente", verb: "să aibă" },
+        set: { unit: "elemente", verb: "să aibă" },
+        map: { unit: "intrări", verb: "să aibă" },
+    };
+    function getSizing(origin) {
+        return Sizable[origin] ?? null;
+    }
+    const FormatDictionary = {
+        regex: "intrare",
+        email: "adresă de email",
+        url: "URL",
+        emoji: "emoji",
+        uuid: "UUID",
+        uuidv4: "UUIDv4",
+        uuidv6: "UUIDv6",
+        nanoid: "nanoid",
+        guid: "GUID",
+        cuid: "cuid",
+        cuid2: "cuid2",
+        ulid: "ULID",
+        xid: "XID",
+        ksuid: "KSUID",
+        datetime: "dată și oră ISO",
+        date: "dată ISO",
+        time: "oră ISO",
+        duration: "durată ISO",
+        ipv4: "adresă IPv4",
+        ipv6: "adresă IPv6",
+        mac: "adresă MAC",
+        cidrv4: "interval IPv4",
+        cidrv6: "interval IPv6",
+        base64: "șir codat base64",
+        base64url: "șir codat base64url",
+        json_string: "șir JSON",
+        e164: "număr E.164",
+        jwt: "JWT",
+        template_literal: "intrare",
+    };
+    const TypeDictionary = {
+        nan: "NaN",
+        string: "șir",
+        number: "număr",
+        boolean: "boolean",
+        function: "funcție",
+        array: "matrice",
+        object: "obiect",
+        undefined: "nedefinit",
+        symbol: "simbol",
+        bigint: "număr mare",
+        void: "void",
+        never: "never",
+        map: "hartă",
+        set: "set",
+    };
+    return (issue) => {
+        switch (issue.code) {
+            case "invalid_type": {
+                const expected = TypeDictionary[issue.expected] ?? issue.expected;
+                const receivedType = util.parsedType(issue.input);
+                const received = TypeDictionary[receivedType] ?? receivedType;
+                return `Intrare invalidă: așteptat ${expected}, primit ${received}`;
+            }
+            case "invalid_value":
+                if (issue.values.length === 1)
+                    return `Intrare invalidă: așteptat ${util.stringifyPrimitive(issue.values[0])}`;
+                return `Opțiune invalidă: așteptat una dintre ${util.joinValues(issue.values, "|")}`;
+            case "too_big": {
+                const adj = issue.inclusive ? "<=" : "<";
+                const sizing = getSizing(issue.origin);
+                if (sizing)
+                    return `Prea mare: așteptat ca ${issue.origin ?? "valoarea"} ${sizing.verb} ${adj}${issue.maximum.toString()} ${sizing.unit ?? "elemente"}`;
+                return `Prea mare: așteptat ca ${issue.origin ?? "valoarea"} să fie ${adj}${issue.maximum.toString()}`;
+            }
+            case "too_small": {
+                const adj = issue.inclusive ? ">=" : ">";
+                const sizing = getSizing(issue.origin);
+                if (sizing) {
+                    return `Prea mic: așteptat ca ${issue.origin} ${sizing.verb} ${adj}${issue.minimum.toString()} ${sizing.unit}`;
+                }
+                return `Prea mic: așteptat ca ${issue.origin} să fie ${adj}${issue.minimum.toString()}`;
+            }
+            case "invalid_format": {
+                const _issue = issue;
+                if (_issue.format === "starts_with") {
+                    return `Șir invalid: trebuie să înceapă cu "${_issue.prefix}"`;
+                }
+                if (_issue.format === "ends_with")
+                    return `Șir invalid: trebuie să se termine cu "${_issue.suffix}"`;
+                if (_issue.format === "includes")
+                    return `Șir invalid: trebuie să includă "${_issue.includes}"`;
+                if (_issue.format === "regex")
+                    return `Șir invalid: trebuie să se potrivească cu modelul ${_issue.pattern}`;
+                return `Format invalid: ${FormatDictionary[_issue.format] ?? issue.format}`;
+            }
+            case "not_multiple_of":
+                return `Număr invalid: trebuie să fie multiplu de ${issue.divisor}`;
+            case "unrecognized_keys":
+                return `Chei nerecunoscute: ${util.joinValues(issue.keys, ", ")}`;
+            case "invalid_key":
+                return `Cheie invalidă în ${issue.origin}`;
+            case "invalid_union":
+                return "Intrare invalidă";
+            case "invalid_element":
+                return `Valoare invalidă în ${issue.origin}`;
+            default:
+                return `Intrare invalidă`;
+        }
+    };
+};
+function default_1() {
+    return {
+        localeError: error(),
+    };
+}
+module.exports = exports.default;
+
+
+/***/ }),
+
 /***/ 1470:
 /***/ (function(module, exports, __nccwpck_require__) {
 
@@ -55159,6 +56089,7 @@ const error = () => {
         file: { unit: "bayt", verb: "bo‘lishi kerak" },
         array: { unit: "element", verb: "bo‘lishi kerak" },
         set: { unit: "element", verb: "bo‘lishi kerak" },
+        map: { unit: "yozuv", verb: "bo‘lishi kerak" },
     };
     function getSizing(origin) {
         return Sizable[origin] ?? null;
