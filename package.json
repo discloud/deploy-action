@@ -27,7 +27,7 @@
     "@types/node": "24",
     "@vercel/ncc": "^0.44.0",
     "eslint": "^10.5.0",
-    "globals": "^17.6.0",
+    "globals": "^17.7.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.61.1"
   }
