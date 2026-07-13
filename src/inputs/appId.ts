@@ -1,5 +1,5 @@
 import { getInput, info } from "@actions/core";
-import { getPropertyFromConfigFile } from "../config";
+import { getPropertyFromConfigFile } from "../config.js";
 
 export async function getAppIdInput() {
   let appId = getInput("app_id");

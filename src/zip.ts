@@ -1,7 +1,7 @@
 import { debug, error, notice } from "@actions/core";
 import { getExecOutput } from "@actions/exec";
 import bytes from "bytes";
-import { MAX_ZIP_SIZE } from "./constants";
+import { MAX_ZIP_SIZE } from "./constants.js";
 
 /** @returns Array of chunks */
 export default async function zip(glob: string | string[], filename: string) {

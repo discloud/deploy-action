@@ -1,8 +1,5 @@
 import test, { suite } from "node:test";
-import zipModule from "../out/zip.js";
-
-/** @type {typeof zipModule} */
-const zip = zipModule.default;
+import zip from "../out/zip.js";
 
 suite("ZIP", async () => {
   await test("Testing empty zip", async (t) => {

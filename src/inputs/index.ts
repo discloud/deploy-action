@@ -1,9 +1,9 @@
-import { getAppIdInput } from "./appId";
-import { getEnvInput } from "./env";
-import { getEnvFileInput } from "./envFile";
-import { getGlobInput } from "./glob";
-import { getTeamInput } from "./team";
-import { getTokenInput } from "./token";
+import { getAppIdInput } from "./appId.js";
+import { getEnvInput } from "./env.js";
+import { getEnvFileInput } from "./envFile.js";
+import { getGlobInput } from "./glob.js";
+import { getTeamInput } from "./team.js";
+import { getTokenInput } from "./token.js";
 
 export async function getInputs() {
   return {

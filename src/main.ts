@@ -3,8 +3,8 @@ import { type RESTPutApiAppCommitResult, RouteBases, Routes } from "@discloudapp
 import { writeFile } from "fs/promises";
 import { arch, platform, release, type } from "os";
 import { inspect } from "util";
-import { getInputs } from "./inputs";
-import zip from "./zip";
+import { getInputs } from "./inputs/index.js";
+import zip from "./zip.js";
 
 let _userAgent: any;
 function getUserAgent(): string {
