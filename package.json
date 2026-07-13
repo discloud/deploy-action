@@ -6,10 +6,10 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:test": "tsc --outDir out",
-    "package": "ncc build src/index.ts -s",
+    "package": "ncc build src/index.ts -ms",
     "test": "npm run test:ts && npm run test:lint && npm run build:test && npm run test:node",
     "test:node": "node --test \"**/test/**/*.test.?(c|m)js\"",
-    "test:lint": "eslint .",
+    "test:lint": "eslint src",
     "test:ts": "tsc --noEmit",
     "watch": "tsc -w --noEmit"
   },
@@ -28,7 +28,7 @@
     "@vercel/ncc": "^0.44.1",
     "eslint": "^10.7.0",
     "globals": "^17.7.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.63.0"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.64.0"
   }
 }
