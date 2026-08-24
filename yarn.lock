@@ -153,10 +153,10 @@
   resolved "https://registry.yarnpkg.com/@tokenizer/token/-/token-0.3.0.tgz#fe98a93fe789247e998c75e74e9c7c63217aa276"
   integrity sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==
 
-"@types/bytes@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@types/bytes/-/bytes-3.1.5.tgz#22fb92839f37bd5490e0dcd411999bb1c16ddaa0"
-  integrity sha512-VgZkrJckypj85YxEsEavcMmmSOIzkUHqWmM4CCyia5dc54YwsXzJ5uT4fYxBQNEXx+oF1krlhgCbvfubXqZYsQ==
+"@types/bytes@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/bytes/-/bytes-3.1.6.tgz#31ecc4013092ede3b6c879f48ca088989faa647a"
+  integrity sha512-mZP7MVbCf8q2nBMwll27TyVnObEo9lNuXtQ+XU5EBGiFxtm9qfWm0YL4KTMQBwcVlOZB+th51gFIDYFFBiK7IQ==
 
 "@types/esrecurse@^4.3.1":
   version "4.3.1"
